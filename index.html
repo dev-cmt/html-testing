@@ -1,0 +1,714 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>FOOTSHOP – Men's Clothing</title>
+
+  <!-- Bootstrap 5 -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"/>
+  <!-- Font Awesome 6 – fixed CDN -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.5.2/css/all.min.css"/>
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,600;9..40,700&display=swap" rel="stylesheet"/>
+
+  <style>
+    :root{
+      --black:#0d0d0d; --white:#f5f5f5; --red:#e02020;
+      --gray:#6b6b6b; --light:#ebebeb; --border:#e0e0e0;
+    }
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+    html{scroll-behavior:smooth}
+    body{font-family:'DM Sans',sans-serif;background:var(--white);color:var(--black);font-size:14px}
+
+    /* ── UTILITY BAR ── */
+    #utility-bar{background:var(--black);color:#999;font-size:10.5px;letter-spacing:.06em;text-transform:uppercase;padding:6px 20px;overflow-x:auto;white-space:nowrap}
+    #utility-bar a{color:#999;text-decoration:none;margin-right:18px}
+    #utility-bar a:hover{color:#fff}
+
+    /* ── STICKY NAV ── */
+    #main-nav{background:var(--black);padding:0 20px;border-bottom:1px solid #222;position:sticky;top:0;z-index:999}
+    .brand-logo{font-family:'Bebas Neue',sans-serif;font-size:28px;letter-spacing:.2em;color:#fff;text-decoration:none}
+    .brand-logo .strike{text-decoration:line-through}
+    .gender-tabs a{color:#999;text-decoration:none;font-size:11px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;padding:16px 9px;display:inline-block;transition:color .2s}
+    .gender-tabs a.active{color:#fff;border-bottom:2px solid #fff}
+    .gender-tabs a:hover{color:#fff}
+    #hamburger{display:none;background:none;border:none;color:#fff;font-size:20px;cursor:pointer;padding:4px 6px}
+
+    /* Search */
+    .nav-search-wrap{position:relative}
+    .nav-search{background:#1a1a1a;border:1px solid #333;border-radius:4px;color:#fff;padding:6px 34px 6px 11px;font-size:12px;width:200px;outline:none;transition:width .3s,border-color .3s}
+    .nav-search:focus{width:260px;border-color:#555}
+    .nav-search::placeholder{color:#555}
+    .search-icon{position:absolute;right:9px;top:50%;transform:translateY(-50%);color:#555;font-size:13px;pointer-events:none}
+
+    /* Nav icon buttons */
+    .nav-icon-btn{color:#fff;font-size:18px;background:none;border:none;cursor:pointer;position:relative;padding:4px 6px;transition:color .2s;line-height:1}
+    .nav-icon-btn:hover{color:var(--red)}
+    .badge-count{position:absolute;top:-4px;right:-4px;background:var(--red);color:#fff;font-size:9px;width:15px;height:15px;border-radius:50%;display:grid;place-items:center;font-weight:700}
+
+    /* ── CATEGORY NAV ── */
+    #cat-nav{background:var(--black);padding:0 20px;overflow-x:auto;white-space:nowrap;-webkit-overflow-scrolling:touch}
+    #cat-nav::-webkit-scrollbar{height:3px}
+    #cat-nav::-webkit-scrollbar-thumb{background:#444}
+    .cat-nav-link{color:#bbb;font-size:11px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;padding:13px 12px;text-decoration:none;display:inline-block;white-space:nowrap;transition:color .2s}
+    .cat-nav-link:hover,.cat-nav-link.active{color:#fff}
+    .cat-nav-link.sale{color:var(--red)}
+
+    /* ── MOBILE DRAWER ── */
+    #mobile-drawer{display:none;position:fixed;inset:0;background:rgba(0,0,0,.6);z-index:1100}
+    #mobile-drawer.open{display:block}
+    #drawer-panel{position:absolute;left:0;top:0;bottom:0;width:270px;background:#fff;padding:20px;overflow-y:auto;transform:translateX(-100%);transition:transform .3s ease}
+    #mobile-drawer.open #drawer-panel{transform:translateX(0)}
+    .drawer-close{background:none;border:none;font-size:20px;float:right;cursor:pointer;color:var(--black)}
+    .drawer-logo{font-family:'Bebas Neue',sans-serif;font-size:22px;letter-spacing:.15em;margin:10px 0 18px;display:block}
+    .drawer-link{display:flex;align-items:center;gap:10px;padding:11px 0;border-bottom:1px solid var(--border);font-size:13px;font-weight:600;text-decoration:none;color:var(--black);text-transform:uppercase;letter-spacing:.06em}
+    .drawer-link:hover{color:var(--red)}
+
+    /* ── HERO SLIDER ── */
+    #hero-slider{position:relative;overflow:hidden;height:420px;background:var(--black)}
+    .slide{position:absolute;inset:0;opacity:0;transition:opacity .65s ease;display:flex;align-items:center}
+    .slide.active{opacity:1;z-index:2}
+    .slide-bg{position:absolute;inset:0}
+    .slide-content{position:relative;z-index:3;padding:0 56px;max-width:580px}
+    .slide-tag{font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--red);font-weight:700;margin-bottom:10px;display:flex;align-items:center;gap:6px}
+    .slide-title{font-family:'Bebas Neue',sans-serif;font-size:clamp(36px,5.5vw,70px);line-height:1.0;color:#fff;margin-bottom:14px;letter-spacing:.05em}
+    .slide-sub{font-size:13px;color:#ccc;margin-bottom:26px;line-height:1.65;max-width:380px}
+    .slide-cta{background:var(--red);color:#fff;border:none;padding:12px 30px;font-size:11.5px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;border-radius:3px;cursor:pointer;transition:background .2s;display:inline-flex;align-items:center;gap:8px}
+    .slide-cta:hover{background:#c01010}
+
+    /* Slider deco shapes */
+    .deco{position:absolute;border-radius:50%;pointer-events:none}
+
+    /* Arrows */
+    .slider-arrow{position:absolute;top:50%;transform:translateY(-50%);z-index:10;background:rgba(255,255,255,.12);backdrop-filter:blur(4px);border:1px solid rgba(255,255,255,.2);color:#fff;width:44px;height:44px;border-radius:50%;display:grid;place-items:center;cursor:pointer;font-size:15px;transition:background .2s;line-height:1}
+    .slider-arrow:hover{background:rgba(255,255,255,.28)}
+    #slider-prev{left:16px}
+    #slider-next{right:16px}
+
+    /* Dots */
+    .slider-dots{position:absolute;bottom:18px;left:50%;transform:translateX(-50%);z-index:10;display:flex;gap:8px}
+    .dot{width:8px;height:8px;border-radius:50%;background:rgba(255,255,255,.35);cursor:pointer;transition:background .3s,transform .3s;border:none}
+    .dot.active{background:#fff;transform:scale(1.35)}
+
+    /* ── BREADCRUMB ── */
+    .breadcrumb-area{padding:12px 20px;font-size:12px;color:var(--gray)}
+    .breadcrumb-area a{color:var(--gray);text-decoration:none}
+    .breadcrumb-area a:hover{color:var(--black)}
+    .breadcrumb-area i{font-size:9px;margin:0 6px}
+    .page-title{padding:0 20px 14px;font-family:'Bebas Neue',sans-serif;font-size:clamp(28px,4vw,40px);letter-spacing:.12em}
+
+    /* ── SUBCATEGORY STRIP ── */
+    #subcategory-strip{padding:14px 20px;border-bottom:1px solid var(--border);background:#fff;overflow-x:auto;white-space:nowrap;-webkit-overflow-scrolling:touch}
+    #subcategory-strip::-webkit-scrollbar{height:3px}
+    #subcategory-strip::-webkit-scrollbar-thumb{background:#ccc}
+    .sub-chip{display:inline-flex;align-items:center;gap:7px;border:1px solid var(--border);border-radius:4px;padding:6px 13px;margin-right:7px;cursor:pointer;font-size:11.5px;font-weight:600;background:#fff;color:var(--black);text-decoration:none;transition:all .2s;white-space:nowrap}
+    .sub-chip:hover,.sub-chip.active{border-color:var(--black);background:var(--black);color:#fff}
+    .sub-chip i{font-size:12px}
+
+    /* ── PAGE BODY ── */
+    #page-body{display:flex;padding:0 20px 40px;gap:0}
+
+    /* Sidebar */
+    #sidebar{width:166px;flex-shrink:0;padding:22px 14px 22px 0;border-right:1px solid var(--border)}
+    .sidebar-title{font-size:11px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;margin-bottom:14px}
+    .sidebar-link{display:block;font-size:12px;color:var(--gray);text-decoration:none;padding:5px 0;transition:color .15s}
+    .sidebar-link:hover,.sidebar-link.active{color:var(--black);font-weight:700}
+
+    /* Main content */
+    #main-content{flex:1;padding:22px 0 0 22px;min-width:0}
+
+    /* ── FILTER BAR ── */
+    #filter-bar{display:flex;align-items:center;gap:7px;flex-wrap:wrap;margin-bottom:14px}
+    .filter-btn{background:var(--black);color:#fff;border:none;padding:8px 15px;border-radius:4px;font-size:11.5px;font-weight:700;letter-spacing:.06em;cursor:pointer;display:inline-flex;align-items:center;gap:7px;transition:background .2s}
+    .filter-btn:hover{background:#333}
+    .filter-select{border:1px solid var(--border);border-radius:4px;padding:7px 26px 7px 10px;font-size:11.5px;color:var(--black);background:#fff url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='9' height='5'%3E%3Cpath d='M0 0l4.5 5L9 0z' fill='%23555'/%3E%3C/svg%3E") no-repeat right 8px center;-webkit-appearance:none;appearance:none;cursor:pointer;outline:none;transition:border-color .2s}
+    .filter-select:focus{border-color:#888}
+    .sort-wrap{margin-left:auto;display:flex;align-items:center;gap:7px;font-size:11.5px;color:var(--gray)}
+
+    /* ── PRICE RANGE SLIDER ── */
+    #price-range-wrap{display:none;background:#fff;border:1px solid var(--border);border-radius:6px;padding:16px 20px;margin-bottom:14px;max-width:360px}
+    #price-range-wrap.open{display:block}
+    .range-labels{display:flex;justify-content:space-between;font-size:11.5px;color:var(--gray);margin-bottom:8px}
+    input[type=range]{width:100%;-webkit-appearance:none;appearance:none;height:4px;border-radius:4px;background:var(--border);outline:none;cursor:pointer}
+    input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:16px;height:16px;border-radius:50%;background:var(--black);cursor:pointer;transition:transform .2s}
+    input[type=range]::-webkit-slider-thumb:hover{transform:scale(1.2)}
+
+    /* ── PRODUCT COUNT ── */
+    #product-count{font-size:12px;color:var(--gray);margin-bottom:16px}
+
+    /* ── PRODUCT GRID ── */
+    #product-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--border)}
+
+    /* ── PRODUCT CARD ── */
+    .product-card{background:#fff;cursor:pointer;position:relative;overflow:hidden;transition:box-shadow .25s}
+    .product-card:hover{box-shadow:0 4px 20px rgba(0,0,0,.1);z-index:2}
+    .product-card:hover .card-img img{transform:scale(1.05)}
+    .card-img{position:relative;aspect-ratio:3/4;overflow:hidden;background:var(--light)}
+    .card-img img{width:100%;height:100%;object-fit:cover;transition:transform .4s ease;display:block}
+    .badge-discount{position:absolute;bottom:8px;left:8px;background:var(--red);color:#fff;font-size:10.5px;font-weight:800;padding:2px 7px;border-radius:2px;letter-spacing:.04em}
+    .wish-btn{position:absolute;top:9px;right:9px;background:rgba(255,255,255,.88);border:none;color:#999;font-size:15px;width:32px;height:32px;border-radius:50%;display:grid;place-items:center;cursor:pointer;transition:all .2s;backdrop-filter:blur(4px)}
+    .wish-btn:hover,.wish-btn.active{color:var(--red);background:#fff}
+    .card-info{padding:10px 10px 14px}
+    .card-brand{font-size:10px;color:var(--gray);text-transform:uppercase;letter-spacing:.1em;margin-bottom:2px}
+    .card-name{font-size:12px;font-weight:500;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;margin-bottom:5px}
+    .card-price{font-size:13px;font-weight:800}
+    .card-price .orig{text-decoration:line-through;color:var(--gray);font-weight:400;margin-left:6px;font-size:11.5px}
+    .card-price.sale{color:var(--red)}
+
+    /* Skeleton */
+    .skeleton{background:linear-gradient(90deg,#e8e8e8 25%,#f5f5f5 50%,#e8e8e8 75%);background-size:200% 100%;animation:shimmer 1.3s infinite}
+    @keyframes shimmer{0%{background-position:-200% 0}100%{background-position:200% 0}}
+    .skel-line{height:9px;border-radius:4px;margin:6px 10px}
+
+    /* Load More */
+    #load-more-wrap{text-align:center;margin-top:30px}
+    .btn-load{border:2px solid var(--black);background:#fff;color:var(--black);font-size:11.5px;font-weight:800;letter-spacing:.12em;text-transform:uppercase;padding:11px 36px;border-radius:4px;cursor:pointer;transition:all .2s;display:inline-flex;align-items:center;gap:8px}
+    .btn-load:hover{background:var(--black);color:#fff}
+    .btn-load:disabled{opacity:.5;cursor:not-allowed}
+
+    /* Toast */
+    #toast-wrap{position:fixed;bottom:22px;right:22px;z-index:9999;display:flex;flex-direction:column;gap:8px}
+    .toast-msg{background:var(--black);color:#fff;font-size:12px;padding:10px 16px;border-radius:5px;animation:fadeUp .3s ease;display:flex;align-items:center;gap:8px;max-width:280px;box-shadow:0 4px 16px rgba(0,0,0,.25)}
+    @keyframes fadeUp{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:translateY(0)}}
+
+    /* No results */
+    .no-results{grid-column:1/-1;text-align:center;padding:60px 20px;color:var(--gray)}
+    .no-results i{font-size:38px;margin-bottom:14px;display:block}
+
+    /* ════ RESPONSIVE ════ */
+    @media(max-width:1100px){#product-grid{grid-template-columns:repeat(3,1fr)}}
+    @media(max-width:900px){
+      #sidebar{display:none}
+      #main-content{padding-left:0}
+    }
+    @media(max-width:768px){
+      #utility-bar{display:none}
+      #hamburger{display:inline-flex}
+      .gender-tabs{display:none}
+      .nav-search{width:130px}
+      .nav-search:focus{width:160px}
+      #hero-slider{height:300px}
+      .slide-content{padding:0 28px}
+      .slide-sub{display:none}
+      #product-grid{grid-template-columns:repeat(2,1fr)}
+      .sort-wrap{display:none}
+    }
+    @media(max-width:480px){
+      #hero-slider{height:230px}
+      .slide-title{font-size:32px}
+      .slide-cta{padding:10px 20px;font-size:10.5px}
+      .slider-arrow{width:34px;height:34px;font-size:12px}
+      .nav-search{width:100px}
+    }
+  </style>
+</head>
+<body>
+
+<!-- ── UTILITY BAR ── -->
+<div id="utility-bar">
+  <a href="#"><i class="fas fa-mobile-alt"></i> App</a>
+  <a href="#">Blog</a>
+  <a href="#">Footshop Club</a>
+  <a href="#">Stores</a>
+  <a href="#">About</a>
+  <a href="#">Sustainability</a>
+  <a href="#"><i class="fas fa-undo-alt"></i> Returns</a>
+  <a href="#"><i class="fas fa-truck"></i> Shipping</a>
+  <a href="#">FAQ</a>
+  <span style="float:right"><i class="fas fa-globe me-1"></i>EN</span>
+</div>
+
+<!-- ── MAIN NAV ── -->
+<nav id="main-nav">
+  <div class="d-flex align-items-center justify-content-between" style="padding:6px 0;">
+
+    <div class="d-flex align-items-center gap-2">
+      <button id="hamburger" onclick="openDrawer()"><i class="fas fa-bars"></i></button>
+      <div class="gender-tabs">
+        <a href="#">All</a>
+        <a href="#" class="active">Men</a>
+        <a href="#">Women</a>
+        <a href="#">Kids</a>
+      </div>
+    </div>
+
+    <a href="#" class="brand-logo position-absolute start-50 translate-middle-x">FOO<span class="strike">T</span>SHOP</a>
+
+    <div class="d-flex align-items-center gap-1">
+      <div class="nav-search-wrap">
+        <input class="nav-search" type="text" placeholder="Search brands, products…"/>
+        <i class="fas fa-search search-icon"></i>
+      </div>
+      <button class="nav-icon-btn d-none d-md-grid" title="Account"><i class="far fa-user"></i></button>
+      <button class="nav-icon-btn" title="Notifications">
+        <i class="far fa-bell"></i>
+        <span class="badge-count">3</span>
+      </button>
+      <button class="nav-icon-btn" title="Wishlist"><i class="far fa-heart"></i></button>
+      <button class="nav-icon-btn" title="Cart"><i class="fas fa-shopping-bag"></i></button>
+    </div>
+  </div>
+</nav>
+
+<!-- ── CATEGORY NAV ── -->
+<div id="cat-nav">
+  <a class="cat-nav-link" href="#">New Arrivals</a>
+  <a class="cat-nav-link" href="#">Shoes</a>
+  <a class="cat-nav-link active" href="#">Clothing</a>
+  <a class="cat-nav-link" href="#">Accessories</a>
+  <a class="cat-nav-link" href="#">Sport</a>
+  <a class="cat-nav-link" href="#">Brands</a>
+  <a class="cat-nav-link" href="#">Inspiration</a>
+  <a class="cat-nav-link" href="#">Upcoming</a>
+  <a class="cat-nav-link sale" href="#">Sale</a>
+  <a class="cat-nav-link" href="#">FTSHP</a>
+</div>
+
+<!-- ── MOBILE DRAWER ── -->
+<div id="mobile-drawer" onclick="bgClose(event)">
+  <div id="drawer-panel">
+    <button class="drawer-close" onclick="closeDrawer()"><i class="fas fa-times"></i></button>
+    <span class="drawer-logo">FOOTSHOP</span>
+    <a class="drawer-link" href="#"><i class="fas fa-fire-alt" style="color:var(--red)"></i>New Arrivals</a>
+    <a class="drawer-link" href="#"><i class="fas fa-shoe-prints"></i>Shoes</a>
+    <a class="drawer-link" href="#"><i class="fas fa-tshirt"></i>Clothing</a>
+    <a class="drawer-link" href="#"><i class="fas fa-glasses"></i>Accessories</a>
+    <a class="drawer-link" href="#"><i class="fas fa-dumbbell"></i>Sport</a>
+    <a class="drawer-link" href="#"><i class="fas fa-tag"></i>Brands</a>
+    <a class="drawer-link" href="#" style="color:var(--red)"><i class="fas fa-percent"></i>Sale</a>
+    <hr style="margin:14px 0;border-color:var(--border)"/>
+    <a class="drawer-link" href="#"><i class="far fa-user"></i>My Account</a>
+    <a class="drawer-link" href="#"><i class="far fa-heart"></i>Wishlist</a>
+    <a class="drawer-link" href="#"><i class="fas fa-shopping-bag"></i>Cart</a>
+  </div>
+</div>
+
+<!-- ── HERO SLIDER ── -->
+<section id="hero-slider">
+
+  <!-- Slide 1: Street Collection -->
+  <div class="slide active">
+    <div class="slide-bg" style="background:linear-gradient(130deg,#0d0d0d 0%,#1a1a2e 55%,#16213e 100%)"></div>
+    <div class="deco" style="right:8%;top:5%;width:300px;height:300px;border:1px solid rgba(255,255,255,.07)"></div>
+    <div class="deco" style="right:14%;top:18%;width:180px;height:180px;border:1px solid rgba(255,255,255,.04)"></div>
+    <div class="slide-content">
+      <div class="slide-tag"><i class="fas fa-bolt"></i> New Season 2025</div>
+      <div class="slide-title">Street Ready<br>Collection</div>
+      <div class="slide-sub">Premium sportswear for the modern man.<br>Free shipping on orders over €80.</div>
+      <button class="slide-cta" onclick="filterCategory('shirts',document.querySelector('.sub-chip'))">
+        Shop Now <i class="fas fa-arrow-right"></i>
+      </button>
+    </div>
+  </div>
+
+  <!-- Slide 2: Sale -->
+  <div class="slide">
+    <div class="slide-bg" style="background:linear-gradient(130deg,#1a0505 0%,#2d1010 55%,#3a0000 100%)"></div>
+    <div class="deco" style="right:6%;bottom:0;width:280px;height:280px;background:rgba(224,32,32,.1);border-radius:50% 50% 0 0"></div>
+    <div class="slide-content">
+      <div class="slide-tag"><i class="fas fa-percent"></i> Up to 80% Off</div>
+      <div class="slide-title">Summer<br>Sale Event</div>
+      <div class="slide-sub">Hundreds of reduced items across all categories.<br>While stocks last — limited time only.</div>
+      <button class="slide-cta" style="background:#fff;color:var(--red)">
+        View Sale <i class="fas fa-arrow-right"></i>
+      </button>
+    </div>
+  </div>
+
+  <!-- Slide 3: Sustainable -->
+  <div class="slide">
+    <div class="slide-bg" style="background:linear-gradient(130deg,#060f06 0%,#0e200e 55%,#162e16 100%)"></div>
+    <div class="deco" style="right:10%;top:50%;transform:translateY(-50%);width:240px;height:240px;border:1px solid rgba(46,204,113,.15)"></div>
+    <div class="slide-content">
+      <div class="slide-tag"><i class="fas fa-leaf"></i> Sustainable Fashion</div>
+      <div class="slide-title">Wear With<br>Purpose</div>
+      <div class="slide-sub">Eco-friendly materials, ethical production.<br>Designed for the planet, built for performance.</div>
+      <button class="slide-cta" style="background:#27ae60">
+        Explore <i class="fas fa-arrow-right"></i>
+      </button>
+    </div>
+  </div>
+
+  <!-- Slide 4: Brands -->
+  <div class="slide">
+    <div class="slide-bg" style="background:linear-gradient(130deg,#0d0d0d 0%,#1a1a1a 55%,#222 100%)"></div>
+    <div class="deco" style="left:50%;top:0;width:400px;height:400px;background:rgba(255,255,255,.02);border-radius:0 0 50% 50%"></div>
+    <div class="slide-content">
+      <div class="slide-tag"><i class="fas fa-star"></i> Premium Brands</div>
+      <div class="slide-title">Nike. Adidas.<br>Carhartt.</div>
+      <div class="slide-sub">Curated selection from the world's best streetwear brands,<br>all in one place.</div>
+      <button class="slide-cta">
+        All Brands <i class="fas fa-arrow-right"></i>
+      </button>
+    </div>
+  </div>
+
+  <button class="slider-arrow" id="slider-prev" onclick="changeSlide(-1)"><i class="fas fa-chevron-left"></i></button>
+  <button class="slider-arrow" id="slider-next" onclick="changeSlide(1)"><i class="fas fa-chevron-right"></i></button>
+  <div class="slider-dots" id="slider-dots"></div>
+</section>
+
+<!-- ── BREADCRUMB ── -->
+<div class="breadcrumb-area">
+  <a href="#">Home</a><i class="fas fa-chevron-right"></i><span>Men's Clothing</span>
+</div>
+<h1 class="page-title">MEN'S CLOTHING</h1>
+
+<!-- ── SUBCATEGORY STRIP ── -->
+<div id="subcategory-strip">
+  <a class="sub-chip active" href="#" onclick="filterChip('all',this)"><i class="fas fa-th"></i>All</a>
+  <a class="sub-chip" href="#" onclick="filterChip('shirts',this)"><i class="fas fa-tshirt"></i>T-Shirts</a>
+  <a class="sub-chip" href="#" onclick="filterChip('hoodies',this)"><i class="fas fa-user-tie"></i>Hoodies</a>
+  <a class="sub-chip" href="#" onclick="filterChip('jackets',this)"><i class="fas fa-mitten"></i>Jackets</a>
+  <a class="sub-chip" href="#" onclick="filterChip('trousers',this)"><i class="fas fa-ruler-vertical"></i>Trousers</a>
+  <a class="sub-chip" href="#" onclick="filterChip('underwear',this)"><i class="fas fa-circle"></i>Underwear</a>
+  <a class="sub-chip" href="#" onclick="filterChip('sweaters',this)"><i class="fas fa-snowflake"></i>Sweaters</a>
+  <a class="sub-chip" href="#" onclick="filterChip('swimwear',this)"><i class="fas fa-swimmer"></i>Swimwear</a>
+  <a class="sub-chip" href="#" onclick="filterChip('coats',this)"><i class="fas fa-wind"></i>Coats</a>
+  <a class="sub-chip" href="#" onclick="filterChip('tank',this)"><i class="fas fa-sun"></i>Tank Tops</a>
+</div>
+
+<!-- ── PAGE BODY ── -->
+<div id="page-body">
+
+  <!-- SIDEBAR -->
+  <aside id="sidebar">
+    <div class="sidebar-title">Men's Clothing</div>
+    <a class="sidebar-link active" href="#" onclick="filterChip('all',this);return false">All Clothing</a>
+    <a class="sidebar-link" href="#" onclick="filterChip('shirts',this);return false">Men's T-shirts</a>
+    <a class="sidebar-link" href="#" onclick="filterChip('jackets',this);return false">Men's Jackets</a>
+    <a class="sidebar-link" href="#" onclick="filterChip('hoodies',this);return false">Men's Hoodies</a>
+    <a class="sidebar-link" href="#" onclick="filterChip('trousers',this);return false">Men's Trousers</a>
+    <a class="sidebar-link" href="#" onclick="filterChip('underwear',this);return false">Men's Underwear</a>
+    <a class="sidebar-link" href="#" onclick="filterChip('sweaters',this);return false">Men's Sweaters</a>
+    <a class="sidebar-link" href="#" onclick="filterChip('swimwear',this);return false">Men's Swimwear</a>
+    <a class="sidebar-link" href="#" onclick="filterChip('coats',this);return false">Men's Coats</a>
+    <a class="sidebar-link" href="#" onclick="filterChip('tank',this);return false">Men's Tank Tops</a>
+  </aside>
+
+  <!-- MAIN CONTENT -->
+  <main id="main-content">
+
+    <!-- FILTER BAR -->
+    <div id="filter-bar">
+      <button class="filter-btn" onclick="togglePriceSlider()">
+        <i class="fas fa-sliders-h"></i> Filter
+      </button>
+      <select class="filter-select" id="brand-filter" onchange="applyFilters()">
+        <option value="">Brand</option>
+        <option>Nike</option><option>Adidas</option><option>New Balance</option>
+        <option>Puma</option><option>Carhartt WIP</option><option>MSGM</option>
+      </select>
+      <select class="filter-select" id="color-filter" onchange="applyFilters()">
+        <option value="">Colour</option>
+        <option>Black</option><option>White</option><option>Blue</option>
+        <option>Red</option><option>Grey</option>
+      </select>
+      <select class="filter-select" id="material-filter" onchange="applyFilters()">
+        <option value="">Material</option>
+        <option>Cotton</option><option>Polyester</option><option>Wool</option>
+      </select>
+      <div class="sort-wrap">
+        <span>Sort:</span>
+        <select class="filter-select" id="sort-filter" onchange="applyFilters()">
+          <option value="popular">Popularity</option>
+          <option value="newest">Newest</option>
+          <option value="price-asc">Price ↑</option>
+          <option value="price-desc">Price ↓</option>
+          <option value="discount">Discount</option>
+        </select>
+      </div>
+    </div>
+
+    <!-- PRICE RANGE SLIDER -->
+    <div id="price-range-wrap">
+      <div class="range-labels">
+        <span><i class="fas fa-euro-sign me-1"></i>Price Range</span>
+        <span id="price-display" style="font-weight:700;color:var(--black)">€0 – €300</span>
+      </div>
+      <input type="range" id="price-slider" min="0" max="300" value="300" step="5"
+             oninput="onPriceSlide(this.value)" onchange="applyFilters()"/>
+      <div class="range-labels" style="margin-top:4px"><span>€0</span><span>€300</span></div>
+    </div>
+
+    <!-- COUNT -->
+    <div id="product-count">Loading products…</div>
+
+    <!-- GRID -->
+    <div id="product-grid"></div>
+
+    <!-- LOAD MORE -->
+    <div id="load-more-wrap">
+      <button class="btn-load" id="load-more-btn" onclick="loadMore()">
+        <i class="fas fa-arrow-down"></i> Load More
+      </button>
+    </div>
+  </main>
+</div>
+
+<!-- TOAST -->
+<div id="toast-wrap"></div>
+
+<!-- Bootstrap JS -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+<script>
+/* ══════════════════════════════════
+   HERO SLIDER
+══════════════════════════════════ */
+let slideIdx = 0;
+const slides = document.querySelectorAll('.slide');
+const dotsEl = document.getElementById('slider-dots');
+let sliderTimer;
+
+slides.forEach((_, i) => {
+  const d = document.createElement('button');
+  d.className = 'dot' + (i === 0 ? ' active' : '');
+  d.setAttribute('aria-label', 'Slide ' + (i+1));
+  d.onclick = () => goSlide(i);
+  dotsEl.appendChild(d);
+});
+
+function goSlide(n) {
+  slides[slideIdx].classList.remove('active');
+  document.querySelectorAll('.dot')[slideIdx].classList.remove('active');
+  slideIdx = (n + slides.length) % slides.length;
+  slides[slideIdx].classList.add('active');
+  document.querySelectorAll('.dot')[slideIdx].classList.add('active');
+  resetTimer();
+}
+function changeSlide(d) { goSlide(slideIdx + d); }
+function resetTimer() {
+  clearInterval(sliderTimer);
+  sliderTimer = setInterval(() => changeSlide(1), 4500);
+}
+resetTimer();
+
+/* ══════════════════════════════════
+   MOBILE DRAWER
+══════════════════════════════════ */
+function openDrawer() {
+  document.getElementById('mobile-drawer').classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+function closeDrawer() {
+  document.getElementById('mobile-drawer').classList.remove('open');
+  document.body.style.overflow = '';
+}
+function bgClose(e) {
+  if (e.target === document.getElementById('mobile-drawer')) closeDrawer();
+}
+
+/* ══════════════════════════════════
+   PRICE SLIDER
+══════════════════════════════════ */
+let maxPrice = 300;
+function togglePriceSlider() {
+  document.getElementById('price-range-wrap').classList.toggle('open');
+}
+function onPriceSlide(val) {
+  maxPrice = +val;
+  document.getElementById('price-display').textContent = `€0 – €${val}`;
+}
+
+/* ══════════════════════════════════
+   DATA
+══════════════════════════════════ */
+const ALL_PRODUCTS = [
+  {id:1,  brand:'Nike',        name:'Everyday Cotton Stretch Boxer Briefs 3-Pack', price:49.95, discount:0,  color:'Black', category:'underwear', material:'Cotton',    img:'https://placehold.co/320x420/1a1a1a/ff6b35?text=NIKE'},
+  {id:2,  brand:'Nike',        name:'Sportswear Club Fleece Oversized Tee',        price:44.95, discount:10, color:'Black', category:'shirts',    material:'Cotton',    img:'https://placehold.co/320x420/222222/ffffff?text=NIKE+TEE'},
+  {id:3,  brand:'MSGM',        name:'Oxford Button-Down Dress Shirt',              price:189,   discount:80, color:'Blue',  category:'shirts',    material:'Cotton',    img:'https://placehold.co/320x420/b0ccee/333333?text=MSGM'},
+  {id:4,  brand:'Nike',        name:'Boxer Brief 3-Pack Sport Edition',            price:54.95, discount:0,  color:'Red',   category:'underwear', material:'Polyester', img:'https://placehold.co/320x420/e02020/ffffff?text=NIKE'},
+  {id:5,  brand:'Carhartt WIP',name:'Michigan Chore Canvas Coat',                  price:219,   discount:0,  color:'Black', category:'coats',     material:'Cotton',    img:'https://placehold.co/320x420/2b2b2b/cccccc?text=CARHARTT'},
+  {id:6,  brand:'New Balance', name:'Athletics Graphic T-Shirt',                   price:39.95, discount:30, color:'Grey',  category:'shirts',    material:'Cotton',    img:'https://placehold.co/320x420/999999/ffffff?text=NB'},
+  {id:7,  brand:'Adidas',      name:'Adicolor Trefoil Pullover Hoodie',            price:74.95, discount:0,  color:'White', category:'hoodies',   material:'Cotton',    img:'https://placehold.co/320x420/f0f0f0/111111?text=ADIDAS'},
+  {id:8,  brand:'Puma',        name:'Essentials Logo Sweatpants',                  price:54.95, discount:20, color:'Grey',  category:'trousers',  material:'Polyester', img:'https://placehold.co/320x420/888888/ffffff?text=PUMA'},
+  {id:9,  brand:'Nike',        name:'Tech Fleece Joggers Black',                   price:109.95,discount:0,  color:'Black', category:'trousers',  material:'Polyester', img:'https://placehold.co/320x420/111111/ffffff?text=NIKE'},
+  {id:10, brand:'Carhartt WIP',name:'Nimbus Pullover Jacket Navy',                 price:139,   discount:15, color:'Blue',  category:'jackets',   material:'Polyester', img:'https://placehold.co/320x420/3a5a8a/ffffff?text=CARHARTT'},
+  {id:11, brand:'New Balance', name:'Made In USA Track Jacket Red',                price:179,   discount:0,  color:'Red',   category:'jackets',   material:'Polyester', img:'https://placehold.co/320x420/c0392b/ffffff?text=NB'},
+  {id:12, brand:'Adidas',      name:'3-Stripes Track Top Black',                   price:64.95, discount:40, color:'Black', category:'jackets',   material:'Polyester', img:'https://placehold.co/320x420/1a1a1a/ffffff?text=ADIDAS'},
+  {id:13, brand:'Nike',        name:'Dri-FIT Tank Top White',                      price:29.95, discount:0,  color:'White', category:'tank',      material:'Polyester', img:'https://placehold.co/320x420/e8e8e8/111111?text=NIKE+TANK'},
+  {id:14, brand:'Puma',        name:'Swim Short Logo Blue',                        price:34.95, discount:0,  color:'Blue',  category:'swimwear',  material:'Polyester', img:'https://placehold.co/320x420/2979ff/ffffff?text=PUMA'},
+  {id:15, brand:'Carhartt WIP',name:'Cargo Cord Pant Grey',                        price:169,   discount:0,  color:'Grey',  category:'trousers',  material:'Cotton',    img:'https://placehold.co/320x420/7a7a7a/ffffff?text=CARHARTT'},
+  {id:16, brand:'MSGM',        name:'Logo Crewneck Wool Sweater Red',              price:259,   discount:60, color:'Red',   category:'sweaters',  material:'Wool',      img:'https://placehold.co/320x420/aa0000/ffffff?text=MSGM'},
+  {id:17, brand:'Adidas',      name:'Originals Firebird Track Pants',              price:79.95, discount:0,  color:'Black', category:'trousers',  material:'Polyester', img:'https://placehold.co/320x420/0d0d0d/ffffff?text=ADIDAS'},
+  {id:18, brand:'Nike',        name:'Club Fleece Crewneck Sweatshirt',             price:64.95, discount:25, color:'Grey',  category:'sweaters',  material:'Cotton',    img:'https://placehold.co/320x420/aaaaaa/ffffff?text=NIKE'},
+  {id:19, brand:'New Balance', name:'Hoops Graphic Hoodie Dark Blue',              price:84.95, discount:0,  color:'Blue',  category:'hoodies',   material:'Cotton',    img:'https://placehold.co/320x420/2c4a7c/ffffff?text=NB'},
+  {id:20, brand:'Puma',        name:'Beach Short Classic Logo Red',                price:29.95, discount:0,  color:'Red',   category:'swimwear',  material:'Polyester', img:'https://placehold.co/320x420/cc3333/ffffff?text=PUMA'},
+];
+
+let wishlist = new Set();
+let visibleCount = 8;
+let currentProducts = [...ALL_PRODUCTS];
+let activeCat = 'all';
+
+/* ══════════════════════════════════
+   SIMULATED AJAX FETCH
+══════════════════════════════════ */
+function fetchProducts(f = {}) {
+  return new Promise(resolve => {
+    setTimeout(() => {
+      let res = ALL_PRODUCTS.filter(p => {
+        if (f.category && f.category !== 'all' && p.category !== f.category) return false;
+        if (f.brand && p.brand !== f.brand) return false;
+        if (f.color && p.color !== f.color) return false;
+        if (f.material && p.material !== f.material) return false;
+        if (f.maxPrice && p.price > f.maxPrice) return false;
+        return true;
+      });
+      const sort = f.sort || 'popular';
+      if (sort === 'price-asc')  res.sort((a,b) => a.price - b.price);
+      if (sort === 'price-desc') res.sort((a,b) => b.price - a.price);
+      if (sort === 'discount')   res.sort((a,b) => b.discount - a.discount);
+      if (sort === 'newest')     res.sort((a,b) => b.id - a.id);
+      resolve(res);
+    }, 500);
+  });
+}
+
+/* ══════════════════════════════════
+   RENDER
+══════════════════════════════════ */
+function buildSkeletons(n) {
+  return Array.from({length:n}, () =>
+    `<div class="product-card">
+      <div class="card-img skeleton"></div>
+      <div class="card-info">
+        <div class="skel-line skeleton" style="width:42%"></div>
+        <div class="skel-line skeleton" style="width:76%;margin-top:7px"></div>
+        <div class="skel-line skeleton" style="width:30%;margin-top:7px"></div>
+      </div>
+    </div>`
+  ).join('');
+}
+
+function buildCard(p) {
+  const final = p.discount > 0 ? (p.price*(1-p.discount/100)).toFixed(2) : null;
+  const priceHtml = final
+    ? `<div class="card-price sale">€${final}<span class="orig">€${p.price.toFixed(2)}</span></div>`
+    : `<div class="card-price">€${p.price.toFixed(2)}</div>`;
+  const badge = p.discount > 0 ? `<div class="badge-discount">-${p.discount}%</div>` : '';
+  const wished = wishlist.has(p.id);
+  return `<div class="product-card" onclick="openProduct(${p.id})">
+    <div class="card-img">
+      <img src="${p.img}" alt="${p.name}" loading="lazy"/>
+      ${badge}
+      <button class="wish-btn ${wished?'active':''}" onclick="toggleWish(event,${p.id})" title="Wishlist">
+        <i class="${wished?'fas':'far'} fa-heart"></i>
+      </button>
+    </div>
+    <div class="card-info">
+      <div class="card-brand">${p.brand}</div>
+      <div class="card-name" title="${p.name}">${p.name}</div>
+      ${priceHtml}
+    </div>
+  </div>`;
+}
+
+function renderGrid(products) {
+  const grid = document.getElementById('product-grid');
+  const slice = products.slice(0, visibleCount);
+  grid.innerHTML = slice.length === 0
+    ? `<div class="no-results"><i class="fas fa-box-open"></i>No products found.<br><small>Try adjusting your filters.</small></div>`
+    : slice.map(buildCard).join('');
+
+  document.getElementById('product-count').textContent =
+    `Products: ${products.length.toLocaleString()}`;
+  document.getElementById('load-more-btn').style.display =
+    products.length > visibleCount ? 'inline-flex' : 'none';
+}
+
+/* ══════════════════════════════════
+   FILTER ACTIONS
+══════════════════════════════════ */
+async function applyFilters() {
+  const brand    = document.getElementById('brand-filter').value;
+  const color    = document.getElementById('color-filter').value;
+  const material = document.getElementById('material-filter').value;
+  const sort     = document.getElementById('sort-filter').value;
+  document.getElementById('product-grid').innerHTML = buildSkeletons(8);
+  document.getElementById('product-count').textContent = 'Filtering…';
+  currentProducts = await fetchProducts({ category:activeCat, brand, color, material, maxPrice, sort });
+  visibleCount = 8;
+  renderGrid(currentProducts);
+}
+
+function filterChip(cat, el) {
+  activeCat = cat;
+  document.querySelectorAll('.sub-chip').forEach(c => c.classList.remove('active'));
+  document.querySelectorAll('.sidebar-link').forEach(c => c.classList.remove('active'));
+  if (el) el.classList.add('active');
+  document.getElementById('product-grid').innerHTML = buildSkeletons(8);
+  document.getElementById('product-count').textContent = 'Loading…';
+  fetchProducts({ category: cat }).then(res => {
+    currentProducts = res; visibleCount = 8; renderGrid(currentProducts);
+  });
+}
+
+// Alias for slider CTA
+function filterCategory(cat, el) { filterChip(cat, el); }
+
+async function loadMore() {
+  const btn = document.getElementById('load-more-btn');
+  btn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Loading…';
+  btn.disabled = true;
+  await new Promise(r => setTimeout(r, 600));
+  visibleCount += 8;
+  renderGrid(currentProducts);
+  btn.innerHTML = '<i class="fas fa-arrow-down"></i> Load More';
+  btn.disabled = false;
+}
+
+/* ══════════════════════════════════
+   WISHLIST
+══════════════════════════════════ */
+function toggleWish(e, id) {
+  e.stopPropagation();
+  if (wishlist.has(id)) {
+    wishlist.delete(id);
+    toast('far fa-heart', 'Removed from wishlist', '#888');
+  } else {
+    wishlist.add(id);
+    toast('fas fa-heart', 'Added to wishlist', '#e02020');
+  }
+  document.querySelectorAll('.product-card').forEach((card, i) => {
+    const p = currentProducts.slice(0, visibleCount)[i];
+    if (!p || p.id !== id) return;
+    const btn = card.querySelector('.wish-btn');
+    btn.classList.toggle('active', wishlist.has(id));
+    btn.querySelector('i').className = (wishlist.has(id) ? 'fas' : 'far') + ' fa-heart';
+  });
+}
+
+function openProduct(id) {
+  const p = ALL_PRODUCTS.find(x => x.id === id);
+  if (p) toast('fas fa-eye', p.name, '#fff');
+}
+
+/* ══════════════════════════════════
+   TOAST
+══════════════════════════════════ */
+function toast(icon, msg, iconColor) {
+  const c = document.getElementById('toast-wrap');
+  const t = document.createElement('div');
+  t.className = 'toast-msg';
+  t.innerHTML = `<i class="${icon}" style="color:${iconColor||'#fff'}"></i>${msg}`;
+  c.appendChild(t);
+  setTimeout(() => {
+    t.style.cssText += 'opacity:0;transform:translateY(10px);transition:.3s';
+    setTimeout(() => t.remove(), 300);
+  }, 2600);
+}
+
+/* ══════════════════════════════════
+   INIT
+══════════════════════════════════ */
+(async function() {
+  document.getElementById('product-grid').innerHTML = buildSkeletons(8);
+  currentProducts = await fetchProducts();
+  renderGrid(currentProducts);
+})();
+</script>
+</body>
+</html>
