@@ -34,16 +34,19 @@
             display: flex;
             padding-bottom: 1.5rem;
         }
+
         .hero-section img {
             width: 650px;
             margin: auto;
         }
+
         /* Video placeholder */
         .video-box {
             aspect-ratio: 16/9;
             width: 100%;
             overflow: hidden;
         }
+
         .video-box iframe {
             width: 100%;
             height: 100%;
@@ -93,37 +96,69 @@
             top: .15rem;
         }
 
-        .price-offer {
-            position: relative;
-            display: inline-block;
-        }
+        /* price ribbon */
 
-        .price-offer::after {
-            content: "";
+        /* SVG কমন স্টাইল */
+        .animated-svg {
             position: absolute;
-            bottom: -5px;
+            top: 0;
             left: 0;
             width: 100%;
-            height: 3px;
-            background: linear-gradient(90deg, #f6d34b, #ffd966);
-            animation: underlineAnimation 0.8s ease-out forwards;
-            border-radius: 2px;
+            height: 100%;
+            fill: none;
+            stroke: #ff0000;
+            /* অ্যানিমেশনের রঙ (হলুদ) */
+            stroke-width: 10;
+            stroke-linecap: round;
+            stroke-linejoin: round;
         }
 
-        @keyframes underlineAnimation {
-            0% {
-                width: 0;
-                left: 0;
+        .underline-svg {
+            stroke: #ffcc00;
+        }
+
+        .path {
+            stroke-dasharray: 1000;
+            stroke-dashoffset: 1000;
+            animation: draw 1.5s ease-in-out forwards infinite;
+        }
+
+        @keyframes draw {
+            to {
+                stroke-dashoffset: 0;
             }
-            100% {
-                width: 100%;
-                left: 0;
-            }
+        }
+
+        /* ১. ক্রস (X) মার্কের জন্য স্টাইল */
+        .cross-path-2 {
+            animation-delay: 0.5s;
+        }
+
+        /* ২. আন্ডারলাইন মার্কের জন্য স্টাইল */
+        .underline-svg {
+            height: 40px;
+            /* আন্ডারলাইনের জন্য উচ্চতা কম */
+            top: 10px;
+        }
+
+        .headline {
+            font-size: 35px;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        .dynamic-wrapper {
+            position: relative;
+            display: inline-block;
         }
 
         @media(max-width:576px) {
             .hero-section img {
                 width: 100%;
+            }
+
+            .headline {
+                font-size: 28px;
             }
         }
     </style>
@@ -133,16 +168,17 @@
 
     <!-- ── Notice ── -->
     <div class="text-center py-3 px-3" style="background-color: #EDD7CE;">
-        <span class="d-inline-block px-2 font-baloo fw-bold text-success" style="border:1px dashed #8b776a;font-size:30px;line-height:1.3;">
+        <span class="d-inline-block px-2 font-baloo fw-bold text-success"
+            style="border:1px dashed #8b776a;font-size:30px;line-height:1.3;">
             ত্বীন ফল ডায়াবেটিস রেমেডি খেলে আপনার ইনসুলিন বা ঔষধের প্রয়োজন হবে না,<br>ইনশাআল্লাহ
         </span>
     </div>
-    
-        <!-- ── Hero ── -->
-        <section class="hero-section">
-            <img src="https://azharishop.shop/wp-content/uploads/2025/06/WhatsApp-Image-2025-06-12-at-21.14.46-768x768.jpeg"
-                alt="ত্বীন ফল ডায়াবেটিস রেমেডি" class="img-fluid">
-        </section>
+
+    <!-- ── Hero ── -->
+    <section class="hero-section">
+        <img src="https://azharishop.shop/wp-content/uploads/2025/06/WhatsApp-Image-2025-06-12-at-21.14.46-768x768.jpeg"
+            alt="ত্বীন ফল ডায়াবেটিস রেমেডি" class="img-fluid">
+    </section>
 
     <div class="container">
         <!-- ── Media Row ── -->
@@ -150,15 +186,16 @@
             <div class="row g-3 align-items-center">
                 <div class="col-12 col-sm-7">
                     <div class="video-box bg-black">
-                        <iframe src="https://www.youtube.com/embed/2ddrPMtt2b8"
-                            title="YouTube video player" frameborder="0"
+                        <iframe src="https://www.youtube.com/embed/2ddrPMtt2b8" title="YouTube video player"
+                            frameborder="0"
                             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                             allowfullscreen></iframe>
                     </div>
                 </div>
                 <div class="col-12 col-sm-5">
                     <div class="text-center py-3 px-3">
-                        <a href="#checkout" class="btn btn-danger fw-bold px-4 py-2 shadow" style="font-size:14px;border-radius:3px;">
+                        <a href="#checkout" class="btn btn-danger fw-bold px-4 py-2 shadow"
+                            style="font-size:14px;border-radius:3px;">
                             <i class="fa-solid fa-cart-shopping me-2"></i>অর্ডার করুন
                         </a>
                     </div>
@@ -174,24 +211,111 @@
     <!-- ── Price Bands ── -->
     <div class="text-white text-center py-3 px-3 border-top border-bottom border-4 border-white"
         style="background:#0c5a61;">
-        <div class="fw-bold" style="font-size:35px;">৩ মাসের জন্য ৬০০ গ্রাম</div>
-        <div class="fw-bold text-decoration-line-through" style="color:#ff6f61;font-size:35px;">৮৫০/ টাকা</div>
-        <div class="fw-bold mt-1" style="font-size:35px;">অফার মূল্য <b style="color:#f6d34b;font-size:35px;">১৫০০</b>/
-            টাকা</div>
+        <div class="headline">
+            <span>২ মাসের জন্য ৪০০ গ্রাম</span><br>
+            <span class="dynamic-wrapper">
+                <span>২৯৯০/</span>
+                <svg class="animated-svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 150"
+                    preserveAspectRatio="none">
+                    <path class="path" d="M497.4,23.9C301.6,40,155.9,80.6,4,144.4"></path>
+                    <path class="path cross-path-2" d="M14.1,27.6c204.5,20.3,393.8,74,467.3,111.7"></path>
+                </svg>
+            </span>
+            <span>টাকা।</span>
+        </div>
+
+        <div class="headline">
+            <span>অফার মূল্য</span>
+            <span class="dynamic-wrapper">
+                <span>১৪৫০/</span>
+                <svg class="animated-svg underline-svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 150"
+                    preserveAspectRatio="none">
+                    <path class="path" d="M7.7,145.6C109,125,299.9,116.2,401,121.3c42.1,2.2,87.6,11.8,87.3,25.7"></path>
+                </svg>
+            </span>
+            <span>টাকা।</span>
+        </div>
     </div>
+
     <div class="text-white text-center py-3 px-3 border-top border-bottom border-4 border-white"
         style="background:#0c5a61;">
-        <div class="fw-bold" style="font-size:35px;">২ মাসের জন্য ৪০০ গ্রাম</div>
-        <div class="fw-bold text-decoration-line-through" style="color:#ff6f61;font-size:35px;">১২৯০/ টাকা</div>
-        <div class="fw-bold mt-1" style="font-size:35px;">অফার মূল্য <b style="color:#f6d34b;font-size:35px;">১৮৫০</b>/
-            টাকা</div>
+        <div class="headline">
+            <span>৩ মাসের জন্য ৬০০ গ্রাম</span><br>
+            <span class="dynamic-wrapper">
+                <span>৮৫০/</span>
+                <svg class="animated-svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 150"
+                    preserveAspectRatio="none">
+                    <path class="path" d="M497.4,23.9C301.6,40,155.9,80.6,4,144.4"></path>
+                    <path class="path cross-path-2" d="M14.1,27.6c204.5,20.3,393.8,74,467.3,111.7"></path>
+                </svg>
+            </span>
+            <span>টাকা।</span>
+        </div>
+        <div class="headline">
+            <span>অফার মূল্য</span>
+            <span class="dynamic-wrapper">
+                <span>১৫০০/</span>
+                <svg class="animated-svg underline-svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 150"
+                    preserveAspectRatio="none">
+                    <path class="path" d="M7.7,145.6C109,125,299.9,116.2,401,121.3c42.1,2.2,87.6,11.8,87.3,25.7"></path>
+                </svg>
+            </span>
+            <span>টাকা।</span>
+        </div>
     </div>
+
     <div class="text-white text-center py-3 px-3 border-top border-bottom border-4 border-white"
         style="background:#0c5a61;">
-        <div class="fw-bold" style="font-size:35px;">১ মাসের জন্য ২০০ গ্রাম</div>
-        <div class="fw-bold text-decoration-line-through" style="color:#ff6f61;font-size:35px;">১৪৫০/ টাকা</div>
-        <div class="fw-bold mt-1" style="font-size:35px;">অফার মূল্য <b style="color:#f6d34b;font-size:35px;">৯৯০</b>/
-            টাকা</div>
+        <div class="headline">
+            <span>২ মাসের জন্য ৪০০ গ্রাম</span><br>
+            <span class="dynamic-wrapper">
+                <span>১২৯০/</span>
+                <svg class="animated-svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 150"
+                    preserveAspectRatio="none">
+                    <path class="path" d="M497.4,23.9C301.6,40,155.9,80.6,4,144.4"></path>
+                    <path class="path cross-path-2" d="M14.1,27.6c204.5,20.3,393.8,74,467.3,111.7"></path>
+                </svg>
+            </span>
+            <span>টাকা।</span>
+        </div>
+        <div class="headline">
+            <span>অফার মূল্য</span>
+            <span class="dynamic-wrapper">
+                <span>১৮৫০/</span>
+                <svg class="animated-svg underline-svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 150"
+                    preserveAspectRatio="none">
+                    <path class="path" d="M7.7,145.6C109,125,299.9,116.2,401,121.3c42.1,2.2,87.6,11.8,87.3,25.7"></path>
+                </svg>
+            </span>
+            <span>টাকা।</span>
+        </div>
+    </div>
+
+    <div class="text-white text-center py-3 px-3 border-top border-bottom border-4 border-white"
+        style="background:#0c5a61;">
+        <div class="headline">
+            <span>১ মাসের জন্য ২০০ গ্রাম</span><br>
+            <span class="dynamic-wrapper">
+                <span>১৪৫০/</span>
+                <svg class="animated-svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 150"
+                    preserveAspectRatio="none">
+                    <path class="path" d="M497.4,23.9C301.6,40,155.9,80.6,4,144.4"></path>
+                    <path class="path cross-path-2" d="M14.1,27.6c204.5,20.3,393.8,74,467.3,111.7"></path>
+                </svg>
+            </span>
+            <span>টাকা।</span>
+        </div>
+        <div class="headline">
+            <span>অফার মূল্য</span>
+            <span class="dynamic-wrapper">
+                <span>৯৯০/</span>
+                <svg class="animated-svg underline-svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 150"
+                    preserveAspectRatio="none">
+                    <path class="path" d="M7.7,145.6C109,125,299.9,116.2,401,121.3c42.1,2.2,87.6,11.8,87.3,25.7"></path>
+                </svg>
+            </span>
+            <span>টাকা।</span>
+        </div>
     </div>
 
     <!-- ── Order CTA ── -->
