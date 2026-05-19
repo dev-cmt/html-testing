@@ -1,0 +1,1696 @@
+<!DOCTYPE html>
+<html lang="bn">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>তাজা রাজশাহী আম – FreshBD</title>
+    <meta name="description"
+        content="রাজশাহীর সেরা তাজা হিমসাগর ও ল্যাংড়া আম। সরাসরি বাগান থেকে আপনার দরজায়। Cash on Delivery।" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@400;500;600;700&family=DM+Serif+Display:ital@0;1&display=swap"
+        rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+    <style>
+        :root {
+            --cp: #D4860A;
+            --cd: #1C1C1C;
+            --cg: #2A6B35;
+            --cbg: #FAFAF8;
+            --cs: #FFFFFF;
+            --cb: #E8E3D8;
+            --ct: #3A3A3A;
+            --cm: #7A7A72;
+            --ca: #FDF6E8;
+            --cu: #C0392B;
+            --r: 14px;
+            --ssm: 0 2px 12px rgba(0, 0, 0, .06);
+            --smd: 0 6px 28px rgba(0, 0, 0, .10);
+            --slg: 0 16px 48px rgba(0, 0, 0, .13);
+            --tr: all .22s ease;
+        }
+
+        *,
+        *::before,
+        *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0
+        }
+
+        html {
+            scroll-behavior: smooth
+        }
+
+        body {
+            font-family: 'Hind Siliguri', sans-serif;
+            background: var(--cbg);
+            color: var(--ct);
+            font-size: 15px;
+            line-height: 1.65;
+            -webkit-font-smoothing: antialiased
+        }
+
+        /* TOPBAR */
+        .topbar {
+            background: var(--cg);
+            color: rgba(255, 255, 255, .92);
+            text-align: center;
+            font-size: .78rem;
+            font-weight: 500;
+            padding: 8px 12px;
+            letter-spacing: .2px
+        }
+
+        .topbar span {
+            margin: 0 12px
+        }
+
+        /* NAV */
+        .site-nav {
+            position: sticky;
+            top: 0;
+            z-index: 999;
+            background: rgba(255, 255, 255, .96);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid var(--cb)
+        }
+
+        .nav-inner {
+            max-width: 1140px;
+            margin: 0 auto;
+            padding: 14px 24px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 12px
+        }
+
+        .brand {
+            font-family: 'DM Serif Display', serif;
+            font-size: 1.55rem;
+            color: var(--cd);
+            text-decoration: none;
+            letter-spacing: -.3px
+        }
+
+        .brand em {
+            color: var(--cp);
+            font-style: normal
+        }
+
+        .nav-right {
+            display: flex;
+            align-items: center;
+            gap: 14px
+        }
+
+        .nav-phone {
+            font-size: .85rem;
+            font-weight: 600;
+            color: var(--cg);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 6px
+        }
+
+        .btn-nav {
+            background: var(--cp);
+            color: #fff;
+            font-weight: 700;
+            font-size: .88rem;
+            padding: 9px 20px;
+            border-radius: 50px;
+            text-decoration: none;
+            border: none;
+            cursor: pointer;
+            transition: var(--tr);
+            box-shadow: 0 4px 16px rgba(212, 134, 10, .35)
+        }
+
+        .btn-nav:hover {
+            background: #b8720a;
+            color: #fff;
+            transform: translateY(-1px)
+        }
+
+        /* HERO */
+        .hero {
+            background: var(--cs);
+            overflow: hidden
+        }
+
+        .hero-grid {
+            max-width: 1140px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            align-items: stretch;
+            min-height: 560px
+        }
+
+        .hero-content {
+            padding: 60px 48px 60px 24px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center
+        }
+
+        .hero-label {
+            display: inline-flex;
+            align-items: center;
+            gap: 7px;
+            background: var(--ca);
+            border: 1px solid #e8d9b0;
+            color: var(--cp);
+            font-size: .78rem;
+            font-weight: 700;
+            padding: 5px 13px;
+            border-radius: 50px;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+            letter-spacing: .5px
+        }
+
+        .hero-title {
+            font-family: 'DM Serif Display', serif;
+            font-size: clamp(2rem, 3.5vw, 3rem);
+            color: var(--cd);
+            line-height: 1.18;
+            margin-bottom: 14px
+        }
+
+        .hero-title span {
+            color: var(--cp)
+        }
+
+        .hero-sub {
+            color: var(--cm);
+            font-size: .98rem;
+            margin-bottom: 28px;
+            max-width: 420px
+        }
+
+        .hero-price {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            margin-bottom: 30px
+        }
+
+        .price-old {
+            font-size: .9rem;
+            text-decoration: line-through;
+            color: #bbb
+        }
+
+        .price-now {
+            font-size: 2.2rem;
+            font-weight: 700;
+            color: var(--cd);
+            line-height: 1
+        }
+
+        .price-now sub {
+            font-size: .9rem;
+            font-weight: 500;
+            color: var(--cm)
+        }
+
+        .badge-save {
+            background: var(--cu);
+            color: #fff;
+            font-size: .73rem;
+            font-weight: 700;
+            padding: 4px 10px;
+            border-radius: 6px
+        }
+
+        .hero-ctas {
+            display: flex;
+            gap: 12px;
+            flex-wrap: wrap;
+            margin-bottom: 24px
+        }
+
+        .btn-p {
+            background: var(--cp);
+            color: #fff;
+            font-weight: 700;
+            font-size: 1rem;
+            padding: 13px 30px;
+            border-radius: 50px;
+            text-decoration: none;
+            border: none;
+            cursor: pointer;
+            box-shadow: 0 6px 20px rgba(212, 134, 10, .4);
+            transition: var(--tr);
+            display: inline-flex;
+            align-items: center;
+            gap: 8px
+        }
+
+        .btn-p:hover {
+            background: #b8720a;
+            color: #fff;
+            transform: translateY(-2px)
+        }
+
+        .btn-wa {
+            background: #25D366;
+            color: #fff;
+            font-weight: 700;
+            font-size: 1rem;
+            padding: 13px 22px;
+            border-radius: 50px;
+            text-decoration: none;
+            box-shadow: 0 6px 18px rgba(37, 211, 102, .35);
+            transition: var(--tr);
+            display: inline-flex;
+            align-items: center;
+            gap: 8px
+        }
+
+        .btn-wa:hover {
+            background: #1fb855;
+            color: #fff;
+            transform: translateY(-2px)
+        }
+
+        .hero-trust {
+            display: flex;
+            gap: 18px;
+            flex-wrap: wrap
+        }
+
+        .ht-item {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            font-size: .82rem;
+            color: var(--cm)
+        }
+
+        .ht-item i {
+            color: var(--cg)
+        }
+
+        .hero-img-side {
+            position: relative;
+            overflow: hidden
+        }
+
+        .hero-img-side img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            min-height: 460px;
+            display: block
+        }
+
+        .hero-badge-float {
+            position: absolute;
+            bottom: 24px;
+            left: 24px;
+            background: rgba(255, 255, 255, .95);
+            backdrop-filter: blur(8px);
+            border-radius: 12px;
+            padding: 12px 16px;
+            box-shadow: var(--smd);
+            display: flex;
+            align-items: center;
+            gap: 10px
+        }
+
+        .hbf-icon {
+            width: 38px;
+            height: 38px;
+            background: var(--cg);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #fff;
+            font-size: 1rem
+        }
+
+        .hbf-icon-text strong {
+            display: block;
+            font-size: .88rem;
+            color: var(--cd)
+        }
+
+        .hbf-icon-text span {
+            font-size: .75rem;
+            color: var(--cm)
+        }
+
+        /* URGENCY */
+        .urgency {
+            background: var(--cu);
+            color: #fff;
+            text-align: center;
+            padding: 11px 16px;
+            font-size: .88rem;
+            font-weight: 600
+        }
+
+        .u-bar {
+            display: inline-block;
+            width: 110px;
+            height: 7px;
+            background: rgba(255, 255, 255, .28);
+            border-radius: 10px;
+            overflow: hidden;
+            vertical-align: middle;
+            margin: 0 6px
+        }
+
+        .u-fill {
+            background: #fff;
+            height: 100%;
+            width: 68%;
+            border-radius: 10px
+        }
+
+        /* SECTIONS */
+        .sec {
+            padding: 72px 0
+        }
+
+        .sec-alt {
+            background: var(--cs)
+        }
+
+        .ctr {
+            max-width: 1080px;
+            margin: 0 auto;
+            padding: 0 24px
+        }
+
+        .eyebrow {
+            font-size: .77rem;
+            font-weight: 700;
+            letter-spacing: 1.2px;
+            text-transform: uppercase;
+            color: var(--cp);
+            margin-bottom: 8px
+        }
+
+        .stitle {
+            font-family: 'DM Serif Display', serif;
+            font-size: clamp(1.7rem, 3vw, 2.3rem);
+            color: var(--cd);
+            line-height: 1.2;
+            margin-bottom: 10px
+        }
+
+        .sdesc {
+            color: var(--cm);
+            font-size: .95rem;
+            max-width: 540px
+        }
+
+        /* GALLERY */
+        .gallery {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr;
+            grid-template-rows: auto auto;
+            gap: 10px;
+            margin-top: 32px
+        }
+
+        .gallery img {
+            width: 100%;
+            border-radius: 12px;
+            object-fit: cover;
+            height: 200px;
+            display: block;
+            transition: transform .3s
+        }
+
+        .gallery img:first-child {
+            grid-row: span 2;
+            height: 100%;
+            min-height: 300px
+        }
+
+        .gallery img:hover {
+            transform: scale(1.025)
+        }
+
+        /* PRODUCT CARDS */
+        .prod-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 18px;
+            margin-top: 32px
+        }
+
+        .prod-card {
+            background: var(--cs);
+            border: 2px solid var(--cb);
+            border-radius: var(--r);
+            overflow: hidden;
+            cursor: pointer;
+            transition: var(--tr);
+            position: relative
+        }
+
+        .prod-card:hover {
+            border-color: var(--cp);
+            box-shadow: var(--smd);
+            transform: translateY(-3px)
+        }
+
+        .prod-card.selected {
+            border-color: var(--cp);
+            box-shadow: 0 0 0 4px rgba(212, 134, 10, .14), var(--smd)
+        }
+
+        .prod-card.selected .chk {
+            opacity: 1;
+            transform: scale(1)
+        }
+
+        .chk {
+            position: absolute;
+            top: 12px;
+            right: 12px;
+            width: 28px;
+            height: 28px;
+            background: var(--cp);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #fff;
+            font-size: .8rem;
+            opacity: 0;
+            transform: scale(.5);
+            transition: var(--tr)
+        }
+
+        .prod-card img {
+            width: 100%;
+            height: 178px;
+            object-fit: cover;
+            display: block
+        }
+
+        .pop-badge {
+            position: absolute;
+            top: 12px;
+            left: 12px;
+            background: var(--cu);
+            color: #fff;
+            font-size: .7rem;
+            font-weight: 700;
+            padding: 3px 9px;
+            border-radius: 6px;
+            text-transform: uppercase
+        }
+
+        .pc-body {
+            padding: 16px
+        }
+
+        .pc-var {
+            font-size: .73rem;
+            font-weight: 700;
+            color: var(--cp);
+            text-transform: uppercase;
+            letter-spacing: .5px;
+            margin-bottom: 3px
+        }
+
+        .pc-name {
+            font-weight: 700;
+            font-size: 1.03rem;
+            color: var(--cd);
+            margin-bottom: 3px
+        }
+
+        .pc-qty {
+            font-size: .81rem;
+            color: var(--cm);
+            margin-bottom: 12px
+        }
+
+        .pc-price {
+            display: flex;
+            align-items: baseline;
+            gap: 8px
+        }
+
+        .pc-price .pnew {
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: var(--cd)
+        }
+
+        .pc-price .pold {
+            font-size: .82rem;
+            text-decoration: line-through;
+            color: #bbb
+        }
+
+        .pc-price .psave {
+            margin-left: auto;
+            background: #e8f5e9;
+            color: var(--cg);
+            font-size: .71rem;
+            font-weight: 700;
+            padding: 2px 7px;
+            border-radius: 5px
+        }
+
+        .sel-hint {
+            text-align: center;
+            margin-top: 14px;
+            font-size: .83rem;
+            color: var(--cm)
+        }
+
+        .sel-hint i {
+            color: var(--cp)
+        }
+
+        /* ORDER FORM */
+        .order-sec {
+            background: var(--ca);
+            border-top: 1px solid #e8d9b0;
+            border-bottom: 1px solid #e8d9b0
+        }
+
+        .order-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 48px;
+            align-items: start
+        }
+
+        .order-sel {
+            background: var(--cs);
+            border: 2px solid var(--cp);
+            border-radius: var(--r);
+            padding: 18px 20px;
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            margin-top: 22px
+        }
+
+        .order-sel .oimg {
+            width: 68px;
+            height: 68px;
+            border-radius: 10px;
+            overflow: hidden;
+            flex-shrink: 0
+        }
+
+        .order-sel .oimg img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover
+        }
+
+        .oname {
+            font-weight: 700;
+            color: var(--cd);
+            font-size: .97rem
+        }
+
+        .oqty {
+            font-size: .81rem;
+            color: var(--cm)
+        }
+
+        .oprice {
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: var(--cp);
+            white-space: nowrap
+        }
+
+        .order-empty {
+            background: var(--cs);
+            border: 2px dashed var(--cb);
+            border-radius: var(--r);
+            padding: 28px;
+            text-align: center;
+            color: var(--cm);
+            font-size: .88rem;
+            margin-top: 22px
+        }
+
+        .order-empty i {
+            font-size: 1.8rem;
+            margin-bottom: 8px;
+            opacity: .32;
+            display: block
+        }
+
+        .trust-list {
+            margin-top: 26px;
+            display: flex;
+            flex-direction: column;
+            gap: 10px
+        }
+
+        .tl-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: .87rem;
+            color: var(--cm)
+        }
+
+        .tl-icon {
+            width: 32px;
+            height: 32px;
+            background: var(--cs);
+            border: 1px solid var(--cb);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            font-size: .95rem
+        }
+
+        .form-box {
+            background: var(--cs);
+            border: 1px solid var(--cb);
+            border-radius: var(--r);
+            padding: 28px;
+            box-shadow: var(--ssm)
+        }
+
+        .ftitle {
+            font-family: 'DM Serif Display', serif;
+            font-size: 1.4rem;
+            color: var(--cd);
+            margin-bottom: 20px
+        }
+
+        .fg {
+            margin-bottom: 14px
+        }
+
+        .fl {
+            display: block;
+            font-size: .81rem;
+            font-weight: 600;
+            color: var(--cd);
+            margin-bottom: 5px
+        }
+
+        .fc {
+            width: 100%;
+            padding: 10px 13px;
+            border: 1.5px solid var(--cb);
+            border-radius: 10px;
+            font-size: .9rem;
+            font-family: 'Hind Siliguri', sans-serif;
+            color: var(--cd);
+            background: #fff;
+            transition: border-color .18s
+        }
+
+        .fc:focus {
+            outline: none;
+            border-color: var(--cp);
+            box-shadow: 0 0 0 3px rgba(212, 134, 10, .12)
+        }
+
+        textarea.fc {
+            resize: vertical;
+            min-height: 80px
+        }
+
+        .fr {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 12px
+        }
+
+        .qty-wrap {
+            display: flex;
+            align-items: center;
+            border: 1.5px solid var(--cb);
+            border-radius: 10px;
+            overflow: hidden
+        }
+
+        .qty-btn {
+            width: 40px;
+            height: 41px;
+            background: #f5f3ee;
+            border: none;
+            cursor: pointer;
+            font-size: 1.1rem;
+            color: var(--cd);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: background .15s
+        }
+
+        .qty-btn:hover {
+            background: #ede9e0
+        }
+
+        .qty-num {
+            flex: 1;
+            text-align: center;
+            font-weight: 700;
+            font-size: .95rem;
+            color: var(--cd)
+        }
+
+        .pkg-disp {
+            background: var(--ca);
+            border: 1.5px solid #e0d0a8;
+            border-radius: 10px;
+            padding: 10px 13px;
+            font-size: .88rem;
+            color: var(--cm);
+            font-style: italic
+        }
+
+        .pkg-disp.set {
+            color: var(--cd);
+            font-style: normal;
+            font-weight: 600;
+            background: #fff;
+            border-color: var(--cp)
+        }
+
+        .btn-sub {
+            width: 100%;
+            background: var(--cp);
+            color: #fff;
+            font-weight: 700;
+            font-size: 1.05rem;
+            padding: 14px;
+            border-radius: 12px;
+            border: none;
+            cursor: pointer;
+            margin-top: 6px;
+            box-shadow: 0 6px 20px rgba(212, 134, 10, .38);
+            transition: var(--tr);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px
+        }
+
+        .btn-sub:hover {
+            background: #b8720a;
+            transform: translateY(-1px)
+        }
+
+        .fnote {
+            text-align: center;
+            font-size: .77rem;
+            color: var(--cm);
+            margin-top: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 5px
+        }
+
+        .fnote i {
+            color: var(--cg)
+        }
+
+        /* VIDEO */
+        .vid-sec {
+            background: var(--cd);
+            padding: 72px 0
+        }
+
+        .vid-wrap {
+            position: relative;
+            border-radius: 18px;
+            overflow: hidden;
+            box-shadow: var(--slg);
+            aspect-ratio: 16/9;
+            background: #111
+        }
+
+        .vid-wrap iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+            display: block
+        }
+
+        /* BENEFITS */
+        .ben-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 16px;
+            margin-top: 32px
+        }
+
+        .ben-card {
+            background: var(--cs);
+            border: 1px solid var(--cb);
+            border-radius: var(--r);
+            padding: 22px;
+            transition: var(--tr)
+        }
+
+        .ben-card:hover {
+            border-color: var(--cp);
+            box-shadow: var(--ssm)
+        }
+
+        .ben-icon {
+            width: 44px;
+            height: 44px;
+            background: var(--ca);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.25rem;
+            margin-bottom: 13px
+        }
+
+        .ben-title {
+            font-weight: 700;
+            font-size: .97rem;
+            color: var(--cd);
+            margin-bottom: 5px
+        }
+
+        .ben-desc {
+            font-size: .84rem;
+            color: var(--cm);
+            line-height: 1.55
+        }
+
+        /* STEPS */
+        .steps {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+            margin-top: 32px;
+            position: relative
+        }
+
+        .steps::before {
+            content: '';
+            position: absolute;
+            top: 27px;
+            left: calc(16.67% + 12px);
+            right: calc(16.67% + 12px);
+            height: 2px;
+            background: var(--cb);
+            z-index: 0
+        }
+
+        .step {
+            text-align: center;
+            position: relative;
+            z-index: 1
+        }
+
+        .s-num {
+            width: 54px;
+            height: 54px;
+            border-radius: 50%;
+            background: var(--cs);
+            border: 2px solid var(--cp);
+            color: var(--cp);
+            font-weight: 700;
+            font-size: 1.1rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 13px;
+            box-shadow: 0 0 0 6px var(--cbg)
+        }
+
+        .s-title {
+            font-weight: 700;
+            font-size: .97rem;
+            color: var(--cd);
+            margin-bottom: 5px
+        }
+
+        .s-desc {
+            font-size: .83rem;
+            color: var(--cm)
+        }
+
+        /* REVIEWS */
+        .rev-top {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            background: var(--ca);
+            border: 1px solid #e8d9b0;
+            border-radius: var(--r);
+            padding: 20px 24px;
+            margin-top: 32px
+        }
+
+        .rev-big {
+            font-family: 'DM Serif Display', serif;
+            font-size: 3.4rem;
+            color: var(--cd);
+            line-height: 1
+        }
+
+        .rev-stars {
+            font-size: 1.1rem;
+            color: #f0ad1e
+        }
+
+        .rev-ct {
+            font-size: .82rem;
+            color: var(--cm)
+        }
+
+        .rev-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
+            gap: 16px;
+            margin-top: 18px
+        }
+
+        .rev-card {
+            background: var(--cs);
+            border: 1px solid var(--cb);
+            border-radius: var(--r);
+            padding: 20px
+        }
+
+        .rev-card .stars {
+            color: #f0ad1e;
+            font-size: .88rem;
+            margin-bottom: 10px
+        }
+
+        .rev-text {
+            font-size: .88rem;
+            color: var(--ct);
+            line-height: 1.65;
+            margin-bottom: 14px
+        }
+
+        .reviewer {
+            display: flex;
+            align-items: center;
+            gap: 10px
+        }
+
+        .rav {
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            background: var(--cp);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #fff;
+            font-weight: 700;
+            font-size: .9rem;
+            flex-shrink: 0
+        }
+
+        .rname {
+            font-weight: 700;
+            font-size: .87rem;
+            color: var(--cd)
+        }
+
+        .rloc {
+            font-size: .77rem;
+            color: var(--cm)
+        }
+
+        /* FAQ */
+        .faq-list {
+            margin-top: 30px
+        }
+
+        .faq-item {
+            border: 1px solid var(--cb);
+            border-radius: 12px;
+            overflow: hidden;
+            margin-bottom: 9px
+        }
+
+        .faq-q {
+            width: 100%;
+            background: var(--cs);
+            padding: 15px 18px;
+            text-align: left;
+            border: none;
+            cursor: pointer;
+            font-family: 'Hind Siliguri', sans-serif;
+            font-weight: 600;
+            font-size: .92rem;
+            color: var(--cd);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 12px;
+            transition: background .15s
+        }
+
+        .faq-q:hover,
+        .faq-q.open {
+            background: var(--ca)
+        }
+
+        .faq-q.open {
+            color: var(--cp)
+        }
+
+        .faq-q .ico {
+            font-size: .72rem;
+            color: var(--cm);
+            transition: transform .2s;
+            flex-shrink: 0
+        }
+
+        .faq-q.open .ico {
+            transform: rotate(45deg);
+            color: var(--cp)
+        }
+
+        .faq-a {
+            max-height: 0;
+            overflow: hidden;
+            padding: 0 18px;
+            font-size: .87rem;
+            color: var(--cm);
+            line-height: 1.65;
+            transition: max-height .3s ease, padding .3s;
+            background: var(--ca)
+        }
+
+        .faq-a.open {
+            max-height: 200px;
+            padding: 13px 18px
+        }
+
+        /* FINAL CTA */
+        .fcta {
+            background: var(--cg);
+            padding: 72px 0;
+            text-align: center
+        }
+
+        .fcta h2 {
+            font-family: 'DM Serif Display', serif;
+            font-size: clamp(1.8rem, 3vw, 2.8rem);
+            color: #fff;
+            margin-bottom: 10px
+        }
+
+        .fcta p {
+            color: rgba(255, 255, 255, .8);
+            font-size: .97rem;
+            margin-bottom: 30px
+        }
+
+        .fcta-btns {
+            display: flex;
+            justify-content: center;
+            gap: 14px;
+            flex-wrap: wrap
+        }
+
+        /* STICKY */
+        .sticky-b {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: #fff;
+            border-top: 1px solid var(--cb);
+            padding: 10px 16px;
+            display: flex;
+            gap: 10px;
+            z-index: 9999;
+            box-shadow: 0 -4px 20px rgba(0, 0, 0, .1)
+        }
+
+        .sticky-b .sbo {
+            flex: 1;
+            background: var(--cp);
+            color: #fff;
+            font-weight: 700;
+            font-size: .93rem;
+            padding: 12px;
+            border-radius: 10px;
+            text-align: center;
+            text-decoration: none;
+            box-shadow: 0 4px 14px rgba(212, 134, 10, .35)
+        }
+
+        .sticky-b .sbw {
+            background: #25D366;
+            color: #fff;
+            width: 48px;
+            height: 48px;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.25rem;
+            text-decoration: none;
+            flex-shrink: 0
+        }
+
+        /* FOOTER */
+        .footer {
+            background: var(--cd);
+            color: #888;
+            text-align: center;
+            padding: 26px 16px 80px;
+            font-size: .81rem
+        }
+
+        .footer a {
+            color: #aaa;
+            text-decoration: none
+        }
+
+        .footer a:hover {
+            color: var(--cp)
+        }
+
+        /* RESPONSIVE */
+        @media(max-width:900px) {
+            .hero-grid {
+                grid-template-columns: 1fr
+            }
+
+            .hero-content {
+                padding: 36px 20px 28px
+            }
+
+            .hero-img-side img {
+                min-height: 260px
+            }
+
+            .order-grid {
+                grid-template-columns: 1fr;
+                gap: 24px
+            }
+
+            .gallery {
+                grid-template-columns: 1fr 1fr
+            }
+
+            .gallery img:first-child {
+                grid-row: span 1;
+                height: 200px
+            }
+
+            .steps {
+                grid-template-columns: 1fr;
+                gap: 14px
+            }
+
+            .steps::before {
+                display: none
+            }
+
+            .step {
+                display: flex;
+                align-items: flex-start;
+                gap: 14px;
+                text-align: left
+            }
+
+            .s-num {
+                margin: 0;
+                flex-shrink: 0
+            }
+        }
+
+        @media(min-width:992px) {
+            .sticky-b {
+                display: none
+            }
+        }
+
+        @media(max-width:576px) {
+            .fr {
+                grid-template-columns: 1fr
+            }
+
+            .gallery {
+                grid-template-columns: 1fr
+            }
+
+            .hero-ctas {
+                flex-direction: column
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="topbar">
+        <span>🚚 সারাদেশে ডেলিভারি</span>
+        <span>💰 Cash on Delivery</span>
+        <span>🌿 কেমিক্যাল মুক্ত · প্রাকৃতিকভাবে পাকানো</span>
+    </div>
+
+    <header class="site-nav">
+        <div class="nav-inner">
+            <a href="#" class="brand">Fresh<em>BD</em></a>
+            <div class="nav-right">
+                <a href="tel:01700000000" class="nav-phone d-none d-md-flex"><i class="fas fa-phone-alt"></i>
+                    01700-000000</a>
+                <a href="#order-sec" class="btn-nav">অর্ডার করুন</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- HERO -->
+    <section class="hero">
+        <div class="hero-grid">
+            <div class="hero-content">
+                <div class="hero-label"><i class="fas fa-circle" style="font-size:.4rem;color:#5cb85c;"></i> সিজনাল
+                    স্পেশাল ·
+                    সীমিত স্টক</div>
+                <h1 class="hero-title">রাজশাহীর সেরা<br /><span>হিমসাগর আম</span><br />এখন আপনার দরজায়</h1>
+                <p class="hero-sub">গাছে পাকানো, রাসায়নিক মুক্ত আম। সরাসরি রাজশাহীর বাগান থেকে। আজ অর্ডার করুন, কাল
+                    পাবেন।</p>
+                <div class="hero-price">
+                    <div>
+                        <div class="price-old">৳ ৩,০০০/মণ</div>
+                        <div class="price-now">৳ ২,৪০০ <sub>/মণ</sub></div>
+                    </div>
+                    <div class="badge-save">২০% ছাড়</div>
+                </div>
+                <div class="hero-ctas">
+                    <a href="#products" class="btn-p"><i class="fas fa-box-open"></i> প্যাকেজ দেখুন</a>
+                    <a href="https://wa.me/8801700000000?text=আম অর্ডার করতে চাই" target="_blank" class="btn-wa"><i
+                            class="fab fa-whatsapp"></i> WhatsApp</a>
+                </div>
+                <div class="hero-trust">
+                    <div class="ht-item"><i class="fas fa-shield-alt"></i> Cash on Delivery</div>
+                    <div class="ht-item"><i class="fas fa-undo"></i> রিটার্ন গ্যারান্টি</div>
+                    <div class="ht-item"><i class="fas fa-leaf"></i> কেমিক্যাল মুক্ত</div>
+                </div>
+            </div>
+            <div class="hero-img-side">
+                <img src="https://images.unsplash.com/photo-1601493700631-2b16ec4b4716?w=900&auto=format&fit=crop&q=80"
+                    alt="তাজা রাজশাহী আম" />
+                <div class="hero-badge-float">
+                    <div class="hbf-icon"><i class="fas fa-star"></i></div>
+                    <div class="hbf-icon-text"><strong>৪.৮ / ৫ রেটিং</strong><span>৫০০০+ সন্তুষ্ট গ্রাহক</span></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="urgency">
+        <i class="fas fa-fire-alt"></i> মাত্র <strong>১৮৪ মণ</strong> স্টক বাকি!
+        <span class="u-bar"><span class="u-fill"></span></span> ৬৮% বিক্রি হয়ে গেছে — আজই অর্ডার দিন!
+    </div>
+
+    <!-- GALLERY -->
+    <section class="sec sec-alt">
+        <div class="ctr">
+            <div class="eyebrow">আমাদের বাগান থেকে</div>
+            <h2 class="stitle">সরাসরি দেখুন, তারপর কিনুন</h2>
+            <div class="gallery">
+                <img src="https://images.unsplash.com/photo-1553279768-865429fa0078?w=700&auto=format&fit=crop&q=80"
+                    alt="আম বাগান" />
+                <img src="https://images.unsplash.com/photo-1590005354167-6da97870c757?w=500&auto=format&fit=crop&q=80"
+                    alt="তাজা আম" />
+                <img src="https://images.unsplash.com/photo-1627911803109-77191e5b1254?w=500&auto=format&fit=crop&q=80"
+                    alt="কাটা আম" />
+                <img src="https://images.unsplash.com/photo-1519996529931-28324d5a630e?w=500&auto=format&fit=crop&q=80"
+                    alt="আম সংগ্রহ" />
+                <img src="https://images.unsplash.com/photo-1571771894821-ce9b6c11b08e?w=500&auto=format&fit=crop&q=80"
+                    alt="প্যাকেজিং" />
+            </div>
+        </div>
+    </section>
+
+    <!-- PRODUCT CARDS -->
+    <section class="sec" id="products">
+        <div class="ctr">
+            <div class="eyebrow">প্যাকেজ বেছে নিন</div>
+            <h2 class="stitle">আপনার পছন্দ অনুযায়ী প্যাকেজ সিলেক্ট করুন</h2>
+            <p class="sdesc">কার্ডে ক্লিক করুন — স্বয়ংক্রিয়ভাবে নিচের অর্ডার ফর্মে চলে যাবে।</p>
+            <div class="prod-grid">
+                <div class="prod-card" data-name="হিমসাগর আম – ৫ কেজি" data-price="৳ ৪৫০"
+                    data-img="https://images.unsplash.com/photo-1601493700631-2b16ec4b4716?w=200&auto=format&fit=crop">
+                    <img src="https://images.unsplash.com/photo-1601493700631-2b16ec4b4716?w=600&auto=format&fit=crop&q=80"
+                        alt="হিমসাগর আম" />
+                    <div class="chk"><i class="fas fa-check"></i></div>
+                    <div class="pc-body">
+                        <div class="pc-var">হিমসাগর</div>
+                        <div class="pc-name">হিমসাগর আম</div>
+                        <div class="pc-qty">৫ কেজি প্যাক · প্রায় ৩০–৩৫টি আম</div>
+                        <div class="pc-price"><span class="pnew">৳ ৪৫০</span><span class="pold">৳ ৫৫০</span><span
+                                class="psave">১৮%
+                                ছাড়</span></div>
+                    </div>
+                </div>
+                <div class="prod-card" data-name="হিমসাগর + ল্যাংড়া মিক্স – ১০ কেজি" data-price="৳ ৮৫০"
+                    data-img="https://images.unsplash.com/photo-1553279768-865429fa0078?w=200&auto=format&fit=crop">
+                    <img src="https://images.unsplash.com/photo-1553279768-865429fa0078?w=600&auto=format&fit=crop&q=80"
+                        alt="মিক্স আম" />
+                    <div class="pop-badge">সবচেয়ে জনপ্রিয়</div>
+                    <div class="chk"><i class="fas fa-check"></i></div>
+                    <div class="pc-body">
+                        <div class="pc-var">মিক্স প্যাক</div>
+                        <div class="pc-name">হিমসাগর + ল্যাংড়া</div>
+                        <div class="pc-qty">১০ কেজি (৫+৫) · প্রায় ৬৫–৭০টি আম</div>
+                        <div class="pc-price"><span class="pnew">৳ ৮৫০</span><span class="pold">৳ ১,১০০</span><span
+                                class="psave">২৩% ছাড়</span></div>
+                    </div>
+                </div>
+                <div class="prod-card" data-name="ফ্যামিলি প্যাক – ১ মণ (৪০ কেজি)" data-price="৳ ২,৪০০"
+                    data-img="https://images.unsplash.com/photo-1590005354167-6da97870c757?w=200&auto=format&fit=crop">
+                    <img src="https://images.unsplash.com/photo-1590005354167-6da97870c757?w=600&auto=format&fit=crop&q=80"
+                        alt="ফ্যামিলি প্যাক" />
+                    <div class="chk"><i class="fas fa-check"></i></div>
+                    <div class="pc-body">
+                        <div class="pc-var">ফ্যামিলি প্যাক</div>
+                        <div class="pc-name">বাগানের সেরা মিক্স</div>
+                        <div class="pc-qty">১ মণ = ৪০ কেজি · পরিবারের জন্য সেরা</div>
+                        <div class="pc-price"><span class="pnew">৳ ২,৪০০</span><span class="pold">৳ ৩,০০০</span><span
+                                class="psave">২০% ছাড়</span></div>
+                    </div>
+                </div>
+            </div>
+            <p class="sel-hint"><i class="fas fa-hand-pointer"></i> কার্ডে ক্লিক করুন → নিচের ফর্মে প্যাকেজ সেট হয়ে
+                যাবে এবং
+                পেজ স্ক্রল করবে</p>
+        </div>
+    </section>
+
+    <!-- VIDEO -->
+    <section class="vid-sec">
+        <div class="ctr">
+            <div style="text-align:center;margin-bottom:30px;">
+                <div class="eyebrow" style="color:rgba(255,255,255,.5)">আমাদের বাগান</div>
+                <h2 class="stitle" style="color:#fff">দেখুন কীভাবে আম সংগ্রহ করা হয়</h2>
+                <p style="color:rgba(255,255,255,.6);font-size:.93rem;max-width:480px;margin:0 auto">রাজশাহীর বাগান থেকে
+                    আপনার
+                    দরজা পর্যন্ত — পুরো যাত্রাটা দেখুন।</p>
+            </div>
+            <div class="vid-wrap">
+                <!-- আপনার নিজের ভিডিওর YouTube ID দিয়ে hLQl3WQQoQ0 রিপ্লেস করুন -->
+                <iframe src="https://www.youtube.com/embed/hLQl3WQQoQ0?rel=0&modestbranding=1" title="রাজশাহীর আম বাগান"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowfullscreen></iframe>
+            </div>
+        </div>
+    </section>
+
+    <!-- BENEFITS -->
+    <section class="sec sec-alt">
+        <div class="ctr">
+            <div class="eyebrow">কেন FreshBD?</div>
+            <h2 class="stitle">আমাদের আম কেন আলাদা</h2>
+            <div class="ben-grid">
+                <div class="ben-card">
+                    <div class="ben-icon">🌿</div>
+                    <div class="ben-title">কেমিক্যাল মুক্ত</div>
+                    <div class="ben-desc">ক্যালসিয়াম কার্বাইড বা কৃত্রিম রং নেই। সম্পূর্ণ গাছেই পাকানো।</div>
+                </div>
+                <div class="ben-card">
+                    <div class="ben-icon">🚜</div>
+                    <div class="ben-title">সরাসরি বাগান থেকে</div>
+                    <div class="ben-desc">রাজশাহী ও চাঁপাইনবাবগঞ্জের নির্বাচিত বাগানিদের সাথে সরাসরি চুক্তি।</div>
+                </div>
+                <div class="ben-card">
+                    <div class="ben-icon">📦</div>
+                    <div class="ben-title">নিরাপদ প্যাকেজিং</div>
+                    <div class="ben-desc">প্রতিটি আম ফোম নেটে মোড়ানো। ডেলিভারিতে কোনো আম ক্ষতিগ্রস্ত হবে না।</div>
+                </div>
+                <div class="ben-card">
+                    <div class="ben-icon">🚚</div>
+                    <div class="ben-title">দ্রুত ডেলিভারি</div>
+                    <div class="ben-desc">ঢাকায় ২৪ ঘণ্টায়, সারাদেশে ৭২ ঘণ্টার মধ্যে পৌঁছে যাবে।</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- REVIEWS -->
+    <section class="sec sec-alt">
+        <div class="ctr">
+            <div class="eyebrow">গ্রাহক রিভিউ</div>
+            <h2 class="stitle">তারা বলেছেন</h2>
+            <div class="rev-top">
+                <div class="rev-big">৪.৮</div>
+                <div>
+                    <div class="rev-stars">★★★★★</div>
+                    <div style="font-size:.88rem;color:var(--cd);font-weight:600;">৫,০০০+ যাচাইকৃত অর্ডার</div>
+                    <div class="rev-ct">রাজশাহী আম ডেলিভারি সার্ভিস</div>
+                </div>
+            </div>
+            <div class="rev-grid">
+                <div class="rev-card">
+                    <div class="stars">★★★★★</div>
+                    <p class="rev-text">সত্যিই অসাধারণ আম! বাজারের আমের সাথে রাত-দিন পার্থক্য। মিষ্টি, রসালো, একদম তাজা।
+                    </p>
+                    <div class="reviewer">
+                        <div class="rav">ক</div>
+                        <div>
+                            <div class="rname">করিম সাহেব</div>
+                            <div class="rloc">মিরপুর, ঢাকা</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="rev-card">
+                    <div class="stars">★★★★★</div>
+                    <p class="rev-text">অর্ডারের পরদিনই পেয়ে গেলাম। প্যাকেজিং দারুণ, একটাও দাগ ছিল না। COD বলে
+                        নিশ্চিন্তে অর্ডার
+                        দিয়েছিলাম।</p>
+                    <div class="reviewer">
+                        <div class="rav" style="background:#e85d75;">ন</div>
+                        <div>
+                            <div class="rname">নাসরিন আক্তার</div>
+                            <div class="rloc">মতিঝিল, ঢাকা</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="rev-card">
+                    <div class="stars">★★★★☆</div>
+                    <p class="rev-text">রাজশাহীর আসল হিমসাগরের স্বাদ পাচ্ছিলাম না ঢাকায়। এবার সত্যিকারের স্বাদ পেলাম।
+                    </p>
+                    <div class="reviewer">
+                        <div class="rav" style="background:#2a8a50;">র</div>
+                        <div>
+                            <div class="rname">রহিম ভাই</div>
+                            <div class="rloc">চট্টগ্রাম</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="sec">
+        <div class="ctr">
+            <div class="eyebrow">সাধারণ প্রশ্ন</div>
+            <h2 class="stitle">জিজ্ঞাসা</h2>
+            <div class="faq-list" style="max-width:700px">
+                <div class="faq-item"><button class="faq-q" onclick="tFaq(this)">ডেলিভারি কতদিনে পাব? <i
+                            class="fas fa-plus ico"></i></button>
+                    <div class="faq-a">ঢাকায় ২৪ ঘণ্টার মধ্যে, চট্টগ্রাম ও সিলেটে ৪৮ ঘণ্টায়, বাকি সব জেলায় ৪৮–৭২
+                        ঘণ্টার মধ্যে
+                        ডেলিভারি দেওয়া হয়।</div>
+                </div>
+                <div class="faq-item"><button class="faq-q" onclick="tFaq(this)">পেমেন্ট কীভাবে করব? <i
+                            class="fas fa-plus ico"></i></button>
+                    <div class="faq-a">সম্পূর্ণ Cash on Delivery (COD)। আম পেয়ে নিজে দেখে সন্তুষ্ট হলে তারপর
+                        ডেলিভারিম্যানকে টাকা
+                        দিন। কোনো অ্যাডভান্স পেমেন্ট নেই।</div>
+                </div>
+                <div class="faq-item"><button class="faq-q" onclick="tFaq(this)">আম কি আসলেই কেমিক্যাল মুক্ত? <i
+                            class="fas fa-plus ico"></i></button>
+                    <div class="faq-a">হ্যাঁ, আমাদের সব আম গাছেই স্বাভাবিকভাবে পাকানো। কোনো ক্যালসিয়াম কার্বাইড বা
+                        কৃত্রিম রং
+                        ব্যবহার করা হয় না।</div>
+                </div>
+                <div class="faq-item"><button class="faq-q" onclick="tFaq(this)">আম নষ্ট হলে কী করব? <i
+                            class="fas fa-plus ico"></i></button>
+                    <div class="faq-a">ডেলিভারির সময়ই আম চেক করুন। নষ্ট বা মানহীন হলে সাথে সাথে জানান — সম্পূর্ণ
+                        রিপ্লেস অথবা ফুল
+                        রিফান্ড পাবেন।</div>
+                </div>
+                <div class="faq-item"><button class="faq-q" onclick="tFaq(this)">কোন কোন জেলায় ডেলিভারি হয়? <i
+                            class="fas fa-plus ico"></i></button>
+                    <div class="faq-a">বাংলাদেশের সব জেলায় ডেলিভারি দেওয়া হয়। ঢাকা সিটিতে ফ্রি ডেলিভারি, অন্য জেলায়
+                        ন্যূনতম
+                        ডেলিভারি চার্জ প্রযোজ্য।</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FINAL CTA -->
+    <section class="fcta">
+        <div class="ctr">
+            <h2>স্টক শেষ হওয়ার আগেই অর্ডার দিন</h2>
+            <p>এই মৌসুমের সেরা হিমসাগর আম। সিজন শেষে আর পাওয়া যাবে না।</p>
+            <div class="fcta-btns">
+                <a href="#order-sec" class="btn-p" style="font-size:1.02rem;padding:14px 34px;"><i
+                        class="fas fa-shopping-cart"></i> এখনই অর্ডার করুন</a>
+                <a href="https://wa.me/8801700000000" target="_blank" class="btn-wa"
+                    style="font-size:1.02rem;padding:14px 26px;"><i class="fab fa-whatsapp"></i> WhatsApp অর্ডার</a>
+            </div>
+            <p style="color:rgba(255,255,255,.6);font-size:.84rem;margin-top:18px;">📞 01700-000000 · সকাল ৮টা – রাত
+                ১০টা</p>
+        </div>
+    </section>
+
+
+    <!-- ORDER FORM -->
+    <section class="sec order-sec" id="order-sec">
+        <div class="ctr">
+            <div class="order-grid">
+                <div>
+                    <div class="eyebrow">নির্বাচিত প্যাকেজ</div>
+                    <h2 class="stitle" style="font-size:1.85rem;">আপনার অর্ডার</h2>
+                    <p class="sdesc">উপর থেকে একটি প্যাকেজ সিলেক্ট করুন।</p>
+                    <div class="order-empty" id="emptyState">
+                        <i class="fas fa-box-open"></i>
+                        কোনো প্যাকেজ সিলেক্ট হয়নি।<br />উপরের কার্ড থেকে বেছে নিন।
+                    </div>
+                    <div class="order-sel" id="selCard" style="display:none;">
+                        <div class="oimg"><img id="selImg" src="" alt="" /></div>
+                        <div style="flex:1;min-width:0">
+                            <div class="oname" id="selName">—</div>
+                            <div class="oqty" id="selQty">—</div>
+                        </div>
+                        <div class="oprice" id="selPrice">—</div>
+                    </div>
+                    <div class="trust-list">
+                        <div class="tl-item">
+                            <div class="tl-icon">💰</div> ক্যাশ অন ডেলিভারি — আম পেয়ে টাকা দিন
+                        </div>
+                        <div class="tl-item">
+                            <div class="tl-icon">🚚</div> ঢাকায় ২৪ ঘণ্টায়, সারাদেশে ৭২ ঘণ্টায়
+                        </div>
+                        <div class="tl-item">
+                            <div class="tl-icon">🔄</div> মান সমস্যায় সম্পূর্ণ রিফান্ড বা রিপ্লেস
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <div class="form-box">
+                        <h3 class="ftitle">অর্ডার ফর্ম</h3>
+                        <div class="fr">
+                            <div class="fg"><label class="fl">আপনার নাম *</label><input type="text" class="fc"
+                                    id="fname" placeholder="পূর্ণ নাম" /></div>
+                            <div class="fg"><label class="fl">মোবাইল নম্বর *</label><input type="tel" class="fc"
+                                    id="fphone" placeholder="01XXXXXXXXX" /></div>
+                        </div>
+                        <div class="fg"><label class="fl">ডেলিভারি ঠিকানা *</label><textarea class="fc" id="faddr"
+                                placeholder="বাড়ি নং, রাস্তা, এলাকা, উপজেলা, জেলা..."></textarea></div>
+                        <div class="fg">
+                            <label class="fl">নির্বাচিত প্যাকেজ</label>
+                            <div class="pkg-disp" id="pkgDisp">উপরের কার্ড থেকে প্যাকেজ সিলেক্ট করুন...</div>
+                        </div>
+                        <div class="fg">
+                            <label class="fl">পরিমাণ</label>
+                            <div class="qty-wrap">
+                                <button class="qty-btn" onclick="chQty(-1)">−</button>
+                                <div class="qty-num" id="qtyNum">১</div>
+                                <button class="qty-btn" onclick="chQty(1)">+</button>
+                            </div>
+                        </div>
+                        <div class="fg"><label class="fl">বিশেষ নির্দেশনা (ঐচ্ছিক)</label><input type="text" class="fc"
+                                placeholder="যেমন: পাকা আম চাই, জলদি দরকার..." /></div>
+                        <button class="btn-sub" onclick="submitOrder()"><i class="fas fa-check-circle"></i> অর্ডার
+                            কনফার্ম করুন
+                            (Cash on Delivery)</button>
+                        <p class="fnote"><i class="fas fa-lock"></i> আপনার তথ্য সম্পূর্ণ নিরাপদ · কোনো অ্যাডভান্স
+                            পেমেন্ট নেই</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <footer class="footer">
+        <p>© ২০২৫ FreshBD — তাজা ফল, সরাসরি বাগান থেকে আপনার দরজায়</p>
+        <p style="margin-top:7px"><a href="#">Privacy Policy</a> &nbsp;·&nbsp; <a href="#">Refund Policy</a>
+            &nbsp;·&nbsp;
+            <a href="tel:01700000000">01700-000000</a>
+        </p>
+    </footer>
+
+    <div class="sticky-b">
+        <a href="https://wa.me/8801700000000" target="_blank" class="sbw"><i class="fab fa-whatsapp"></i></a>
+        <a href="#order-sec" class="sbo">🛒 অর্ডার করুন — Cash on Delivery</a>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        let sel = null, qty = 1;
+        document.querySelectorAll('.prod-card').forEach(c => {
+            c.addEventListener('click', () => {
+                document.querySelectorAll('.prod-card').forEach(x => x.classList.remove('selected'));
+                c.classList.add('selected');
+                sel = { name: c.dataset.name, price: c.dataset.price, img: c.dataset.img };
+                updPanel();
+                document.getElementById('order-sec').scrollIntoView({ behavior: 'smooth', block: 'start' });
+            });
+        });
+        function updPanel() {
+            if (!sel) return;
+            document.getElementById('emptyState').style.display = 'none';
+            const sc = document.getElementById('selCard');
+            sc.style.display = 'flex';
+            document.getElementById('selImg').src = sel.img;
+            document.getElementById('selName').textContent = sel.name;
+            document.getElementById('selQty').textContent = qty + ' প্যাকেজ';
+            document.getElementById('selPrice').textContent = sel.price;
+            const pd = document.getElementById('pkgDisp');
+            pd.textContent = sel.name + ' — ' + sel.price;
+            pd.classList.add('set');
+        }
+        function chQty(d) {
+            qty = Math.max(1, qty + d);
+            document.getElementById('qtyNum').textContent = qty;
+            if (sel) document.getElementById('selQty').textContent = qty + ' প্যাকেজ';
+        }
+        function submitOrder() {
+            if (!sel) { alert('অনুগ্রহ করে একটি প্যাকেজ সিলেক্ট করুন।'); document.getElementById('products').scrollIntoView({ behavior: 'smooth' }); return; }
+            const n = document.getElementById('fname').value.trim();
+            const p = document.getElementById('fphone').value.trim();
+            const a = document.getElementById('faddr').value.trim();
+            if (!n || !p || !a) { alert('নাম, ফোন এবং ঠিকানা পূরণ করুন।'); return; }
+            const msg = encodeURIComponent(`🥭 *নতুন আম অর্ডার*\n\n👤 নাম: ${n}\n📞 ফোন: ${p}\n📍 ঠিকানা: ${a}\n📦 প্যাকেজ: ${sel.name}\n💰 মূল্য: ${sel.price}\n🔢 পরিমাণ: ${qty}`);
+            window.open(`https://wa.me/8801700000000?text=${msg}`, '_blank');
+        }
+        function tFaq(b) {
+            const a = b.nextElementSibling, o = a.classList.contains('open');
+            document.querySelectorAll('.faq-a').forEach(x => x.classList.remove('open'));
+            document.querySelectorAll('.faq-q').forEach(x => x.classList.remove('open'));
+            if (!o) { a.classList.add('open'); b.classList.add('open'); }
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,1571 @@
+<!DOCTYPE html>
+<html lang="en" data-kit="stealth">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Velorion Hub — Premium Athletic Kits & Sportswear</title>
+
+    <!-- Bootstrap 5 -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.3/css/bootstrap.min.css" rel="stylesheet" />
+    <!-- Font Awesome 6 -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" rel="stylesheet" />
+    <!-- Google Fonts: Syncopate (aggressive sporty wide headers) & Outfit (premium geometric clean interface & numbers) -->
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Syncopate:wght@700&display=swap" rel="stylesheet" />
+
+    <style>
+        /* ── PREMIUM COLOR SYSTEM & ROOT VARIABLES ─────────────────── */
+        :root {
+            /* Base Theme (Obsidian & Carbon Core) */
+            --bg-dark: #06070a;
+            --bg-deep: #0b0c12;
+            --surface-glass: rgba(16, 18, 26, 0.75);
+            --border-glow: rgba(255, 255, 255, 0.05);
+            --text-primary: #f5f6fa;
+            --text-secondary: #8a91a0;
+            
+            /* Kit Style CSS Customizer Variables (Modified by Swatches) */
+            --kit-body-start: #15161f;
+            --kit-body-end: #08090d;
+            --kit-sleeve-start: #1a1b24;
+            --kit-sleeve-end: #0b0c10;
+            --kit-accent-start: #ccff00;
+            --kit-accent-end: #8ae600;
+            --kit-glow: rgba(204, 255, 0, 0.35);
+            --kit-glow-light: rgba(204, 255, 0, 0.12);
+            --kit-accent-name: "Stealth Volt";
+            --kit-accent-desc: "Uncompromising carbon fabric fused with high-contrast tactical electric volt accents.";
+        }
+
+        /* ── PRESET STYLE THEMES FOR INTERACTIVE CUSTOMIZER ─────────── */
+        [data-kit="stealth"] {
+            --kit-body-start: #15161f;
+            --kit-body-end: #08090d;
+            --kit-sleeve-start: #1a1b24;
+            --kit-sleeve-end: #0b0c10;
+            --kit-accent-start: #ccff00;
+            --kit-accent-end: #8ae600;
+            --kit-glow: rgba(204, 255, 0, 0.4);
+            --kit-glow-light: rgba(204, 255, 0, 0.15);
+            --kit-accent-name: "Stealth Volt Edition";
+            --kit-accent-desc: "Elite carbon-textured matrix fabric paired with extreme-contrast neon volt racing details.";
+        }
+
+        [data-kit="volt"] {
+            --kit-body-start: #0f1325;
+            --kit-body-end: #060912;
+            --kit-sleeve-start: #141a33;
+            --kit-sleeve-end: #0a0e1b;
+            --kit-accent-start: #ff5500;
+            --kit-accent-end: #ff9900;
+            --kit-glow: rgba(255, 85, 0, 0.4);
+            --kit-glow-light: rgba(255, 85, 0, 0.15);
+            --kit-accent-name: "Ignite Orange Edition";
+            --kit-accent-desc: "High-energy combustion aesthetics featuring dual-tone burning solar accents on midnight navy fabric.";
+        }
+
+        [data-kit="royal"] {
+            --kit-body-start: #240a14;
+            --kit-body-end: #0e0408;
+            --kit-sleeve-start: #2f0d1b;
+            --kit-sleeve-end: #14050b;
+            --kit-accent-start: #e6005c;
+            --kit-accent-end: #8a00b3;
+            --kit-glow: rgba(230, 0, 92, 0.4);
+            --kit-glow-light: rgba(230, 0, 92, 0.15);
+            --kit-accent-name: "Crimson Monarch Edition";
+            --kit-accent-desc: "A rich royal tapestry built with deep imperial purples and sleek high-gloss magenta trim.";
+        }
+
+        [data-kit="aurora"] {
+            --kit-body-start: #061922;
+            --kit-body-end: #020b0f;
+            --kit-sleeve-start: #0a2533;
+            --kit-sleeve-end: #030f14;
+            --kit-accent-start: #00f2fe;
+            --kit-accent-end: #4facfe;
+            --kit-glow: rgba(0, 242, 254, 0.4);
+            --kit-glow-light: rgba(0, 242, 254, 0.15);
+            --kit-accent-name: "Aurora Cypher Edition";
+            --kit-accent-desc: "Glacial dynamic colorways with digital neon cyan and arctic blue currents.";
+        }
+
+        /* ── RESET & STRUCTURE ─────────────────────────────────────── */
+        *, *::before, *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background-color: var(--bg-dark);
+            color: var(--text-primary);
+            font-family: 'Outfit', sans-serif;
+            min-height: 100vh;
+            overflow-x: hidden;
+            position: relative;
+        }
+
+        /* ── CYBER ATHLETIC GRID BACKGROUND ────────────────────────── */
+        .bg-layer {
+            position: fixed;
+            inset: 0;
+            z-index: 0;
+            pointer-events: none;
+            overflow: hidden;
+        }
+
+        /* Gradient mesh */
+        .bg-layer::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: 
+                radial-gradient(ellipse 60% 60% at 75% 20%, var(--kit-glow-light) 0%, transparent 60%),
+                radial-gradient(ellipse 50% 50% at 20% 80%, rgba(255, 255, 255, 0.02) 0%, transparent 60%);
+            transition: background 0.8s ease;
+        }
+
+        /* High-tech tactical grid lines */
+        .bg-layer::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background-image: 
+                linear-gradient(rgba(255, 255, 255, 0.012) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(255, 255, 255, 0.012) 1px, transparent 1px);
+            background-size: 50px 50px;
+        }
+
+        /* Ambient glowing orb */
+        .ambient-glow {
+            position: absolute;
+            width: 400px;
+            height: 400px;
+            background: var(--kit-glow);
+            filter: blur(140px);
+            border-radius: 50%;
+            top: 25%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            opacity: 0.12;
+            pointer-events: none;
+            z-index: 0;
+            transition: background 0.8s ease;
+        }
+
+        /* ── DYNAMIC PARTICLE SYSTEM ──────────────────────────────── */
+        .particles-container {
+            position: fixed;
+            inset: 0;
+            z-index: 0;
+            pointer-events: none;
+        }
+
+        .spark {
+            position: absolute;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--kit-accent-start), var(--kit-accent-end));
+            opacity: 0;
+            animation: floatUp var(--dur) ease-in-out infinite;
+            animation-delay: var(--del);
+        }
+
+        @keyframes floatUp {
+            0% {
+                opacity: 0;
+                transform: translateY(110vh) scale(0.2) rotate(0deg);
+            }
+            30% {
+                opacity: 0.7;
+            }
+            80% {
+                opacity: 0.4;
+            }
+            100% {
+                opacity: 0;
+                transform: translateY(-10vh) scale(1) rotate(360deg);
+            }
+        }
+
+        /* ── HERO BRAND CENTERED LOGO ──────────────────────────────── */
+        .brand-logo-section {
+            padding-top: 60px;
+            margin-bottom: 35px;
+            display: flex;
+            justify-content: center;
+            position: relative;
+            z-index: 10;
+        }
+
+        .logo-centered-wrap {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 16px;
+            text-decoration: none;
+            transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+
+        .logo-centered-wrap:hover {
+            transform: scale(1.04);
+        }
+
+        .logo-icon-box-large {
+            position: relative;
+            width: 58px;
+            height: 58px;
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid var(--kit-glow);
+            border-radius: 18px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.35), inset 0 0 10px var(--kit-glow-light);
+            transition: border-color 0.8s ease, box-shadow 0.8s ease;
+        }
+
+        .logo-icon-box-large::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(135deg, var(--kit-accent-start), var(--kit-accent-end));
+            opacity: 0.15;
+            transition: opacity 0.8s ease;
+        }
+
+        .logo-icon-box-large i {
+            font-size: 1.6rem;
+            color: var(--kit-accent-start);
+            z-index: 1;
+            transition: color 0.8s ease, transform 0.3s;
+            animation: pulse-icon 1.5s infinite alternate;
+        }
+
+        @keyframes pulse-icon {
+            0% { transform: scale(0.95); text-shadow: 0 0 5px var(--kit-glow); }
+            100% { transform: scale(1.15); text-shadow: 0 0 15px var(--kit-glow); }
+        }
+
+        .logo-text-large {
+            font-family: 'Syncopate', sans-serif;
+            font-weight: 700;
+            font-size: clamp(1.4rem, 4vw, 2.1rem);
+            letter-spacing: 0.12em;
+            color: var(--text-primary);
+            text-transform: uppercase;
+            line-height: 1;
+            margin: 0;
+        }
+
+        .logo-text-large span {
+            color: var(--kit-accent-start);
+            transition: color 0.8s ease;
+        }
+
+        /* ── HERO & MAIN WRAPPER ──────────────────────────────────── */
+        .content-container {
+            position: relative;
+            z-index: 2;
+            width: 100%;
+            max-width: 1300px;
+            margin: 0 auto;
+            padding: 0 24px 80px;
+        }
+
+        /* Centered launch badge */
+        .launch-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            background: rgba(16, 18, 26, 0.65);
+            border: 1px solid var(--kit-glow);
+            border-radius: 50px;
+            padding: 8px 24px;
+            font-size: 0.78rem;
+            font-weight: 600;
+            color: var(--kit-accent-start);
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            box-shadow: 0 5px 25px rgba(0,0,0,0.18), inset 0 0 8px var(--kit-glow-light);
+            margin: 0 auto 25px;
+            backdrop-filter: blur(8px);
+            transition: border-color 0.8s ease, color 0.8s ease, box-shadow 0.8s ease;
+            animation: fadeInDown 0.6s cubic-bezier(0.16, 1, 0.3, 1) both;
+        }
+
+        .launch-badge .pulsing-dot {
+            width: 8px;
+            height: 8px;
+            background: var(--kit-accent-start);
+            border-radius: 50%;
+            box-shadow: 0 0 10px var(--kit-accent-start);
+            animation: pulse-glow 1.5s infinite alternate;
+            transition: background 0.8s ease, box-shadow 0.8s ease;
+        }
+
+        @keyframes pulse-glow {
+            0% { transform: scale(0.9); opacity: 0.6; }
+            100% { transform: scale(1.3); opacity: 1; }
+        }
+
+        /* Centered Main Heading using Syncopate Wide */
+        .hero-heading {
+            font-family: 'Syncopate', sans-serif;
+            font-size: clamp(1.8rem, 4.2vw, 3.4rem);
+            font-weight: 700;
+            line-height: 1.15;
+            letter-spacing: 0.04em;
+            margin-bottom: 25px;
+            text-transform: uppercase;
+            animation: fadeInUp 0.7s 0.1s cubic-bezier(0.16, 1, 0.3, 1) both;
+        }
+
+        .hero-heading span {
+            display: block;
+            background: linear-gradient(135deg, var(--text-primary) 30%, var(--text-secondary));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .hero-heading em {
+            font-style: normal;
+            background: linear-gradient(135deg, var(--kit-accent-start), var(--kit-accent-end));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-shadow: 0 0 35px var(--kit-glow-light);
+            transition: text-shadow 0.8s ease;
+        }
+
+        .hero-description {
+            font-size: clamp(0.95rem, 2vw, 1.15rem);
+            color: var(--text-secondary);
+            font-weight: 300;
+            max-width: 720px;
+            line-height: 1.65;
+            margin: 0 auto 45px;
+            animation: fadeInUp 0.7s 0.2s cubic-bezier(0.16, 1, 0.3, 1) both;
+        }
+
+        /* ── INTERACTIVE JERSEY CUSTOMIZER (LEFT PANEL) ───────────── */
+        .glass-card-wrapper {
+            background: var(--surface-glass);
+            border: 1px solid var(--border-glow);
+            border-radius: 28px;
+            padding: 40px;
+            backdrop-filter: blur(16px);
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.3);
+            position: relative;
+            overflow: hidden;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            animation: fadeInUp 0.8s 0.3s cubic-bezier(0.16, 1, 0.3, 1) both;
+        }
+
+        .glass-card-wrapper::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.06), transparent);
+        }
+
+        .section-label {
+            font-family: 'Syncopate', sans-serif;
+            font-size: 0.68rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.18em;
+            color: var(--text-secondary);
+            margin-bottom: 25px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .section-label i {
+            color: var(--kit-accent-start);
+            font-size: 0.8rem;
+            transition: color 0.8s ease;
+        }
+
+        /* Customizer Swatches */
+        .swatch-row {
+            display: flex;
+            gap: 12px;
+            margin-top: 30px;
+            justify-content: center;
+        }
+
+        .swatch-btn {
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            border: 2px solid transparent;
+            cursor: pointer;
+            position: relative;
+            background: none;
+            outline: none;
+            transition: transform 0.3s, border-color 0.3s;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+        }
+
+        .swatch-btn::after {
+            content: '';
+            position: absolute;
+            inset: 3px;
+            border-radius: 50%;
+        }
+
+        .swatch-btn:hover {
+            transform: scale(1.1);
+        }
+
+        .swatch-btn.active {
+            border-color: #ffffff;
+            transform: scale(1.15);
+        }
+
+        /* Presets specifics colors */
+        .swatch-stealth::after { background: linear-gradient(135deg, #15161f, #ccff00); }
+        .swatch-volt::after { background: linear-gradient(135deg, #0f1325, #ff5500); }
+        .swatch-royal::after { background: linear-gradient(135deg, #240a14, #e6005c); }
+        .swatch-aurora::after { background: linear-gradient(135deg, #061922, #00f2fe); }
+
+        .customizer-details {
+            text-align: center;
+            margin-top: 25px;
+        }
+
+        .kit-title-display {
+            font-family: 'Syncopate', sans-serif;
+            font-size: 1.05rem;
+            font-weight: 700;
+            color: var(--text-primary);
+            margin-bottom: 8px;
+            letter-spacing: 0.05em;
+        }
+
+        .kit-desc-display {
+            font-size: 0.82rem;
+            color: var(--text-secondary);
+            line-height: 1.55;
+            max-width: 380px;
+            margin: 0 auto;
+        }
+
+        /* Float animation for the preview jersey */
+        .jersey-display-frame {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px 0;
+            position: relative;
+            flex-grow: 1;
+        }
+
+        .jersey-svg-element {
+            width: 100%;
+            max-width: 250px;
+            height: auto;
+            filter: drop-shadow(0 20px 40px rgba(0, 0, 0, 0.45));
+            animation: floatingJersey 5s ease-in-out infinite;
+            transform-origin: center;
+        }
+
+        @keyframes floatingJersey {
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            50% { transform: translateY(-12px) rotate(1.5deg); }
+        }
+
+        /* SVG Paths Styling linked to Custom CSS Variables */
+        .jersey-body {
+            fill: url(#bodyGrad);
+            transition: fill 0.8s ease;
+        }
+        .jersey-sleeves {
+            fill: url(#sleeveGrad);
+            transition: fill 0.8s ease;
+        }
+        .jersey-stripes {
+            fill: url(#accentGrad);
+            filter: drop-shadow(0 0 6px var(--kit-glow));
+            transition: fill 0.8s ease, filter 0.8s ease;
+        }
+        .jersey-trim {
+            fill: url(#accentGrad);
+            transition: fill 0.8s ease;
+        }
+        .jersey-crest {
+            stroke: url(#accentGrad);
+            transition: stroke 0.8s ease;
+        }
+        .jersey-crest-fill {
+            fill: url(#accentGrad);
+            transition: fill 0.8s ease;
+        }
+
+        /* ── COUNTDOWN & INTERFACE (RIGHT PANEL) ──────────────────── */
+        .dashboard-wrapper {
+            display: flex;
+            flex-direction: column;
+            gap: 28px;
+        }
+
+        .countdown-card {
+            background: var(--surface-glass);
+            border: 1px solid var(--border-glow);
+            border-radius: 28px;
+            padding: 40px;
+            backdrop-filter: blur(16px);
+            box-shadow: 0 20px 50px rgba(0,0,0,0.25);
+            animation: fadeInUp 0.8s 0.4s cubic-bezier(0.16, 1, 0.3, 1) both;
+        }
+
+        /* Timer Grid Layout */
+        .timer-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 16px;
+        }
+
+        .timer-box {
+            background: rgba(255,255,255,0.02);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            border-radius: 18px;
+            padding: 24px 10px 16px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            box-shadow: inset 0 0 12px rgba(255, 255, 255, 0.01);
+            transition: border-color 0.3s, transform 0.3s;
+        }
+
+        .timer-box:hover {
+            border-color: var(--kit-glow);
+            transform: translateY(-4px);
+        }
+
+        .timer-box::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background: linear-gradient(90deg, var(--kit-accent-start), var(--kit-accent-end));
+            opacity: 0.8;
+            transition: background 0.8s ease;
+        }
+
+        .timer-num {
+            font-size: clamp(1.8rem, 4vw, 3.2rem);
+            font-weight: 700;
+            color: var(--text-primary);
+            line-height: 1;
+            display: block;
+            margin-bottom: 6px;
+            letter-spacing: -0.02em;
+            text-shadow: 0 0 15px rgba(255,255,255,0.05);
+        }
+
+        .timer-label {
+            font-size: 0.65rem;
+            text-transform: uppercase;
+            letter-spacing: 0.12em;
+            color: var(--text-secondary);
+            font-weight: 500;
+        }
+
+        /* ── LAUNCH PROGRESS BAR ──────────────────────────────────── */
+        .progress-card {
+            background: var(--surface-glass);
+            border: 1px solid var(--border-glow);
+            border-radius: 28px;
+            padding: 35px 40px;
+            backdrop-filter: blur(16px);
+            box-shadow: 0 20px 50px rgba(0,0,0,0.25);
+            animation: fadeInUp 0.8s 0.5s cubic-bezier(0.16, 1, 0.3, 1) both;
+        }
+
+        .progress-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 12px;
+        }
+
+        .progress-percent {
+            font-weight: 700;
+            color: var(--kit-accent-start);
+            font-size: 1.15rem;
+            transition: color 0.8s ease;
+        }
+
+        .progress-track {
+            height: 6px;
+            background: rgba(255, 255, 255, 0.04);
+            border-radius: 50px;
+            overflow: hidden;
+            margin-bottom: 20px;
+        }
+
+        .progress-fill-bar {
+            height: 100%;
+            background: linear-gradient(90deg, var(--kit-accent-start), var(--kit-accent-end));
+            border-radius: 50px;
+            width: 0%;
+            box-shadow: 0 0 12px var(--kit-glow);
+            animation: animateBar 2s 0.5s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+            transition: background 0.8s ease, box-shadow 0.8s ease;
+        }
+
+        @keyframes animateBar {
+            to { width: 92%; }
+        }
+
+        .progress-metrics {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 12px;
+        }
+
+        .metric-item {
+            text-align: left;
+        }
+
+        .metric-label {
+            font-size: 0.65rem;
+            color: var(--text-secondary);
+            margin-bottom: 2px;
+            display: block;
+        }
+
+        .metric-val {
+            font-size: 0.8rem;
+            font-weight: 600;
+            color: var(--text-primary);
+        }
+
+        .metric-val i {
+            color: var(--kit-accent-start);
+            margin-right: 4px;
+            transition: color 0.8s ease;
+        }
+
+        /* ── EMAIL NOTIFY SIGNUP ──────────────────────────────────── */
+        .notify-card {
+            background: var(--surface-glass);
+            border: 1px solid var(--border-glow);
+            border-radius: 28px;
+            padding: 38px 40px;
+            backdrop-filter: blur(16px);
+            box-shadow: 0 20px 50px rgba(0,0,0,0.25);
+            position: relative;
+            overflow: hidden;
+            animation: fadeInUp 0.8s 0.6s cubic-bezier(0.16, 1, 0.3, 1) both;
+        }
+
+        .notify-card::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: linear-gradient(90deg, var(--kit-accent-start), var(--kit-accent-end));
+            transition: background 0.8s ease;
+        }
+
+        .notify-headline {
+            font-family: 'Syncopate', sans-serif;
+            font-size: 1.05rem;
+            font-weight: 700;
+            margin-bottom: 8px;
+            letter-spacing: 0.05em;
+        }
+
+        .notify-sub {
+            font-size: 0.82rem;
+            color: var(--text-secondary);
+            margin-bottom: 24px;
+            line-height: 1.55;
+        }
+
+        .custom-input-box {
+            display: flex;
+            gap: 10px;
+        }
+
+        .custom-input-box input {
+            flex-grow: 1;
+            background: rgba(0, 0, 0, 0.25);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 14px;
+            color: var(--text-primary);
+            padding: 14px 20px;
+            font-size: 0.88rem;
+            outline: none;
+            transition: border-color 0.3s, box-shadow 0.3s;
+            font-family: 'Outfit', sans-serif;
+        }
+
+        .custom-input-box input:focus {
+            border-color: var(--kit-accent-start);
+            box-shadow: 0 0 10px var(--kit-glow-light);
+        }
+
+        .btn-submit-neon {
+            background: linear-gradient(135deg, var(--kit-accent-start), var(--kit-accent-end));
+            border: none;
+            border-radius: 14px;
+            color: #07080b;
+            font-family: 'Syncopate', sans-serif;
+            font-weight: 700;
+            font-size: 0.75rem;
+            padding: 14px 26px;
+            letter-spacing: 0.04em;
+            cursor: pointer;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            transition: transform 0.25s, box-shadow 0.25s, background 0.8s ease;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+        }
+
+        .btn-submit-neon:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 24px var(--kit-glow);
+        }
+
+        .btn-submit-neon:active {
+            transform: translateY(0);
+        }
+
+        .form-success-feedback {
+            display: none;
+            margin-top: 16px;
+            font-size: 0.85rem;
+            font-weight: 500;
+            color: var(--kit-accent-start);
+            animation: fadeInUp 0.4s ease forwards;
+            transition: color 0.8s ease;
+        }
+
+        /* ── SPOTLIGHT PRODUCT TEASERS ─────────────────────────────── */
+        .showcase-heading {
+            font-family: 'Syncopate', sans-serif;
+            font-size: 1.8rem;
+            font-weight: 700;
+            letter-spacing: 0.08em;
+            margin: 100px 0 40px;
+            text-align: center;
+            animation: fadeInUp 0.8s 0.7s cubic-bezier(0.16, 1, 0.3, 1) both;
+        }
+
+        .showcase-heading span {
+            background: linear-gradient(135deg, var(--kit-accent-start), var(--kit-accent-end));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            transition: background 0.8s ease;
+        }
+
+        .product-card {
+            background: var(--surface-glass);
+            border: 1px solid var(--border-glow);
+            border-radius: 24px;
+            padding: 30px;
+            position: relative;
+            overflow: hidden;
+            backdrop-filter: blur(16px);
+            transition: border-color 0.4s, transform 0.4s, box-shadow 0.4s;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.15);
+        }
+
+        .product-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.06), transparent);
+        }
+
+        .product-card:hover {
+            border-color: var(--kit-glow);
+            transform: translateY(-8px);
+            box-shadow: 0 20px 45px rgba(0,0,0,0.3), 0 0 18px var(--kit-glow-light);
+        }
+
+        .card-badge {
+            display: inline-block;
+            background: rgba(255,255,255,0.04);
+            border: 1px solid rgba(255,255,255,0.08);
+            border-radius: 50px;
+            padding: 5px 14px;
+            font-size: 0.65rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            color: var(--text-secondary);
+            margin-bottom: 20px;
+            align-self: flex-start;
+        }
+
+        .product-card:hover .card-badge {
+            color: var(--kit-accent-start);
+            border-color: var(--kit-glow);
+            background: rgba(0,0,0,0.2);
+            transition: color 0.4s, border-color 0.4s;
+        }
+
+        /* SVG Mini Jersey inside Card */
+        .card-jersey-frame {
+            height: 160px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 25px;
+            position: relative;
+        }
+
+        .card-jersey-frame svg {
+            height: 100%;
+            width: auto;
+            filter: drop-shadow(0 8px 15px rgba(0,0,0,0.3));
+            transition: transform 0.4s ease;
+        }
+
+        .product-card:hover .card-jersey-frame svg {
+            transform: scale(1.1) rotate(2deg);
+        }
+
+        .card-pname {
+            font-family: 'Syncopate', sans-serif;
+            font-size: 0.95rem;
+            font-weight: 700;
+            color: var(--text-primary);
+            margin-bottom: 10px;
+            letter-spacing: 0.04em;
+        }
+
+        .card-pdesc {
+            font-size: 0.8rem;
+            color: var(--text-secondary);
+            line-height: 1.55;
+            margin-bottom: 22px;
+        }
+
+        .card-price-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+            padding-top: 18px;
+            margin-top: auto;
+        }
+
+        .price-original {
+            font-size: 0.72rem;
+            color: var(--text-secondary);
+            text-decoration: line-through;
+            display: block;
+        }
+
+        .price-promo {
+            font-size: 1.15rem;
+            font-weight: 700;
+            color: var(--kit-accent-start);
+            transition: color 0.8s ease;
+        }
+
+        .price-badge-discount {
+            font-size: 0.65rem;
+            background: var(--kit-glow-light);
+            border: 1px solid var(--kit-glow);
+            color: var(--kit-accent-start);
+            border-radius: 4px;
+            padding: 2px 6px;
+            font-weight: 700;
+            transition: border-color 0.8s ease, color 0.8s ease;
+        }
+
+        /* ── VALUE BADGES GRID ─────────────────────────────────────── */
+        .features-grid-row {
+            margin: 80px 0 30px;
+        }
+
+        .feature-badge-pill {
+            background: rgba(255,255,255,0.015);
+            border: 1px solid rgba(255,255,255,0.04);
+            border-radius: 20px;
+            padding: 24px;
+            text-align: center;
+            transition: all 0.3s;
+            height: 100%;
+        }
+
+        .feature-badge-pill:hover {
+            background: rgba(255,255,255,0.03);
+            border-color: rgba(255,255,255,0.08);
+            transform: translateY(-3px);
+        }
+
+        .feature-badge-pill i {
+            font-size: 1.6rem;
+            color: var(--kit-accent-start);
+            margin-bottom: 12px;
+            transition: color 0.8s ease;
+        }
+
+        .feature-badge-pill h6 {
+            font-family: 'Syncopate', sans-serif;
+            font-weight: 700;
+            font-size: 0.65rem;
+            margin-bottom: 6px;
+            color: var(--text-primary);
+            letter-spacing: 0.05em;
+        }
+
+        .feature-badge-pill p {
+            font-size: 0.72rem;
+            color: var(--text-secondary);
+            margin-bottom: 0;
+        }
+
+        /* ── SOCIAL LINKS ──────────────────────────────────────────── */
+        .socials-row {
+            display: flex;
+            justify-content: center;
+            gap: 16px;
+            margin: 70px 0 35px;
+        }
+
+        .social-circle-btn {
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            background: rgba(255,255,255,0.02);
+            border: 1px solid var(--border-glow);
+            color: var(--text-secondary);
+            font-size: 1.05rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+
+        .social-circle-btn:hover {
+            color: #06070a;
+            background: var(--kit-accent-start);
+            border-color: var(--kit-accent-start);
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px var(--kit-glow);
+        }
+
+        /* ── FOOTER ────────────────────────────────────────────────── */
+        footer {
+            position: relative;
+            z-index: 10;
+            text-align: center;
+            border-top: 1px solid rgba(255,255,255,0.03);
+            padding: 35px 24px;
+            width: 100%;
+        }
+
+        .foot-main-text {
+            font-size: 0.78rem;
+            color: var(--text-secondary);
+            margin-bottom: 4px;
+        }
+
+        .foot-main-text a {
+            color: var(--kit-accent-start);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        .foot-main-text a:hover {
+            text-decoration: underline;
+        }
+
+        .foot-tag-line {
+            font-size: 0.7rem;
+            color: rgba(255,255,255,0.22);
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .foot-tag-line i {
+            color: var(--kit-accent-start);
+            font-size: 0.65rem;
+        }
+
+        /* ── KEYFRAMES ANIMATIONS ──────────────────────────────────── */
+        @keyframes fadeInDown {
+            from { opacity: 0; transform: translateY(-20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(28px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes scaleNumber {
+            0% { transform: scale(0.9); opacity: 0.6; }
+            100% { transform: scale(1); opacity: 1; }
+        }
+
+        /* ── RESPONSIVE TWEAKS ─────────────────────────────────────── */
+        @media (max-width: 991px) {
+            .hero-heading {
+                text-align: center;
+            }
+            .hero-description {
+                text-align: center;
+            }
+            .glass-card-wrapper {
+                margin-bottom: 30px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .brand-logo-section {
+                padding-top: 40px;
+            }
+            .timer-grid {
+                gap: 8px;
+            }
+            .timer-box {
+                padding: 16px 4px 10px;
+            }
+            .timer-num {
+                font-size: 1.5rem;
+            }
+            .timer-label {
+                font-size: 0.58rem;
+            }
+            .custom-input-box {
+                flex-direction: column;
+            }
+            .btn-submit-neon {
+                justify-content: center;
+            }
+            .glass-card-wrapper {
+                padding: 24px;
+            }
+            .countdown-card, .progress-card, .notify-card {
+                padding: 30px 24px;
+            }
+            .product-card {
+                padding: 24px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Dynamic Canvas Grid Elements -->
+    <div class="bg-layer"></div>
+    <div class="ambient-glow"></div>
+    <div class="particles-container" id="sparkParticles"></div>
+
+    <!-- GRAND CENTERED LOGO SECTION (NO NAV BAR) -->
+    <div class="brand-logo-section">
+        <a href="#" class="logo-centered-wrap">
+            <div class="logo-icon-box-large">
+                <i class="fa-solid fa-bolt"></i>
+            </div>
+            <h1 class="logo-text-large">VELORION<span>HUB</span></h1>
+        </a>
+    </div>
+
+    <!-- CONTENT BODY -->
+    <main class="content-container">
+        <div class="row align-items-center mb-5 text-center">
+            <div class="col-lg-12">
+                <!-- Center Glowing Top Badge -->
+                <div class="launch-badge">
+                    <span class="pulsing-dot"></span>
+                    COMING 01-06-2026 • ADVANCED APPAREL
+                </div>
+                <!-- Centered Main Title -->
+                <h2 class="hero-heading">
+                    <span>THE FUTURE OF HIGH-OCTANE</span>
+                    <em>PERFORMANCE KITS</em>
+                </h2>
+                <!-- Centered Copy -->
+                <p class="hero-description">
+                    VelorionHub is launching the next generation of custom jerseys and elite athletic t-shirts. 
+                    Engineered with dynamic temperature regulation, zero-friction seams, and fully customizable designs 
+                    built to unlock your absolute potential.
+                </p>
+            </div>
+        </div>
+
+        <div class="row g-4 align-items-stretch">
+            
+            <!-- LEFT PANEL: INTERACTIVE JERSEY CUSTOMIZER (WOW FEATURE) -->
+            <div class="col-lg-6">
+                <div class="glass-card-wrapper">
+                    <div class="section-label">
+                        <i class="fa-solid fa-wand-magic-sparkles"></i> 3D Kit Previewer & Customizer
+                    </div>
+                    
+                    <!-- SVG JERSEY DISPLAY (FLOAT & COLOR PRESET TRANSITIONS) -->
+                    <div class="jersey-display-frame">
+                        <svg viewBox="0 0 200 220" class="jersey-svg-element" id="jersey-preview">
+                            <defs>
+                                <!-- Customizer Colors - Fully dynamic using CSS Properties -->
+                                <linearGradient id="bodyGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                                    <stop offset="0%" stop-color="var(--kit-body-start)"/>
+                                    <stop offset="100%" stop-color="var(--kit-body-end)"/>
+                                </linearGradient>
+                                <linearGradient id="sleeveGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+                                    <stop offset="0%" stop-color="var(--kit-sleeve-start)"/>
+                                    <stop offset="100%" stop-color="var(--kit-sleeve-end)"/>
+                                </linearGradient>
+                                <linearGradient id="accentGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                                    <stop offset="0%" stop-color="var(--kit-accent-start)"/>
+                                    <stop offset="100%" stop-color="var(--kit-accent-end)"/>
+                                </linearGradient>
+                                <!-- Mesh overlay pattern for realistic jersey textile look -->
+                                <pattern id="jerseyCarbonPattern" width="8" height="8" patternUnits="userSpaceOnUse">
+                                    <rect width="8" height="8" fill="rgba(0,0,0,0)"/>
+                                    <polygon points="0,4 4,0 8,4 4,8" fill="rgba(255,255,255,0.02)"/>
+                                </pattern>
+                            </defs>
+                            
+                            <!-- Sleeve Left -->
+                            <path d="M 40,50 L 10,75 L 25,100 L 52,80 Z" class="jersey-sleeves" stroke="rgba(255,255,255,0.08)" stroke-width="1"/>
+                            <!-- Sleeve Right -->
+                            <path d="M 160,50 L 190,75 L 175,100 L 148,80 Z" class="jersey-sleeves" stroke="rgba(255,255,255,0.08)" stroke-width="1"/>
+                            
+                            <!-- Torso Main Body -->
+                            <path d="M 50,45 L 150,45 L 160,80 L 150,200 L 50,200 L 40,80 Z" class="jersey-body" stroke="rgba(255,255,255,0.12)" stroke-width="1.5"/>
+                            
+                            <!-- Jersey Fabric Micro-Grid Pattern Overlay -->
+                            <path d="M 50,45 L 150,45 L 160,80 L 150,200 L 50,200 L 40,80 Z" fill="url(#jerseyCarbonPattern)"/>
+                            
+                            <!-- Accent Stripes Chest -->
+                            <path d="M 43,90 L 157,65 L 155,75 L 44,100 Z" class="jersey-stripes" opacity="0.85"/>
+                            <path d="M 47,115 L 153,90 L 151,97 L 46,122 Z" class="jersey-stripes" opacity="0.45"/>
+                            
+                            <!-- Sleeve Trims -->
+                            <path d="M 10,75 L 25,100 L 22,103 L 7,78 Z" class="jersey-trim"/>
+                            <path d="M 190,75 L 175,100 L 178,103 L 193,78 Z" class="jersey-trim"/>
+                            
+                            <!-- Collar V-Neck -->
+                            <path d="M 85,45 Q 100,68 115,45 Z" fill="#0d0e16" class="jersey-crest" stroke-width="2"/>
+                            
+                            <!-- Shield Crest -->
+                            <g transform="translate(125, 105) scale(0.5)">
+                                <path d="M 0,0 L 25,0 L 25,20 Q 25,35 0,45 Q -25,35 -25,20 L -25,0 Z" fill="#0d0e15" class="jersey-crest" stroke-width="2"/>
+                                <path d="M -5,5 L 8,-10 L 0,-10 L 5,-22 L -8,-7 L -1,-7 Z" class="jersey-crest-fill" transform="translate(0, 20) scale(0.8)"/>
+                            </g>
+                        </svg>
+                    </div>
+
+                    <!-- SWATCHES SELECTION ROW -->
+                    <div class="swatch-row">
+                        <button class="swatch-btn swatch-stealth active" onclick="setKitTheme('stealth')" title="Stealth Volt"></button>
+                        <button class="swatch-btn swatch-volt" onclick="setKitTheme('volt')" title="Ignite Orange"></button>
+                        <button class="swatch-btn swatch-royal" onclick="setKitTheme('royal')" title="Crimson Monarch"></button>
+                        <button class="swatch-btn swatch-aurora" onclick="setKitTheme('aurora')" title="Aurora Cypher"></button>
+                    </div>
+
+                    <!-- DYNAMIC LABELS -->
+                    <div class="customizer-details">
+                        <div class="kit-title-display" id="kitNameText">Stealth Volt Edition</div>
+                        <div class="kit-desc-display" id="kitDescText">Elite carbon-textured matrix fabric paired with extreme-contrast neon volt racing details.</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- RIGHT PANEL: COUNTDOWN, BAR, SIGNUP -->
+            <div class="col-lg-6">
+                <div class="dashboard-wrapper">
+                    
+                    <!-- HIGH-TECH COUNTDOWN CARD -->
+                    <div class="countdown-card">
+                        <div class="section-label">
+                            <i class="fa-regular fa-clock"></i> LAUNCH COUNTDOWN • TARGET 01-06-2026
+                        </div>
+                        <div class="timer-grid">
+                            <div class="timer-box">
+                                <span class="timer-num" id="d-num">00</span>
+                                <span class="timer-label">DAYS</span>
+                            </div>
+                            <div class="timer-box">
+                                <span class="timer-num" id="h-num">00</span>
+                                <span class="timer-label">HOURS</span>
+                            </div>
+                            <div class="timer-box">
+                                <span class="timer-num" id="m-num">00</span>
+                                <span class="timer-label">MINUTES</span>
+                            </div>
+                            <div class="timer-box">
+                                <span class="timer-num" id="s-num">00</span>
+                                <span class="timer-label">SECONDS</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- READYNESS PROGRESS TRACK -->
+                    <div class="progress-card">
+                        <div class="progress-header">
+                            <span class="section-label m-0"><i class="fa-solid fa-gauge-high"></i> MANUFACTURING SYSTEM READINESS</span>
+                            <span class="progress-percent">92%</span>
+                        </div>
+                        <div class="progress-track">
+                            <div class="progress-fill-bar"></div>
+                        </div>
+                        <div class="progress-metrics">
+                            <div class="metric-item">
+                                <span class="metric-label">FABRIC TEST</span>
+                                <span class="metric-val"><i class="fa-solid fa-circle-check"></i> 100%</span>
+                            </div>
+                            <div class="metric-item">
+                                <span class="metric-label">KIT PATTERNS</span>
+                                <span class="metric-val"><i class="fa-solid fa-circle-check"></i> 100%</span>
+                            </div>
+                            <div class="metric-item">
+                                <span class="metric-label">LOGISTICS</span>
+                                <span class="metric-val"><i class="fa-solid fa-arrows-spin fa-spin" style="--fa-animation-duration: 3s;"></i> 85%</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- GET NOTIFIED CARD -->
+                    <div class="notify-card">
+                        <div class="notify-headline">Unlock Early Bird Access</div>
+                        <p class="notify-sub">Submit your email address to enter the VIP list. Early birds unlock customization perks and <strong style="color: var(--kit-accent-start); transition: color 0.8s ease;">20% OFF</strong> their inaugural kit purchase.</p>
+                        
+                        <div class="custom-input-box">
+                            <input type="email" id="emailInput" placeholder="Enter your email to unlock..." required autocomplete="off" />
+                            <button class="btn-submit-neon" onclick="submitNotificationForm()">
+                                <span>Notify Me</span> <i class="fa-solid fa-arrow-right"></i>
+                            </button>
+                        </div>
+                        <div class="form-success-feedback" id="signupSuccessFeedback">
+                            <i class="fa-solid fa-circle-check"></i> Welcome to the roster! Exclusive launch credentials have been queued for your inbox. 🎉
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+
+        <!-- COMING SOON PRODUCTS SHOWCASE SECTION -->
+        <div id="showcase">
+            <h2 class="showcase-heading">LAUNCH KITS <span>PREVIEW</span></h2>
+            <div class="row g-4">
+                
+                <!-- CARD 1 -->
+                <div class="col-md-4">
+                    <div class="product-card">
+                        <div class="card-badge">PRO PERFORMANCE</div>
+                        
+                        <!-- Dynamic Jersey Icon visualizer -->
+                        <div class="card-jersey-frame">
+                            <svg viewBox="0 0 200 220">
+                                <path d="M 40,50 L 10,75 L 25,100 L 52,80 Z" fill="#1b1c26"/>
+                                <path d="M 160,50 L 190,75 L 175,100 L 148,80 Z" fill="#1b1c26"/>
+                                <path d="M 50,45 L 150,45 L 160,80 L 150,200 L 50,200 L 40,80 Z" fill="url(#bodyGrad)"/>
+                                <path d="M 50,45 L 150,45 L 160,80 L 150,200 L 50,200 L 40,80 Z" fill="url(#jerseyCarbonPattern)"/>
+                                <path d="M 43,90 L 157,65 L 155,75 L 44,100 Z" fill="var(--kit-accent-start)"/>
+                                <circle cx="100" cy="120" r="15" fill="none" stroke="var(--kit-accent-start)" stroke-width="2" stroke-dasharray="3"/>
+                            </svg>
+                        </div>
+
+                        <div>
+                            <h4 class="card-pname">Velorion "AeroShift" Pro</h4>
+                            <p class="card-pdesc">Aerodynamic micro-weave fabric for maximum wind resistance reduction and muscular thermal optimization.</p>
+                        </div>
+
+                        <div class="card-price-row">
+                            <div>
+                                <span class="price-original">$79.00</span>
+                                <span class="price-promo">$63.20</span>
+                            </div>
+                            <span class="price-badge-discount">SAVE 20%</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- CARD 2 -->
+                <div class="col-md-4">
+                    <div class="product-card">
+                        <div class="card-badge">COMPRESSION GEAR</div>
+                        
+                        <div class="card-jersey-frame">
+                            <svg viewBox="0 0 200 220">
+                                <path d="M 40,50 L 15,70 L 28,90 L 52,80 Z" fill="#1b1c26"/>
+                                <path d="M 160,50 L 185,70 L 172,90 L 148,80 Z" fill="#1b1c26"/>
+                                <path d="M 50,45 L 150,45 L 160,80 L 150,200 L 50,200 L 40,80 Z" fill="url(#bodyGrad)"/>
+                                <path d="M 50,45 L 150,45 L 160,80 L 150,200 L 50,200 L 40,80 Z" fill="url(#jerseyCarbonPattern)"/>
+                                <path d="M 60,60 L 60,180 L 70,180 L 70,60 Z" fill="var(--kit-accent-start)"/>
+                                <path d="M 140,60 L 140,180 L 130,180 L 130,60 Z" fill="var(--kit-accent-start)"/>
+                            </svg>
+                        </div>
+
+                        <div>
+                            <h4 class="card-pname">"VaporWeave" Compression</h4>
+                            <p class="card-pdesc">High-elasticity compression matrix supporting crucial posture alignment with targeted ventilation pods.</p>
+                        </div>
+
+                        <div class="card-price-row">
+                            <div>
+                                <span class="price-original">$59.00</span>
+                                <span class="price-promo">$47.20</span>
+                            </div>
+                            <span class="price-badge-discount">SAVE 20%</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- CARD 3 -->
+                <div class="col-md-4">
+                    <div class="product-card">
+                        <div class="card-badge">STREET PERFORMANCE</div>
+                        
+                        <div class="card-jersey-frame">
+                            <svg viewBox="0 0 200 220">
+                                <path d="M 40,50 L 5,75 L 15,92 L 52,80 Z" fill="#1b1c26"/>
+                                <path d="M 160,50 L 195,75 L 185,92 L 148,80 Z" fill="#1b1c26"/>
+                                <path d="M 50,45 L 150,45 L 160,80 L 150,200 L 50,200 L 40,80 Z" fill="url(#bodyGrad)"/>
+                                <path d="M 50,45 L 150,45 L 160,80 L 150,200 L 50,200 L 40,80 Z" fill="url(#jerseyCarbonPattern)"/>
+                                <circle cx="100" cy="110" r="28" fill="none" stroke="var(--kit-accent-start)" stroke-width="2"/>
+                                <path d="M 85,110 L 115,110" stroke="var(--kit-accent-start)" stroke-width="2"/>
+                            </svg>
+                        </div>
+
+                        <div>
+                            <h4 class="card-pname">Velorion "Vortex" Training</h4>
+                            <p class="card-pdesc">Street-ready athletic hybrid build featuring hydrophobic outer shields and plush breathable fleece inners.</p>
+                        </div>
+
+                        <div class="card-price-row">
+                            <div>
+                                <span class="price-original">$89.00</span>
+                                <span class="price-promo">$71.20</span>
+                            </div>
+                            <span class="price-badge-discount">SAVE 20%</span>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- PREMIUM FEATURES BADGES GRID -->
+        <div class="row features-grid-row g-3">
+            <div class="col-6 col-md-3">
+                <div class="feature-badge-pill">
+                    <i class="fa-solid fa-shirt"></i>
+                    <h6>Dynamic Carbon</h6>
+                    <p>Engineered weaves</p>
+                </div>
+            </div>
+            <div class="col-6 col-md-3">
+                <div class="feature-badge-pill">
+                    <i class="fa-solid fa-gauge-high"></i>
+                    <h6>Zero Seams</h6>
+                    <p>Frictionless dynamic fit</p>
+                </div>
+            </div>
+            <div class="col-6 col-md-3">
+                <div class="feature-badge-pill">
+                    <i class="fa-solid fa-fire-flame-curved"></i>
+                    <h6>Thermo Smart</h6>
+                    <p>Heat dispersing matrix</p>
+                </div>
+            </div>
+            <div class="col-6 col-md-3">
+                <div class="feature-badge-pill">
+                    <i class="fa-solid fa-earth-americas"></i>
+                    <h6>Eco Tech</h6>
+                    <p>100% recycled threads</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- SOCIAL LINKS ROW -->
+        <div class="socials-row">
+            <a href="#" class="social-circle-btn" title="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+            <a href="#" class="social-circle-btn" title="Instagram"><i class="fa-brands fa-instagram"></i></a>
+            <a href="#" class="social-circle-btn" title="X / Twitter"><i class="fa-brands fa-x-twitter"></i></a>
+            <a href="#" class="social-circle-btn" title="TikTok"><i class="fa-brands fa-tiktok"></i></a>
+            <a href="#" class="social-circle-btn" title="WhatsApp"><i class="fa-brands fa-whatsapp"></i></a>
+        </div>
+    </main>
+
+    <!-- FOOTER -->
+    <footer>
+        <p class="foot-main-text">
+            &copy; 2026 <a href="https://velorionhub.com">VelorionHub.com</a> — Engineered for the Elite. All rights reserved.
+        </p>
+        <span class="foot-tag-line">
+            <i class="fa-solid fa-location-dot"></i> Global distribution networks launching online
+        </span>
+    </footer>
+
+    <!-- Bootstrap JS Bundle -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.3/js/bootstrap.bundle.min.js"></script>
+
+    <!-- JS LOGIC: ANIMATIONS, CUSTOMIZER, & HIGH-ACCURACY COUNTDOWN -->
+    <script>
+        /* ── DYNAMIC SPARK PARTICLES ────────────────────────── */
+        function spawnSparks() {
+            const container = document.getElementById('sparkParticles');
+            const totalSparks = 25;
+            
+            for (let i = 0; i < totalSparks; i++) {
+                const spark = document.createElement('div');
+                spark.className = 'spark';
+                
+                const size = Math.random() * 4 + 2; // Spark diameter
+                const posX = Math.random() * 100; // Random X placement
+                const duration = Math.random() * 10 + 6; // Float time
+                const delay = Math.random() * 8; // Float delay
+                
+                spark.style.cssText = `
+                    width: ${size}px;
+                    height: ${size}px;
+                    left: ${posX}%;
+                    --dur: ${duration}s;
+                    --del: ${delay}s;
+                    opacity: ${Math.random() * 0.6 + 0.1};
+                `;
+                
+                container.appendChild(spark);
+            }
+        }
+        spawnSparks();
+
+        /* ── INTERACTIVE JERSEY KIT CUSTOMIZER SWAPPER ───────── */
+        function setKitTheme(themeName) {
+            // Set data attribute on root HTML to trigger CSS variable transitions
+            document.documentElement.setAttribute('data-kit', themeName);
+            
+            // Manage Active Button States
+            const swatches = document.querySelectorAll('.swatch-btn');
+            swatches.forEach(btn => btn.classList.remove('active'));
+            
+            const activeBtn = document.querySelector(`.swatch-${themeName}`);
+            if (activeBtn) activeBtn.classList.add('active');
+            
+            // Retrieve computed values of dynamic properties to update titles
+            setTimeout(() => {
+                const computed = getComputedStyle(document.documentElement);
+                const kitTitle = computed.getPropertyValue('--kit-accent-name').replace(/"/g, '').trim();
+                const kitDesc = computed.getPropertyValue('--kit-accent-desc').replace(/"/g, '').trim();
+                
+                // Animate text changes
+                const titleEl = document.getElementById('kitNameText');
+                const descEl = document.getElementById('kitDescText');
+                
+                titleEl.style.animation = 'none';
+                descEl.style.animation = 'none';
+                void titleEl.offsetWidth; // Reflow
+                
+                titleEl.textContent = kitTitle;
+                descEl.textContent = kitDesc;
+                
+                titleEl.style.animation = 'scaleNumber 0.4s ease forwards';
+                descEl.style.animation = 'scaleNumber 0.4s ease forwards';
+            }, 50);
+        }
+
+        /* ── HIGH-ACCURACY COUNTDOWN (June 1st, 2026) ────────── */
+        // June 1st, 2026 (01-06-2026)
+        const LAUNCH_DATE = new Date("June 1, 2026 00:00:00").getTime();
+
+        function padNumber(num) {
+            return String(num).padStart(2, '0');
+        }
+
+        function animateNumberChange(el, value) {
+            const currentVal = el.textContent;
+            const newVal = padNumber(value);
+            
+            if (currentVal !== newVal) {
+                el.style.animation = 'none';
+                void el.offsetWidth; // Force Reflow
+                el.style.animation = 'scaleNumber 0.35s cubic-bezier(0.34, 1.56, 0.64, 1) forwards';
+                el.textContent = newVal;
+            }
+        }
+
+        function runCountdownTicker() {
+            const now = Date.now();
+            const distance = Math.max(0, LAUNCH_DATE - now);
+            
+            const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+            
+            animateNumberChange(document.getElementById('d-num'), days);
+            animateNumberChange(document.getElementById('h-num'), hours);
+            animateNumberChange(document.getElementById('m-num'), minutes);
+            animateNumberChange(document.getElementById('s-num'), seconds);
+        }
+        
+        // Initial tick and run interval
+        runCountdownTicker();
+        setInterval(runCountdownTicker, 1000);
+
+        /* ── NEWSLETTER SIGNUP SUBMISSION ────────────────────── */
+        function submitNotificationForm() {
+            const emailInput = document.getElementById('emailInput');
+            const emailValue = emailInput.value.trim();
+            const successFeedback = document.getElementById('signupSuccessFeedback');
+            
+            // Rigorous client-side regex check
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            
+            if (!emailValue || !emailRegex.test(emailValue)) {
+                emailInput.style.borderColor = 'rgba(255, 0, 80, 0.6)';
+                emailInput.style.boxShadow = '0 0 10px rgba(255, 0, 80, 0.15)';
+                emailInput.focus();
+                
+                setTimeout(() => {
+                    emailInput.style.borderColor = '';
+                    emailInput.style.boxShadow = '';
+                }, 1500);
+                return;
+            }
+            
+            // Successful simulated registration state
+            emailInput.style.display = 'none';
+            document.querySelector('.btn-submit-neon').style.display = 'none';
+            successFeedback.style.display = 'block';
+        }
+
+        // Submitting using Enter Key inside Input
+        document.getElementById('emailInput').addEventListener('keydown', (e) => {
+            if (e.key === 'Enter') {
+                submitNotificationForm();
+            }
+        });
+    </script>
+</body>
+
+</html>

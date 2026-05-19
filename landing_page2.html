@@ -4,171 +4,101 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>রাজশাহী ও চাঁপাইনবাবগঞ্জের বিখ্যাত আম | আজরাই শপ</title>
-
-    <!-- Google Fonts -->
+    <title>আজরাই শপ — খাঁটি ও তাজা লিচু</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Baloo+Da+2:wght@400;600;700;800&family=Hind+Siliguri:wght@400;500;600;700&family=Outfit:wght@400;600;700;800&display=swap"
-        rel="stylesheet">
-
-    <!-- Bootstrap 5 CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-
-    <!-- Font Awesome -->
+    <link href="https://fonts.googleapis.com/css2?family=Baloo+Da+2:wght@400;600;700;800&family=Noto+Serif+Bengali:wght@300;400;600&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
-
-    <!-- Animate.css -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
-
-    <!-- Custom CSS Styling (Mango Theme Design System) -->
     <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box
+        }
+
         :root {
-            --mango-gold: #FFA000;
-            --mango-gold-light: #FFD54F;
-            --mango-orange: #FF5722;
-            --mango-orange-hover: #E64A19;
-            --mango-green: #2E7D32;
-            --mango-green-hover: #1B5E20;
-            --mango-cream-bg: #FFFDF6;
-            --mango-cream-soft: #FFF9E6;
-            --text-dark: #2C1E12;
-            --text-muted: #5D5447;
-            --card-shadow: 0 8px 30px rgba(44, 30, 18, 0.05);
-            --card-shadow-hover: 0 16px 40px rgba(44, 30, 18, 0.12);
+            --ink: #2a1a1a;
+            --grove: #ff7158;
+            --leaf: #12b322;
+            --lychee: #4c0000;
+            --lychee-deep: #490606;
+            --lychee-pale: #ffeaec;
+            --pulp: #ef5350;
+            --cream: #fdfafb;
+            --white: #ffffff;
+            --bark: #4a2e2b;
+            --text-light: #fbe9e7;
+            --border: #fce4ec;
+        }
+
+        html {
+            scroll-behavior: smooth
         }
 
         body {
-            font-family: "Hind Siliguri", sans-serif;
-            background-color: var(--mango-cream-bg);
-            color: var(--text-dark);
+            font-family: 'Space Grotesk', sans-serif;
+            background: var(--cream);
+            color: var(--ink);
             overflow-x: hidden;
-            scroll-behavior: smooth;
         }
 
-        .font-baloo {
-            font-family: "Baloo Da 2", cursive;
+        .bn {
+            font-family: 'Baloo Da 2', cursive
         }
 
-        .font-outfit {
-            font-family: "Outfit", sans-serif;
+        .serif {
+            font-family: 'Noto Serif Bengali', serif
         }
 
-        /* ── Floating Notice Bar ── */
-        .top-notice-bar {
-            background: linear-gradient(135deg, var(--mango-gold) 0%, var(--mango-orange) 100%);
-            box-shadow: 0 4px 15px rgba(255, 87, 34, 0.15);
-            border-bottom: 3px solid rgba(255, 255, 255, 0.25);
+        /* ── TICKER BAR ── */
+        .ticker-wrap {
+            background: var(--ink);
+            color: var(--white);
+            padding: 10px 0;
+            overflow: hidden;
             position: relative;
-            z-index: 10;
+            border-bottom: 3px solid var(--lychee);
         }
 
-        .notice-badge {
-            background-color: rgba(255, 255, 255, 0.2);
-            backdrop-filter: blur(5px);
-            border: 1px solid rgba(255, 255, 255, 0.4);
-            border-radius: 99px;
-            padding: 4px 12px;
-            font-size: 14px;
+        .ticker-track {
+            display: flex;
+            gap: 0;
+            animation: ticker 25s linear infinite;
+            white-space: nowrap;
         }
 
-        .notice-title {
-            font-size: clamp(16px, 3.5vw, 24px);
-            line-height: 1.4;
-            letter-spacing: 0.2px;
+        .ticker-item {
+            font-size: 13px;
+            font-weight: 600;
+            letter-spacing: .05em;
+            text-transform: uppercase;
+            padding: 0 2rem;
+            flex-shrink: 0;
         }
 
-        /* ── Hero Section ── */
-        .hero-section {
-            padding: 4rem 0 2.5rem;
-            position: relative;
-            background: radial-gradient(circle at 10% 20%, rgba(255, 213, 79, 0.15) 0%, transparent 45%);
+        .ticker-dot {
+            color: var(--white);
+            margin: 0 .5rem
         }
 
-        .hero-card {
-            background: rgba(255, 255, 255, 0.85);
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 213, 79, 0.3);
-            border-radius: 2rem;
-            padding: 2.5rem;
-            box-shadow: var(--card-shadow);
+        @keyframes ticker {
+            from {
+                transform: translateX(0)
+            }
+
+            to {
+                transform: translateX(-50%)
+            }
         }
 
-        .hero-badge {
-            display: inline-flex;
-            align-items: center;
-            background-color: var(--mango-cream-soft);
-            border: 1.5px solid var(--mango-gold);
-            color: var(--mango-green);
-            padding: 6px 16px;
-            border-radius: 99px;
-            font-size: 15px;
-            font-weight: 700;
-        }
-
-        .hero-title {
-            font-size: clamp(28px, 4.5vw, 45px);
-            line-height: 1.25;
-            color: var(--text-dark);
-        }
-
-        .hero-highlight {
-            color: var(--mango-orange);
-            background: linear-gradient(120deg, rgba(255, 87, 34, 0.1) 0%, rgba(255, 160, 0, 0.15) 100%);
-            padding: 2px 10px;
-            border-radius: 8px;
-        }
-
-        .hero-img-container {
-            position: relative;
-            z-index: 2;
-        }
-
-        .hero-img-container img {
-            border-radius: 1.5rem;
-            box-shadow: 0 15px 35px rgba(44, 30, 18, 0.1);
-            transition: transform 0.3s ease;
-        }
-
-        .hero-img-container:hover img {
-            transform: scale(1.02);
-        }
-
-        .hero-img-bg {
-            position: absolute;
-            top: -15px;
-            left: -15px;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(135deg, var(--mango-gold) 0%, var(--mango-green) 100%);
-            border-radius: 1.5rem;
-            opacity: 0.15;
-            z-index: -1;
-            transform: rotate(-2deg);
-        }
-
-        .floating-badge {
-            position: absolute;
-            bottom: 20px;
-            right: 20px;
-            background: white;
-            padding: 10px 18px;
-            border-radius: 12px;
-            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
-            font-weight: 700;
-            font-size: 14px;
-            border: 1px solid var(--mango-gold-light);
-            animation: float 3s ease-in-out infinite;
-        }
-
+        /* ── ANIMATIONS ── */
         @keyframes float {
             0% {
                 transform: translateY(0px);
             }
 
             50% {
-                transform: translateY(-10px);
+                transform: translateY(-12px);
             }
 
             100% {
@@ -176,597 +106,1099 @@
             }
         }
 
-        /* ── Media Section & Video Mockup ── */
-        .video-mockup {
-            border: 6px solid white;
-            border-radius: 1.5rem;
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.12);
-            overflow: hidden;
-            aspect-ratio: 16/9;
-            background-color: black;
-            position: relative;
+        @keyframes pulseGlow {
+            0% {
+                box-shadow: 0 0 0 0 rgba(229, 57, 53, 0.4);
+            }
+
+            70% {
+                box-shadow: 0 0 0 10px rgba(229, 57, 53, 0);
+            }
+
+            100% {
+                box-shadow: 0 0 0 0 rgba(229, 57, 53, 0);
+            }
         }
 
-        .video-mockup iframe {
+        @keyframes bounceSlow {
+
+            0%,
+            100% {
+                transform: translateY(0);
+            }
+
+            50% {
+                transform: translateY(-5px);
+            }
+        }
+
+        /* ── NAV ── */
+        nav {
+            background: var(--grove);
+            padding: 14px 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            border-bottom: 1px solid rgba(255, 255, 255, .08);
+        }
+
+        .nav-inner {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 24px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .brand {
+            font-family: 'Baloo Da 2', cursive;
+            font-size: 22px;
+            font-weight: 800;
+            color: var(--lychee);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .brand span {
+            color: var(--white);
+            font-weight: 400;
+            font-size: 14px;
+            opacity: .7
+        }
+
+        .nav-actions {
+            display: flex;
+            align-items: center;
+            gap: 12px
+        }
+
+        .btn-call {
+            background: var(--lychee);
+            color: var(--white);
+            font-weight: 700;
+            font-size: 13px;
+            padding: 8px 18px;
+            border-radius: 4px;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            transition: background .2s;
+        }
+
+        .btn-call:hover {
+            background: var(--lychee-deep)
+        }
+
+        /* ── HERO ── */
+        .hero {
+            position: relative;
+            min-height: 90vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            overflow: hidden;
+        }
+
+        .hero-bg-img {
+            position: absolute;
+            inset: 0;
             width: 100%;
             height: 100%;
-            border: none;
+            object-fit: cover;
+            z-index: 0;
+            animation: zoomInBg 20s infinite alternate linear;
         }
 
-        /* ── Section Titles ── */
-        .section-header {
-            margin-bottom: 2.5rem;
+        .hero-overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(135deg, rgba(255, 49, 46, 0.664) 0%, rgb(51 80 56 / 77%) 100%);
+            z-index: 1;
+        }
+
+        .hero-content {
             position: relative;
+            z-index: 2;
+            max-width: 800px;
+            padding: 40px 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
         }
 
-        .section-tag {
-            color: var(--mango-green);
+        @keyframes zoomInBg {
+            0% {
+                transform: scale(1);
+            }
+
+            100% {
+                transform: scale(1.1);
+            }
+        }
+
+        @keyframes slideUpFade {
+            0% {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .hero-content>* {
+            animation: slideUpFade 0.8s ease-out forwards;
+            opacity: 0;
+        }
+
+        .hero-content .tag-pill {
+            animation-delay: 0.1s;
+        }
+
+        .hero-content .hero-title {
+            animation-delay: 0.2s;
+        }
+
+        .hero-content .hero-sub {
+            animation-delay: 0.3s;
+        }
+
+        .hero-content .hero-ctas {
+            animation-delay: 0.4s;
+        }
+
+        .hero-content .trust-row {
+            animation-delay: 0.5s;
+        }
+
+        .tag-pill {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            background: rgba(255, 255, 255, .15);
+            border: 1px solid rgba(255, 255, 255, .3);
+            color: var(--white);
+            padding: 6px 16px;
+            border-radius: 50px;
+            font-size: 13px;
             font-weight: 700;
+            letter-spacing: .08em;
             text-transform: uppercase;
-            font-size: 14px;
-            letter-spacing: 1px;
+            margin-bottom: 24px;
+            backdrop-filter: blur(4px);
+        }
+
+        .hero-title {
+            font-family: 'Baloo Da 2', cursive;
+            font-size: clamp(36px, 5.5vw, 68px);
+            font-weight: 800;
+            line-height: 1.15;
+            color: var(--white);
+            margin-bottom: 16px;
+        }
+
+        .hero-title .accent {
+            color: var(--white);
             display: block;
-            margin-bottom: 0.5rem;
+            text-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+        }
+
+        .hero-sub {
+            font-family: 'Noto Serif Bengali', serif;
+            font-size: 18px;
+            color: rgba(253, 250, 251, .9);
+            line-height: 1.7;
+            margin-bottom: 36px;
+            max-width: 600px;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
+        }
+
+        .hero-ctas {
+            display: flex;
+            gap: 14px;
+            flex-wrap: wrap
+        }
+
+        .btn-primary {
+            background: var(--lychee);
+            color: var(--white);
+            font-weight: 700;
+            font-size: 15px;
+            padding: 14px 28px;
+            border-radius: 4px;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            border: none;
+            cursor: pointer;
+            transition: all .2s;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(229, 57, 53, .3);
+        }
+
+        .btn-primary::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(135deg, rgba(255, 255, 255, .2) 0%, transparent 50%);
+            opacity: 0;
+            transition: opacity .2s;
+        }
+
+        .btn-primary:hover {
+            background: var(--lychee-deep);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(229, 57, 53, .4);
+        }
+
+        .btn-primary:hover::after {
+            opacity: 1
+        }
+
+        .btn-hero {
+            background: var(--white);
+            color: var(--lychee);
+            font-weight: 800;
+            font-size: 16px;
+            padding: 16px 32px;
+            border-radius: 6px;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            border: none;
+            cursor: pointer;
+            transition: all .2s;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+            animation: bounceSlow 3s ease-in-out infinite;
+        }
+
+        .btn-hero:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.3);
+            color: var(--lychee-deep);
+        }
+
+        .btn-ghost {
+            background: transparent;
+            color: var(--white);
+            font-weight: 600;
+            font-size: 15px;
+            padding: 14px 28px;
+            border-radius: 4px;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            border: 1.5px solid rgba(255, 255, 255, .4);
+            transition: all .2s;
+        }
+
+        .btn-ghost:hover {
+            border-color: var(--white);
+            background: rgba(255, 255, 255, .1);
+            color: var(--white)
+        }
+
+        .trust-row {
+            display: flex;
+            gap: 24px;
+            margin-top: 40px;
+            flex-wrap: wrap;
+        }
+
+        .trust-item {
+            display: flex;
+            align-items: center;
+            gap: 7px;
+            font-size: 13px;
+            color: rgba(253, 250, 251, .65);
+            font-weight: 500;
+        }
+
+        .trust-item i {
+            color: var(--lychee);
+            font-size: 14px
+        }
+
+
+
+        /* ── SECTION WRAPPER ── */
+        .section {
+            padding: 80px 0
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 24px
+        }
+
+        .section-label {
+            font-size: 11px;
+            font-weight: 700;
+            letter-spacing: .12em;
+            text-transform: uppercase;
+            color: var(--leaf);
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .section-label::before {
+            content: '';
+            width: 24px;
+            height: 2px;
+            background: var(--leaf);
+            display: inline-block
         }
 
         .section-title {
-            font-size: clamp(22px, 3.5vw, 32px);
+            font-family: 'Baloo Da 2', cursive;
+            font-size: clamp(26px, 4vw, 40px);
             font-weight: 800;
-            color: var(--text-dark);
+            color: var(--ink);
+            line-height: 1.2;
+            margin-bottom: 8px;
+        }
+
+        .section-desc {
+            font-family: 'Noto Serif Bengali', serif;
+            font-size: 16px;
+            color: #5a6152;
+            line-height: 1.75;
+            max-width: 560px;
+        }
+
+        /* ── VIDEO SECTION ── */
+        .video-section {
+            background: var(--ink);
+            padding: 80px 0
+        }
+
+        .video-section .section-title {
+            color: var(--white)
+        }
+
+        .video-section .section-desc {
+            color: rgba(255, 255, 255, .55)
+        }
+
+        .video-frame {
             position: relative;
-            display: inline-block;
+            aspect-ratio: 16/9;
+            border-radius: 6px;
+            overflow: hidden;
+            border: 1px solid rgba(229, 57, 53, .25);
+            margin-top: 40px;
+            max-width: 900px;
+            margin-left: auto;
+            margin-right: auto;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
         }
 
-        .section-title::after {
-            content: "";
-            position: absolute;
-            bottom: -10px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 80px;
-            height: 4px;
-            background: linear-gradient(to right, var(--mango-gold), var(--mango-orange));
-            border-radius: 2px;
+        .video-frame iframe {
+            width: 100%;
+            height: 100%;
+            border: none
         }
 
-        /* ── Pricing & Packages Redesign ── */
+        /* ── PRICING GRID ── */
         .pricing-section {
-            background: radial-gradient(circle at 90% 80%, rgba(46, 125, 50, 0.08) 0%, transparent 40%);
-            padding: 3rem 0;
+            background: var(--white);
+            padding: 80px 0
         }
 
         .pricing-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 1.5rem;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 1px;
+            background: var(--border);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            overflow: hidden;
+            margin-top: 48px;
         }
 
         .price-card {
-            background: white;
-            border-radius: 1.5rem;
-            padding: 2rem;
-            box-shadow: var(--card-shadow);
-            border: 2px solid transparent;
-            transition: all 0.3s ease;
+            background: var(--white);
+            padding: 32px 28px;
             position: relative;
-            overflow: hidden;
             display: flex;
             flex-direction: column;
-            justify-content: space-between;
+            transition: background .2s;
         }
 
         .price-card:hover {
-            transform: translateY(-8px);
-            box-shadow: var(--card-shadow-hover);
-            border-color: var(--mango-gold);
+            background: var(--lychee-pale)
         }
 
-        .price-card.featured {
-            border-color: var(--mango-orange);
-            background: linear-gradient(180deg, #FFFFFF 0%, var(--mango-cream-soft) 100%);
+        .price-card.hot {
+            background: var(--grove);
+            color: var(--white)
         }
 
-        .price-card.featured::before {
-            content: "সেরা অফার";
-            position: absolute;
-            top: 15px;
-            right: -30px;
-            background: var(--mango-orange);
-            color: white;
-            padding: 4px 30px;
-            font-size: 11px;
+        .price-card.hot:hover {
+            background: var(--lychee)
+        }
+
+        .card-eyebrow {
+            font-size: 10px;
             font-weight: 700;
-            transform: rotate(45deg);
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            letter-spacing: .1em;
+            text-transform: uppercase;
+            color: var(--lychee-deep);
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 6px;
         }
 
-        .pkg-badge {
-            background-color: var(--mango-cream-soft);
-            color: var(--text-dark);
+        .price-card.hot .card-eyebrow {
+            color: var(--lychee)
+        }
+
+        .card-name {
+            font-family: 'Baloo Da 2', cursive;
+            font-size: 20px;
             font-weight: 700;
-            padding: 4px 12px;
-            border-radius: 99px;
+            color: var(--ink);
+            margin-bottom: 8px;
+            line-height: 1.3;
+        }
+
+        .price-card.hot .card-name {
+            color: var(--white)
+        }
+
+        .card-desc {
             font-size: 13px;
-            align-self: flex-start;
-            border: 1px solid var(--mango-gold-light);
-            margin-bottom: 1rem;
+            color: #7a7a6a;
+            line-height: 1.6;
+            margin-bottom: 24px;
+            flex: 1;
         }
 
-        .price-card.featured .pkg-badge {
-            background-color: var(--mango-orange);
-            color: white;
-            border-color: var(--mango-orange);
+        .price-card.hot .card-desc {
+            color: rgba(255, 255, 255, .6)
         }
 
-        .pkg-title {
-            font-size: 1.25rem;
-            font-weight: 800;
-            margin-bottom: 0.75rem;
-            color: var(--text-dark);
-            line-height: 1.35;
+        .price-area {
+            border-top: 1px solid var(--border);
+            padding-top: 20px;
+            margin-bottom: 20px;
         }
 
-        .pkg-desc {
-            font-size: 14px;
-            color: var(--text-muted);
-            margin-bottom: 1.25rem;
+        .price-card.hot .price-area {
+            border-color: rgba(255, 255, 255, .15)
         }
 
-        .price-wrapper {
-            margin-bottom: 1.5rem;
-            padding: 1rem;
-            background-color: var(--mango-cream-bg);
-            border-radius: 12px;
-            border-left: 4px solid var(--mango-orange);
-        }
-
-        .price-original-wrap {
-            font-size: 14px;
-            color: var(--text-light);
+        .was {
+            font-size: 12px;
+            color: #aaa;
+            text-decoration: line-through;
             margin-bottom: 4px;
         }
 
-        .strike-price {
-            text-decoration: line-through;
-            text-decoration-color: #d32f2f;
-            text-decoration-thickness: 2px;
-            opacity: 0.8;
-            margin-right: 4px;
+        .price-card.hot .was {
+            color: rgba(255, 255, 255, .4)
         }
 
-        .pkg-price-offer {
-            font-size: 1.8rem;
-            font-weight: 800;
-            color: var(--mango-green);
+        .now {
+            font-size: 32px;
+            font-weight: 700;
+            color: var(--leaf);
+            font-family: 'Space Grotesk', sans-serif;
+            line-height: 1;
         }
 
-        /* ── Premium Buttons ── */
-        .btn-mango-primary {
+        .price-card.hot .now {
+            color: var(--lychee)
+        }
+
+        .now sup {
+            font-size: 16px;
+            vertical-align: super
+        }
+
+        .btn-order {
             display: inline-flex;
             align-items: center;
             justify-content: center;
-            background: linear-gradient(135deg, var(--mango-orange) 0%, #D84315 100%);
-            color: white !important;
-            font-weight: 700;
-            padding: 12px 28px;
-            border-radius: 99px;
-            border: none;
-            box-shadow: 0 8px 20px var(--mango-orange-glow);
-            transition: all 0.25s ease;
-            text-decoration: none;
+            gap: 8px;
             width: 100%;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .btn-mango-primary:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 12px 25px rgba(230, 74, 25, 0.4);
-            background: linear-gradient(135deg, #FF6F00 0%, var(--mango-orange-hover) 100%);
-        }
-
-        .btn-mango-primary:active {
-            transform: translateY(-1px);
-        }
-
-        .btn-mango-primary::after {
-            content: "";
-            position: absolute;
-            top: 0;
-            left: -50%;
-            width: 30%;
-            height: 100%;
-            background: linear-gradient(to right, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.3) 50%, rgba(255, 255, 255, 0) 100%);
-            transform: skewX(-25deg);
-            animation: shine 3s infinite;
-        }
-
-        @keyframes shine {
-            0% {
-                left: -50%;
-            }
-
-            100% {
-                left: 150%;
-            }
-        }
-
-        .btn-mango-secondary {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            background: white;
-            color: var(--mango-green) !important;
-            font-weight: 700;
-            padding: 12px 28px;
-            border-radius: 99px;
-            border: 2px solid var(--mango-green);
-            transition: all 0.25s ease;
+            padding: 12px;
+            border-radius: 4px;
+            font-weight: 600;
+            font-size: 14px;
             text-decoration: none;
+            border: 1.5px solid var(--leaf);
+            color: var(--leaf);
+            background: transparent;
+            cursor: pointer;
+            transition: all .2s;
+            font-family: 'Space Grotesk', sans-serif;
         }
 
-        .btn-mango-secondary:hover {
-            background-color: var(--mango-green);
-            color: white !important;
-            transform: translateY(-2px);
-            box-shadow: 0 6px 15px rgba(46, 125, 80, 0.15);
+        .btn-order:hover {
+            background: var(--leaf);
+            color: var(--white)
         }
 
-        /* ── Benefits & Trust Lists ── */
-        .card-list-section {
-            padding: 4rem 0;
+        .price-card.hot .btn-order {
+            background: var(--lychee);
+            border-color: var(--lychee);
+            color: var(--white);
         }
 
-        .feature-card {
-            background: white;
-            border-radius: 1.25rem;
-            padding: 1.5rem;
-            box-shadow: var(--card-shadow);
-            border: 1px solid var(--border-color);
-            transition: all 0.3s ease;
-            height: 100%;
+        .price-card.hot .btn-order:hover {
+            background: var(--lychee-deep);
+            border-color: var(--lychee-deep)
         }
 
-        .feature-card:hover {
-            transform: translateY(-5px);
-            box-shadow: var(--card-shadow-hover);
-            border-color: var(--mango-gold-light);
+        .hot-ribbon {
+            position: absolute;
+            top: 14px;
+            right: -1px;
+            background: var(--pulp);
+            color: var(--white);
+            font-size: 10px;
+            font-weight: 700;
+            letter-spacing: .06em;
+            text-transform: uppercase;
+            padding: 4px 12px;
         }
 
-        .icon-circle {
-            width: 48px;
-            height: 48px;
-            border-radius: 50%;
+        /* ── WHY + TRUST ── */
+        .split-section {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 0;
+            background: var(--cream);
+        }
+
+        .split-half {
+            padding: 80px 60px
+        }
+
+        .split-half:first-child {
+            background: var(--cream);
+            border-right: 1px solid var(--border)
+        }
+
+        .split-half:last-child {
+            background: var(--lychee-pale)
+        }
+
+        .feature-list {
+            margin-top: 32px;
+            display: flex;
+            flex-direction: column;
+            gap: 18px
+        }
+
+        .feature-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 14px;
+            padding-bottom: 18px;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .feature-item:last-child {
+            border-bottom: none
+        }
+
+        .fi-icon {
+            width: 36px;
+            height: 36px;
+            border-radius: 4px;
+            background: var(--leaf);
+            color: var(--white);
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 20px;
-            margin-bottom: 1.25rem;
+            font-size: 15px;
+            flex-shrink: 0;
+            margin-top: 2px;
         }
 
-        .icon-circle.green {
-            background-color: rgba(46, 125, 50, 0.1);
-            color: var(--mango-green);
+        .split-half:last-child .fi-icon {
+            background: var(--lychee-deep)
         }
 
-        .icon-circle.gold {
-            background-color: rgba(255, 160, 0, 0.1);
-            color: var(--mango-gold);
-        }
-
-        .feature-text {
-            font-size: 16px;
+        .fi-text {
+            font-family: 'Baloo Da 2', cursive;
+            font-size: 15px;
             font-weight: 600;
-            color: var(--text-dark);
-            line-height: 1.45;
-            margin-bottom: 0;
+            color: var(--lychee-deep);
+            line-height: 1.5
         }
 
-        /* ── Urgency Alert Panel ── */
-        .urgency-alert {
-            background: linear-gradient(135deg, var(--mango-green) 0%, var(--mango-green-hover) 100%);
+        /* ── URGENCY STRIP ── */
+        .urgency-strip {
+            background: var(--pulp);
+            padding: 24px 0;
+            text-align: center;
+        }
+
+        .urgency-strip p {
+            font-family: 'Baloo Da 2', cursive;
+            font-size: 18px;
+            font-weight: 700;
+            color: var(--white);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+            flex-wrap: wrap;
+        }
+
+        .stock-pill {
+            background: rgba(0, 0, 0, .2);
+            border: 1px solid rgba(255, 255, 255, .3);
+            color: var(--white);
+            padding: 4px 14px;
+            border-radius: 2px;
+            font-size: 13px;
+            font-weight: 600;
+            animation: pulseGlow 2s infinite;
+        }
+
+        /* ── REDESIGNED PREMIUM CHECKOUT ── */
+        .checkout-section {
+            background: radial-gradient(circle at 50% -20%, var(--lychee-pale) 0%, var(--cream) 60%);
+            padding: 100px 0;
+        }
+
+        .checkout-container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: var(--white);
             border-radius: 1.5rem;
-            padding: 2.5rem;
-            color: white;
-            box-shadow: 0 15px 35px rgba(46, 125, 50, 0.2);
+            box-shadow: 0 25px 60px rgba(0, 0, 0, 0.06);
+            border: 1px solid rgba(229, 57, 53, 0.1);
+            overflow: hidden;
+        }
+
+        .checkout-header {
+            background: var(--grove);
+            padding: 40px;
+            text-align: center;
+            color: var(--white);
             position: relative;
             overflow: hidden;
         }
 
-        .urgency-alert::before {
+        .checkout-header::before {
             content: "";
             position: absolute;
             top: -50px;
-            right: -50px;
-            width: 150px;
-            height: 150px;
-            background: rgba(255, 255, 255, 0.05);
+            left: -50px;
+            width: 200px;
+            height: 200px;
+            background: radial-gradient(circle, rgba(229, 57, 53, 0.3) 0%, transparent 70%);
             border-radius: 50%;
         }
 
-        .stock-countdown {
-            background-color: rgba(255, 255, 255, 0.15);
-            padding: 10px 20px;
+        .checkout-header h2 {
+            font-family: 'Baloo Da 2', cursive;
+            font-size: 32px;
+            font-weight: 800;
+            margin-bottom: 8px;
+            position: relative;
+            z-index: 2;
+        }
+
+        .checkout-header p {
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 15px;
+            position: relative;
+            z-index: 2;
+        }
+
+        .checkout-body {
+            padding: 40px;
+        }
+
+        .checkout-row {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 40px;
+        }
+
+        @media(min-width: 768px) {
+            .checkout-row {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        .form-group {
+            margin-bottom: 20px
+        }
+
+        .form-group label {
+            display: block;
+            font-size: 13px;
+            font-weight: 700;
+            color: var(--bark);
+            margin-bottom: 8px;
+            letter-spacing: .02em;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            border: 2px solid var(--border);
+            background: var(--cream);
+            border-radius: 8px;
+            padding: 14px 16px;
+            font-size: 15px;
+            color: var(--ink);
+            font-family: 'Baloo Da 2', cursive;
+            transition: all .2s;
+            outline: none;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            border-color: var(--lychee);
+            box-shadow: 0 0 0 4px rgba(229, 57, 53, .1);
+            background: var(--white);
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            min-height: 120px
+        }
+
+        /* Large Clickable Cards */
+        .radio-cards {
+            display: flex;
+            flex-direction: column;
+            gap: 14px;
+            margin-bottom: 30px
+        }
+
+        .r-card {
+            border: 2px solid var(--border);
             border-radius: 12px;
-            border: 1px solid rgba(255, 255, 255, 0.3);
-            display: inline-block;
-        }
-
-        /* ── High-End Checkout Layout ── */
-        .checkout-section {
-            padding: 4rem 0;
-            background: radial-gradient(circle at 10% 90%, rgba(255, 87, 34, 0.06) 0%, transparent 40%);
-        }
-
-        .checkout-card {
-            background: white;
-            border-radius: 1.5rem;
-            padding: clamp(1.5rem, 4vw, 3rem);
-            box-shadow: 0 15px 45px rgba(44, 30, 18, 0.06);
-            border: 1px solid rgba(0, 0, 0, 0.04);
-            border-top: 6px solid var(--mango-orange);
+            padding: 16px 20px;
+            cursor: pointer;
+            display: flex;
+            flex-direction: column;
+            transition: all .2s;
+            background: var(--white);
             position: relative;
             overflow: hidden;
         }
 
-        .form-section-title {
-            font-size: 1.15rem;
-            font-weight: 700;
-            color: var(--mango-green);
-            border-bottom: 2px solid var(--mango-cream-soft);
-            padding-bottom: 8px;
-            margin-bottom: 1.25rem;
+        .r-card:hover {
+            border-color: rgba(229, 57, 53, 0.3);
+            background: var(--lychee-pale);
         }
 
-        .form-floating-custom {
-            margin-bottom: 1.25rem;
+        .r-card.active {
+            border-color: var(--lychee);
+            background: var(--lychee-pale);
+            box-shadow: 0 8px 25px rgba(229, 57, 53, 0.15);
         }
 
-        .form-floating-custom label {
-            font-weight: 600;
-            font-size: 14px;
-            color: var(--text-dark);
-            margin-bottom: 6px;
-            display: block;
+        .r-card.active::before {
+            content: "";
+            position: absolute;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            width: 6px;
+            background: var(--lychee);
         }
 
-        .form-floating-custom input,
-        .form-floating-custom textarea {
-            border: 1.5px solid var(--border-color);
-            background-color: var(--mango-cream-bg);
-            border-radius: 12px;
-            padding: 12px 16px;
-            font-size: 15px;
-            color: var(--text-dark);
-            transition: all 0.25s ease;
+        .r-card-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
             width: 100%;
         }
 
-        .form-floating-custom input:focus,
-        .form-floating-custom textarea:focus {
-            outline: none;
-            border-color: var(--mango-gold);
-            background-color: white;
-            box-shadow: 0 0 0 4px rgba(255, 160, 0, 0.15);
-            transform: scale(1.005);
-        }
-
-        /* Interactive Radio Card Selectors */
-        .product-radio-list {
-            display: flex;
-            flex-direction: column;
-            gap: 1rem;
-            margin-bottom: 2rem;
-        }
-
-        .product-radio-card {
-            background-color: white;
-            border: 2px solid var(--border-color);
-            border-radius: 1.25rem;
-            padding: 1.25rem;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            position: relative;
+        .r-left {
             display: flex;
             align-items: center;
-            justify-content: space-between;
+            gap: 14px
         }
 
-        .product-radio-card:hover {
-            border-color: var(--mango-gold-light);
-            background-color: var(--mango-cream-soft);
-        }
-
-        .product-radio-card.active {
-            border-color: var(--mango-green);
-            background-color: rgba(46, 125, 50, 0.03);
-            box-shadow: 0 6px 20px rgba(46, 125, 50, 0.08);
-        }
-
-        .radio-left {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-        }
-
-        .radio-check {
-            width: 22px;
-            height: 22px;
-            border-radius: 50%;
-            border: 2px solid var(--border-color);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            transition: all 0.25s ease;
-            background: white;
-        }
-
-        .product-radio-card.active .radio-check {
-            border-color: var(--mango-green);
-            background-color: var(--mango-green);
-        }
-
-        .radio-check::after {
-            content: "";
-            width: 8px;
-            height: 8px;
-            background-color: white;
-            border-radius: 50%;
-            transform: scale(0);
-            transition: all 0.2s ease;
-        }
-
-        .product-radio-card.active .radio-check::after {
-            transform: scale(1);
-        }
-
-        .radio-info {
-            display: flex;
-            flex-direction: column;
-        }
-
-        .radio-prod-name {
-            font-size: 15px;
-            font-weight: 700;
-            color: var(--text-dark);
-            margin-bottom: 2px;
-        }
-
-        .qty-adjuster {
-            display: inline-flex;
-            align-items: center;
-            border: 1px solid var(--border-color);
-            background: white;
-            border-radius: 8px;
-            overflow: hidden;
-            padding: 2px;
-            margin-top: 4px;
-        }
-
-        .qty-adjuster button {
-            border: none;
-            background: none;
+        .r-circle {
             width: 24px;
             height: 24px;
+            border-radius: 50%;
+            border: 2px solid #ccc;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-weight: bold;
-            font-size: 14px;
-            color: var(--text-muted);
-            cursor: pointer;
-            transition: background 0.2s;
+            transition: all .2s;
+            flex-shrink: 0;
+            background: var(--white);
         }
 
-        .qty-adjuster button:hover {
-            background-color: var(--mango-cream-soft);
-            color: var(--text-dark);
+        .r-card.active .r-circle {
+            border-color: var(--lychee);
+            background: var(--lychee)
         }
 
-        .qty-adjuster .qty-display {
-            min-width: 24px;
-            text-align: center;
+        .r-circle::after {
+            content: '';
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: var(--white);
+            transform: scale(0);
+            transition: transform .15s;
+        }
+
+        .r-card.active .r-circle::after {
+            transform: scale(1)
+        }
+
+        .r-name {
+            font-family: 'Baloo Da 2', cursive;
             font-weight: 700;
-            font-size: 13px;
+            font-size: 16px;
+            color: var(--ink)
         }
 
-        .radio-right {
-            text-align: right;
-        }
-
-        .radio-price-tag {
-            font-size: 17px;
+        .r-price {
             font-weight: 800;
-            color: var(--mango-green);
+            font-size: 18px;
+            color: var(--lychee);
+            font-family: 'Space Grotesk', sans-serif
         }
 
-        /* ── E-Commerce Invoice Receipt ── */
-        .invoice-card {
-            background-color: #fafaf9;
-            border-radius: 1rem;
-            padding: 1.5rem;
-            border: 1px solid rgba(0, 0, 0, 0.06);
-            box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.02);
-            position: relative;
+        .r-card-body {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 12px;
+            padding-left: 38px;
+            display: none;
         }
 
-        .invoice-row {
+        .r-card.active .r-card-body {
+            display: flex;
+            animation: fadeIn 0.3s ease;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(-5px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .r-qty {
+            display: inline-flex;
+            align-items: center;
+            border: 1px solid var(--border);
+            border-radius: 6px;
+            background: white;
+            overflow: hidden
+        }
+
+        .r-qty button {
+            border: none;
+            background: var(--cream);
+            width: 28px;
+            height: 28px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 16px;
+            font-weight: 700;
+            cursor: pointer;
+            color: var(--bark);
+            transition: background .15s;
+        }
+
+        .r-qty button:hover {
+            background: var(--border)
+        }
+
+        .r-qty .r-num {
+            min-width: 32px;
+            text-align: center;
+            font-size: 14px;
+            font-weight: 700;
+            color: var(--ink)
+        }
+
+        /* Premium Invoice */
+        .invoice {
+            background: #fafaf9;
+            border: 1px dashed rgba(229, 57, 53, 0.3);
+            border-radius: 12px;
+            overflow: hidden;
+            margin-bottom: 24px;
+        }
+
+        .inv-header {
+            background: rgba(229, 57, 53, 0.05);
+            padding: 16px 20px;
+            font-family: 'Baloo Da 2', cursive;
+            font-weight: 800;
+            font-size: 16px;
+            color: var(--lychee-deep);
+            border-bottom: 1px dashed rgba(229, 57, 53, 0.2);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .inv-body {
+            padding: 10px 20px;
+        }
+
+        .inv-row {
             display: flex;
             justify-content: space-between;
             align-items: center;
             padding: 12px 0;
-            border-bottom: 1px solid rgba(0, 0, 0, 0.06);
-            font-size: 15px;
-        }
-
-        .invoice-row.total {
-            border-bottom: none;
-            padding-top: 15px;
-            margin-top: 5px;
-            border-top: 2px dashed rgba(0, 0, 0, 0.15);
-        }
-
-        .invoice-label {
-            color: var(--text-muted);
-            font-weight: 600;
-        }
-
-        .invoice-val {
-            color: var(--text-dark);
-            font-weight: 700;
-        }
-
-        .invoice-val.total-price {
-            font-size: 20px;
-            color: var(--mango-orange);
-            font-weight: 800;
-        }
-
-        .btn-confirm-checkout {
-            background: linear-gradient(135deg, var(--mango-green) 0%, var(--mango-green-hover) 100%);
-            color: white;
-            font-size: 18px;
-            font-weight: 800;
-            border: none;
-            border-radius: 12px;
-            padding: 15px;
-            box-shadow: 0 10px 20px rgba(46, 125, 50, 0.2);
-            transition: all 0.3s ease;
-            position: relative;
-        }
-
-        .btn-confirm-checkout:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 15px 25px rgba(46, 125, 50, 0.3);
-            background: linear-gradient(135deg, var(--mango-green-hover) 0%, #113A14 100%);
-        }
-
-        /* ── Footer ── */
-        .footer {
-            background-color: #2C1E12;
-            color: rgba(255, 255, 255, 0.6);
-            padding: 2.5rem 0;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.05);
             font-size: 14px;
         }
 
-        .footer a {
-            color: var(--mango-gold-light);
-            text-decoration: none;
+        .inv-row:last-child {
+            border-bottom: none
         }
 
-        .footer a:hover {
-            text-decoration: underline;
+        .inv-label {
+            color: #7a7068;
+            font-weight: 600
         }
 
-        /* ── Screen Responsive Tweak ── */
-        @media (max-width: 768px) {
-            .hero-card {
-                padding: 1.5rem;
+        .inv-val {
+            font-weight: 700;
+            color: var(--ink)
+        }
+
+        .inv-total {
+            background: var(--white);
+            padding: 16px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-top: 2px dashed rgba(229, 57, 53, 0.3);
+        }
+
+        .inv-total .lbl {
+            color: var(--ink);
+            font-weight: 800;
+            font-size: 16px
+        }
+
+        .inv-total .val {
+            color: var(--lychee);
+            font-weight: 800;
+            font-size: 24px;
+            font-family: 'Space Grotesk', sans-serif
+        }
+
+        .btn-confirm {
+            width: 100%;
+            background: linear-gradient(135deg, var(--lychee) 0%, var(--lychee-deep) 100%);
+            color: var(--white);
+            font-family: 'Baloo Da 2', cursive;
+            font-size: 20px;
+            font-weight: 800;
+            padding: 18px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all .3s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            box-shadow: 0 10px 25px rgba(229, 57, 53, 0.3);
+            animation: pulseGlow 2.5s infinite;
+        }
+
+        .btn-confirm:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 35px rgba(229, 57, 53, 0.4);
+        }
+
+        .btn-confirm span {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 18px;
+            opacity: .9
+        }
+
+        /* ── FOOTER ── */
+        footer {
+            background: var(--ink);
+            color: rgba(255, 255, 255, .45);
+            text-align: center;
+            padding: 32px 24px;
+            font-size: 13px;
+            border-top: 3px solid var(--lychee);
+        }
+
+        footer strong {
+            color: var(--lychee)
+        }
+
+        /* ── RESPONSIVE ── */
+        @media(max-width:900px) {
+            .hero-content {
+                padding: 40px 10px;
             }
 
-            .hero-badge {
-                font-size: 13px;
-                padding: 4px 12px;
+            .split-section {
+                grid-template-columns: 1fr
+            }
+
+            .split-half {
+                padding: 56px 28px
+            }
+
+            .split-half:first-child {
+                border-right: none;
+                border-bottom: 1px solid var(--border)
+            }
+        }
+
+        @media(max-width:600px) {
+            .hero-left {
+                padding: 40px 20px
+            }
+
+            .section {
+                padding: 56px 0
+            }
+
+            .checkout-container {
+                border-radius: 0;
+                border: none;
+            }
+
+            .checkout-section {
+                padding: 40px 0;
             }
         }
     </style>
@@ -774,618 +1206,484 @@
 
 <body>
 
-    <!-- ── Glowing Top Notice Bar ── -->
-    <div class="top-notice-bar text-center py-3 px-3 text-white">
-        <div class="container d-flex flex-column align-items-center">
-            <div class="notice-badge mb-2 font-baloo fw-bold">
-                <i
-                    class="fa-solid fa-circle-check me-1 animate__animated animate__flash animate__infinite animate__slower"></i>
-                ১০০% প্রাকৃতিক ও খাঁটি
-            </div>
-            <h1 class="notice-title font-baloo fw-bold m-0 text-white text-center">
-                সরাসরি বাগান থেকে সংগৃহীত ১০০% কেমিক্যাল ও ফরমালিন মুক্ত রাজশাহীর বিখ্যাত আম!
-            </h1>
+    <!-- TICKER -->
+    <div class="ticker-wrap" aria-hidden="true">
+        <div class="ticker-track">
+            <span class="ticker-item">সরাসরি বাগান থেকে সংগৃহীত <span class="ticker-dot">✦</span></span>
+            <span class="ticker-item">১০০% কেমিক্যাল মুক্ত <span class="ticker-dot">✦</span></span>
+            <span class="ticker-item">ক্যাশ অন ডেলিভারি সুবিধা <span class="ticker-dot">✦</span></span>
+            <span class="ticker-item">দিনাজপুর ও রাজশাহীর বিখ্যাত লিচু <span class="ticker-dot">✦</span></span>
+            <span class="ticker-item">বোম্বাই · বেদানা · চায়না-৩ <span class="ticker-dot">✦</span></span>
+            <span class="ticker-item">সরাসরি বাগান থেকে সংগৃহীত <span class="ticker-dot">✦</span></span>
+            <span class="ticker-item">১০০% কেমিক্যাল মুক্ত <span class="ticker-dot">✦</span></span>
+            <span class="ticker-item">ক্যাশ অন ডেলিভারি সুবিধা <span class="ticker-dot">✦</span></span>
+            <span class="ticker-item">দিনাজপুর ও রাজশাহীর বিখ্যাত লিচু <span class="ticker-dot">✦</span></span>
+            <span class="ticker-item">বোম্বাই · বেদানা · চায়না-৩ <span class="ticker-dot">✦</span></span>
         </div>
     </div>
 
-    <!-- ── Modern Hero Grid ── -->
-    <section class="hero-section">
-        <div class="container">
-            <div class="hero-card">
-                <div class="row align-items-center g-4">
-                    <div class="col-lg-7 col-12 text-center text-lg-start">
-                        <div class="hero-badge mb-3">
-                            <i class="fa-solid fa-seedling me-2"></i> ফরমালিন মুক্ত ১০০% খাঁটি আম
-                        </div>
-                        <h2 class="hero-title font-baloo fw-bold my-3">
-                            রাজশাহীর সেরা মানের <span class="hero-highlight">হিমসাগর ও আম্রপালি</span> আম
-                        </h2>
-                        <p class="fs-5 leading-relaxed text-muted mb-4 font-baloo">
-                            আমাদের নিজস্ব বাগান থেকে সরাসরি আপনার ঘরে। সম্পূর্ণ প্রাকৃতিকভাবে পাকানো, রসালো ও মিষ্টি
-                            আমের আসল স্বাদ উপভোগ করুন।
-                        </p>
-                        <div
-                            class="d-flex flex-column flex-sm-row justify-content-center justify-content-lg-start gap-3">
-                            <a href="#checkout" class="btn-mango-primary shadow-lg px-5 py-3">
-                                <i class="fa-solid fa-cart-shopping me-2"></i> এখনই অর্ডার করুন
-                            </a>
-                            <a href="tel:01732764039" class="btn-mango-secondary px-5 py-3">
-                                <i class="fa-solid fa-phone me-2"></i>01732764039
-                            </a>
-                        </div>
-                    </div>
-                    <div class="col-lg-5 col-12">
-                        <div class="hero-img-container text-center">
-                            <div class="hero-img-bg"></div>
-                            <img src="https://media.istockphoto.com/id/1432601209/photo/ripe-mango-fruits-on-mango-tree-green-foliage-at-the-background.jpg?s=612x612&w=0&k=20&c=2qWTm1kwZsUUzBfPj7AZKpr1ysjzS9335Sa_nKE8caY="
-                                alt="রাজশাহীর বিখ্যাত আম" class="img-fluid hero-img border border-5 border-white">
-                            <div class="floating-badge">
-                                <i class="fa-solid fa-award text-warning me-1"></i> প্রিমিয়াম গ্রেড
-                            </div>
-                        </div>
-                    </div>
-                </div>
+    <!-- NAV -->
+    <nav>
+        <div class="nav-inner">
+            <a href="#" class="brand">
+                <i class="fa-solid fa-leaf"></i> আজরাই শপ
+                <span>প্রিমিয়াম ফল ও কৃষিপণ্য</span>
+            </a>
+            <div class="nav-actions">
+                <a href="tel:01732764039" class="btn-call">
+                    <i class="fa-solid fa-phone"></i> 01732764039
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- HERO -->
+    <section class="hero">
+        <!-- Background image and overlay -->
+        <img src="https://m.media-amazon.com/images/I/51sSBT+fGYL._AC_UF1000,1000_QL80_.jpg"
+            alt="দিনাজপুরের বিখ্যাত লিচু" class="hero-bg-img">
+        <div class="hero-overlay"></div>
+
+        <div class="hero-content">
+            <div class="tag-pill">
+                <i class="fa-solid fa-circle-check" style="font-size:10px"></i>
+                ১০০% কেমিক্যাল মুক্ত · গ্যারান্টিড
+            </div>
+            <h1 class="hero-title bn">
+                দিনাজপুর ও রাজশাহীর
+                <span class="accent">বিখ্যাত লিচু</span>
+                সরাসরি বাগান থেকে
+            </h1>
+            <p class="hero-sub">বোম্বাই, বেদানা ও চায়না-৩ — প্রাকৃতিকভাবে পাকানো, রসালো ও মিষ্টি লিচুর আসল স্বাদ আপনার
+                ঘরে।</p>
+            <div class="hero-ctas">
+                <a href="#checkout" class="btn-hero">
+                    <i class="fa-solid fa-cart-arrow-down"></i> এখনই অর্ডার করুন
+                </a>
+                <a href="#pricing" class="btn-ghost">
+                    <i class="fa-solid fa-tags"></i> মূল্য তালিকা দেখুন
+                </a>
+            </div>
+            <div class="trust-row">
+                <div class="trust-item"><i class="fa-solid fa-seedling"></i> তাজা লিচু</div>
+                <div class="trust-item"><i class="fa-solid fa-truck-fast"></i> দ্রুত ডেলিভারি</div>
+                <div class="trust-item"><i class="fa-solid fa-shield-heart"></i> ফ্রেশ গ্যারান্টি</div>
+                <div class="trust-item"><i class="fa-solid fa-scale-balanced"></i> সঠিক গণনা</div>
             </div>
         </div>
     </section>
 
-    <!-- ── Media Section & Video Mockup ── -->
-    <section class="py-5">
+    <!-- VIDEO -->
+    <section class="video-section">
         <div class="container">
-            <div class="section-header text-center">
-                <span class="section-tag"><i class="fa-solid fa-video me-1"></i> ভিডিও রিভিউ</span>
-                <h3 class="section-title font-baloo">ভিডিওতে দেখুন আমাদের আমের বাগান</h3>
+            <div class="section-label">
+                <i class="fa-solid fa-video"></i> ভিডিও রিভিউ
             </div>
-
-            <div class="row justify-content-center mt-5">
-                <div class="col-lg-10 col-12">
-                    <div class="video-mockup">
-                        <iframe src="https://www.youtube.com/embed/tWPePzWo7_E" title="YouTube video player"
-                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                            allowfullscreen></iframe>
-                    </div>
-                    <div class="text-center mt-4">
-                        <a id="order-btn-top" href="#checkout"
-                            class="btn-mango-primary w-sm-auto px-5 py-3 order-btn shadow-lg">
-                            <i class="fa-solid fa-cart-shopping me-2"></i>অর্ডার করুন
-                        </a>
-                    </div>
-                </div>
+            <h2 class="section-title bn" style="color:var(--white)">আমাদের লিচু বাগান দেখুন নিজেই</h2>
+            <p class="section-desc">বিশ্বাস করার আগে নিজে দেখুন — আমাদের বাগান থেকে কীভাবে থোকা থোকা তাজা লিচু সংগ্রহ
+                করা হয়।</p>
+            <div class="video-frame">
+                <iframe src="https://www.youtube.com/embed/2NJgpNLVugs" title="আজরাই শপ লিচু বাগান ভিডিও"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowfullscreen></iframe>
+            </div>
+            <div style="text-align:center;margin-top:32px">
+                <a href="#checkout" class="btn-primary" style="display:inline-flex">
+                    <i class="fa-solid fa-cart-shopping"></i> অর্ডার করুন
+                </a>
             </div>
         </div>
     </section>
 
-    <!-- ── Redesigned Interactive Price Bands (Pricing Section) ── -->
-    <section class="pricing-section">
+    <!-- PRICING -->
+    <section class="pricing-section" id="pricing">
         <div class="container">
-            <div class="section-header text-center mb-5">
-                <span class="section-tag"><i class="fa-solid fa-tags me-1"></i> মূল্য তালিকা</span>
-                <h3 class="section-title font-baloo">সেরা ও সাশ্রয়ী প্যাকেজ সমূহ</h3>
+            <div class="section-label">
+                <i class="fa-solid fa-tags"></i> মূল্য তালিকা
             </div>
-
+            <h2 class="section-title bn">সেরা ও সাশ্রয়ী প্যাকেজ</h2>
+            <p class="section-desc">আপনার পরিবারের চাহিদা অনুযায়ী প্যাকেজ বেছে নিন। সব প্যাকেজে দ্রুততম হোম ডেলিভারি।
+            </p>
             <div class="pricing-grid">
-                <!-- Package 1: 5kg -->
+                <!-- Card 1 -->
                 <div class="price-card">
-                    <div>
-                        <div class="pkg-badge">স্টার্টার প্যাক</div>
-                        <h4 class="pkg-title">হিমসাগর ৫ কেজি</h4>
-                        <p class="pkg-desc">স্বাদ যাচাই করার জন্য সেরা স্টার্টার প্যাক।</p>
+                    <div class="card-eyebrow"><i class="fa-solid fa-star" style="font-size:10px"></i> স্টার্টার প্যাক
                     </div>
-                    <div>
-                        <div class="price-wrapper">
-                            <div class="price-original-wrap">
-                                পূর্বের মূল্য: <span class="strike-price font-outfit">১৪৫০ ৳</span>
-                            </div>
-                            <div class="pkg-price-offer font-outfit">৯৯০ ৳</div>
-                        </div>
-                        <a href="#checkout" class="btn-mango-primary select-plan-btn" data-plan="0">
-                            <i class="fa-solid fa-basket-shopping me-2"></i>প্যাকেজটি কিনুন
-                        </a>
+                    <div class="card-name bn">বোম্বাই লিচু ১০০ পিস</div>
+                    <div class="card-desc bn">স্বাদ যাচাই করার জন্য আদর্শ। প্রথমবার অর্ডারের জন্য পারফেক্ট।</div>
+                    <div class="price-area">
+                        <div class="was">পূর্বে ছিল ৳৬৫০</div>
+                        <div class="now"><sup>৳</sup>৪৫০</div>
                     </div>
+                    <a href="#checkout" class="btn-order select-plan-btn bn" data-plan="0">
+                        <i class="fa-solid fa-basket-shopping"></i> এই প্যাকেজটি নিন
+                    </a>
                 </div>
 
-                <!-- Package 2: 10kg Popular -->
-                <div class="price-card featured">
-                    <div>
-                        <div class="pkg-badge">বেস্ট সেলার</div>
-                        <h4 class="pkg-title">হিমসাগর ও আম্রপালি ১০ কেজি</h4>
-                        <p class="pkg-desc">সবচেয়ে বেশি বিক্রিত এবং পরিবারের জন্য সেরা প্যাক।</p>
+                <!-- Card 2 — HOT -->
+                <div class="price-card hot">
+                    <div class="hot-ribbon">বেস্ট সেলার</div>
+                    <div class="card-eyebrow"><i class="fa-solid fa-fire" style="font-size:10px"></i> সবচেয়ে জনপ্রিয়
                     </div>
-                    <div>
-                        <div class="price-wrapper">
-                            <div class="price-original-wrap">
-                                পূর্বের মূল্য: <span class="strike-price font-outfit">২৯৯০ ৳</span>
-                            </div>
-                            <div class="pkg-price-offer font-outfit">১৪৫০ ৳</div>
-                        </div>
-                        <a href="#checkout" class="btn-mango-primary select-plan-btn" data-plan="1">
-                            <i class="fa-solid fa-basket-shopping me-2"></i>প্যাকেজটি কিনুন
-                        </a>
+                    <div class="card-name bn">বেদানা লিচু ২০০ পিস</div>
+                    <div class="card-desc bn">পরিবারের জন্য সেরা। মিষ্টি রসে ভরপুর বাছাইকৃত সেরা লিচু।</div>
+                    <div class="price-area">
+                        <div class="was">পূর্বে ছিল ৳১৪০০</div>
+                        <div class="now"><sup>৳</sup>৯৯০</div>
                     </div>
+                    <a href="#checkout" class="btn-order select-plan-btn bn" data-plan="1">
+                        <i class="fa-solid fa-basket-shopping"></i> এই প্যাকেজটি নিন
+                    </a>
                 </div>
 
-                <!-- Package 3: 20kg Value -->
+                <!-- Card 3 -->
                 <div class="price-card">
-                    <div>
-                        <div class="pkg-badge">সুপার সেভার</div>
-                        <h4 class="pkg-title">মিক্সড আম ২০ কেজি</h4>
-                        <p class="pkg-desc">আত্মীয়-স্বজন ও দীর্ঘমেয়াদী মজুদের জন্য সেরা মূল্যপ্যাক।</p>
+                    <div class="card-eyebrow"><i class="fa-solid fa-boxes-stacked" style="font-size:10px"></i> সুপার
+                        সেভার</div>
+                    <div class="card-name bn">চায়না-৩ লিচু ৫০০ পিস</div>
+                    <div class="card-desc bn">আত্মীয়-স্বজন ও বন্ধু-বান্ধবদের খাওয়ানোর জন্য সেরা মূল্যপ্যাক।</div>
+                    <div class="price-area">
+                        <div class="was">পূর্বে ছিল ৳৩২০০</div>
+                        <div class="now"><sup>৳</sup>২৩০০</div>
                     </div>
-                    <div>
-                        <div class="price-wrapper">
-                            <div class="price-original-wrap">
-                                পূর্বের মূল্য: <span class="strike-price font-outfit">২০০০ ৳</span>
-                            </div>
-                            <div class="pkg-price-offer font-outfit">১৫০০ ৳</div>
-                        </div>
-                        <a href="#checkout" class="btn-mango-primary select-plan-btn" data-plan="2">
-                            <i class="fa-solid fa-basket-shopping me-2"></i>প্যাকেজটি কিনুন
-                        </a>
-                    </div>
+                    <a href="#checkout" class="btn-order select-plan-btn bn" data-plan="2">
+                        <i class="fa-solid fa-basket-shopping"></i> এই প্যাকেজটি নিন
+                    </a>
                 </div>
 
-                <!-- Package 4: 10kg Premium -->
+                <!-- Card 4 -->
                 <div class="price-card">
-                    <div>
-                        <div class="pkg-badge">বিশেষ উপহার প্যাক</div>
-                        <h4 class="pkg-title">প্রিমিয়াম ল্যাংড়া ও আম্রপালি ১০ কেজি</h4>
-                        <p class="pkg-desc">ফ্রি ও দ্রুততম হোম ডেলিভারি ও বাছাইকৃত সেরা আমের প্যাক।</p>
+                    <div class="card-eyebrow"><i class="fa-solid fa-gift" style="font-size:10px"></i> উপহার প্যাক</div>
+                    <div class="card-name bn">মিক্সড প্রিমিয়াম লিচু ১০০০ পিস</div>
+                    <div class="card-desc bn">বিশেষ উপলক্ষ ও প্রিয়জনকে উপহার দিতে এই প্রিমিয়াম প্যাকটি বেছে নিন।</div>
+                    <div class="price-area">
+                        <div class="was">পূর্বে ছিল ৳৬০০০</div>
+                        <div class="now"><sup>৳</sup>৪৫০০</div>
                     </div>
-                    <div>
-                        <div class="price-wrapper">
-                            <div class="price-original-wrap">
-                                পূর্বের মূল্য: <span class="strike-price font-outfit">২৫০০ ৳</span>
-                            </div>
-                            <div class="pkg-price-offer font-outfit">১৮৫০ ৳</div>
-                        </div>
-                        <a href="#checkout" class="btn-mango-primary select-plan-btn" data-plan="3">
-                            <i class="fa-solid fa-basket-shopping me-2"></i>প্যাকেজটি কিনুন
-                        </a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- ── Benefits & Trust Redesign (Modern Card Lists) ── -->
-    <section class="card-list-section">
-        <div class="container">
-            <div class="row g-4">
-                <!-- Column 1: Benefits -->
-                <div class="col-lg-6 col-12">
-                    <div class="section-header text-center text-lg-start mb-4">
-                        <span class="section-tag"><i class="fa-solid fa-shield-heart me-1"></i> উপকারিতা</span>
-                        <h3 class="section-title font-baloo">কেন আমাদের আম কিনবেন?</h3>
-                    </div>
-
-                    <div class="row g-3">
-                        <div class="col-12">
-                            <div class="feature-card d-flex align-items-center">
-                                <div class="icon-circle green me-3"><i class="fa-solid fa-droplet"></i></div>
-                                <p class="feature-text">সম্পূর্ণ ফরমালিন ও কেমিক্যাল মুক্ত।</p>
-                            </div>
-                        </div>
-                        <div class="col-12">
-                            <div class="feature-card d-flex align-items-center">
-                                <div class="icon-circle green me-3"><i class="fa-solid fa-circle-check"></i></div>
-                                <p class="feature-text">রাজশাহী ও চাঁপাইনবাবগঞ্জের বাছাইকৃত সেরা আম।</p>
-                            </div>
-                        </div>
-                        <div class="col-12">
-                            <div class="feature-card d-flex align-items-center">
-                                <div class="icon-circle green me-3"><i class="fa-solid fa-person-running"></i></div>
-                                <p class="feature-text">গাছপাকা ও প্রাকৃতিকভাবে পাকানো।</p>
-                            </div>
-                        </div>
-                        <div class="col-12">
-                            <div class="feature-card d-flex align-items-center">
-                                <div class="icon-circle green me-3"><i class="fa-solid fa-bolt"></i></div>
-                                <p class="feature-text">প্রচুর ভিটামিন ও পুষ্টিগুণে ভরপুর।</p>
-                            </div>
-                        </div>
-                        <div class="col-12">
-                            <div class="feature-card d-flex align-items-center">
-                                <div class="icon-circle green me-3"><i class="fa-solid fa-heart-pulse"></i></div>
-                                <p class="feature-text">স্বাদ ও গন্ধে অতুলনীয়।</p>
-                            </div>
-                        </div>
-                        <div class="col-12">
-                            <div class="feature-card d-flex align-items-center">
-                                <div class="icon-circle green me-3"><i class="fa-solid fa-seedling"></i></div>
-                                <p class="feature-text">১০০% ফ্রেশ ও স্বাস্থ্যকর গ্যারান্টি।</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Column 2: Trust Points -->
-                <div class="col-lg-6 col-12">
-                    <div class="section-header text-center text-lg-start mb-4">
-                        <span class="section-tag"><i class="fa-solid fa-handshake me-1"></i> আমাদের বিশ্বস্ততা</span>
-                        <h3 class="section-title font-baloo">আজরাই শপ এর উপর কেন আস্থা রাখবেন?</h3>
-                    </div>
-
-                    <div class="row g-3">
-                        <div class="col-12">
-                            <div class="feature-card d-flex align-items-center">
-                                <div class="icon-circle gold me-3"><i class="fa-solid fa-award"></i></div>
-                                <p class="feature-text">আমরা শতভাগ খাঁটি ও প্রিমিয়াম কোয়ালিটি পণ্য সরবরাহ করি।</p>
-                            </div>
-                        </div>
-                        <div class="col-12">
-                            <div class="feature-card d-flex align-items-center">
-                                <div class="icon-circle gold me-3"><i class="fa-solid fa-scale-balanced"></i></div>
-                                <p class="feature-text">প্যাকেজে সঠিক ওজন ও প্রমিত প্যাকেজিং নিশ্চিত করা হয়।</p>
-                            </div>
-                        </div>
-                        <div class="col-12">
-                            <div class="feature-card d-flex align-items-center">
-                                <div class="icon-circle gold me-3"><i class="fa-solid fa-truck-fast"></i></div>
-                                <p class="feature-text">অর্ডার কনফার্ম করার পর দ্রুততম সময়ে ডেলিভারি করা হয়।</p>
-                            </div>
-                        </div>
-                        <div class="col-12">
-                            <div class="feature-card d-flex align-items-center">
-                                <div class="icon-circle gold me-3"><i class="fa-solid fa-map-location-dot"></i></div>
-                                <p class="feature-text">সারাদেশের যেকোনো প্রান্তে ক্যাশ অন ডেলিভারি সুবিধা।</p>
-                            </div>
-                        </div>
-                        <div class="col-12">
-                            <div class="feature-card d-flex align-items-center">
-                                <div class="icon-circle gold me-3"><i class="fa-solid fa-phone-volume"></i></div>
-                                <p class="feature-text">সহজ অর্ডার ও অর্ডার পরবর্তী সার্বক্ষণিক কাস্টমার সাপোর্ট।</p>
-                            </div>
-                        </div>
-                        <div class="col-12">
-                            <div class="feature-card d-flex align-items-center">
-                                <div class="icon-circle gold me-3"><i class="fa-solid fa-users"></i></div>
-                                <p class="feature-text">হাজারো গ্রাহকের আস্থার প্রতিচ্ছবি আমাদের আজরাই শপ।</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- ── Call to Action Urgency Alert Bar ── -->
-    <section class="py-4">
-        <div class="container text-center">
-            <div class="urgency-alert">
-                <h2 class="font-baloo fw-bold text-white mb-2">🎯 অফারটি সীমিত সময়ের জন্য!</h2>
-                <p class="fs-5 text-white-50 mb-4">আমাদের স্টক দ্রুত ফুরিয়ে যাচ্ছে, এখনই নিচে আপনার পছন্দের প্যাকেজটি
-                    সিলেক্ট করে অর্ডার করুন!</p>
-                <div class="stock-countdown fw-bold font-outfit mb-4">
-                    <i
-                        class="fa-solid fa-fire me-2 text-warning animate__animated animate__pulse animate__infinite"></i>
-                    আর মাত্র ৯টি স্টক অবশিষ্ট আছে!
-                </div>
-                <div>
-                    <a href="tel:01732764039" class="btn-mango-primary w-auto px-5 py-3 shadow-lg fs-5">
-                        <i class="fa-solid fa-phone me-2"></i>প্রয়োজনে কল করুন: 01732764039
+                    <a href="#checkout" class="btn-order select-plan-btn bn" data-plan="3">
+                        <i class="fa-solid fa-basket-shopping"></i> এই প্যাকেজটি নিন
                     </a>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- ── High-End Checkout Form Section ── -->
-    <section id="checkout" class="checkout-section">
+    <!-- WHY + TRUST -->
+    <div class="split-section">
+        <div class="split-half">
+            <div class="section-label"><i class="fa-solid fa-seedling"></i> উপকারিতা</div>
+            <h3 class="section-title bn">কেন আমাদের লিচু?</h3>
+            <div class="feature-list">
+                <div class="feature-item">
+                    <div class="fi-icon"><i class="fa-solid fa-droplet"></i></div>
+                    <p class="fi-text bn">সম্পূর্ণ ফরমালিন ও কেমিক্যাল মুক্ত।</p>
+                </div>
+                <div class="feature-item">
+                    <div class="fi-icon"><i class="fa-solid fa-circle-check"></i></div>
+                    <p class="fi-text bn">দিনাজপুর ও রাজশাহীর বাছাইকৃত সেরা লিচু।</p>
+                </div>
+                <div class="feature-item">
+                    <div class="fi-icon"><i class="fa-solid fa-sun"></i></div>
+                    <p class="fi-text bn">গাছপাকা ও প্রাকৃতিকভাবে তাজা।</p>
+                </div>
+                <div class="feature-item">
+                    <div class="fi-icon"><i class="fa-solid fa-bolt"></i></div>
+                    <p class="fi-text bn">প্রচুর ভিটামিন ও পুষ্টিগুণে ভরপুর।</p>
+                </div>
+                <div class="feature-item">
+                    <div class="fi-icon"><i class="fa-solid fa-heart-pulse"></i></div>
+                    <p class="fi-text bn">রসালো, স্বাদ ও গন্ধে অতুলনীয়।</p>
+                </div>
+                <div class="feature-item">
+                    <div class="fi-icon"><i class="fa-solid fa-award"></i></div>
+                    <p class="fi-text bn">১০০% ফ্রেশ ও স্বাস্থ্যকর গ্যারান্টি।</p>
+                </div>
+            </div>
+        </div>
+        <div class="split-half">
+            <div class="section-label"><i class="fa-solid fa-handshake"></i> আমাদের বিশ্বস্ততা
+            </div>
+            <h3 class="section-title bn">আজরাই শপ কেন বিশ্বাসযোগ্য?</h3>
+            <div class="feature-list">
+                <div class="feature-item">
+                    <div class="fi-icon"><i class="fa-solid fa-shield-halved"></i></div>
+                    <p class="fi-text bn">শতভাগ খাঁটি ও প্রিমিয়াম কোয়ালিটি নিশ্চিত।</p>
+                </div>
+                <div class="feature-item">
+                    <div class="fi-icon"><i class="fa-solid fa-scale-balanced"></i></div>
+                    <p class="fi-text bn">প্যাকেজে সঠিক পিস ও প্রমিত প্যাকেজিং।</p>
+                </div>
+                <div class="feature-item">
+                    <div class="fi-icon"><i class="fa-solid fa-truck-fast"></i></div>
+                    <p class="fi-text bn">অর্ডার কনফার্মের পর দ্রুততম সময়ে ডেলিভারি।</p>
+                </div>
+                <div class="feature-item">
+                    <div class="fi-icon"><i class="fa-solid fa-map-location-dot"></i></div>
+                    <p class="fi-text bn">সারাদেশে ক্যাশ অন ডেলিভারি সুবিধা।</p>
+                </div>
+                <div class="feature-item">
+                    <div class="fi-icon"><i class="fa-solid fa-phone-volume"></i></div>
+                    <p class="fi-text bn">সহজ অর্ডার ও সার্বক্ষণিক কাস্টমার সাপোর্ট।</p>
+                </div>
+                <div class="feature-item">
+                    <div class="fi-icon"><i class="fa-solid fa-users"></i></div>
+                    <p class="fi-text bn">হাজারো গ্রাহকের বিশ্বাসের প্রতিষ্ঠান।</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- URGENCY -->
+    <div class="urgency-strip">
+        <p class="bn">
+            <i class="fa-solid fa-fire" style="color:var(--lychee-pale)"></i>
+            সীমিত স্টক! এখনই অর্ডার না করলে মিস হতে পারে —
+            <span class="stock-pill">মাত্র ৯টি স্টক অবশিষ্ট</span>
+            <a href="tel:01732764039"
+                style="color:var(--lychee-pale);font-size:15px;margin-left:8px;text-decoration:none"><i
+                    class="fa-solid fa-phone"></i> 01732764039</a>
+        </p>
+    </div>
+
+    <!-- REDESIGNED CHECKOUT -->
+    <section class="checkout-section" id="checkout">
         <div class="container">
-            <div class="checkout-card">
+            <div class="checkout-container">
 
-                <h2 class="text-center font-baloo fw-bold mb-4"
-                    style="font-size:clamp(20px,4.5vw,28px);line-height:1.25;">
-                    অর্ডার করতে নিচের ফর্মটি পূরণ করে <br class="d-none d-sm-block"> <span class="text-success">"অর্ডার
-                        কনফার্ম করুন"</span> বাটনে ক্লিক করুন!
-                </h2>
-
-                <div class="row g-4 mt-2">
-                    <!-- Billing Form -->
-                    <div class="col-lg-6 col-12">
-                        <h4 class="form-section-title font-baloo"><i class="fa-solid fa-user-pen me-2"></i>আপনার তথ্য
-                            (Billing & Shipping)</h4>
-
-                        <div class="form-floating-custom">
-                            <label for="cname">আপনার সম্পূর্ণ নাম *</label>
-                            <input id="cname" type="text" placeholder="আপনার নাম লিখুন" required>
-                        </div>
-
-                        <div class="form-floating-custom">
-                            <label for="caddress">আপনার সম্পূর্ণ ঠিকানা *</label>
-                            <textarea id="caddress" rows="3" placeholder="গ্রাম/বাসা নং, রোড নং, থানা, জেলা"
-                                required></textarea>
-                        </div>
-
-                        <div class="form-floating-custom">
-                            <label for="cphone">আপনার সচল ফোন নাম্বারটি লিখুন *</label>
-                            <input id="cphone" type="tel" placeholder="017XXXXXXXX" required>
-                        </div>
-
-                        <div class="form-floating-custom mt-4">
-                            <label class="fw-bold"><i class="fa-solid fa-language me-2 text-success"></i>ভাষা
-                                অপশন</label>
-                            <div class="p-3 bg-light rounded-3 border" style="font-size:14px; color:var(--text-muted);">
-                                পছন্দ মতো ভেরিফাই নাম্বার ক্ষেত্রে সিলেক্ট করুন। ডেলিভারি প্রসেস দ্রুততম করতে সহায়তা
-                                করবে।
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Interactive Product Selector & Invoice Summary -->
-                    <div class="col-lg-6 col-12">
-                        <h4 class="form-section-title font-baloo"><i class="fa-solid fa-box-archive me-2"></i>প্যাকেজ
-                            নির্বাচন করুন</h4>
-
-                        <!-- Interactive Selector Cards -->
-                        <div class="product-radio-list">
-                            <!-- Product 1 -->
-                            <div class="product-radio-card active" data-index="0">
-                                <div class="radio-left">
-                                    <div class="radio-check"></div>
-                                    <div class="radio-info">
-                                        <span class="radio-prod-name font-baloo">হিমসাগর ৫ কেজি</span>
-                                        <div class="qty-adjuster" onclick="event.stopPropagation();">
-                                            <button type="button" class="qty-minus">-</button>
-                                            <span class="qty-display font-outfit">1</span>
-                                            <button type="button" class="qty-plus">+</button>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="radio-right">
-                                    <span class="radio-price-tag font-outfit">990৳</span>
-                                </div>
-                            </div>
-
-                            <!-- Product 2 -->
-                            <div class="product-radio-card" data-index="1">
-                                <div class="radio-left">
-                                    <div class="radio-check"></div>
-                                    <div class="radio-info">
-                                        <span class="radio-prod-name font-baloo">হিমসাগর ও আম্রপালি ১০ কেজি</span>
-                                        <div class="qty-adjuster" onclick="event.stopPropagation();">
-                                            <button type="button" class="qty-minus">-</button>
-                                            <span class="qty-display font-outfit">1</span>
-                                            <button type="button" class="qty-plus">+</button>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="radio-right">
-                                    <span class="radio-price-tag font-outfit">1450৳</span>
-                                </div>
-                            </div>
-
-                            <!-- Product 3 -->
-                            <div class="product-radio-card" data-index="2">
-                                <div class="radio-left">
-                                    <div class="radio-check"></div>
-                                    <div class="radio-info">
-                                        <span class="radio-prod-name font-baloo">মিক্সড আম ২০ কেজি</span>
-                                        <div class="qty-adjuster" onclick="event.stopPropagation();">
-                                            <button type="button" class="qty-minus">-</button>
-                                            <span class="qty-display font-outfit">1</span>
-                                            <button type="button" class="qty-plus">+</button>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="radio-right">
-                                    <span class="radio-price-tag font-outfit">1500৳</span>
-                                </div>
-                            </div>
-
-                            <!-- Product 4 -->
-                            <div class="product-radio-card" data-index="3">
-                                <div class="radio-left">
-                                    <div class="radio-check"></div>
-                                    <div class="radio-info">
-                                        <span class="radio-prod-name font-baloo">প্রিমিয়াম ল্যাংড়া ও আম্রপালি ১০
-                                            কেজি</span>
-                                        <div class="qty-adjuster" onclick="event.stopPropagation();">
-                                            <button type="button" class="qty-minus">-</button>
-                                            <span class="qty-display font-outfit">1</span>
-                                            <button type="button" class="qty-plus">+</button>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="radio-right">
-                                    <span class="radio-price-tag font-outfit">1850৳</span>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- E-Commerce Invoice -->
-                        <h4 class="form-section-title font-baloo"><i class="fa-solid fa-receipt me-2"></i>অর্ডার সামারি
-                            (Invoice)</h4>
-                        <div class="invoice-card mb-4 shadow-sm">
-                            <div class="invoice-row">
-                                <span class="invoice-label">নির্বাচিত প্যাকেজ</span>
-                                <span class="invoice-val selected-product-name font-baloo">হিমসাগর ৫ কেজি</span>
-                            </div>
-                            <div class="invoice-row">
-                                <span class="invoice-label">পরিমাণ</span>
-                                <span class="invoice-val selected-product-qty font-outfit">১টি</span>
-                            </div>
-                            <div class="invoice-row">
-                                <span class="invoice-label">সাবটোটাল</span>
-                                <span class="invoice-val selected-product-subtotal font-outfit">990.00৳</span>
-                            </div>
-                            <div class="invoice-row">
-                                <span class="invoice-label">ডেলিভারি চার্জ</span>
-                                <span class="invoice-val text-success font-baloo fw-bold">ফ্রি শিপিং</span>
-                            </div>
-                            <div class="invoice-row total">
-                                <span class="invoice-label fs-5 text-dark fw-bold">মোট দেয় পরিমাণ</span>
-                                <span class="invoice-val total-price selected-product-total font-outfit">990.00৳</span>
-                            </div>
-                        </div>
-
-                        <!-- Pulse Confirmation Button -->
-                        <button type="button" class="btn-confirm-checkout w-100 font-baloo shadow-lg">
-                            <i class="fa-solid fa-circle-check me-2"></i>অর্ডার কনফার্ম করুন: <span
-                                class="selected-product-btn-total font-outfit">990.00৳</span>
-                        </button>
-                    </div>
+                <div class="checkout-header">
+                    <h2 class="bn">অর্ডার কনফার্ম করুন</h2>
+                    <p class="bn">নিচের ফর্মটি পূরণ করে আপনার পছন্দের প্যাকেজটি অর্ডার করুন। আমাদের প্রতিনিধি কল করে
+                        কনফার্ম করবেন।</p>
                 </div>
 
+                <div class="checkout-body">
+                    <div class="checkout-row">
+
+                        <!-- Billing Details -->
+                        <div class="checkout-col">
+                            <div style="font-size:14px;font-weight:800;letter-spacing:.05em;text-transform:uppercase;color:var(--leaf);border-bottom:2px solid var(--border);padding-bottom:10px;margin-bottom:24px"
+                                class="bn">
+                                <i class="fa-solid fa-address-card" style="margin-right:6px"></i> শিপিং তথ্য
+                            </div>
+
+                            <div class="form-group">
+                                <label for="cname" class="bn">আপনার সম্পূর্ণ নাম <span
+                                        class="text-danger">*</span></label>
+                                <input id="cname" type="text" placeholder="যেমন: আব্দুল্লাহ আল মামুন" required>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="caddress" class="bn">ডেলিভারি ঠিকানা <span
+                                        class="text-danger">*</span></label>
+                                <textarea id="caddress" placeholder="গ্রাম/বাসা নং, রোড, থানা, জেলা"
+                                    required></textarea>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="cphone" class="bn">সচল ফোন নাম্বার <span
+                                        class="text-danger">*</span></label>
+                                <input id="cphone" type="tel" placeholder="017XXXXXXXX" required>
+                            </div>
+
+                            <div style="background:var(--lychee-pale);border:1px dashed rgba(229,57,53,.3);border-radius:8px;padding:16px;font-size:14px;color:var(--lychee-deep);line-height:1.6;margin-top:24px"
+                                class="bn fw-bold">
+                                <i class="fa-solid fa-truck" style="margin-right:6px"></i>
+                                সারাদেশে ক্যাশ অন ডেলিভারি (Cash on Delivery) সুবিধা রয়েছে। পণ্য হাতে পেয়ে মূল্য পরিশোধ
+                                করুন!
+                            </div>
+                        </div>
+
+                        <!-- Product Selection & Invoice -->
+                        <div class="checkout-col">
+                            <div style="font-size:14px;font-weight:800;letter-spacing:.05em;text-transform:uppercase;color:var(--leaf);border-bottom:2px solid var(--border);padding-bottom:10px;margin-bottom:24px"
+                                class="bn">
+                                <i class="fa-solid fa-box-open" style="margin-right:6px"></i> প্যাকেজ নির্বাচন
+                            </div>
+
+                            <!-- Modern Radio Cards -->
+                            <div class="radio-cards">
+                                <div class="r-card active" data-index="0">
+                                    <div class="r-card-header">
+                                        <div class="r-left">
+                                            <div class="r-circle"></div>
+                                            <div class="r-name bn">বোম্বাই লিচু ১০০ পিস</div>
+                                        </div>
+                                        <div class="r-price">৳450</div>
+                                    </div>
+                                    <div class="r-card-body">
+                                        <span class="bn text-muted fs-6">পরিমাণ:</span>
+                                        <div class="r-qty" onclick="event.stopPropagation()">
+                                            <button class="qty-minus" type="button">−</button>
+                                            <span class="r-num qty-display">1</span>
+                                            <button class="qty-plus" type="button">+</button>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="r-card" data-index="1">
+                                    <div class="r-card-header">
+                                        <div class="r-left">
+                                            <div class="r-circle"></div>
+                                            <div class="r-name bn">বেদানা লিচু ২০০ পিস</div>
+                                        </div>
+                                        <div class="r-price">৳990</div>
+                                    </div>
+                                    <div class="r-card-body">
+                                        <span class="bn text-muted fs-6">পরিমাণ:</span>
+                                        <div class="r-qty" onclick="event.stopPropagation()">
+                                            <button class="qty-minus" type="button">−</button>
+                                            <span class="r-num qty-display">1</span>
+                                            <button class="qty-plus" type="button">+</button>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="r-card" data-index="2">
+                                    <div class="r-card-header">
+                                        <div class="r-left">
+                                            <div class="r-circle"></div>
+                                            <div class="r-name bn">চায়না-৩ লিচু ৫০০ পিস</div>
+                                        </div>
+                                        <div class="r-price">৳2,300</div>
+                                    </div>
+                                    <div class="r-card-body">
+                                        <span class="bn text-muted fs-6">পরিমাণ:</span>
+                                        <div class="r-qty" onclick="event.stopPropagation()">
+                                            <button class="qty-minus" type="button">−</button>
+                                            <span class="r-num qty-display">1</span>
+                                            <button class="qty-plus" type="button">+</button>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="r-card" data-index="3">
+                                    <div class="r-card-header">
+                                        <div class="r-left">
+                                            <div class="r-circle"></div>
+                                            <div class="r-name bn">মিক্সড প্রিমিয়াম লিচু ১০০০ পিস</div>
+                                        </div>
+                                        <div class="r-price">৳4,500</div>
+                                    </div>
+                                    <div class="r-card-body">
+                                        <span class="bn text-muted fs-6">পরিমাণ:</span>
+                                        <div class="r-qty" onclick="event.stopPropagation()">
+                                            <button class="qty-minus" type="button">−</button>
+                                            <span class="r-num qty-display">1</span>
+                                            <button class="qty-plus" type="button">+</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Modernized Invoice -->
+                            <div class="invoice">
+                                <div class="inv-header">
+                                    <i class="fa-solid fa-receipt"></i> অর্ডার সামারি
+                                </div>
+                                <div class="inv-body">
+                                    <div class="inv-row">
+                                        <span class="inv-label bn">নির্বাচিত প্যাকেজ</span>
+                                        <span class="inv-val bn" id="inv-name">বোম্বাই লিচু ১০০ পিস</span>
+                                    </div>
+                                    <div class="inv-row">
+                                        <span class="inv-label bn">পরিমাণ</span>
+                                        <span class="inv-val" id="inv-qty">১টি</span>
+                                    </div>
+                                    <div class="inv-row">
+                                        <span class="inv-label bn">ডেলিভারি চার্জ</span>
+                                        <span class="inv-val bn" style="color:var(--leaf); font-weight:800;">ফ্রি
+                                            শিপিং</span>
+                                    </div>
+                                </div>
+                                <div class="inv-total">
+                                    <span class="lbl bn">সর্বমোট মূল্য</span>
+                                    <span class="val" id="inv-total">৳450</span>
+                                </div>
+                            </div>
+
+                            <!-- Pulsing Submit Button -->
+                            <button type="button" class="btn-confirm bn">
+                                <i class="fa-solid fa-circle-check"></i>
+                                অর্ডার কনফার্ম করুন <span id="btn-total">৳450</span>
+                            </button>
+
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
 
-    <!-- ── Modernized Footer ── -->
-    <footer class="footer text-center">
-        <div class="container">
-            <p class="mb-2 font-baloo fw-semibold text-white">আজরাই শপ | প্রিমিয়াম প্রাকৃতিক পণ্য সরবরাহকারী</p>
-            <p class="mb-0 text-white-50 fs-7">Copyright &copy; 2026. All Rights Reserved.</p>
-        </div>
+    <!-- FOOTER -->
+    <footer>
+        <strong class="bn">আজরাই শপ</strong>
+        <span class="bn" style="display:block;margin-top:6px"> প্রিমিয়াম তাজা ফল ও কৃষিপণ্য সরবরাহকারী — রাজশাহী,
+            বাংলাদেশ</span>
+        <span style="display:block;margin-top:4px">Copyright &copy; 2026. All Rights Reserved.</span>
     </footer>
 
-    <!-- Bootstrap 5 JS -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-
-    <!-- Redesigned JavaScript (Interactive Synchronization & Calculation Logic) -->
+    <!-- JS Logic for the Redesigned Checkout -->
     <script>
-        // Package Data Config (Updated for Mangoes)
-        const packages = [
-            { id: 0, name: "হিমসাগর ৫ কেজি", price: 990, label: "হিমসাগর ৫ কেজি" },
-            { id: 1, name: "হিমসাগর ও আম্রপালি ১০ কেজি", price: 1450, label: "হিমসাগর ও আম্রপালি ১০ কেজি" },
-            { id: 2, name: "মিক্সড আম ২০ কেজি", price: 1500, label: "মিক্সড আম ২০ কেজি" },
-            { id: 3, name: "প্রিমিয়াম ল্যাংড়া ও আম্রপালি ১০ কেজি", price: 1850, label: "প্রিমিয়াম ল্যাংড়া ও আম্রপালি ১০ কেজি" }
+        const pkgs = [
+            { name: 'বোম্বাই লিচু ১০০ পিস', price: 450 },
+            { name: 'বেদানা লিচু ২০০ পিস', price: 990 },
+            { name: 'চায়না-৩ লিচু ৫০০ পিস', price: 2300 },
+            { name: 'মিক্সড প্রিমিয়াম লিচু ১০০০ পিস', price: 4500 }
         ];
+        let active = 0;
+        const qtys = [1, 1, 1, 1];
+        const cards = document.querySelectorAll('.r-card');
+        const planBtns = document.querySelectorAll('.select-plan-btn');
+        const invName = document.getElementById('inv-name');
+        const invQty = document.getElementById('inv-qty');
+        const invTotal = document.getElementById('inv-total');
+        const btnTotal = document.getElementById('btn-total');
 
-        // Active State Selection Config
-        let activePlanIndex = 0;
-        let quantities = [1, 1, 1, 1]; // Tracks quantity per card independently
+        function fmt(n) { return '৳' + n.toLocaleString('en-IN') }
+        function numToBn(n) { const bn = ['০', '১', '২', '৩', '৪', '৫', '৬', '৭', '৮', '৯']; return String(n).replace(/[0-9]/g, d => bn[d]) }
 
-        const radioCards = document.querySelectorAll('.product-radio-card');
-        const selectPlanButtons = document.querySelectorAll('.select-plan-btn');
-
-        // Elements for invoice update
-        const selectedProdNameEl = document.querySelector('.selected-product-name');
-        const selectedProdQtyEl = document.querySelector('.selected-product-qty');
-        const selectedProdSubtotalEl = document.querySelector('.selected-product-subtotal');
-        const selectedProdTotalEl = document.querySelector('.selected-product-total');
-        const selectedProdBtnTotalEl = document.querySelector('.selected-product-btn-total');
-
-        // Dynamic Calculations
-        function updateSummary() {
-            const currentPkg = packages[activePlanIndex];
-            const currentQty = quantities[activePlanIndex];
-            const subtotal = currentPkg.price * currentQty;
-
-            // Render to DOM
-            selectedProdNameEl.textContent = currentPkg.label;
-            selectedProdQtyEl.textContent = `${currentQty}টি`;
-            selectedProdSubtotalEl.textContent = `${subtotal.toFixed(2)}৳`;
-            selectedProdTotalEl.textContent = `${subtotal.toFixed(2)}৳`;
-            selectedProdBtnTotalEl.textContent = `${subtotal.toFixed(2)}৳`;
+        function update() {
+            const p = pkgs[active]; const q = qtys[active]; const t = p.price * q;
+            invName.textContent = p.name;
+            invQty.textContent = numToBn(q) + 'টি';
+            invTotal.textContent = fmt(t);
+            btnTotal.textContent = fmt(t);
         }
 
-        // Initialize selectors
-        function setActivePlan(index) {
-            activePlanIndex = parseInt(index);
-
-            // Toggle active classes on cards
-            radioCards.forEach(card => {
-                const cardIndex = parseInt(card.dataset.index);
-                if (cardIndex === activePlanIndex) {
-                    card.classList.add('active');
-                } else {
-                    card.classList.remove('active');
-                }
+        function setActive(i) {
+            active = i;
+            cards.forEach((c, idx) => {
+                c.classList.toggle('active', idx === i);
             });
-
-            updateSummary();
+            update();
         }
 
-        // Set listeners for Clickable Selector Cards
-        radioCards.forEach(card => {
-            card.addEventListener('click', () => {
-                const idx = card.dataset.index;
-                setActivePlan(idx);
+        cards.forEach((c, i) => {
+            c.addEventListener('click', () => setActive(i));
+        });
+
+        planBtns.forEach(b => {
+            b.addEventListener('click', () => {
+                setActive(parseInt(b.dataset.plan));
+                document.getElementById('checkout').scrollIntoView({ behavior: 'smooth' });
             });
         });
 
-        // Set listeners for pricing table buttons ("প্যাকেজটি কিনুন")
-        selectPlanButtons.forEach(btn => {
-            btn.addEventListener('click', (e) => {
-                const idx = btn.dataset.plan;
-                setActivePlan(idx);
+        document.querySelectorAll('.qty-minus').forEach((btn, i) => {
+            btn.addEventListener('click', e => {
+                e.stopPropagation();
+                if (qtys[i] > 1) { qtys[i]--; btn.nextElementSibling.textContent = qtys[i]; if (i === active) update(); }
             });
         });
 
-        // Quantity adjuster listeners inside cards
-        document.querySelectorAll('.qty-minus').forEach((btn, index) => {
-            btn.addEventListener('click', (e) => {
-                e.stopPropagation(); // Prevents card selection trigger
-                if (quantities[index] > 1) {
-                    quantities[index]--;
-                    btn.nextElementSibling.textContent = quantities[index];
-
-                    // If this is the active plan, update calculations immediately
-                    if (index === activePlanIndex) {
-                        updateSummary();
-                    }
-                }
+        document.querySelectorAll('.qty-plus').forEach((btn, i) => {
+            btn.addEventListener('click', e => {
+                e.stopPropagation();
+                qtys[i]++; btn.previousElementSibling.textContent = qtys[i]; if (i === active) update();
             });
         });
 
-        document.querySelectorAll('.qty-plus').forEach((btn, index) => {
-            btn.addEventListener('click', (e) => {
-                e.stopPropagation(); // Prevents card selection trigger
-                quantities[index]++;
-                btn.previousElementSibling.textContent = quantities[index];
-
-                // If this is the active plan, update calculations immediately
-                if (index === activePlanIndex) {
-                    updateSummary();
-                }
-            });
-        });
-
-        // CTA Smooth Button Pulse Intersection Observer
-        const orderButtons = [
-            document.getElementById('order-btn-top'),
-            document.querySelector('.btn-confirm-checkout')
-        ].filter(Boolean);
-
-        function playZoomIn(button) {
-            if (button.dataset.zoomInPlayed === '1') return;
-            button.dataset.zoomInPlayed = '1';
-            button.classList.add('animate__animated', 'animate__pulse');
-            button.addEventListener('animationend', function handleEnd() {
-                button.classList.remove('animate__animated', 'animate__pulse');
-                button.removeEventListener('animationend', handleEnd);
-            });
-        }
-
-        if ('IntersectionObserver' in window) {
-            const observer = new IntersectionObserver((entries) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        playZoomIn(entry.target);
-                        observer.unobserve(entry.target);
-                    }
-                });
-            }, { threshold: 0.35 });
-
-            orderButtons.forEach(button => observer.observe(button));
-        } else {
-            const handleScroll = () => {
-                orderButtons.forEach(button => {
-                    if (button.dataset.zoomInPlayed === '1') return;
-                    const rect = button.getBoundingClientRect();
-                    if (rect.top < window.innerHeight * 0.85 && rect.bottom > 0) {
-                        playZoomIn(button);
-                    }
-                });
-            };
-
-            window.addEventListener('scroll', handleScroll, { passive: true });
-            window.addEventListener('load', handleScroll, { once: true });
-        }
-
-        // Set active plan to 0 on initial load
-        setActivePlan(0);
+        update();
     </script>
 </body>
 
