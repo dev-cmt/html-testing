@@ -1,0 +1,2333 @@
+<!DOCTYPE html>
+<html lang="en" data-bs-theme="light" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nuruzzaman Catering Service | Modern Premium Catering</title>
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Phudu:wght@500;600;700;800&family=Poppins:wght@300;400;500;600;700&family=Rajdhani:wght@500;600;700&display=swap" rel="stylesheet">
+
+    <!-- FontAwesome 6 Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <!-- Bootstrap 5.3.3 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Swiper 11 CSS (Slider Plugin) -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
+
+    <!-- Animate.css v4 -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+
+    <!-- AOS (Animate On Scroll) CSS -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+    <!-- GLightbox CSS (Gallery Plugin) -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/glightbox/dist/css/glightbox.min.css">
+
+    <style>
+        /* =========================================================
+           1. CSS CUSTOM PROPERTIES & DYNAMIC COLOR THEME SYSTEM
+        ========================================================= */
+        :root {
+            --primary-color: #dc3545;
+            --primary-rgb: 13, 77, 46;
+            --accent-color: #ae2d1b;
+            --accent-rgb: 174, 45, 27;
+            --accent-hover: #8b2215;
+            --light-bg: #f8faf9;
+            --card-bg: #ffffff;
+            --text-main: #212529;
+            --text-muted: #6c757d;
+            --border-color: #e9ecef;
+            --nav-bg: rgba(255, 255, 255, 0.95);
+            --topbar-bg: var(--primary-color);
+            --hero-overlay: rgba(0, 0, 0, 0.55);
+            --shadow-sm: 0 4px 15px rgba(0,0,0,0.05);
+            --shadow-md: 0 10px 30px rgba(0,0,0,0.08);
+            --shadow-lg: 0 15px 40px rgba(0,0,0,0.15);
+            --transition-speed: 0.3s;
+        }
+
+        /* Dark Theme Variables */
+        [data-bs-theme="dark"], [data-theme="dark"] {
+            --light-bg: #121815;
+            --card-bg: #1e2521;
+            --text-main: #f1f3f2;
+            --text-muted: #a0aec0;
+            --border-color: #2d3732;
+            --nav-bg: rgba(25, 33, 29, 0.95);
+            --topbar-bg: #092e1b;
+            --hero-overlay: rgba(0, 0, 0, 0.75);
+            --shadow-sm: 0 4px 15px rgba(0,0,0,0.4);
+            --shadow-md: 0 10px 30px rgba(0,0,0,0.5);
+            --shadow-lg: 0 15px 40px rgba(0,0,0,0.6);
+        }
+
+        /* Base Styles & Global Zero Border-Radius Override */
+        html { scroll-behavior: smooth; }
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: var(--light-bg);
+            color: var(--text-main);
+            transition: background-color var(--transition-speed), color var(--transition-speed);
+            overflow-x: hidden;
+        }
+
+        /* Remove border-radius on cards, buttons, badges, inputs, dropdowns, icons & elements */
+        *, *::before, *::after,
+        .card, .service-card, .stat-card, .venue-flip-card, .venue-flip-front, .venue-flip-back,
+        .btn, .btn-theme-primary, .btn-theme-accent, .btn-outline-theme, .btn-outline-light,
+        .badge, .badge-theme, .logo-badge, .nav-icon-badge, .dropdown-menu, .form-control, .form-select,
+        .quote-form-card, .about-img-box, .about-experience-badge, .about-gallery-swiper,
+        .about-gallery-swiper .swiper-slide img, .gallery-item-box, .why-center-img, .why-rotate-ring,
+        .why-rotate-ring-inner, .why-icon, .stat-icon-wrapper, .theme-customizer-widget,
+        .color-palette-panel, .color-swatch, .custom-toast, .offcanvas, .accordion-button,
+        .slider-control-btn, .venue-flip-back-icon, .venue-book-btn, .gallery-zoom-icon,
+        .ceo-section-wrapper, .ceo-img-container, .rounded-pill, .rounded-3, .rounded-4, .rounded-circle, .rounded-2, .rounded {
+            border-radius: 0 !important;
+        }
+
+        h1, h2, h3, h4, h5, .font-heading { font-family: 'Outfit', sans-serif; }
+        .font-phudu { font-family: 'Phudu', sans-serif; }
+        .font-rajdhani { font-family: 'Rajdhani', sans-serif; }
+
+        /* Dynamic Colors */
+        .text-theme-primary { color: var(--primary-color) !important; }
+        .text-theme-accent { color: var(--accent-color) !important; }
+        .bg-theme-primary { background-color: var(--primary-color) !important; }
+        .bg-theme-accent { background-color: var(--accent-color) !important; }
+
+        /* Buttons */
+        .btn-theme-primary {
+            background-color: var(--primary-color);
+            color: #ffffff;
+            border: none;
+            padding: 12px 28px;
+            font-weight: 600;
+            border-radius: 10px;
+            transition: all var(--transition-speed);
+            box-shadow: 0 4px 15px rgba(var(--primary-rgb), 0.3);
+        }
+        .btn-theme-primary:hover {
+            background-color: var(--accent-color);
+            color: #ffffff;
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(var(--accent-rgb), 0.4);
+        }
+
+        .btn-theme-accent {
+            background-color: var(--accent-color);
+            color: #ffffff;
+            border: none;
+            padding: 12px 28px;
+            font-weight: 600;
+            border-radius: 10px;
+            transition: all var(--transition-speed);
+            box-shadow: 0 4px 15px rgba(var(--accent-rgb), 0.3);
+        }
+        .btn-theme-accent:hover {
+            background-color: var(--primary-color);
+            color: #ffffff;
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(var(--primary-rgb), 0.4);
+        }
+
+        .btn-outline-theme {
+            border: 2px solid var(--primary-color);
+            color: var(--primary-color);
+            font-weight: 600;
+            padding: 10px 24px;
+            border-radius: 10px;
+            transition: all var(--transition-speed);
+        }
+        .btn-outline-theme:hover {
+            background-color: var(--primary-color);
+            color: #ffffff;
+            transform: translateY(-2px);
+        }
+
+        /* Badges */
+        .badge-theme {
+            background-color: rgba(var(--primary-rgb), 0.12);
+            color: var(--primary-color);
+            font-weight: 600;
+            padding: 6px 18px;
+            border-radius: 50px;
+            display: inline-block;
+            font-size: 0.85rem;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+
+        /* =========================================================
+           2. TOP HEADER & NAVBAR WITH ENHANCED SUB MENU ICON DESIGN
+        ========================================================= */
+        .top-header {
+            background-color: var(--topbar-bg);
+            color: #ffffff;
+            font-size: 0.88rem;
+            padding: 8px 0;
+            transition: background-color var(--transition-speed);
+        }
+        .top-header a { color: #ffffff; text-decoration: none; transition: opacity 0.2s; }
+        .top-header a:hover { opacity: 0.8; }
+
+        .main-navbar {
+            background-color: var(--nav-bg);
+            backdrop-filter: blur(14px);
+            -webkit-backdrop-filter: blur(14px);
+            border-bottom: 1px solid var(--border-color);
+            position: sticky;
+            top: 0;
+            z-index: 1040;
+            transition: all var(--transition-speed);
+        }
+
+        .navbar-brand .logo-badge {
+            background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
+            color: #ffffff;
+            padding: 6px 16px;
+            border-radius: 8px;
+            font-family: 'Phudu', cursive;
+            font-size: 1.5rem;
+            font-weight: 700;
+            letter-spacing: 1px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+        }
+
+        .navbar-nav .nav-link {
+            font-family: 'Rajdhani', sans-serif;
+            font-weight: 600;
+            font-size: 1.02rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            color: var(--text-main);
+            padding: 14px 16px !important;
+            transition: color 0.2s;
+        }
+        .navbar-nav .nav-link:hover, 
+        .navbar-nav .nav-link.active {
+            color: var(--accent-color) !important;
+        }
+
+        /* Enhanced Sub-Menu & Sub-Sub-Menu Icon Design */
+        .dropdown-menu {
+            background-color: var(--card-bg);
+            border: 1px solid var(--border-color);
+            box-shadow: var(--shadow-lg);
+            border-radius: 12px;
+            padding: 10px 0;
+            margin-top: 5px;
+            min-width: 260px;
+        }
+
+        .dropdown-item {
+            color: var(--text-main);
+            font-size: 0.93rem;
+            font-weight: 500;
+            padding: 10px 18px;
+            transition: all 0.25s ease;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 12px;
+        }
+        
+        .nav-icon-badge {
+            width: 32px;
+            height: 32px;
+            border-radius: 8px;
+            background-color: rgba(var(--primary-rgb), 0.1);
+            color: var(--primary-color);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.88rem;
+            flex-shrink: 0;
+            transition: all 0.25s ease;
+        }
+
+        .dropdown-item:hover {
+            background-color: rgba(var(--primary-rgb), 0.08);
+            color: var(--accent-color);
+            padding-left: 22px;
+        }
+        .dropdown-item:hover .nav-icon-badge {
+            background-color: var(--accent-color);
+            color: #ffffff;
+            transform: scale(1.1);
+        }
+
+        /* Desktop Dropdown Hover */
+        @media (min-width: 992px) {
+            .navbar .dropdown-menu .dropend { position: relative; }
+            .navbar .dropdown-menu .dropend .dropdown-menu {
+                top: 0;
+                left: 100%;
+                margin-left: 4px;
+                margin-top: -8px;
+                display: none;
+                animation: fadeInUp 0.25s ease;
+            }
+            .navbar .dropdown-menu .dropend:hover > .dropdown-menu { display: block; }
+            .navbar .nav-item.dropdown:hover > .dropdown-menu { display: block; }
+        }
+
+        /* Offcanvas Mobile Navbar & Toggle Icon Fix */
+        .navbar-toggler {
+            padding: 8px 14px;
+            border: 1px solid var(--border-color) !important;
+            background-color: var(--card-bg);
+            color: var(--primary-color) !important;
+            transition: all 0.25s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 0 !important;
+            outline: none !important;
+            box-shadow: none !important;
+        }
+        .navbar-toggler i {
+            color: var(--primary-color);
+            transition: color 0.25s ease;
+            font-size: 1.25rem;
+        }
+        .navbar-toggler:hover, .navbar-toggler:focus, .navbar-toggler[aria-expanded="true"] {
+            background-color: var(--primary-color) !important;
+            border-color: var(--primary-color) !important;
+        }
+        .navbar-toggler:hover i, .navbar-toggler:focus i, .navbar-toggler[aria-expanded="true"] i {
+            color: #ffffff !important;
+        }
+
+        .offcanvas-body .mobile-nav-link {
+            font-family: 'Rajdhani', sans-serif;
+            font-weight: 600;
+            font-size: 1.1rem;
+            color: var(--text-main);
+            padding: 12px 0;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            border-bottom: 1px solid var(--border-color);
+        }
+        .offcanvas-body .accordion-button {
+            background: transparent;
+            color: var(--text-main);
+            font-family: 'Rajdhani', sans-serif;
+            font-weight: 600;
+            font-size: 1.1rem;
+            padding: 12px 0;
+            box-shadow: none !important;
+        }
+        .offcanvas-body .sub-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 9px 12px;
+            color: var(--text-muted);
+            text-decoration: none;
+            font-size: 0.95rem;
+            margin-bottom: 4px;
+        }
+        .offcanvas-body .sub-item:hover {
+            color: var(--accent-color);
+            background-color: rgba(var(--primary-rgb), 0.08);
+        }
+
+        /* =========================================================
+           3. HERO SLIDER WITH KEN BURNS IMAGE ZOOM EFFECT
+        ========================================================= */
+        .hero-carousel .carousel-item {
+            height: 660px;
+            min-height: 520px;
+            position: relative;
+            overflow: hidden;
+        }
+        .hero-slide-bg {
+            position: absolute;
+            inset: 0;
+            background-size: cover;
+            background-position: center;
+            transition: transform 7s ease-out;
+        }
+        /* Slow Zoom In Animation on Active Slide */
+        .hero-carousel .carousel-item.active .hero-slide-bg {
+            animation: kenBurnsZoom 7s ease-out forwards;
+        }
+
+        @keyframes kenBurnsZoom {
+            0% { transform: scale(1); }
+            100% { transform: scale(1.18); }
+        }
+
+        .hero-carousel .carousel-item::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(180deg, rgba(0,0,0,0.65) 0%, rgba(0,0,0,0.45) 50%, rgba(0,0,0,0.85) 100%);
+            z-index: 1;
+        }
+        .hero-carousel .carousel-caption {
+            z-index: 2;
+            top: 50%;
+            transform: translateY(-50%);
+            bottom: auto;
+            max-width: 850px;
+            margin: 0 auto;
+        }
+        .hero-carousel h1 {
+            font-size: 3.5rem;
+            font-weight: 800;
+            line-height: 1.2;
+            margin-bottom: 20px;
+            text-shadow: 0 4px 20px rgba(0,0,0,0.6);
+        }
+        @media (max-width: 992px) {
+            .hero-carousel h1 { font-size: 2.8rem; }
+        }
+        @media (max-width: 768px) {
+            .hero-carousel .carousel-item { height: 520px; }
+            .hero-carousel h1 { font-size: 1.9rem; }
+            .hero-carousel p.fs-5 { font-size: 1rem !important; }
+            .hero-carousel .carousel-caption .d-flex { flex-direction: column; align-items: center; }
+            .hero-carousel .carousel-caption { padding: 0 10px; }
+        }
+        @media (max-width: 480px) {
+            .hero-carousel .carousel-item { height: 580px; }
+            .hero-carousel h1 { font-size: 1.6rem; }
+        }
+
+        /* Carousel Navigation Buttons */
+        .hero-carousel .carousel-control-prev,
+        .hero-carousel .carousel-control-next {
+            width: 48px;
+            height: 48px;
+            background-color: rgba(255,255,255,0.2);
+            backdrop-filter: blur(8px);
+            border-radius: 50%;
+            top: 50%;
+            transform: translateY(-50%);
+            margin: 0 12px;
+            opacity: 0.85;
+            transition: all 0.3s;
+        }
+        .hero-carousel .carousel-control-prev:hover,
+        .hero-carousel .carousel-control-next:hover {
+            background-color: var(--accent-color);
+            opacity: 1;
+            transform: translateY(-50%) scale(1.1);
+        }
+
+        /* =========================================================
+           4. OUR SERVICES SLIDER (SWIPER PLUGIN INTEGRATION)
+        ========================================================= */
+        .swiper-services {
+            padding: 20px 5px 60px;
+        }
+        .service-card {
+            background-color: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 18px;
+            overflow: hidden;
+            box-shadow: var(--shadow-sm);
+            transition: all var(--transition-speed);
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+        }
+        .service-card:hover {
+            transform: translateY(-8px);
+            box-shadow: var(--shadow-md);
+            border-color: var(--accent-color);
+        }
+        .service-img-wrapper {
+            position: relative;
+            height: 220px;
+            overflow: hidden;
+        }
+        .service-img-wrapper img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+        .service-card:hover .service-img-wrapper img {
+            transform: scale(1.08);
+        }
+        .service-card .card-body {
+            padding: 24px;
+            display: flex;
+            flex-direction: column;
+            flex-grow: 1;
+        }
+
+        /* Swiper Controls Custom Styling */
+        .slider-control-btn {
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            background-color: var(--card-bg);
+            border: 1px solid var(--border-color);
+            color: var(--primary-color);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: var(--shadow-sm);
+            cursor: pointer;
+            transition: all 0.25s ease;
+        }
+        .slider-control-btn:hover {
+            background-color: var(--primary-color);
+            color: #ffffff;
+            border-color: var(--primary-color);
+        }
+        .swiper-pagination-bullet-active {
+            background-color: var(--accent-color) !important;
+            width: 24px !important;
+            border-radius: 10px !important;
+        }
+
+        /* =========================================================
+           5. TRUSTED CHOICE (WHY US) - ROTATING CENTERED IMAGE
+        ========================================================= */
+        .why-center-wrapper {
+            position: relative;
+            display: inline-block;
+            margin: 0 auto;
+        }
+        .why-center-img {
+            width: 320px;
+            height: 320px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 6px solid var(--card-bg);
+            box-shadow: var(--shadow-lg);
+            animation: floatY 4.5s ease-in-out infinite;
+            position: relative;
+            z-index: 2;
+        }
+        
+        /* Rotating Outer Dashed Circle */
+        .why-rotate-ring {
+            position: absolute;
+            inset: -20px;
+            border: 2px dashed var(--accent-color);
+            border-radius: 50%;
+            opacity: 0.6;
+            animation: spinCircle 18s linear infinite;
+            z-index: 1;
+        }
+        .why-rotate-ring-inner {
+            position: absolute;
+            inset: -35px;
+            border: 2px dotted var(--primary-color);
+            border-radius: 50%;
+            opacity: 0.4;
+            animation: spinReverse 25s linear infinite;
+            z-index: 0;
+        }
+
+        @keyframes spinCircle {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        @keyframes spinReverse {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(-360deg); }
+        }
+        @keyframes floatY {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-12px); }
+        }
+
+        .why-item-box {
+            display: flex;
+            gap: 16px;
+            margin-bottom: 28px;
+        }
+        .why-icon {
+            width: 48px;
+            height: 48px;
+            border-radius: 12px;
+            background-color: rgba(var(--primary-rgb), 0.1);
+            color: var(--primary-color);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.3rem;
+            flex-shrink: 0;
+        }
+
+        /* =========================================================
+           5b. STAT CARD & ABOUT SECTION STYLES
+        ========================================================= */
+        .stat-card {
+            background-color: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 16px;
+            padding: 22px 18px;
+            box-shadow: var(--shadow-sm);
+            transition: all var(--transition-speed);
+            display: flex;
+            align-items: center;
+            gap: 16px;
+        }
+        .stat-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-md);
+            border-color: var(--primary-color);
+        }
+        .stat-icon-wrapper {
+            width: 56px;
+            height: 56px;
+            border-radius: 14px;
+            background: linear-gradient(135deg, rgba(var(--primary-rgb),0.15), rgba(var(--accent-rgb),0.15));
+            color: var(--primary-color);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.6rem;
+            flex-shrink: 0;
+        }
+        .stat-card h3 {
+            font-family: 'Rajdhani', sans-serif;
+            font-size: 2rem;
+            font-weight: 700;
+            margin: 0;
+            line-height: 1;
+            color: var(--text-main);
+        }
+        .stat-card p {
+            margin: 4px 0 0;
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            font-weight: 500;
+        }
+        @media (max-width: 576px) {
+            .stat-card { padding: 16px 14px; }
+            .stat-card h3 { font-size: 1.5rem; }
+            .stat-icon-wrapper { width: 44px; height: 44px; font-size: 1.2rem; border-radius: 10px; }
+        }
+
+        /* About Image Box */
+        .about-img-box {
+            position: relative;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: var(--shadow-lg);
+        }
+        .about-img-box img {
+            width: 100%;
+            height: auto;
+            border-radius: 20px;
+            transition: transform 0.6s ease;
+        }
+        .about-img-box:hover img { transform: scale(1.04); }
+        .about-experience-badge {
+            position: absolute;
+            bottom: 20px;
+            right: 20px;
+            background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
+            color: #ffffff;
+            padding: 16px 20px;
+            border-radius: 14px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+            text-align: center;
+        }
+        .about-experience-badge h2 {
+            font-size: 2.2rem;
+            font-weight: 800;
+            margin: 0;
+            line-height: 1;
+        }
+        .about-experience-badge span {
+            font-size: 0.8rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        /* About Gallery Swiper */
+        .about-gallery-swiper {
+            border-radius: 14px;
+            overflow: hidden;
+            margin-top: 28px;
+            position: relative;
+        }
+        .about-gallery-swiper .swiper-slide img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 14px;
+            transition: transform 0.5s ease;
+        }
+        .about-gallery-swiper .swiper-slide:hover img { transform: scale(1.06); }
+        .about-gallery-swiper .swiper-pagination-bullet-active {
+            background-color: var(--accent-color) !important;
+        }
+
+        /* =========================================================
+           6. OUR PRESENCE — 3D Y-AXIS FLIP CARD
+        ========================================================= */
+        .swiper-venues { padding: 20px 5px 70px; }
+
+        /* Flip Card Wrapper */
+        .venue-flip-card {
+            perspective: 1200px;
+            height: 360px;
+            cursor: pointer;
+        }
+        .venue-flip-inner {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            transition: transform 0.7s cubic-bezier(0.4, 0.2, 0.2, 1);
+            transform-style: preserve-3d;
+        }
+        .venue-flip-card:hover .venue-flip-inner {
+            transform: rotateY(180deg);
+        }
+
+        /* Front Face */
+        .venue-flip-front,
+        .venue-flip-back {
+            position: absolute;
+            inset: 0;
+            backface-visibility: hidden;
+            -webkit-backface-visibility: hidden;
+            border-radius: 20px;
+            overflow: hidden;
+        }
+        .venue-flip-front {
+            background-color: var(--card-bg);
+        }
+        .venue-flip-front img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        .venue-flip-front-overlay {
+            position: absolute;
+            bottom: 0; left: 0; right: 0;
+            background: linear-gradient(180deg, transparent 30%, rgba(13,61,38,0.92) 100%);
+            padding: 24px 20px 20px;
+            color: #ffffff;
+        }
+
+        /* Back Face */
+        .venue-flip-back {
+            background: linear-gradient(135deg, var(--primary-color) 0%, #0a3820 100%);
+            transform: rotateY(180deg);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 32px 24px;
+            color: #ffffff;
+            box-shadow: var(--shadow-lg);
+        }
+        .venue-flip-back-icon {
+            width: 66px;
+            height: 66px;
+            border-radius: 50%;
+            border: 2px solid rgba(255,255,255,0.4);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.7rem;
+            margin: 0 auto 18px;
+            background: rgba(255,255,255,0.1);
+        }
+        .venue-flip-back h4 {
+            font-family: 'Rajdhani', sans-serif;
+            font-size: 1.4rem;
+            font-weight: 700;
+            margin-bottom: 10px;
+        }
+        .venue-flip-back p {
+            font-size: 0.88rem;
+            color: rgba(255,255,255,0.85);
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+        .venue-flip-back .venue-book-btn {
+            display: inline-block;
+            background: var(--accent-color);
+            color: #ffffff;
+            font-size: 0.88rem;
+            padding: 9px 22px;
+            border-radius: 30px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+        .venue-flip-back .venue-book-btn:hover {
+            background: #ffffff;
+            color: var(--primary-color);
+        }
+
+        @media (max-width: 576px) {
+            .venue-flip-card { height: 320px; }
+        }
+
+        /* =========================================================
+           7. GALLERY PLUGIN (GLIGHTBOX) & FILTER TABS
+        ========================================================= */
+        .gallery-filter-btn {
+            background: transparent;
+            border: 1px solid var(--border-color);
+            color: var(--text-main);
+            padding: 8px 22px;
+            border-radius: 30px;
+            font-weight: 600;
+            font-size: 0.9rem;
+            margin: 4px;
+            transition: all 0.25s ease;
+        }
+        .gallery-filter-btn:hover,
+        .gallery-filter-btn.active {
+            background-color: var(--primary-color);
+            color: #ffffff;
+            border-color: var(--primary-color);
+            box-shadow: 0 4px 12px rgba(var(--primary-rgb), 0.3);
+        }
+
+        .gallery-item-box {
+            position: relative;
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: var(--shadow-sm);
+            height: 270px;
+        }
+        .gallery-item-box img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+        .gallery-item-overlay {
+            position: absolute;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.6);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            transition: opacity 0.35s ease;
+        }
+        .gallery-item-box:hover img { transform: scale(1.1); }
+        .gallery-item-box:hover .gallery-item-overlay { opacity: 1; }
+        .gallery-zoom-icon {
+            width: 52px;
+            height: 52px;
+            border-radius: 50%;
+            background: var(--accent-color);
+            color: #ffffff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.3rem;
+            transform: scale(0.7);
+            transition: transform 0.3s ease;
+        }
+        .gallery-item-box:hover .gallery-zoom-icon { transform: scale(1); }
+
+        /* =========================================================
+           8. CEO MESSAGE SECTION
+        ========================================================= */
+        .ceo-section-wrapper {
+            background: linear-gradient(135deg, var(--primary-color) 0%, #062b19 100%);
+            color: #ffffff;
+            border-radius: 24px;
+            padding: 50px 40px;
+            box-shadow: var(--shadow-lg);
+            position: relative;
+            overflow: hidden;
+        }
+        .ceo-quote-mark {
+            font-size: 8rem;
+            position: absolute;
+            top: -20px;
+            left: 20px;
+            opacity: 0.12;
+            font-family: Georgia, serif;
+            line-height: 1;
+        }
+        .ceo-img-container {
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.4);
+            border: 4px solid rgba(255,255,255,0.15);
+        }
+
+        /* =========================================================
+           9. RESERVATION FORM & FOOTER
+        ========================================================= */
+        .quote-form-card {
+            background-color: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 20px;
+            padding: 40px;
+            box-shadow: var(--shadow-md);
+        }
+        .form-control, .form-select {
+            background-color: var(--light-bg);
+            border: 1px solid var(--border-color);
+            color: var(--text-main);
+            border-radius: 10px;
+            padding: 12px 16px;
+            transition: all 0.2s;
+        }
+        .form-control:focus, .form-select:focus {
+            background-color: var(--card-bg);
+            border-color: var(--primary-color);
+            box-shadow: 0 0 0 4px rgba(var(--primary-rgb), 0.15);
+            color: var(--text-main);
+        }
+
+        footer {
+            background-color: #071f13;
+            color: #d1dcd5;
+            padding-top: 70px;
+            padding-bottom: 30px;
+            font-size: 0.92rem;
+        }
+        footer h5 {
+            color: #ffffff;
+            font-weight: 700;
+            margin-bottom: 22px;
+            font-family: 'Rajdhani', sans-serif;
+            font-size: 1.25rem;
+            letter-spacing: 0.5px;
+        }
+        footer ul { list-style: none; padding: 0; margin: 0; }
+        footer ul li { margin-bottom: 12px; display: flex; gap: 10px; align-items: flex-start; }
+        footer ul li i { color: var(--accent-color); margin-top: 4px; }
+        footer a { color: #d1dcd5; text-decoration: none; transition: color 0.2s; }
+        footer a:hover { color: #ffffff; }
+
+        /* =========================================================
+           10. RESPONSIVE FIXES (MOBILE)
+        ========================================================= */
+        @media (max-width: 991px) {
+            /* Top header stacks nicely */
+            .top-header .top-contacts { display: none; }
+            /* Offcanvas background */
+            .offcanvas { background-color: var(--card-bg); }
+            .offcanvas-header { background-color: var(--card-bg); }
+            /* Why-Us responsive center */
+            .why-center-img { width: 240px; height: 240px; }
+            /* CEO section */
+            .ceo-section-wrapper { padding: 32px 22px; }
+            /* Quote form */
+            .quote-form-card { padding: 24px 18px; }
+        }
+        @media (max-width: 767px) {
+            /* Section headings */
+            h2.display-5 { font-size: 1.8rem !important; }
+            h2.display-6 { font-size: 1.6rem !important; }
+            /* Stats */
+            .stat-card { flex-direction: row; }
+            /* Gallery grid */
+            .gallery-item-box { height: 200px; }
+            /* About gallery */
+            .about-gallery-swiper .swiper-slide img { height: 160px; }
+            /* Buttons */
+            .btn-lg { padding: 10px 18px; font-size: 0.95rem; }
+            /* Why section center image */
+            .why-center-wrapper { margin: 0 auto; }
+            .why-center-img { width: 220px; height: 220px; }
+            /* Services swiper */
+            .swiper-services { padding-bottom: 50px; }
+            /* Venues */
+            .swiper-venues { padding-bottom: 50px; }
+            /* Venue flip card */
+            .venue-flip-card { height: 300px; }
+        }
+        @media (max-width: 480px) {
+            .logo-badge { font-size: 1.2rem !important; padding: 4px 10px !important; }
+            .stat-card h3 { font-size: 1.35rem; }
+        }
+
+        /* =========================================================
+           11. DYNAMIC COLOR PALETTE & THEME SWITCHER FLOATER
+        ========================================================= */
+        .theme-customizer-widget {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            z-index: 1090;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            align-items: flex-end;
+        }
+        .customizer-toggle-btn {
+            width: 52px;
+            height: 52px;
+            border-radius: 50%;
+            background-color: var(--primary-color);
+            color: #ffffff;
+            border: none;
+            box-shadow: 0 6px 20px rgba(0,0,0,0.3);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.4rem;
+            cursor: pointer;
+            transition: transform 0.3s ease;
+        }
+        .customizer-toggle-btn:hover {
+            transform: scale(1.1) rotate(30deg);
+        }
+        .color-palette-panel {
+            background-color: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 16px;
+            padding: 16px;
+            box-shadow: var(--shadow-lg);
+            display: none;
+            animation: fadeInUp 0.3s ease;
+            width: 220px;
+        }
+        .color-palette-panel.show { display: block; }
+        .color-swatch-grid {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 8px;
+            margin-top: 10px;
+        }
+        .color-swatch {
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            border: 2px solid #ffffff;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+            cursor: pointer;
+            transition: transform 0.2s ease;
+        }
+        .color-swatch:hover { transform: scale(1.2); }
+
+        .custom-toast {
+            position: fixed;
+            bottom: 30px;
+            left: 30px;
+            z-index: 1095;
+            background-color: var(--primary-color);
+            color: #ffffff;
+            padding: 14px 24px;
+            border-radius: 12px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+            display: none;
+            animation: fadeInLeft 0.4s ease;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- =========================================================
+       1. TOP HEADER CONTACT BAR & THEME SWITCHER
+    ========================================================= -->
+    <header class="top-header">
+        <div class="container">
+            <div class="d-flex flex-wrap justify-content-between align-items-center">
+                <div class="top-contacts d-flex flex-wrap gap-3 align-items-center">
+                    <span><i class="fas fa-phone-alt me-1"></i> <a href="tel:01711306501">01711-306501</a></span>
+                    <span><i class="fas fa-phone-alt me-1"></i> <a href="tel:01746710102">01746-710102</a></span>
+                    <span><i class="fas fa-envelope me-1"></i> <a href="mailto:nuruzzamancatering@gmail.com">nuruzzamancatering@gmail.com</a></span>
+                    <span class="badge bg-danger rounded-pill px-2 py-1"><i class="fas fa-bolt me-1"></i> 12-Hour Fast Catering</span>
+                </div>
+                <div class="top-socials d-flex align-items-center gap-3 mt-2 mt-md-0">
+                    <!-- Dark/Light Theme Mode Toggle -->
+                    <button class="btn btn-sm btn-outline-light rounded-pill px-3 py-1" id="darkThemeToggle" title="Toggle Dark/Light Mode">
+                        <i class="fas fa-moon me-1" id="themeIcon"></i> <span id="themeText">Dark Mode</span>
+                    </button>
+
+                    <div class="social-icons d-flex gap-2">
+                        <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+                        <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- =========================================================
+       2. FIXED MAIN NAVIGATION WITH ENHANCED SUB MENU ICON DESIGN
+    ========================================================= -->
+    <nav class="navbar navbar-expand-lg main-navbar">
+        <div class="container">
+            <a class="navbar-brand d-flex align-items-center gap-2" href="#">
+                <span class="logo-badge">NCS</span>
+                <div>
+                    <div class="fw-bold fs-5 text-theme-primary font-phudu lh-1">Nuruzzaman</div>
+                    <small class="text-theme-accent font-rajdhani fw-semibold tracking-wider">Catering Service</small>
+                </div>
+            </a>
+
+            <button class="navbar-toggler border-0 shadow-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#mobileNavbar" aria-controls="mobileNavbar">
+                <i class="fas fa-bars fs-3 text-theme-primary"></i>
+            </button>
+
+            <!-- Desktop Menu with Enhanced Icon Badges -->
+            <div class="collapse navbar-collapse" id="desktopNavbar">
+                <ul class="navbar-nav ms-auto align-items-lg-center">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="#">Home</a>
+                    </li>
+
+                    <!-- Level 2 Dropdown: Profile -->
+                    <li class="nav-item dropdown">
+                        <a class="nav-link" href="#" id="profileDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            Profile <i class="fas fa-chevron-down fs-7 ms-1 opacity-75"></i>
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="profileDropdown">
+                            <li>
+                                <a class="dropdown-item" href="#aboutSection">
+                                    <div class="nav-icon-badge"><i class="fas fa-building"></i></div>
+                                    <span>About Our Company</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a class="dropdown-item" href="#ceoSection">
+                                    <div class="nav-icon-badge"><i class="fas fa-user-tie"></i></div>
+                                    <span>Chairman Message (CEO)</span>
+                                </a>
+                            </li>
+                            <!-- Level 3 Dropdown (Sub-Sub Menu) -->
+                            <li class="dropend">
+                                <a class="dropdown-item" href="#">
+                                    <div class="nav-icon-badge"><i class="fas fa-award"></i></div>
+                                    <span>Certifications & Awards</span>
+                                    <i class="fas fa-chevron-right fs-7 ms-auto opacity-75"></i>
+                                </a>
+                                <ul class="dropdown-menu">
+                                    <li>
+                                        <a class="dropdown-item" href="#">
+                                            <div class="nav-icon-badge text-warning"><i class="fas fa-certificate"></i></div>
+                                            <span>ISO 22000 Food Safety</span>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a class="dropdown-item" href="#">
+                                            <div class="nav-icon-badge text-warning"><i class="fas fa-medal"></i></div>
+                                            <span>Best Dhaka Caterer 2024</span>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a class="dropdown-item" href="#">
+                                            <div class="nav-icon-badge text-warning"><i class="fas fa-shield-alt"></i></div>
+                                            <span>Hygiene Excellence Award</span>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li>
+                                <a class="dropdown-item" href="#whyUsSection">
+                                    <div class="nav-icon-badge"><i class="fas fa-thumbs-up"></i></div>
+                                    <span>Why Choose NCS</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+
+                    <!-- Level 2 Dropdown: Services -->
+                    <li class="nav-item dropdown">
+                        <a class="nav-link" href="#servicesSection" id="servicesDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            Services <i class="fas fa-chevron-down fs-7 ms-1 opacity-75"></i>
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="servicesDropdown">
+                            <!-- Level 3 Dropdown: Wedding -->
+                            <li class="dropend">
+                                <a class="dropdown-item" href="#">
+                                    <div class="nav-icon-badge text-danger"><i class="fas fa-heart"></i></div>
+                                    <span>Wedding Catering</span>
+                                    <i class="fas fa-chevron-right fs-7 ms-auto opacity-75"></i>
+                                </a>
+                                <ul class="dropdown-menu">
+                                    <li>
+                                        <a class="dropdown-item" href="#servicesSection">
+                                            <div class="nav-icon-badge text-danger"><i class="fas fa-ring"></i></div>
+                                            <span>Pre-Wedding Holud Special</span>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a class="dropdown-item" href="#servicesSection">
+                                            <div class="nav-icon-badge text-danger"><i class="fas fa-church"></i></div>
+                                            <span>Grand Reception Feast</span>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a class="dropdown-item" href="#servicesSection">
+                                            <div class="nav-icon-badge text-danger"><i class="fas fa-glass-cheers"></i></div>
+                                            <span>Walima Banquet</span>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </li>
+
+                            <!-- Level 3 Dropdown: Corporate -->
+                            <li class="dropend">
+                                <a class="dropdown-item" href="#">
+                                    <div class="nav-icon-badge text-primary"><i class="fas fa-briefcase"></i></div>
+                                    <span>Corporate Events</span>
+                                    <i class="fas fa-chevron-right fs-7 ms-auto opacity-75"></i>
+                                </a>
+                                <ul class="dropdown-menu">
+                                    <li>
+                                        <a class="dropdown-item" href="#servicesSection">
+                                            <div class="nav-icon-badge text-primary"><i class="fas fa-utensils"></i></div>
+                                            <span>Executive Box Lunches</span>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a class="dropdown-item" href="#servicesSection">
+                                            <div class="nav-icon-badge text-primary"><i class="fas fa-users"></i></div>
+                                            <span>Annual General Meetings</span>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a class="dropdown-item" href="#servicesSection">
+                                            <div class="nav-icon-badge text-primary"><i class="fas fa-handshake"></i></div>
+                                            <span>Conference Buffet</span>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </li>
+
+                            <!-- Level 3 Dropdown: Social -->
+                            <li class="dropend">
+                                <a class="dropdown-item" href="#">
+                                    <div class="nav-icon-badge text-warning"><i class="fas fa-birthday-cake"></i></div>
+                                    <span>Social & Seasonal</span>
+                                    <i class="fas fa-chevron-right fs-7 ms-auto opacity-75"></i>
+                                </a>
+                                <ul class="dropdown-menu">
+                                    <li>
+                                        <a class="dropdown-item" href="#servicesSection">
+                                            <div class="nav-icon-badge text-warning"><i class="fas fa-gift"></i></div>
+                                            <span>Birthday & Anniversary</span>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a class="dropdown-item" href="#servicesSection">
+                                            <div class="nav-icon-badge text-warning"><i class="fas fa-moon"></i></div>
+                                            <span>Ramadan Iftar Banquets</span>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </li>
+
+                    <!-- Level 2 Dropdown: Menus -->
+                    <li class="nav-item dropdown">
+                        <a class="nav-link" href="#" id="menusDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            Menus <i class="fas fa-chevron-down fs-7 ms-1 opacity-75"></i>
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="menusDropdown">
+                            <li class="dropend">
+                                <a class="dropdown-item" href="#">
+                                    <div class="nav-icon-badge"><i class="fas fa-drumstick-bite"></i></div>
+                                    <span>Royal Kacchi Packages</span>
+                                    <i class="fas fa-chevron-right fs-7 ms-auto opacity-75"></i>
+                                </a>
+                                <ul class="dropdown-menu">
+                                    <li><a class="dropdown-item" href="#quoteSection"><i class="fas fa-crown me-2 text-warning"></i> Gold Kacchi Feast</a></li>
+                                    <li><a class="dropdown-item" href="#quoteSection"><i class="fas fa-gem me-2 text-info"></i> Diamond Royal Feast</a></li>
+                                    <li><a class="dropdown-item" href="#quoteSection"><i class="fas fa-star me-2 text-danger"></i> Platinum Shahi Menu</a></li>
+                                </ul>
+                            </li>
+                            <li class="dropend">
+                                <a class="dropdown-item" href="#">
+                                    <div class="nav-icon-badge"><i class="fas fa-concierge-bell"></i></div>
+                                    <span>Buffet Packages</span>
+                                    <i class="fas fa-chevron-right fs-7 ms-auto opacity-75"></i>
+                                </a>
+                                <ul class="dropdown-menu">
+                                    <li><a class="dropdown-item" href="#quoteSection"><i class="fas fa-check-circle me-2 text-success"></i> Standard Buffet</a></li>
+                                    <li><a class="dropdown-item" href="#quoteSection"><i class="fas fa-check-circle me-2 text-success"></i> Premium Buffet</a></li>
+                                </ul>
+                            </li>
+                            <li>
+                                <a class="dropdown-item" href="#quoteSection">
+                                    <div class="nav-icon-badge"><i class="fas fa-sliders-h"></i></div>
+                                    <span>Custom Menu Builder</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+
+                    <!-- Level 2 Dropdown: Enlistments -->
+                    <li class="nav-item dropdown">
+                        <a class="nav-link" href="#venuesSection" id="venuesDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            Enlistments <i class="fas fa-chevron-down fs-7 ms-1 opacity-75"></i>
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="venuesDropdown">
+                            <li class="dropend">
+                                <a class="dropdown-item" href="#">
+                                    <div class="nav-icon-badge text-primary"><i class="fas fa-shield-alt"></i></div>
+                                    <span>Military & Defense</span>
+                                    <i class="fas fa-chevron-right fs-7 ms-auto opacity-75"></i>
+                                </a>
+                                <ul class="dropdown-menu">
+                                    <li><a class="dropdown-item" href="#venuesSection"><i class="fas fa-archway me-2 text-primary"></i> Raowa Club</a></li>
+                                    <li><a class="dropdown-item" href="#venuesSection"><i class="fas fa-hotel me-2 text-primary"></i> Senakunja Cantonment</a></li>
+                                    <li><a class="dropdown-item" href="#venuesSection"><i class="fas fa-monument me-2 text-primary"></i> Sena Prangon</a></li>
+                                </ul>
+                            </li>
+                            <li class="dropend">
+                                <a class="dropdown-item" href="#">
+                                    <div class="nav-icon-badge"><i class="fas fa-city"></i></div>
+                                    <span>Convention Centers</span>
+                                    <i class="fas fa-chevron-right fs-7 ms-auto opacity-75"></i>
+                                </a>
+                                <ul class="dropdown-menu">
+                                    <li><a class="dropdown-item" href="#venuesSection"><i class="fas fa-landmark me-2"></i> Blue Sky Mirpur</a></li>
+                                    <li><a class="dropdown-item" href="#venuesSection"><i class="fas fa-store-alt me-2"></i> Uttara Community Center</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </li>
+
+                    <li class="nav-item"><a class="nav-link" href="#gallerySection">Gallery</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#testimonialsSection">Clients</a></li>
+                    <li class="nav-item ms-lg-2 mt-2 mt-lg-0">
+                        <a href="#quoteSection" class="btn btn-theme-accent rounded-pill px-4 text-white">Book Now</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Mobile Drawer Offcanvas -->
+    <div class="offcanvas offcanvas-start" tabindex="-1" id="mobileNavbar">
+        <div class="offcanvas-header border-bottom">
+            <div class="d-flex align-items-center gap-2">
+                <span class="logo-badge">NCS</span>
+                <span class="fw-bold fs-5 font-phudu text-theme-primary">Nuruzzaman Catering</span>
+            </div>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas"></button>
+        </div>
+        <div class="offcanvas-body">
+            <div class="accordion accordion-flush" id="mobileMenuAccordion">
+                <a href="#" class="mobile-nav-link text-theme-primary" data-bs-dismiss="offcanvas">Home</a>
+
+                <div class="accordion-item border-bottom">
+                    <h2 class="accordion-header">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseMobileProfile">
+                            Profile & About
+                        </button>
+                    </h2>
+                    <div id="collapseMobileProfile" class="accordion-collapse collapse" data-bs-parent="#mobileMenuAccordion">
+                        <div class="accordion-body">
+                            <a href="#aboutSection" class="sub-item" data-bs-dismiss="offcanvas"><i class="fas fa-building text-theme-primary"></i> About Our Company</a>
+                            <a href="#ceoSection" class="sub-item" data-bs-dismiss="offcanvas"><i class="fas fa-user-tie text-theme-primary"></i> CEO Message</a>
+                            <a href="#whyUsSection" class="sub-item" data-bs-dismiss="offcanvas"><i class="fas fa-thumbs-up text-theme-primary"></i> Why Choose Us</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="accordion-item border-bottom">
+                    <h2 class="accordion-header">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseMobileServices">
+                            Our Services
+                        </button>
+                    </h2>
+                    <div id="collapseMobileServices" class="accordion-collapse collapse" data-bs-parent="#mobileMenuAccordion">
+                        <div class="accordion-body">
+                            <a href="#servicesSection" class="sub-item" data-bs-dismiss="offcanvas"><i class="fas fa-ring text-danger"></i> Wedding & Holud Ceremonies</a>
+                            <a href="#servicesSection" class="sub-item" data-bs-dismiss="offcanvas"><i class="fas fa-briefcase text-primary"></i> Corporate Lunches & Galas</a>
+                            <a href="#servicesSection" class="sub-item" data-bs-dismiss="offcanvas"><i class="fas fa-gift text-warning"></i> Birthday & Social Parties</a>
+                        </div>
+                    </div>
+                </div>
+
+                <a href="#venuesSection" class="mobile-nav-link" data-bs-dismiss="offcanvas">Enlisted Venues</a>
+                <a href="#gallerySection" class="mobile-nav-link" data-bs-dismiss="offcanvas">Photo Gallery</a>
+                <a href="#quoteSection" class="mobile-nav-link text-theme-accent fw-bold" data-bs-dismiss="offcanvas"><i class="fas fa-calendar-check me-2"></i> Book Reservation</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- =========================================================
+       3. HERO SLIDER SECTION (DYNAMIC SLIDER WITH KEN BURNS IMAGE ZOOM)
+    ========================================================= -->
+    <section class="hero-section">
+        <div id="mainHeroCarousel" class="carousel slide carousel-fade hero-carousel" data-bs-ride="carousel" data-bs-interval="6500">
+            <div class="carousel-indicators">
+                <button type="button" data-bs-target="#mainHeroCarousel" data-bs-slide-to="0" class="active"></button>
+                <button type="button" data-bs-target="#mainHeroCarousel" data-bs-slide-to="1"></button>
+                <button type="button" data-bs-target="#mainHeroCarousel" data-bs-slide-to="2"></button>
+            </div>
+            <div class="carousel-inner">
+                <!-- Slide 1 -->
+                <div class="carousel-item active">
+                    <div class="hero-slide-bg" style="background-image: url('https://images.unsplash.com/photo-1555396273-367ea4eb4db5?q=80&w=2070&auto=format&fit=crop');"></div>
+                    <div class="container text-center">
+                        <div class="carousel-caption">
+                            <span class="badge badge-theme bg-white text-theme-primary mb-3 animate__animated animate__fadeInDown"><i class="fas fa-star text-warning me-1"></i> Professional Catering Experts</span>
+                            <h1 class="animate__animated animate__fadeInUp">Exceptional Catering For <br><span class="text-theme-accent">Every Grand Occasion</span></h1>
+                            <p class="fs-5 text-light opacity-90 max-w-700 mx-auto mb-4 animate__animated animate__fadeInUp animate__delay-1s">Complete culinary & banquet management for weddings, holud ceremonies, corporate galas, and grand receptions with uncompromised quality.</p>
+                            <div class="d-flex justify-content-center gap-3 animate__animated animate__zoomIn animate__delay-1s">
+                                <a href="#quoteSection" class="btn btn-theme-accent btn-lg text-white">Book Your Event</a>
+                                <a href="#servicesSection" class="btn btn-outline-light btn-lg">Explore Services</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Slide 2 -->
+                <div class="carousel-item">
+                    <div class="hero-slide-bg" style="background-image: url('https://images.unsplash.com/photo-1519167758481-83f550bb49b3?q=80&w=2069&auto=format&fit=crop');"></div>
+                    <div class="container text-center">
+                        <div class="carousel-caption">
+                            <span class="badge badge-theme bg-white text-theme-primary mb-3"><i class="fas fa-heart text-danger me-1"></i> Weddings & Holud Ceremonies</span>
+                            <h1>Turning Your Big Day <br><span class="text-theme-accent">Into A Grand Feast</span></h1>
+                            <p class="fs-5 text-light opacity-90 max-w-700 mx-auto mb-4">From intimate family celebrations to 5,000+ guest wedding banquets, our master chefs deliver authentic taste and royal presentation.</p>
+                            <div class="d-flex justify-content-center gap-3">
+                                <a href="#gallerySection" class="btn btn-theme-accent btn-lg text-white">View Wedding Gallery</a>
+                                <a href="#quoteSection" class="btn btn-outline-light btn-lg">Request Wedding Menu</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Slide 3 -->
+                <div class="carousel-item">
+                    <div class="hero-slide-bg" style="background-image: url('https://images.unsplash.com/photo-1511578314322-379afb476865?q=80&w=2069&auto=format&fit=crop');"></div>
+                    <div class="container text-center">
+                        <div class="carousel-caption">
+                            <span class="badge badge-theme bg-white text-theme-primary mb-3"><i class="fas fa-building text-primary me-1"></i> Enlisted In Top Convention Halls</span>
+                            <h1>Reliable Catering Service <br><span class="text-theme-accent">Every Single Time</span></h1>
+                            <p class="fs-5 text-light opacity-90 max-w-700 mx-auto mb-4">Trusted across Raowa, Senakunja, Sena Prangon, and Blue Sky for punctual 12-hour fast catering and strict hygiene standards.</p>
+                            <div class="d-flex justify-content-center gap-3">
+                                <a href="#venuesSection" class="btn btn-theme-accent btn-lg text-white">See Enlisted Venues</a>
+                                <a href="#aboutSection" class="btn btn-outline-light btn-lg">About Our Heritage</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <button class="carousel-control-prev" type="button" data-bs-target="#mainHeroCarousel" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon"></span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#mainHeroCarousel" data-bs-slide="next">
+                <span class="carousel-control-next-icon"></span>
+            </button>
+        </div>
+    </section>
+
+    <!-- =========================================================
+       4. STATS COUNTER CARDS
+    ========================================================= -->
+    <section class="py-5">
+        <div class="container">
+            <div class="row g-4">
+                <div class="col-6 col-md-3" data-aos="fade-up" data-aos-delay="100">
+                    <div class="stat-card">
+                        <div class="stat-icon-wrapper"><i class="fas fa-glass-cheers"></i></div>
+                        <div>
+                            <h3>5,000+</h3>
+                            <p>Events Served</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-6 col-md-3" data-aos="fade-up" data-aos-delay="200">
+                    <div class="stat-card">
+                        <div class="stat-icon-wrapper"><i class="fas fa-utensils"></i></div>
+                        <div>
+                            <h3>150+</h3>
+                            <p>Premium Menus</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-6 col-md-3" data-aos="fade-up" data-aos-delay="300">
+                    <div class="stat-card">
+                        <div class="stat-icon-wrapper"><i class="fas fa-smile"></i></div>
+                        <div>
+                            <h3>99%</h3>
+                            <p>Satisfaction Rate</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-6 col-md-3" data-aos="fade-up" data-aos-delay="400">
+                    <div class="stat-card">
+                        <div class="stat-icon-wrapper"><i class="fas fa-clock"></i></div>
+                        <div>
+                            <h3>12-Hours</h3>
+                            <p>Fast Service</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- =========================================================
+       5. ABOUT SECTION WITH SWIPER IMAGE SLIDER
+    ========================================================= -->
+    <section class="py-5" id="aboutSection">
+        <div class="container py-4">
+            <div class="row align-items-center g-5">
+                <div class="col-lg-6" data-aos="fade-right">
+                    <div class="about-img-box">
+                        <img src="https://images.unsplash.com/photo-1555244162-803834f70033?q=80&w=2070&auto=format&fit=crop" alt="Catering Excellence">
+                        <div class="about-experience-badge">
+                            <h2>30+</h2>
+                            <span>Years Heritage</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6" data-aos="fade-left">
+                    <span class="badge-theme mb-2">About Our Story</span>
+                    <h2 class="display-6 fw-bold mb-3">Nuruzzaman <span class="text-theme-accent">Catering Service</span></h2>
+                    <p class="lead text-theme-primary fw-semibold mb-3">Commitment to turning your special moments into delicious, unforgettable memories.</p>
+                    <p class="text-muted mb-4">Starting over 34 years ago from humble beginnings in Thakurgaon to establishing one of Dhaka's most trusted catering institutions, Nuruzzaman Catering Service stands for quality ingredients, strict hygiene, and prompt service.</p>
+
+                    <div class="row g-3 mb-3">
+                        <div class="col-sm-6">
+                            <div class="d-flex align-items-center gap-3 p-3 rounded-3 border bg-card">
+                                <i class="fas fa-check-circle fs-3 text-theme-primary"></i>
+                                <div>
+                                    <h6 class="mb-0 font-rajdhani fw-bold">Large-Scale Capacity</h6>
+                                    <small class="text-muted">Up to 30,000 guests at single event</small>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="d-flex align-items-center gap-3 p-3 rounded-3 border bg-card">
+                                <i class="fas fa-bolt fs-3 text-theme-accent"></i>
+                                <div>
+                                    <h6 class="mb-0 font-rajdhani fw-bold">12-Hour Urgent Prep</h6>
+                                    <small class="text-muted">Emergency catering execution</small>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- About Gallery Swiper Slider -->
+                    <div class="about-gallery-swiper" data-aos="fade-up" data-aos-delay="200">
+                        <div class="swiper swiper-about-gallery">
+                            <div class="swiper-wrapper">
+                                <div class="swiper-slide">
+                                    <a href="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?q=80&w=2070&auto=format&fit=crop" class="glightbox" data-gallery="about-gallery" data-title="Grand Banquet Setup">
+                                        <img src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?q=80&w=600&auto=format&fit=crop" alt="Grand Banquet">
+                                    </a>
+                                </div>
+                                <div class="swiper-slide">
+                                    <a href="https://images.unsplash.com/photo-1555396273-367ea4eb4db5?q=80&w=2070&auto=format&fit=crop" class="glightbox" data-gallery="about-gallery" data-title="Event Catering Service">
+                                        <img src="https://images.unsplash.com/photo-1555396273-367ea4eb4db5?q=80&w=600&auto=format&fit=crop" alt="Event Catering">
+                                    </a>
+                                </div>
+                                <div class="swiper-slide">
+                                    <a href="https://images.unsplash.com/photo-1519671482749-fd09be7ccebf?q=80&w=2070&auto=format&fit=crop" class="glightbox" data-gallery="about-gallery" data-title="Banquet Hall Service">
+                                        <img src="https://images.unsplash.com/photo-1519671482749-fd09be7ccebf?q=80&w=600&auto=format&fit=crop" alt="Banquet Hall">
+                                    </a>
+                                </div>
+                                <div class="swiper-slide">
+                                    <a href="https://images.unsplash.com/photo-1478147427282-58a87a120781?q=80&w=2070&auto=format&fit=crop" class="glightbox" data-gallery="about-gallery" data-title="Wedding Feast Setup">
+                                        <img src="https://images.unsplash.com/photo-1478147427282-58a87a120781?q=80&w=600&auto=format&fit=crop" alt="Wedding Feast">
+                                    </a>
+                                </div>
+                                <div class="swiper-slide">
+                                    <a href="https://images.unsplash.com/photo-1511578314322-379afb476865?q=80&w=2069&auto=format&fit=crop" class="glightbox" data-gallery="about-gallery" data-title="Corporate Event Setup">
+                                        <img src="https://images.unsplash.com/photo-1511578314322-379afb476865?q=80&w=600&auto=format&fit=crop" alt="Corporate Setup">
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="swiper-pagination about-gallery-pagination"></div>
+                        </div>
+                    </div>
+
+                    <a href="#quoteSection" class="btn btn-theme-primary rounded-pill px-4 mt-4">Contact Our Team <i class="fas fa-arrow-right ms-2"></i></a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- =========================================================
+       6. OUR SERVICES SHOWCASE (INTERACTIVE SLIDER FORMAT)
+    ========================================================= -->
+    <section class="py-5 bg-light" id="servicesSection">
+        <div class="container py-4">
+            <div class="d-flex flex-wrap justify-content-between align-items-end mb-4" data-aos="fade-up">
+                <div>
+                    <span class="badge-theme mb-2">Our Culinary Services</span>
+                    <h2 class="display-5 fw-bold mb-0">Tailored <span class="text-theme-accent">Catering Solutions</span></h2>
+                </div>
+                <!-- Slider Nav Controls -->
+                <div class="d-flex gap-2 mt-3 mt-md-0">
+                    <div class="slider-control-btn services-prev"><i class="fas fa-chevron-left"></i></div>
+                    <div class="slider-control-btn services-next"><i class="fas fa-chevron-right"></i></div>
+                </div>
+            </div>
+
+            <!-- Swiper Container for Services -->
+            <div class="swiper swiper-services" data-aos="fade-up" data-aos-delay="150">
+                <div class="swiper-wrapper">
+                    <!-- Service 1 -->
+                    <div class="swiper-slide">
+                        <div class="service-card">
+                            <div class="service-img-wrapper">
+                                <img src="https://images.unsplash.com/photo-1469334031218-e382a71b716b?q=80&w=2070&auto=format&fit=crop" alt="Wedding">
+                            </div>
+                            <div class="card-body">
+                                <h4 class="fw-bold font-rajdhani text-theme-primary mb-2">Wedding Celebrations</h4>
+                                <p class="text-muted flex-grow-1 fs-7">Elevate your special day with authentic Shahi Kacchi, refined side dishes, Borhani, and royal presentation.</p>
+                                <a href="#quoteSection" class="btn btn-outline-theme rounded-pill mt-3 w-100">Explore Menu <i class="fas fa-chevron-right ms-1 fs-7"></i></a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Service 2 -->
+                    <div class="swiper-slide">
+                        <div class="service-card">
+                            <div class="service-img-wrapper">
+                                <img src="https://images.unsplash.com/photo-1511578314322-379afb476865?q=80&w=2069&auto=format&fit=crop" alt="Corporate">
+                            </div>
+                            <div class="card-body">
+                                <h4 class="fw-bold font-rajdhani text-theme-primary mb-2">Corporate Events</h4>
+                                <p class="text-muted flex-grow-1 fs-7">Impress clients and colleagues with structured luncheons, annual galas, and executive buffet setups.</p>
+                                <a href="#quoteSection" class="btn btn-outline-theme rounded-pill mt-3 w-100">Explore Menu <i class="fas fa-chevron-right ms-1 fs-7"></i></a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Service 3 -->
+                    <div class="swiper-slide">
+                        <div class="service-card">
+                            <div class="service-img-wrapper">
+                                <img src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?q=80&w=2070&auto=format&fit=crop" alt="Holud">
+                            </div>
+                            <div class="card-body">
+                                <h4 class="fw-bold font-rajdhani text-theme-primary mb-2">Holud & Pre-Wedding</h4>
+                                <p class="text-muted flex-grow-1 fs-7">Vibrant, traditional Bengali flavors tailored to pre-wedding celebrations with appetizer stations.</p>
+                                <a href="#quoteSection" class="btn btn-outline-theme rounded-pill mt-3 w-100">Explore Menu <i class="fas fa-chevron-right ms-1 fs-7"></i></a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Service 4 -->
+                    <div class="swiper-slide">
+                        <div class="service-card">
+                            <div class="service-img-wrapper">
+                                <img src="https://images.unsplash.com/photo-1519671482749-fd09be7ccebf?q=80&w=2070&auto=format&fit=crop" alt="Birthday">
+                            </div>
+                            <div class="card-body">
+                                <h4 class="fw-bold font-rajdhani text-theme-primary mb-2">Birthday & Parties</h4>
+                                <p class="text-muted flex-grow-1 fs-7">Make birthdays unforgettable with curated finger foods, live stations, and dessert bars.</p>
+                                <a href="#quoteSection" class="btn btn-outline-theme rounded-pill mt-3 w-100">Explore Menu <i class="fas fa-chevron-right ms-1 fs-7"></i></a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Service 5 -->
+                    <div class="swiper-slide">
+                        <div class="service-card">
+                            <div class="service-img-wrapper">
+                                <img src="https://images.unsplash.com/photo-1555244162-803834f70033?q=80&w=2070&auto=format&fit=crop" alt="Ramadan Iftar">
+                            </div>
+                            <div class="card-body">
+                                <h4 class="fw-bold font-rajdhani text-theme-primary mb-2">Ramadan Iftar Parties</h4>
+                                <p class="text-muted flex-grow-1 fs-7">Generous Iftar spreads prepared and delivered punctually for corporate or family gatherings.</p>
+                                <a href="#quoteSection" class="btn btn-outline-theme rounded-pill mt-3 w-100">Explore Menu <i class="fas fa-chevron-right ms-1 fs-7"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Pagination Bullets -->
+                <div class="swiper-pagination"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- =========================================================
+       7. TRUSTED CHOICE (WHY CHOOSE US) - CENTERED ROTATING ANIMATED IMAGE
+    ========================================================= -->
+    <section class="py-5" id="whyUsSection">
+        <div class="container py-4">
+            <div class="text-center max-w-700 mx-auto mb-5" data-aos="fade-up">
+                <span class="badge-theme mb-2">Trusted Choice</span>
+                <h2 class="display-5 fw-bold mb-3">Why <span class="text-theme-accent">Choose Us?</span></h2>
+                <p class="text-muted">At Nuruzzaman Catering Service, we go beyond serving food — we deliver excellence, reliability, and unforgettable experiences.</p>
+            </div>
+
+            <div class="row align-items-center g-4">
+                <!-- Left Column -->
+                <div class="col-lg-4" data-aos="fade-right">
+                    <div class="why-item-box">
+                        <div class="why-icon"><i class="fas fa-concierge-bell"></i></div>
+                        <div>
+                            <h5 class="fw-bold font-rajdhani text-theme-primary mb-1">Complete Solutions</h5>
+                            <p class="text-muted fs-7 mb-0">From menu consultation to final guest presentation, we manage every detail.</p>
+                        </div>
+                    </div>
+                    <div class="why-item-box">
+                        <div class="why-icon"><i class="fas fa-bolt"></i></div>
+                        <div>
+                            <h5 class="fw-bold font-rajdhani text-theme-primary mb-1">12-Hour Urgent Prep</h5>
+                            <p class="text-muted fs-7 mb-0">Capable of preparing and delivering fresh food within just 12 hours for urgent events.</p>
+                        </div>
+                    </div>
+                    <div class="why-item-box mb-0">
+                        <div class="why-icon"><i class="fas fa-user-shield"></i></div>
+                        <div>
+                            <h5 class="fw-bold font-rajdhani text-theme-primary mb-1">Experienced Chefs</h5>
+                            <p class="text-muted fs-7 mb-0">Our master chefs bring 30+ years of heritage and traditional culinary expertise.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Centered Rotating Image -->
+                <div class="col-lg-4 text-center my-4 my-lg-0" data-aos="zoom-in">
+                    <div class="why-center-wrapper">
+                        <div class="why-rotate-ring-inner"></div>
+                        <div class="why-rotate-ring"></div>
+                        <img src="https://images.unsplash.com/photo-1544148103-0773bf10d330?q=80&w=2070&auto=format&fit=crop" alt="Master Chef" class="why-center-img">
+                    </div>
+                </div>
+
+                <!-- Right Column -->
+                <div class="col-lg-4" data-aos="fade-left">
+                    <div class="why-item-box">
+                        <div class="why-icon"><i class="fas fa-users"></i></div>
+                        <div>
+                            <h5 class="fw-bold font-rajdhani text-theme-primary mb-1">30,000+ Guest Scale</h5>
+                            <p class="text-muted fs-7 mb-0">Successfully executed large-scale banquets for up to 30 thousands of attendees.</p>
+                        </div>
+                    </div>
+                    <div class="why-item-box">
+                        <div class="why-icon"><i class="fas fa-heart-beat"></i></div>
+                        <div>
+                            <h5 class="fw-bold font-rajdhani text-theme-primary mb-1">Strict Hygiene Standard</h5>
+                            <p class="text-muted fs-7 mb-0">ISO certified hygiene, fresh produce, and sanitized kitchen operations.</p>
+                        </div>
+                    </div>
+                    <div class="why-item-box mb-0">
+                        <div class="why-icon"><i class="fas fa-award"></i></div>
+                        <div>
+                            <h5 class="fw-bold font-rajdhani text-theme-primary mb-1">99% Client Satisfaction</h5>
+                            <p class="text-muted fs-7 mb-0">Thousands of happy families and corporate clients across Bangladesh.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- =========================================================
+       8. OUR PRESENCE — 3D FLIP CARD SWIPER (Y-AXIS FLIP ON HOVER)
+    ========================================================= -->
+    <section class="py-5 bg-light" id="venuesSection">
+        <div class="container py-4">
+            <div class="d-flex flex-wrap justify-content-between align-items-end mb-4" data-aos="fade-up">
+                <div>
+                    <span class="badge-theme mb-2">Our Presence</span>
+                    <h2 class="display-5 fw-bold mb-0">Enlisted <span class="text-theme-accent">Convention Venues</span></h2>
+                    <p class="text-muted mt-2 mb-0">Hover over each card to discover more about our enlisted venues.</p>
+                </div>
+                <div class="d-flex gap-2 mt-3 mt-md-0">
+                    <div class="slider-control-btn venues-prev"><i class="fas fa-chevron-left"></i></div>
+                    <div class="slider-control-btn venues-next"><i class="fas fa-chevron-right"></i></div>
+                </div>
+            </div>
+
+            <div class="swiper swiper-venues" data-aos="fade-up" data-aos-delay="150">
+                <div class="swiper-wrapper">
+
+                    <!-- Venue 1: Raowa Club -->
+                    <div class="swiper-slide">
+                        <div class="venue-flip-card">
+                            <div class="venue-flip-inner">
+                                <!-- Front -->
+                                <div class="venue-flip-front">
+                                    <img src="https://images.unsplash.com/photo-1519167758481-83f550bb49b3?q=80&w=2069&auto=format&fit=crop" alt="Raowa Club">
+                                    <div class="venue-flip-front-overlay">
+                                        <span class="badge bg-danger rounded-pill mb-1 px-3">Military Enlisted</span>
+                                        <h5 class="fw-bold font-rajdhani text-white mb-0">Raowa Convention Hall</h5>
+                                        <small><i class="fas fa-map-marker-alt text-warning me-1"></i> Mohakhali, Dhaka</small>
+                                    </div>
+                                </div>
+                                <!-- Back -->
+                                <div class="venue-flip-back">
+                                    <div class="venue-flip-back-icon">
+                                        <i class="fas fa-archway"></i>
+                                    </div>
+                                    <h4>Raowa Convention Hall</h4>
+                                    <p>A prestigious military-enlisted banquet hall in Mohakhali, trusted for grand weddings and diplomatic receptions for 1000+ guests.</p>
+                                    <a href="#quoteSection" class="venue-book-btn">Book This Venue <i class="fas fa-arrow-right ms-1"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Venue 2: Blue Sky -->
+                    <div class="swiper-slide">
+                        <div class="venue-flip-card">
+                            <div class="venue-flip-inner">
+                                <div class="venue-flip-front">
+                                    <img src="https://images.unsplash.com/photo-1478147427282-58a87a120781?q=80&w=2070&auto=format&fit=crop" alt="Blue Sky">
+                                    <div class="venue-flip-front-overlay">
+                                        <span class="badge bg-primary rounded-pill mb-1 px-3">Convention Center</span>
+                                        <h5 class="fw-bold font-rajdhani text-white mb-0">Blue Sky Convention</h5>
+                                        <small><i class="fas fa-map-marker-alt text-warning me-1"></i> Mirpur, Dhaka</small>
+                                    </div>
+                                </div>
+                                <div class="venue-flip-back">
+                                    <div class="venue-flip-back-icon">
+                                        <i class="fas fa-building"></i>
+                                    </div>
+                                    <h4>Blue Sky Convention</h4>
+                                    <p>A spacious and fully air-conditioned convention center in Mirpur, ideal for large wedding receptions and corporate gala dinners.</p>
+                                    <a href="#quoteSection" class="venue-book-btn">Book This Venue <i class="fas fa-arrow-right ms-1"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Venue 3: Sena Prangon -->
+                    <div class="swiper-slide">
+                        <div class="venue-flip-card">
+                            <div class="venue-flip-inner">
+                                <div class="venue-flip-front">
+                                    <img src="https://images.unsplash.com/photo-1515169067868-5387ec183754?q=80&w=2070&auto=format&fit=crop" alt="Sena Prangon">
+                                    <div class="venue-flip-front-overlay">
+                                        <span class="badge bg-danger rounded-pill mb-1 px-3">Defense Venue</span>
+                                        <h5 class="fw-bold font-rajdhani text-white mb-0">Sena Prangon</h5>
+                                        <small><i class="fas fa-map-marker-alt text-warning me-1"></i> Mohakhali, Dhaka</small>
+                                    </div>
+                                </div>
+                                <div class="venue-flip-back">
+                                    <div class="venue-flip-back-icon">
+                                        <i class="fas fa-monument"></i>
+                                    </div>
+                                    <h4>Sena Prangon</h4>
+                                    <p>A premier defense-enlisted banquet venue in Mohakhali, favored for high-profile military receptions and corporate seminars.</p>
+                                    <a href="#quoteSection" class="venue-book-btn">Book This Venue <i class="fas fa-arrow-right ms-1"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Venue 4: Senakunja -->
+                    <div class="swiper-slide">
+                        <div class="venue-flip-card">
+                            <div class="venue-flip-inner">
+                                <div class="venue-flip-front">
+                                    <img src="https://images.unsplash.com/photo-1492684223066-81342ee5ff30?q=80&w=2070&auto=format&fit=crop" alt="Senakunja">
+                                    <div class="venue-flip-front-overlay">
+                                        <span class="badge bg-warning text-dark rounded-pill mb-1 px-3">Royal Cantonment</span>
+                                        <h5 class="fw-bold font-rajdhani text-white mb-0">Senakunja Hall</h5>
+                                        <small><i class="fas fa-map-marker-alt text-warning me-1"></i> Dhaka Cantonment</small>
+                                    </div>
+                                </div>
+                                <div class="venue-flip-back">
+                                    <div class="venue-flip-back-icon">
+                                        <i class="fas fa-hotel"></i>
+                                    </div>
+                                    <h4>Senakunja Hall</h4>
+                                    <p>Dhaka's most exclusive cantonment banquet venue, known for hosting grand wedding celebrations and elite social gatherings.</p>
+                                    <a href="#quoteSection" class="venue-book-btn">Book This Venue <i class="fas fa-arrow-right ms-1"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+                <!-- Pagination Dots -->
+                <div class="swiper-pagination venues-pagination"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- =========================================================
+       9. CEO MESSAGE SECTION
+    ========================================================= -->
+    <section class="py-5" id="ceoSection">
+        <div class="container">
+            <div class="ceo-section-wrapper" data-aos="fade-up">
+                <div class="ceo-quote-mark">“</div>
+                <div class="row align-items-center g-4 position-relative z-2">
+                    <div class="col-lg-8">
+                        <span class="badge bg-white text-theme-primary fw-bold mb-3 uppercase px-3 py-1">Leadership Message</span>
+                        <h2 class="display-6 fw-bold mb-3">Message From <span class="text-warning">The Chairman & CEO</span></h2>
+                        <p class="fs-5 fw-semibold text-light mb-3">"সংগ্রাম থেকেই স্বপ্নের শুরু। বিশ্বাস থেকেই প্রতিষ্ঠার গল্প।"</p>
+                        <p class="opacity-90 leading-relaxed mb-3">আমি <strong>নুরুজ্জামান</strong>, প্রতিষ্ঠাতা ও চেয়ারম্যান, Nuruzzaman Catering Service। আজ থেকে প্রায় ৩৪ বছর আগে ঠাকুরগাঁও জেলা থেকে উচ্চশিক্ষার উদ্দেশ্যে ঢাকায় এসেছিলাম। আল্লাহ তালার অশেষ রহমত, গ্রাহকদের ভালোবাসা ও টিমের কঠোর পরিশ্রমে আমরা আজকের এই অবস্থানের পৌঁছেছি।</p>
+                        <div class="mt-4 pt-2 border-top border-light border-opacity-25">
+                            <h5 class="fw-bold mb-0 text-warning font-phudu">— নুরুজ্জামান</h5>
+                            <small class="opacity-75">চেয়ারম্যান ও ব্যবস্থাপনা পরিচালক, Nuruzzaman Catering Service</small>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 text-center">
+                        <div class="ceo-img-container d-inline-block">
+                            <img src="https://nuruzzamancatering.com/wp-content/uploads/2026/02/MG_7161-1-e1771327169826.png" alt="Md. Nuruzzaman" class="img-fluid" style="max-height: 380px;">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- =========================================================
+       10. FILTERABLE PHOTO GALLERY (GLIGHTBOX PLUGIN)
+    ========================================================= -->
+    <section class="py-5 bg-light" id="gallerySection">
+        <div class="container py-4">
+            <div class="text-center max-w-700 mx-auto mb-4" data-aos="fade-up">
+                <span class="badge-theme mb-2">Visual Experience</span>
+                <h2 class="display-5 fw-bold mb-3">Our Event <span class="text-theme-accent">Photo Showcase</span></h2>
+                <p class="text-muted">Explore authentic high-resolution glimpses of our catering setups, grand presentation, and dishes.</p>
+            </div>
+
+            <!-- Filter Buttons -->
+            <div class="text-center mb-4" data-aos="fade-up">
+                <button class="gallery-filter-btn active" data-filter="all">All Photos</button>
+                <button class="gallery-filter-btn" data-filter="weddings">Weddings</button>
+                <button class="gallery-filter-btn" data-filter="dishes">Signature Dishes</button>
+                <button class="gallery-filter-btn" data-filter="venues">Venues</button>
+            </div>
+
+            <!-- Gallery Grid -->
+            <div class="row g-4" id="galleryGrid">
+                <div class="col-md-6 col-lg-4 gallery-item" data-category="weddings" data-aos="zoom-in">
+                    <div class="gallery-item-box">
+                        <img src="https://images.unsplash.com/photo-1519741497674-611481863552?q=80&w=800&auto=format&fit=crop" alt="Royal Wedding Setup">
+                        <a href="https://images.unsplash.com/photo-1519741497674-611481863552?q=80&w=2070&auto=format&fit=crop" class="glightbox gallery-item-overlay" data-gallery="event-gallery" data-title="Royal Wedding Banquet Setup">
+                            <div class="gallery-zoom-icon"><i class="fas fa-search-plus"></i></div>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="col-md-6 col-lg-4 gallery-item" data-category="dishes" data-aos="zoom-in">
+                    <div class="gallery-item-box">
+                        <img src="https://images.unsplash.com/photo-1555244162-803834f70033?q=80&w=800&auto=format&fit=crop" alt="Shahi Biryani Feast">
+                        <a href="https://images.unsplash.com/photo-1555244162-803834f70033?q=80&w=2070&auto=format&fit=crop" class="glightbox gallery-item-overlay" data-gallery="event-gallery" data-title="Authentic Shahi Kacchi Feast">
+                            <div class="gallery-zoom-icon"><i class="fas fa-search-plus"></i></div>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="col-md-6 col-lg-4 gallery-item" data-category="venues" data-aos="zoom-in">
+                    <div class="gallery-item-box">
+                        <img src="https://images.unsplash.com/photo-1511578314322-379afb476865?q=80&w=800&auto=format&fit=crop" alt="Raowa Convention Banquet">
+                        <a href="https://images.unsplash.com/photo-1511578314322-379afb476865?q=80&w=2069&auto=format&fit=crop" class="glightbox gallery-item-overlay" data-gallery="event-gallery" data-title="Raowa Convention Hall Catering">
+                            <div class="gallery-zoom-icon"><i class="fas fa-search-plus"></i></div>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="col-md-6 col-lg-4 gallery-item" data-category="weddings" data-aos="zoom-in">
+                    <div class="gallery-item-box">
+                        <img src="https://images.unsplash.com/photo-1519167758481-83f550bb49b3?q=80&w=800&auto=format&fit=crop" alt="Holud Stage Service">
+                        <a href="https://images.unsplash.com/photo-1519167758481-83f550bb49b3?q=80&w=2069&auto=format&fit=crop" class="glightbox gallery-item-overlay" data-gallery="event-gallery" data-title="Traditional Holud Ceremony Setup">
+                            <div class="gallery-zoom-icon"><i class="fas fa-search-plus"></i></div>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="col-md-6 col-lg-4 gallery-item" data-category="dishes" data-aos="zoom-in">
+                    <div class="gallery-item-box">
+                        <img src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?q=80&w=800&auto=format&fit=crop" alt="Gourmet Desserts">
+                        <a href="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?q=80&w=2070&auto=format&fit=crop" class="glightbox gallery-item-overlay" data-gallery="event-gallery" data-title="Traditional Desserts & Drinks">
+                            <div class="gallery-zoom-icon"><i class="fas fa-search-plus"></i></div>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="col-md-6 col-lg-4 gallery-item" data-category="venues" data-aos="zoom-in">
+                    <div class="gallery-item-box">
+                        <img src="https://images.unsplash.com/photo-1478147427282-58a87a120781?q=80&w=800&auto=format&fit=crop" alt="Senakunja Hall Setup">
+                        <a href="https://images.unsplash.com/photo-1478147427282-58a87a120781?q=80&w=2070&auto=format&fit=crop" class="glightbox gallery-item-overlay" data-gallery="event-gallery" data-title="Senakunja Grand Dining Hall">
+                            <div class="gallery-zoom-icon"><i class="fas fa-search-plus"></i></div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- =========================================================
+       11. TESTIMONIALS SECTION
+    ========================================================= -->
+    <section class="py-5" id="testimonialsSection">
+        <div class="container py-4">
+            <div class="text-center max-w-700 mx-auto mb-5" data-aos="fade-up">
+                <span class="badge-theme mb-2">Client Reviews</span>
+                <h2 class="display-5 fw-bold mb-3">What Our <span class="text-theme-accent">Clients Say</span></h2>
+                <p class="text-muted">Real experiences shared by clients who trusted us with their most cherished events.</p>
+            </div>
+
+            <div class="row g-4">
+                <div class="col-md-4" data-aos="fade-up" data-aos-delay="100">
+                    <div class="p-4 rounded-4 border bg-card h-100 shadow-sm">
+                        <div class="d-flex align-items-center gap-3 mb-3">
+                            <img src="https://ui-avatars.com/api/?name=Mamun+Chowdhury&background=0d4d2e&color=fff" class="rounded-circle" width="50" height="50" alt="Client">
+                            <div>
+                                <h6 class="fw-bold mb-0">Mamun Chowdhury</h6>
+                                <div class="text-warning fs-7"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                                <small class="text-muted">Wedding Ceremony | 1200 Guests</small>
+                            </div>
+                        </div>
+                        <p class="text-muted fs-7 mb-0">"The Kacchi Biryani was exceptional and hot! Serving staff managed 1200+ guests effortlessly at Raowa Club. Highly recommended!"</p>
+                    </div>
+                </div>
+
+                <div class="col-md-4" data-aos="fade-up" data-aos-delay="200">
+                    <div class="p-4 rounded-4 border bg-card h-100 shadow-sm">
+                        <div class="d-flex align-items-center gap-3 mb-3">
+                            <img src="https://ui-avatars.com/api/?name=Fahad+Aslam&background=ae2d1b&color=fff" class="rounded-circle" width="50" height="50" alt="Client">
+                            <div>
+                                <h6 class="fw-bold mb-0">Fahad Bin Aslam</h6>
+                                <div class="text-warning fs-7"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                                <small class="text-muted">Corporate Gala Dinner</small>
+                            </div>
+                        </div>
+                        <p class="text-muted fs-7 mb-0">"NCS handled our annual corporate event with extreme professionalism. Hygiene, prompt timing, and taste were top notch."</p>
+                    </div>
+                </div>
+
+                <div class="col-md-4" data-aos="fade-up" data-aos-delay="300">
+                    <div class="p-4 rounded-4 border bg-card h-100 shadow-sm">
+                        <div class="d-flex align-items-center gap-3 mb-3">
+                            <img src="https://ui-avatars.com/api/?name=Salim+Reja&background=1e3799&color=fff" class="rounded-circle" width="50" height="50" alt="Client">
+                            <div>
+                                <h6 class="fw-bold mb-0">Salim Reja</h6>
+                                <div class="text-warning fs-7"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                                <small class="text-muted">Holud & Reception</small>
+                            </div>
+                        </div>
+                        <p class="text-muted fs-7 mb-0">"Everything was seamless. Guests praised the Borhani, Firni, and Roast. Chairman Nuruzzaman himself ensured top quality."</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- =========================================================
+       12. RESERVATION & QUOTE FORM
+    ========================================================= -->
+    <section class="py-5" id="quoteSection">
+        <div class="container py-4">
+            <div class="row align-items-center g-5">
+                <div class="col-lg-5" data-aos="fade-right">
+                    <span class="badge-theme mb-2">Book Your Event</span>
+                    <h2 class="display-6 fw-bold mb-3">Reserve Your <span class="text-theme-accent">Catering Service</span></h2>
+                    <p class="text-muted mb-4">Plan your menu with our event consultants today. Fill in your requirements for a prompt quotation.</p>
+                    
+                    <div class="d-flex flex-column gap-3">
+                        <div class="d-flex align-items-center gap-3">
+                            <div class="stat-icon-wrapper" style="width: 48px; height: 48px; font-size: 1.2rem;">
+                                <i class="fas fa-phone-alt"></i>
+                            </div>
+                            <div>
+                                <h6 class="fw-bold mb-0">Direct Hotline</h6>
+                                <small class="text-muted">01711-306501 / 01746-710102</small>
+                            </div>
+                        </div>
+                        <div class="d-flex align-items-center gap-3">
+                            <div class="stat-icon-wrapper" style="width: 48px; height: 48px; font-size: 1.2rem;">
+                                <i class="fas fa-clock"></i>
+                            </div>
+                            <div>
+                                <h6 class="fw-bold mb-0">12-Hour Urgent Service</h6>
+                                <small class="text-muted">Emergency bookings catered instantly</small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-7" data-aos="fade-left">
+                    <div class="quote-form-card">
+                        <h4 class="fw-bold font-rajdhani text-theme-primary mb-4">Request Event Quotation</h4>
+                        <form id="reservationForm">
+                            <div class="row g-3">
+                                <div class="col-md-6">
+                                    <label class="form-label font-rajdhani fw-semibold fs-7 mb-1">Full Name</label>
+                                    <input type="text" class="form-control" placeholder="Your Name" required>
+                                </div>
+                                <div class="col-md-6">
+                                    <label class="form-label font-rajdhani fw-semibold fs-7 mb-1">Phone Number</label>
+                                    <input type="tel" class="form-control" placeholder="017XX-XXXXXX" required>
+                                </div>
+                                <div class="col-md-6">
+                                    <label class="form-label font-rajdhani fw-semibold fs-7 mb-1">Event Type</label>
+                                    <select class="form-select" required>
+                                        <option value="">Select Event Type</option>
+                                        <option value="Wedding Reception">Wedding Reception</option>
+                                        <option value="Holud Ceremony">Holud Ceremony</option>
+                                        <option value="Corporate Feast">Corporate Event</option>
+                                        <option value="Birthday Party">Birthday Party</option>
+                                        <option value="Ramadan Iftar">Ramadan Iftar Party</option>
+                                    </select>
+                                </div>
+                                <div class="col-md-6">
+                                    <label class="form-label font-rajdhani fw-semibold fs-7 mb-1">Event Date</label>
+                                    <input type="date" class="form-control" required>
+                                </div>
+                                <div class="col-md-6">
+                                    <label class="form-label font-rajdhani fw-semibold fs-7 mb-1">Estimated Guests</label>
+                                    <input type="number" class="form-control" placeholder="e.g. 500" required>
+                                </div>
+                                <div class="col-md-6">
+                                    <label class="form-label font-rajdhani fw-semibold fs-7 mb-1">Venue / Location</label>
+                                    <input type="text" class="form-control" placeholder="Convention Hall Name / Area">
+                                </div>
+                                <div class="col-12">
+                                    <label class="form-label font-rajdhani fw-semibold fs-7 mb-1">Special Requirements / Menu Choices</label>
+                                    <textarea class="form-control" rows="3" placeholder="Specify menu preferences, Kacchi type, dessert choices..."></textarea>
+                                </div>
+                                <div class="col-12 mt-4">
+                                    <button type="submit" class="btn btn-theme-accent btn-lg w-100 rounded-pill text-white fw-bold">Submit Booking Request <i class="fas fa-paper-plane ms-2"></i></button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- =========================================================
+       13. FOOTER SECTION
+    ========================================================= -->
+    <footer>
+        <div class="container">
+            <div class="row g-4 pb-5 border-bottom border-secondary border-opacity-25">
+                <div class="col-lg-4">
+                    <div class="d-flex align-items-center gap-2 mb-3">
+                        <span class="logo-badge">NCS</span>
+                        <h4 class="fw-bold font-phudu text-white mb-0">Nuruzzaman Catering</h4>
+                    </div>
+                    <p class="text-muted leading-relaxed pe-lg-4">Nuruzzaman Catering Service is Dhaka’s premier catering partner for weddings, corporate events, holud banquets, and large-scale celebrations.</p>
+                    <div class="d-flex gap-3 fs-5 mt-3">
+                        <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+                        <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+
+                <div class="col-md-4 col-lg-3">
+                    <h5>Mohammadpur Office</h5>
+                    <ul>
+                        <li><i class="fas fa-map-marker-alt"></i> 88/A, Sher-Shah-Suri Road, Baitul Falah Masjid Market, 2nd Floor, Mohammadpur, Dhaka-1207</li>
+                        <li><i class="fas fa-phone-alt"></i> 01711-306501, 01746-710102</li>
+                    </ul>
+                </div>
+
+                <div class="col-md-4 col-lg-2">
+                    <h5>Adabor Office</h5>
+                    <ul>
+                        <li><i class="fas fa-map-marker-alt"></i> 4/1, Main Road, Block-A, Noboday Housing Society, Adabor, Dhaka-1207</li>
+                        <li><i class="fas fa-phone-alt"></i> 01711-306501</li>
+                    </ul>
+                </div>
+
+                <div class="col-md-4 col-lg-3">
+                    <h5>Uttara Office</h5>
+                    <ul>
+                        <li><i class="fas fa-map-marker-alt"></i> Plot #20, Road #13D, Sector #6, Uttara, Dhaka-1230</li>
+                        <li><i class="fas fa-phone-alt"></i> 01761-339553, 01773-872670</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="text-center pt-4 fs-7 text-muted">
+                &copy; 2026 NURUZZAMAN CATERING SERVICE. All Rights Reserved. Crafted with Modern UI standards.
+            </div>
+        </div>
+    </footer>
+
+    <!-- Dynamic Theme Customizer Panel -->
+    <div class="theme-customizer-widget">
+        <div class="color-palette-panel" id="colorPalettePanel">
+            <h6 class="fw-bold font-rajdhani text-theme-primary mb-1 fs-7 uppercase"><i class="fas fa-palette me-1"></i> Accent Theme Color</h6>
+            <small class="text-muted d-block mb-2 fs-8">Pick dynamic UI accent color:</small>
+            <div class="color-swatch-grid">
+                <div class="color-swatch" style="background-color: #0d4d2e;" data-primary="#0d4d2e" data-rgb="13, 77, 46" data-accent="#ae2d1b" title="Emerald Green"></div>
+                <div class="color-swatch" style="background-color: #ae2d1b;" data-primary="#ae2d1b" data-rgb="174, 45, 27" data-accent="#0d4d2e" title="Crimson Red"></div>
+                <div class="color-swatch" style="background-color: #d4af37;" data-primary="#d4af37" data-rgb="212, 175, 55" data-accent="#8b0000" title="Royal Gold"></div>
+                <div class="color-swatch" style="background-color: #1e3799;" data-primary="#1e3799" data-rgb="30, 55, 153" data-accent="#e84118" title="Sapphire Blue"></div>
+                <div class="color-swatch" style="background-color: #6c5ce7;" data-primary="#6c5ce7" data-rgb="108, 92, 231" data-accent="#ff7675" title="Deep Violet"></div>
+            </div>
+        </div>
+
+        <button class="customizer-toggle-btn" id="paletteToggleBtn" title="Customize Theme Color">
+            <i class="fas fa-paint-brush"></i>
+        </button>
+    </div>
+
+    <!-- Booking Confirmation Toast -->
+    <div class="custom-toast" id="bookingToast">
+        <i class="fas fa-check-circle me-2"></i> Booking Request Sent! Our team will contact you shortly.
+    </div>
+
+    <!-- =========================================================
+       14. JAVASCRIPT & PLUGINS INITIALIZATION
+    ========================================================= -->
+    <!-- Bootstrap 5.3.3 JS Bundle -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Swiper 11 JS (Slider Plugin) -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
+    <!-- AOS (Animate On Scroll) JS -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+
+    <!-- GLightbox JS (Gallery Plugin) -->
+    <script src="https://cdn.jsdelivr.net/npm/glightbox/dist/js/glightbox.min.js"></script>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            /* 1. AOS Scroll Animation */
+            AOS.init({ duration: 800, once: true, offset: 100 });
+
+            /* 2. GLightbox Gallery Plugin */
+            const lightbox = GLightbox({ selector: '.glightbox', touchNavigation: true, loop: true, zoomable: true });
+
+            /* 3. Our Services Swiper Plugin */
+            const swiperServices = new Swiper('.swiper-services', {
+                slidesPerView: 1,
+                spaceBetween: 25,
+                loop: true,
+                autoplay: { delay: 4000, disableOnInteraction: false },
+                pagination: { el: '.swiper-services .swiper-pagination', clickable: true },
+                navigation: { nextEl: '.services-next', prevEl: '.services-prev' },
+                breakpoints: {
+                    768: { slidesPerView: 2 },
+                    992: { slidesPerView: 3 }
+                }
+            });
+
+            /* 4. About Story Gallery Swiper */
+            const swiperAboutGallery = new Swiper('.swiper-about-gallery', {
+                slidesPerView: 1,
+                spaceBetween: 16,
+                loop: true,
+                autoplay: { delay: 3500, disableOnInteraction: false, pauseOnMouseEnter: true },
+                pagination: { el: '.about-gallery-pagination', clickable: true },
+                breakpoints: {
+                    480: { slidesPerView: 2, spaceBetween: 14 },
+                    768: { slidesPerView: 3, spaceBetween: 16 }
+                }
+            });
+
+            /* 5. Our Presence Venues Swiper Plugin (3D Flip Cards) */
+            const swiperVenues = new Swiper('.swiper-venues', {
+                slidesPerView: 1,
+                spaceBetween: 24,
+                loop: true,
+                autoplay: { delay: 5000, disableOnInteraction: false, pauseOnMouseEnter: true },
+                pagination: { el: '.venues-pagination', clickable: true },
+                navigation: { nextEl: '.venues-next', prevEl: '.venues-prev' },
+                breakpoints: {
+                    576: { slidesPerView: 2 },
+                    992: { slidesPerView: 3 },
+                    1200: { slidesPerView: 4 }
+                }
+            });
+
+            /* 5. Gallery Filter Handler */
+            const filterBtns = document.querySelectorAll('.gallery-filter-btn');
+            const galleryItems = document.querySelectorAll('.gallery-item');
+
+            filterBtns.forEach(btn => {
+                btn.addEventListener('click', () => {
+                    filterBtns.forEach(b => b.classList.remove('active'));
+                    btn.classList.add('active');
+
+                    const filter = btn.getAttribute('data-filter');
+
+                    galleryItems.forEach(item => {
+                        if (filter === 'all' || item.getAttribute('data-category') === filter) {
+                            item.style.display = 'block';
+                            item.classList.add('animate__animated', 'animate__fadeIn');
+                        } else {
+                            item.style.display = 'none';
+                        }
+                    });
+                });
+            });
+
+            /* 6. Dark/Light Theme Mode Toggle */
+            const themeToggleBtn = document.getElementById('darkThemeToggle');
+            const themeIcon = document.getElementById('themeIcon');
+            const themeText = document.getElementById('themeText');
+            const htmlElement = document.documentElement;
+
+            const savedTheme = localStorage.getItem('ncs_theme') || 'light';
+            setTheme(savedTheme);
+
+            themeToggleBtn.addEventListener('click', () => {
+                const currentTheme = htmlElement.getAttribute('data-bs-theme');
+                const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+                setTheme(newTheme);
+            });
+
+            function setTheme(theme) {
+                htmlElement.setAttribute('data-bs-theme', theme);
+                htmlElement.setAttribute('data-theme', theme);
+                localStorage.setItem('ncs_theme', theme);
+
+                if (theme === 'dark') {
+                    themeIcon.className = 'fas fa-sun me-1 text-warning';
+                    themeText.textContent = 'Light Mode';
+                } else {
+                    themeIcon.className = 'fas fa-moon me-1';
+                    themeText.textContent = 'Dark Mode';
+                }
+            }
+
+            /* 7. Floating Dynamic Color Customizer */
+            const paletteToggleBtn = document.getElementById('paletteToggleBtn');
+            const colorPalettePanel = document.getElementById('colorPalettePanel');
+            const swatches = document.querySelectorAll('.color-swatch');
+
+            paletteToggleBtn.addEventListener('click', (e) => {
+                e.stopPropagation();
+                colorPalettePanel.classList.toggle('show');
+            });
+
+            document.addEventListener('click', (e) => {
+                if (!colorPalettePanel.contains(e.target) && e.target !== paletteToggleBtn) {
+                    colorPalettePanel.classList.remove('show');
+                }
+            });
+
+            swatches.forEach(swatch => {
+                swatch.addEventListener('click', () => {
+                    const primary = swatch.getAttribute('data-primary');
+                    const rgb = swatch.getAttribute('data-rgb');
+                    const accent = swatch.getAttribute('data-accent');
+
+                    document.documentElement.style.setProperty('--primary-color', primary);
+                    document.documentElement.style.setProperty('--primary-rgb', rgb);
+                    document.documentElement.style.setProperty('--accent-color', accent);
+
+                    colorPalettePanel.classList.remove('show');
+                });
+            });
+
+            /* 8. Reservation Form Toast Simulation */
+            const reservationForm = document.getElementById('reservationForm');
+            const bookingToast = document.getElementById('bookingToast');
+
+            reservationForm.addEventListener('submit', function(e) {
+                e.preventDefault();
+                bookingToast.style.display = 'block';
+                reservationForm.reset();
+                setTimeout(() => { bookingToast.style.display = 'none'; }, 4000);
+            });
+        });
+    </script>
+</body>
+</html>
