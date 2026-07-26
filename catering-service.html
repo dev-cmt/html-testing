@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Nuruzzaman Catering Service | Modern Premium Catering</title>
+    <title>Catering Service | Modern Premium Catering</title>
 
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Phudu:wght@500;600;700;800&family=Poppins:wght@300;400;500;600;700&family=Rajdhani:wght@500;600;700&display=swap" rel="stylesheet">
@@ -234,30 +234,11 @@
             justify-content: space-between;
             gap: 12px;
         }
-        
-        .nav-icon-badge {
-            width: 32px;
-            height: 32px;
-            border-radius: 8px;
-            background-color: rgba(var(--primary-rgb), 0.1);
-            color: var(--primary-color);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 0.88rem;
-            flex-shrink: 0;
-            transition: all 0.25s ease;
-        }
 
         .dropdown-item:hover {
             background-color: rgba(var(--primary-rgb), 0.08);
             color: var(--accent-color);
             padding-left: 22px;
-        }
-        .dropdown-item:hover .nav-icon-badge {
-            background-color: var(--accent-color);
-            color: #ffffff;
-            transform: scale(1.1);
         }
 
         /* Desktop Dropdown Hover */
@@ -1039,14 +1020,14 @@
                 <div class="top-contacts d-flex flex-wrap gap-3 align-items-center">
                     <span><i class="fas fa-phone-alt me-1"></i> <a href="tel:01711306501">01711-306501</a></span>
                     <span><i class="fas fa-phone-alt me-1"></i> <a href="tel:01746710102">01746-710102</a></span>
-                    <span><i class="fas fa-envelope me-1"></i> <a href="mailto:nuruzzamancatering@gmail.com">nuruzzamancatering@gmail.com</a></span>
+                    <span><i class="fas fa-envelope me-1"></i> <a href="mailto:cateringservice@gmail.com">cateringservice@gmail.com</a></span>
                     <span class="badge bg-danger rounded-pill px-2 py-1"><i class="fas fa-bolt me-1"></i> 12-Hour Fast Catering</span>
                 </div>
                 <div class="top-socials d-flex align-items-center gap-3 mt-2 mt-md-0">
                     <!-- Dark/Light Theme Mode Toggle -->
-                    <button class="btn btn-sm btn-outline-light rounded-pill px-3 py-1" id="darkThemeToggle" title="Toggle Dark/Light Mode">
+                    <!-- <button class="btn btn-sm btn-outline-light rounded-pill px-3 py-1" id="darkThemeToggle" title="Toggle Dark/Light Mode">
                         <i class="fas fa-moon me-1" id="themeIcon"></i> <span id="themeText">Dark Mode</span>
-                    </button>
+                    </button> -->
 
                     <div class="social-icons d-flex gap-2">
                         <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
@@ -1064,245 +1045,159 @@
     ========================================================= -->
     <nav class="navbar navbar-expand-lg main-navbar">
         <div class="container">
-            <a class="navbar-brand d-flex align-items-center gap-2" href="#">
-                <span class="logo-badge">NCS</span>
-                <div>
-                    <div class="fw-bold fs-5 text-theme-primary font-phudu lh-1">Nuruzzaman</div>
-                    <small class="text-theme-accent font-rajdhani fw-semibold tracking-wider">Catering Service</small>
+            <div class="d-flex w-100 align-items-center flex-wrap">
+                <!-- Logo - centered on mobile, left on desktop -->
+                <a class="navbar-brand order-2 order-lg-1" href="#">
+                    <img src="catering_logo.png" height="40" alt="">
+                </a>
+                
+                <!-- Toggler - left on mobile -->
+                <button class="navbar-toggler order-1 d-lg-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#mobileNavbar">
+                    <i class="fas fa-bars"></i>
+                </button>
+                
+                <!-- Desktop Menu - centered -->
+                <div class="collapse navbar-collapse order-3 order-lg-2" id="desktopNavbar">
+                    <ul class="navbar-nav mx-auto align-items-lg-center">
+                        <!-- nav items -->
+                        <li class="nav-item">
+                            <a class="nav-link active" href="#">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">About Us</a>
+                        </li>
+
+                        <!-- Level 1 Dropdown: Services -->
+                        <li class="nav-item dropdown">
+                            <a class="nav-link" href="#servicesSection" id="servicesDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                Services <i class="fas fa-chevron-down fs-7 ms-1 opacity-75"></i>
+                            </a>
+                            <ul class="dropdown-menu" aria-labelledby="servicesDropdown">
+                                <!-- Level 3 Dropdown: Wedding -->
+                                <li class="dropend">
+                                    <a class="dropdown-item" href="#">
+                                        <span>Wedding Catering</span>
+                                        <i class="fas fa-chevron-right fs-7 ms-auto opacity-75"></i>
+                                    </a>
+                                    <ul class="dropdown-menu">
+                                        <li>
+                                            <a class="dropdown-item" href="#servicesSection">
+                                                <span>Pre-Wedding Holud Special</span>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a class="dropdown-item" href="#servicesSection">
+                                                <span>Grand Reception Feast</span>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a class="dropdown-item" href="#servicesSection">
+                                                <span>Walima Banquet</span>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </li>
+
+                                <!-- Level 3 Dropdown: Corporate -->
+                                <li class="dropend">
+                                    <a class="dropdown-item" href="#">
+                                        <span>Corporate Events</span>
+                                        <i class="fas fa-chevron-right fs-7 ms-auto opacity-75"></i>
+                                    </a>
+                                    <ul class="dropdown-menu">
+                                        <li>
+                                            <a class="dropdown-item" href="#servicesSection">
+                                                <span>Executive Box Lunches</span>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a class="dropdown-item" href="#servicesSection">
+                                                <span>Annual General Meetings</span>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a class="dropdown-item" href="#servicesSection">
+                                                <span>Conference Buffet</span>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </li>
+
+                        <!-- Level 1 Dropdown: Menus -->
+                        <li class="nav-item dropdown">
+                            <a class="nav-link" href="#" id="menusDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                Menus <i class="fas fa-chevron-down fs-7 ms-1 opacity-75"></i>
+                            </a>
+                            <ul class="dropdown-menu" aria-labelledby="menusDropdown">
+                                <li class="dropend">
+                                    <a class="dropdown-item" href="#">
+                                        <span>Royal Kacchi Packages</span>
+                                        <i class="fas fa-chevron-right fs-7 ms-auto opacity-75"></i>
+                                    </a>
+                                    <ul class="dropdown-menu">
+                                        <li><a class="dropdown-item" href="#quoteSection"><i class="fas fa-crown me-2 text-warning"></i> Gold Kacchi Feast</a></li>
+                                        <li><a class="dropdown-item" href="#quoteSection"><i class="fas fa-gem me-2 text-info"></i> Diamond Royal Feast</a></li>
+                                        <li><a class="dropdown-item" href="#quoteSection"><i class="fas fa-star me-2 text-danger"></i> Platinum Shahi Menu</a></li>
+                                    </ul>
+                                </li>
+                                <li class="dropend">
+                                    <a class="dropdown-item" href="#">
+                                        <span>Buffet Packages</span>
+                                        <i class="fas fa-chevron-right fs-7 ms-auto opacity-75"></i>
+                                    </a>
+                                    <ul class="dropdown-menu">
+                                        <li><a class="dropdown-item" href="#quoteSection"><i class="fas fa-check-circle me-2 text-success"></i> Standard Buffet</a></li>
+                                        <li><a class="dropdown-item" href="#quoteSection"><i class="fas fa-check-circle me-2 text-success"></i> Premium Buffet</a></li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item" href="#quoteSection">
+                                        <span>Custom Menu Builder</span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+
+                        <!-- Level 1 Dropdown: Enlistments -->
+                        <li class="nav-item dropdown">
+                            <a class="nav-link" href="#venuesSection" id="venuesDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                Enlistments <i class="fas fa-chevron-down fs-7 ms-1 opacity-75"></i>
+                            </a>
+                            <ul class="dropdown-menu" aria-labelledby="venuesDropdown">
+                                <li class="dropend">
+                                    <a class="dropdown-item" href="#">
+                                        <span>Military & Defense</span>
+                                        <i class="fas fa-chevron-right fs-7 ms-auto opacity-75"></i>
+                                    </a>
+                                    <ul class="dropdown-menu">
+                                        <li><a class="dropdown-item" href="#venuesSection"><i class="fas fa-archway me-2 text-primary"></i> Raowa Club</a></li>
+                                        <li><a class="dropdown-item" href="#venuesSection"><i class="fas fa-hotel me-2 text-primary"></i> Senakunja Cantonment</a></li>
+                                        <li><a class="dropdown-item" href="#venuesSection"><i class="fas fa-monument me-2 text-primary"></i> Sena Prangon</a></li>
+                                    </ul>
+                                </li>
+                                <li class="dropend">
+                                    <a class="dropdown-item" href="#">
+                                        <span>Convention Centers</span>
+                                        <i class="fas fa-chevron-right fs-7 ms-auto opacity-75"></i>
+                                    </a>
+                                    <ul class="dropdown-menu">
+                                        <li><a class="dropdown-item" href="#venuesSection"><i class="fas fa-landmark me-2"></i> Blue Sky Mirpur</a></li>
+                                        <li><a class="dropdown-item" href="#venuesSection"><i class="fas fa-store-alt me-2"></i> Uttara Community Center</a></li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </li>
+
+                        <li class="nav-item"><a class="nav-link" href="#gallerySection">Gallery</a></li>
+                    </ul>
                 </div>
-            </a>
-
-            <button class="navbar-toggler border-0 shadow-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#mobileNavbar" aria-controls="mobileNavbar">
-                <i class="fas fa-bars fs-3 text-theme-primary"></i>
-            </button>
-
-            <!-- Desktop Menu with Enhanced Icon Badges -->
-            <div class="collapse navbar-collapse" id="desktopNavbar">
-                <ul class="navbar-nav ms-auto align-items-lg-center">
-                    <li class="nav-item">
-                        <a class="nav-link active" href="#">Home</a>
-                    </li>
-
-                    <!-- Level 2 Dropdown: Profile -->
-                    <li class="nav-item dropdown">
-                        <a class="nav-link" href="#" id="profileDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                            Profile <i class="fas fa-chevron-down fs-7 ms-1 opacity-75"></i>
-                        </a>
-                        <ul class="dropdown-menu" aria-labelledby="profileDropdown">
-                            <li>
-                                <a class="dropdown-item" href="#aboutSection">
-                                    <div class="nav-icon-badge"><i class="fas fa-building"></i></div>
-                                    <span>About Our Company</span>
-                                </a>
-                            </li>
-                            <li>
-                                <a class="dropdown-item" href="#ceoSection">
-                                    <div class="nav-icon-badge"><i class="fas fa-user-tie"></i></div>
-                                    <span>Chairman Message (CEO)</span>
-                                </a>
-                            </li>
-                            <!-- Level 3 Dropdown (Sub-Sub Menu) -->
-                            <li class="dropend">
-                                <a class="dropdown-item" href="#">
-                                    <div class="nav-icon-badge"><i class="fas fa-award"></i></div>
-                                    <span>Certifications & Awards</span>
-                                    <i class="fas fa-chevron-right fs-7 ms-auto opacity-75"></i>
-                                </a>
-                                <ul class="dropdown-menu">
-                                    <li>
-                                        <a class="dropdown-item" href="#">
-                                            <div class="nav-icon-badge text-warning"><i class="fas fa-certificate"></i></div>
-                                            <span>ISO 22000 Food Safety</span>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a class="dropdown-item" href="#">
-                                            <div class="nav-icon-badge text-warning"><i class="fas fa-medal"></i></div>
-                                            <span>Best Dhaka Caterer 2024</span>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a class="dropdown-item" href="#">
-                                            <div class="nav-icon-badge text-warning"><i class="fas fa-shield-alt"></i></div>
-                                            <span>Hygiene Excellence Award</span>
-                                        </a>
-                                    </li>
-                                </ul>
-                            </li>
-                            <li>
-                                <a class="dropdown-item" href="#whyUsSection">
-                                    <div class="nav-icon-badge"><i class="fas fa-thumbs-up"></i></div>
-                                    <span>Why Choose NCS</span>
-                                </a>
-                            </li>
-                        </ul>
-                    </li>
-
-                    <!-- Level 2 Dropdown: Services -->
-                    <li class="nav-item dropdown">
-                        <a class="nav-link" href="#servicesSection" id="servicesDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                            Services <i class="fas fa-chevron-down fs-7 ms-1 opacity-75"></i>
-                        </a>
-                        <ul class="dropdown-menu" aria-labelledby="servicesDropdown">
-                            <!-- Level 3 Dropdown: Wedding -->
-                            <li class="dropend">
-                                <a class="dropdown-item" href="#">
-                                    <div class="nav-icon-badge text-danger"><i class="fas fa-heart"></i></div>
-                                    <span>Wedding Catering</span>
-                                    <i class="fas fa-chevron-right fs-7 ms-auto opacity-75"></i>
-                                </a>
-                                <ul class="dropdown-menu">
-                                    <li>
-                                        <a class="dropdown-item" href="#servicesSection">
-                                            <div class="nav-icon-badge text-danger"><i class="fas fa-ring"></i></div>
-                                            <span>Pre-Wedding Holud Special</span>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a class="dropdown-item" href="#servicesSection">
-                                            <div class="nav-icon-badge text-danger"><i class="fas fa-church"></i></div>
-                                            <span>Grand Reception Feast</span>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a class="dropdown-item" href="#servicesSection">
-                                            <div class="nav-icon-badge text-danger"><i class="fas fa-glass-cheers"></i></div>
-                                            <span>Walima Banquet</span>
-                                        </a>
-                                    </li>
-                                </ul>
-                            </li>
-
-                            <!-- Level 3 Dropdown: Corporate -->
-                            <li class="dropend">
-                                <a class="dropdown-item" href="#">
-                                    <div class="nav-icon-badge text-primary"><i class="fas fa-briefcase"></i></div>
-                                    <span>Corporate Events</span>
-                                    <i class="fas fa-chevron-right fs-7 ms-auto opacity-75"></i>
-                                </a>
-                                <ul class="dropdown-menu">
-                                    <li>
-                                        <a class="dropdown-item" href="#servicesSection">
-                                            <div class="nav-icon-badge text-primary"><i class="fas fa-utensils"></i></div>
-                                            <span>Executive Box Lunches</span>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a class="dropdown-item" href="#servicesSection">
-                                            <div class="nav-icon-badge text-primary"><i class="fas fa-users"></i></div>
-                                            <span>Annual General Meetings</span>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a class="dropdown-item" href="#servicesSection">
-                                            <div class="nav-icon-badge text-primary"><i class="fas fa-handshake"></i></div>
-                                            <span>Conference Buffet</span>
-                                        </a>
-                                    </li>
-                                </ul>
-                            </li>
-
-                            <!-- Level 3 Dropdown: Social -->
-                            <li class="dropend">
-                                <a class="dropdown-item" href="#">
-                                    <div class="nav-icon-badge text-warning"><i class="fas fa-birthday-cake"></i></div>
-                                    <span>Social & Seasonal</span>
-                                    <i class="fas fa-chevron-right fs-7 ms-auto opacity-75"></i>
-                                </a>
-                                <ul class="dropdown-menu">
-                                    <li>
-                                        <a class="dropdown-item" href="#servicesSection">
-                                            <div class="nav-icon-badge text-warning"><i class="fas fa-gift"></i></div>
-                                            <span>Birthday & Anniversary</span>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a class="dropdown-item" href="#servicesSection">
-                                            <div class="nav-icon-badge text-warning"><i class="fas fa-moon"></i></div>
-                                            <span>Ramadan Iftar Banquets</span>
-                                        </a>
-                                    </li>
-                                </ul>
-                            </li>
-                        </ul>
-                    </li>
-
-                    <!-- Level 2 Dropdown: Menus -->
-                    <li class="nav-item dropdown">
-                        <a class="nav-link" href="#" id="menusDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                            Menus <i class="fas fa-chevron-down fs-7 ms-1 opacity-75"></i>
-                        </a>
-                        <ul class="dropdown-menu" aria-labelledby="menusDropdown">
-                            <li class="dropend">
-                                <a class="dropdown-item" href="#">
-                                    <div class="nav-icon-badge"><i class="fas fa-drumstick-bite"></i></div>
-                                    <span>Royal Kacchi Packages</span>
-                                    <i class="fas fa-chevron-right fs-7 ms-auto opacity-75"></i>
-                                </a>
-                                <ul class="dropdown-menu">
-                                    <li><a class="dropdown-item" href="#quoteSection"><i class="fas fa-crown me-2 text-warning"></i> Gold Kacchi Feast</a></li>
-                                    <li><a class="dropdown-item" href="#quoteSection"><i class="fas fa-gem me-2 text-info"></i> Diamond Royal Feast</a></li>
-                                    <li><a class="dropdown-item" href="#quoteSection"><i class="fas fa-star me-2 text-danger"></i> Platinum Shahi Menu</a></li>
-                                </ul>
-                            </li>
-                            <li class="dropend">
-                                <a class="dropdown-item" href="#">
-                                    <div class="nav-icon-badge"><i class="fas fa-concierge-bell"></i></div>
-                                    <span>Buffet Packages</span>
-                                    <i class="fas fa-chevron-right fs-7 ms-auto opacity-75"></i>
-                                </a>
-                                <ul class="dropdown-menu">
-                                    <li><a class="dropdown-item" href="#quoteSection"><i class="fas fa-check-circle me-2 text-success"></i> Standard Buffet</a></li>
-                                    <li><a class="dropdown-item" href="#quoteSection"><i class="fas fa-check-circle me-2 text-success"></i> Premium Buffet</a></li>
-                                </ul>
-                            </li>
-                            <li>
-                                <a class="dropdown-item" href="#quoteSection">
-                                    <div class="nav-icon-badge"><i class="fas fa-sliders-h"></i></div>
-                                    <span>Custom Menu Builder</span>
-                                </a>
-                            </li>
-                        </ul>
-                    </li>
-
-                    <!-- Level 2 Dropdown: Enlistments -->
-                    <li class="nav-item dropdown">
-                        <a class="nav-link" href="#venuesSection" id="venuesDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                            Enlistments <i class="fas fa-chevron-down fs-7 ms-1 opacity-75"></i>
-                        </a>
-                        <ul class="dropdown-menu" aria-labelledby="venuesDropdown">
-                            <li class="dropend">
-                                <a class="dropdown-item" href="#">
-                                    <div class="nav-icon-badge text-primary"><i class="fas fa-shield-alt"></i></div>
-                                    <span>Military & Defense</span>
-                                    <i class="fas fa-chevron-right fs-7 ms-auto opacity-75"></i>
-                                </a>
-                                <ul class="dropdown-menu">
-                                    <li><a class="dropdown-item" href="#venuesSection"><i class="fas fa-archway me-2 text-primary"></i> Raowa Club</a></li>
-                                    <li><a class="dropdown-item" href="#venuesSection"><i class="fas fa-hotel me-2 text-primary"></i> Senakunja Cantonment</a></li>
-                                    <li><a class="dropdown-item" href="#venuesSection"><i class="fas fa-monument me-2 text-primary"></i> Sena Prangon</a></li>
-                                </ul>
-                            </li>
-                            <li class="dropend">
-                                <a class="dropdown-item" href="#">
-                                    <div class="nav-icon-badge"><i class="fas fa-city"></i></div>
-                                    <span>Convention Centers</span>
-                                    <i class="fas fa-chevron-right fs-7 ms-auto opacity-75"></i>
-                                </a>
-                                <ul class="dropdown-menu">
-                                    <li><a class="dropdown-item" href="#venuesSection"><i class="fas fa-landmark me-2"></i> Blue Sky Mirpur</a></li>
-                                    <li><a class="dropdown-item" href="#venuesSection"><i class="fas fa-store-alt me-2"></i> Uttara Community Center</a></li>
-                                </ul>
-                            </li>
-                        </ul>
-                    </li>
-
-                    <li class="nav-item"><a class="nav-link" href="#gallerySection">Gallery</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#testimonialsSection">Clients</a></li>
-                    <li class="nav-item ms-lg-2 mt-2 mt-lg-0">
-                        <a href="#quoteSection" class="btn btn-theme-accent rounded-pill px-4 text-white">Book Now</a>
-                    </li>
-                </ul>
+                
+                <!-- Desktop CTA - right on desktop -->
+                <div class="d-none d-lg-flex order-3">
+                    <a href="#quoteSection" class="btn btn-theme-accent">Book Now</a>
+                </div>
             </div>
         </div>
     </nav>
@@ -1311,8 +1206,8 @@
     <div class="offcanvas offcanvas-start" tabindex="-1" id="mobileNavbar">
         <div class="offcanvas-header border-bottom">
             <div class="d-flex align-items-center gap-2">
-                <span class="logo-badge">NCS</span>
-                <span class="fw-bold fs-5 font-phudu text-theme-primary">Nuruzzaman Catering</span>
+                <img src="catering_logo.png" height="36" alt="">
+                <span class="fw-bold fs-5 text-theme-primary">Catering Service</span>
             </div>
             <button type="button" class="btn-close" data-bs-dismiss="offcanvas"></button>
         </div>
@@ -1489,9 +1384,9 @@
                 </div>
                 <div class="col-lg-6" data-aos="fade-left">
                     <span class="badge-theme mb-2">About Our Story</span>
-                    <h2 class="display-6 fw-bold mb-3">Nuruzzaman <span class="text-theme-accent">Catering Service</span></h2>
+                    <h2 class="display-6 fw-bold mb-3">Catering<span class="text-theme-accent"> Service</span></h2>
                     <p class="lead text-theme-primary fw-semibold mb-3">Commitment to turning your special moments into delicious, unforgettable memories.</p>
-                    <p class="text-muted mb-4">Starting over 34 years ago from humble beginnings in Thakurgaon to establishing one of Dhaka's most trusted catering institutions, Nuruzzaman Catering Service stands for quality ingredients, strict hygiene, and prompt service.</p>
+                    <p class="text-muted mb-4">Starting over 34 years ago from humble beginnings in Thakurgaon to establishing one of Dhaka's most trusted catering institutions, Catering Service stands for quality ingredients, strict hygiene, and prompt service.</p>
 
                     <div class="row g-3 mb-3">
                         <div class="col-sm-6">
@@ -1499,7 +1394,7 @@
                                 <i class="fas fa-check-circle fs-3 text-theme-primary"></i>
                                 <div>
                                     <h6 class="mb-0 font-rajdhani fw-bold">Large-Scale Capacity</h6>
-                                    <small class="text-muted">Up to 30,000 guests at single event</small>
+                                    <small class="text-muted">Up to 30K guests at single event</small>
                                 </div>
                             </div>
                         </div>
@@ -1658,12 +1553,12 @@
             <div class="text-center max-w-700 mx-auto mb-5" data-aos="fade-up">
                 <span class="badge-theme mb-2">Trusted Choice</span>
                 <h2 class="display-5 fw-bold mb-3">Why <span class="text-theme-accent">Choose Us?</span></h2>
-                <p class="text-muted">At Nuruzzaman Catering Service, we go beyond serving food — we deliver excellence, reliability, and unforgettable experiences.</p>
+                <p class="text-muted">At Catering Service, we go beyond serving food — we deliver excellence, reliability, and unforgettable experiences.</p>
             </div>
 
             <div class="row align-items-center g-4">
                 <!-- Left Column -->
-                <div class="col-lg-4" data-aos="fade-right">
+                <!-- <div class="col-lg-4" data-aos="fade-right">
                     <div class="why-item-box">
                         <div class="why-icon"><i class="fas fa-concierge-bell"></i></div>
                         <div>
@@ -1685,10 +1580,10 @@
                             <p class="text-muted fs-7 mb-0">Our master chefs bring 30+ years of heritage and traditional culinary expertise.</p>
                         </div>
                     </div>
-                </div>
+                </div> -->
 
                 <!-- Centered Rotating Image -->
-                <div class="col-lg-4 text-center my-4 my-lg-0" data-aos="zoom-in">
+                <div class="col-lg-6 text-center my-4 my-lg-0" data-aos="zoom-in">
                     <div class="why-center-wrapper">
                         <div class="why-rotate-ring-inner"></div>
                         <div class="why-rotate-ring"></div>
@@ -1697,26 +1592,16 @@
                 </div>
 
                 <!-- Right Column -->
-                <div class="col-lg-4" data-aos="fade-left">
+                <div class="col-lg-6" data-aos="fade-left">
                     <div class="why-item-box">
-                        <div class="why-icon"><i class="fas fa-users"></i></div>
-                        <div>
-                            <h5 class="fw-bold font-rajdhani text-theme-primary mb-1">30,000+ Guest Scale</h5>
-                            <p class="text-muted fs-7 mb-0">Successfully executed large-scale banquets for up to 30 thousands of attendees.</p>
-                        </div>
-                    </div>
-                    <div class="why-item-box">
-                        <div class="why-icon"><i class="fas fa-heart-beat"></i></div>
                         <div>
                             <h5 class="fw-bold font-rajdhani text-theme-primary mb-1">Strict Hygiene Standard</h5>
-                            <p class="text-muted fs-7 mb-0">ISO certified hygiene, fresh produce, and sanitized kitchen operations.</p>
-                        </div>
-                    </div>
-                    <div class="why-item-box mb-0">
-                        <div class="why-icon"><i class="fas fa-award"></i></div>
-                        <div>
-                            <h5 class="fw-bold font-rajdhani text-theme-primary mb-1">99% Client Satisfaction</h5>
-                            <p class="text-muted fs-7 mb-0">Thousands of happy families and corporate clients across Bangladesh.</p>
+                            <p class="text-muted fs-7 mb-3">
+                                Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since 1966, when designers at Letraset and James Mosley, the librarian at St Bride Printing Library in London, took a 1914 Cicero translation and scrambled it to make dummy text for Letraset's Body Type sheets. It has survived not only many decades, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised thanks to these sheets and more recently with desktop publishing software like Aldus PageMaker and Microsoft Word including versions of Lorem Ipsum.
+                            </p>
+                            <p class="text-muted fs-7 mb-0">
+                                Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since 1966, when designers at Letraset and James Mosley, the librarian at St Bride Printing Library in London, took a 1914 Cicero translation and scrambled it to make dummy text for Letraset's Body Type sheets. It has survived not only many decades, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised thanks to these sheets and more recently with desktop publishing software like Aldus PageMaker and Microsoft Word including versions of Lorem Ipsum.
+                            </p>
                         </div>
                     </div>
                 </div>
@@ -1861,15 +1746,15 @@
                         <span class="badge bg-white text-theme-primary fw-bold mb-3 uppercase px-3 py-1">Leadership Message</span>
                         <h2 class="display-6 fw-bold mb-3">Message From <span class="text-warning">The Chairman & CEO</span></h2>
                         <p class="fs-5 fw-semibold text-light mb-3">"সংগ্রাম থেকেই স্বপ্নের শুরু। বিশ্বাস থেকেই প্রতিষ্ঠার গল্প।"</p>
-                        <p class="opacity-90 leading-relaxed mb-3">আমি <strong>নুরুজ্জামান</strong>, প্রতিষ্ঠাতা ও চেয়ারম্যান, Nuruzzaman Catering Service। আজ থেকে প্রায় ৩৪ বছর আগে ঠাকুরগাঁও জেলা থেকে উচ্চশিক্ষার উদ্দেশ্যে ঢাকায় এসেছিলাম। আল্লাহ তালার অশেষ রহমত, গ্রাহকদের ভালোবাসা ও টিমের কঠোর পরিশ্রমে আমরা আজকের এই অবস্থানের পৌঁছেছি।</p>
+                        <p class="opacity-90 leading-relaxed mb-3">আমি <strong>ক্যাটরিন</strong>, প্রতিষ্ঠাতা ও চেয়ারম্যান, Catering Service। আজ থেকে প্রায় ৩৪ বছর আগে ঠাকুরগাঁও জেলা থেকে উচ্চশিক্ষার উদ্দেশ্যে ঢাকায় এসেছিলাম। আল্লাহ তালার অশেষ রহমত, গ্রাহকদের ভালোবাসা ও টিমের কঠোর পরিশ্রমে আমরা আজকের এই অবস্থানের পৌঁছেছি।</p>
                         <div class="mt-4 pt-2 border-top border-light border-opacity-25">
-                            <h5 class="fw-bold mb-0 text-warning font-phudu">— নুরুজ্জামান</h5>
-                            <small class="opacity-75">চেয়ারম্যান ও ব্যবস্থাপনা পরিচালক, Nuruzzaman Catering Service</small>
+                            <h5 class="fw-bold mb-0 text-warning font-phudu">— ক্যাটরিন</h5>
+                            <small class="opacity-75">চেয়ারম্যান ও ব্যবস্থাপনা পরিচালক, Catering Service</small>
                         </div>
                     </div>
                     <div class="col-lg-4 text-center">
                         <div class="ceo-img-container d-inline-block">
-                            <img src="https://nuruzzamancatering.com/wp-content/uploads/2026/02/MG_7161-1-e1771327169826.png" alt="Md. Nuruzzaman" class="img-fluid" style="max-height: 380px;">
+                            <img src="https://www.shego.in/wp-content/uploads/2025/04/Picsart_24-11-03_12-41-54-427.jpeg" alt="" class="img-fluid" style="max-height: 380px;">
                         </div>
                     </div>
                 </div>
@@ -2005,7 +1890,7 @@
                                 <small class="text-muted">Holud & Reception</small>
                             </div>
                         </div>
-                        <p class="text-muted fs-7 mb-0">"Everything was seamless. Guests praised the Borhani, Firni, and Roast. Chairman Nuruzzaman himself ensured top quality."</p>
+                        <p class="text-muted fs-7 mb-0">"Everything was seamless. Guests praised the Borhani, Firni, and Roast. Chairman Catering Service himself ensured top quality."</p>
                     </div>
                 </div>
             </div>
@@ -2104,10 +1989,9 @@
             <div class="row g-4 pb-5 border-bottom border-secondary border-opacity-25">
                 <div class="col-lg-4">
                     <div class="d-flex align-items-center gap-2 mb-3">
-                        <span class="logo-badge">NCS</span>
-                        <h4 class="fw-bold font-phudu text-white mb-0">Nuruzzaman Catering</h4>
+                        <img src="catering_logo.png" height="50" alt="Logo">
                     </div>
-                    <p class="text-muted leading-relaxed pe-lg-4">Nuruzzaman Catering Service is Dhaka’s premier catering partner for weddings, corporate events, holud banquets, and large-scale celebrations.</p>
+                    <p class="text-white fs-7 mb-0">Delivering culinary excellence and unforgettable event experiences across Dhaka for over 34 years.</p>
                     <div class="d-flex gap-3 fs-5 mt-3">
                         <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
                         <a href="#" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
@@ -2142,13 +2026,13 @@
             </div>
 
             <div class="text-center pt-4 fs-7 text-muted">
-                &copy; 2026 NURUZZAMAN CATERING SERVICE. All Rights Reserved. Crafted with Modern UI standards.
+                &copy; 2026 CATERING SERVICE. All Rights Reserved. Crafted with Modern UI standards.
             </div>
         </div>
     </footer>
 
     <!-- Dynamic Theme Customizer Panel -->
-    <div class="theme-customizer-widget">
+    <!-- <div class="theme-customizer-widget">
         <div class="color-palette-panel" id="colorPalettePanel">
             <h6 class="fw-bold font-rajdhani text-theme-primary mb-1 fs-7 uppercase"><i class="fas fa-palette me-1"></i> Accent Theme Color</h6>
             <small class="text-muted d-block mb-2 fs-8">Pick dynamic UI accent color:</small>
@@ -2164,7 +2048,7 @@
         <button class="customizer-toggle-btn" id="paletteToggleBtn" title="Customize Theme Color">
             <i class="fas fa-paint-brush"></i>
         </button>
-    </div>
+    </div> -->
 
     <!-- Booking Confirmation Toast -->
     <div class="custom-toast" id="bookingToast">
