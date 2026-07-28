@@ -243,14 +243,23 @@
 
         /* Desktop Dropdown Hover */
         @media (min-width: 992px) {
-            .navbar .dropdown-menu .dropend { position: relative; }
+            .navbar .dropdown-menu .dropend {
+                position: relative;
+            }
+            .navbar .dropdown-menu .dropend > .dropdown-item.dropdown-toggle {
+                width: 100%;
+                background: transparent;
+                border: 0;
+                cursor: default;
+            }
             .navbar .dropdown-menu .dropend .dropdown-menu {
                 top: 0;
-                left: 100%;
-                margin-left: 4px;
-                margin-top: -8px;
+                left: calc(100% - 1px);
+                margin-left: 0;
+                margin-top: 0;
                 display: none;
                 animation: fadeInUp 0.25s ease;
+                z-index: 1050;
             }
             .navbar .dropdown-menu .dropend:hover > .dropdown-menu { display: block; }
             .navbar .nav-item.dropdown:hover > .dropdown-menu { display: block; }
@@ -1075,10 +1084,10 @@
                             <ul class="dropdown-menu" aria-labelledby="servicesDropdown">
                                 <!-- Level 3 Dropdown: Wedding -->
                                 <li class="dropend">
-                                    <a class="dropdown-item" href="#">
+                                    <button type="button" class="dropdown-item dropdown-toggle">
                                         <span>Wedding Catering</span>
                                         <i class="fas fa-chevron-right fs-7 ms-auto opacity-75"></i>
-                                    </a>
+                                    </button>
                                     <ul class="dropdown-menu">
                                         <li>
                                             <a class="dropdown-item" href="#servicesSection">
@@ -1100,10 +1109,10 @@
 
                                 <!-- Level 3 Dropdown: Corporate -->
                                 <li class="dropend">
-                                    <a class="dropdown-item" href="#">
+                                    <button type="button" class="dropdown-item dropdown-toggle">
                                         <span>Corporate Events</span>
                                         <i class="fas fa-chevron-right fs-7 ms-auto opacity-75"></i>
-                                    </a>
+                                    </button>
                                     <ul class="dropdown-menu">
                                         <li>
                                             <a class="dropdown-item" href="#servicesSection">
@@ -1132,10 +1141,10 @@
                             </a>
                             <ul class="dropdown-menu" aria-labelledby="menusDropdown">
                                 <li class="dropend">
-                                    <a class="dropdown-item" href="#">
+                                    <button type="button" class="dropdown-item dropdown-toggle">
                                         <span>Royal Kacchi Packages</span>
                                         <i class="fas fa-chevron-right fs-7 ms-auto opacity-75"></i>
-                                    </a>
+                                    </button>
                                     <ul class="dropdown-menu">
                                         <li><a class="dropdown-item" href="#quoteSection"><i class="fas fa-crown me-2 text-warning"></i> Gold Kacchi Feast</a></li>
                                         <li><a class="dropdown-item" href="#quoteSection"><i class="fas fa-gem me-2 text-info"></i> Diamond Royal Feast</a></li>
@@ -1143,10 +1152,10 @@
                                     </ul>
                                 </li>
                                 <li class="dropend">
-                                    <a class="dropdown-item" href="#">
+                                    <button type="button" class="dropdown-item dropdown-toggle">
                                         <span>Buffet Packages</span>
                                         <i class="fas fa-chevron-right fs-7 ms-auto opacity-75"></i>
-                                    </a>
+                                    </button>
                                     <ul class="dropdown-menu">
                                         <li><a class="dropdown-item" href="#quoteSection"><i class="fas fa-check-circle me-2 text-success"></i> Standard Buffet</a></li>
                                         <li><a class="dropdown-item" href="#quoteSection"><i class="fas fa-check-circle me-2 text-success"></i> Premium Buffet</a></li>
@@ -1167,10 +1176,10 @@
                             </a>
                             <ul class="dropdown-menu" aria-labelledby="venuesDropdown">
                                 <li class="dropend">
-                                    <a class="dropdown-item" href="#">
+                                    <button type="button" class="dropdown-item dropdown-toggle">
                                         <span>Military & Defense</span>
                                         <i class="fas fa-chevron-right fs-7 ms-auto opacity-75"></i>
-                                    </a>
+                                    </button>
                                     <ul class="dropdown-menu">
                                         <li><a class="dropdown-item" href="#venuesSection"><i class="fas fa-archway me-2 text-primary"></i> Raowa Club</a></li>
                                         <li><a class="dropdown-item" href="#venuesSection"><i class="fas fa-hotel me-2 text-primary"></i> Senakunja Cantonment</a></li>
@@ -1178,10 +1187,10 @@
                                     </ul>
                                 </li>
                                 <li class="dropend">
-                                    <a class="dropdown-item" href="#">
+                                    <button type="button" class="dropdown-item dropdown-toggle">
                                         <span>Convention Centers</span>
                                         <i class="fas fa-chevron-right fs-7 ms-auto opacity-75"></i>
-                                    </a>
+                                    </button>
                                     <ul class="dropdown-menu">
                                         <li><a class="dropdown-item" href="#venuesSection"><i class="fas fa-landmark me-2"></i> Blue Sky Mirpur</a></li>
                                         <li><a class="dropdown-item" href="#venuesSection"><i class="fas fa-store-alt me-2"></i> Uttara Community Center</a></li>
@@ -2077,6 +2086,65 @@
 
             /* 2. GLightbox Gallery Plugin */
             const lightbox = GLightbox({ selector: '.glightbox', touchNavigation: true, loop: true, zoomable: true });
+
+            /* 2b. Desktop navbar dropdowns - keep only one open at a time */
+            const desktopDropdownQuery = window.matchMedia('(min-width: 992px)');
+            const navDropdownItems = document.querySelectorAll('.main-navbar .nav-item.dropdown');
+
+            function closeOtherDropdowns(activeItem) {
+                navDropdownItems.forEach(item => {
+                    if (item !== activeItem) {
+                        const toggle = item.querySelector('[data-bs-toggle="dropdown"]');
+                        const dropdown = bootstrap.Dropdown.getInstance(toggle);
+                        if (dropdown) {
+                            dropdown.hide();
+                        }
+                        item.classList.remove('show');
+                        const menu = item.querySelector('.dropdown-menu');
+                        if (menu) menu.classList.remove('show');
+                    }
+                });
+            }
+
+            function bindDesktopDropdownBehavior() {
+                navDropdownItems.forEach(item => {
+                    const toggle = item.querySelector('[data-bs-toggle="dropdown"]');
+                    if (!toggle) return;
+
+                    toggle.addEventListener('mouseenter', () => {
+                        if (!desktopDropdownQuery.matches) return;
+                        closeOtherDropdowns(item);
+                        bootstrap.Dropdown.getOrCreateInstance(toggle).show();
+                    });
+
+                    toggle.addEventListener('click', (e) => {
+                        if (!desktopDropdownQuery.matches) return;
+                        e.preventDefault();
+                        closeOtherDropdowns(item);
+                        const dropdown = bootstrap.Dropdown.getOrCreateInstance(toggle);
+                        const menu = item.querySelector('.dropdown-menu');
+                        const isOpen = item.classList.contains('show') || (menu && menu.classList.contains('show'));
+                        if (isOpen) {
+                            dropdown.hide();
+                        } else {
+                            dropdown.show();
+                        }
+                    });
+                });
+
+                document.addEventListener('click', (e) => {
+                    if (!desktopDropdownQuery.matches) return;
+                    if (!e.target.closest('.main-navbar')) {
+                        navDropdownItems.forEach(item => {
+                            const toggle = item.querySelector('[data-bs-toggle="dropdown"]');
+                            const dropdown = bootstrap.Dropdown.getInstance(toggle);
+                            if (dropdown) dropdown.hide();
+                        });
+                    }
+                });
+            }
+
+            bindDesktopDropdownBehavior();
 
             /* 3. Our Services Swiper Plugin */
             const swiperServices = new Swiper('.swiper-services', {
