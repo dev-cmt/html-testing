@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Details - Swiper & Lightbox</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Font (Hind Siliguri) -->
+    <link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@400;500;600;700&display=swap" rel="stylesheet">
+        
+    <!-- Swiper CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    <!-- Fancybox (Lightbox) CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/fancybox/fancybox.css" />
+
+    <style>
+        body { font-family: 'Hind Siliguri', sans-serif; }
+                
+        .swiper-pagination-bullet-active {
+            background-color: #033625 !important;
+            width: 10px;
+            border-radius: 4px;
+        }
+
+        /* Pulse Green Animation */
+        @keyframes pulse-green {
+            0%, 100% {
+                box-shadow: 0 0 0 0 rgba(188, 165, 17, 0.7);
+            }
+            60% {
+                box-shadow: 0 0 0 14px rgba(22, 163, 74, 0);
+            }
+        }
+
+        /* Left-Right Shake Effect */
+        @keyframes shake-lr {
+            0%, 60%, 100% { transform: translateX(0); }
+            65% { transform: translateX(-6px); }
+            70% { transform: translateX(6px); }
+            75% { transform: translateX(-5px); }
+            80% { transform: translateX(5px); }
+            85% { transform: translateX(-3px); }
+            90% { transform: translateX(3px); }
+        }
+
+        /* Animated Order Button Class */
+        .btn-order-animate {
+            animation: 
+                pulse-green 2s infinite,
+                shake-lr 3s infinite;
+        }
+    </style>
+</head>
+<body class="bg-gray-50 py-4 sm:py-8">
+
+    <section class="max-w-6xl mx-auto p-4 sm:p-6 bg-white shadow-sm rounded-xl">
+        <!-- Breadcrumb Navigation -->
+        <nav class="flex items-center gap-2 text-xs text-gray-500 mb-4 overflow-x-auto whitespace-nowrap">
+            <a href="#" class="hover:text-[#033625] transition-colors"><i class="fa-solid fa-house"></i> Home</a>
+            <span>&gt;</span>
+            <a href="#" class="hover:text-[#033625] transition-colors">Home Appliance</a>
+            <span>&gt;</span>
+            <span class="text-gray-800 font-medium">MoveMent Adjustable Stand</span>
+        </nav>
+
+        <!-- MAIN PRODUCT SECTION GRID -->
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 items-start">
+            
+            <!-- LEFT COLUMN: Product Gallery (Swiper + Fancybox) -->
+            <div class="lg:col-span-6 space-y-3">
+                <div class="grid grid-cols-12 lg:block gap-3">
+                    
+                    <!-- Main Product Slider Area -->
+                    <div class="col-span-8 lg:col-span-12 relative bg-gray-100 rounded-xl overflow-hidden border border-gray-100 group">
+                        
+                        <!-- Badges & Wishlist -->
+                        <span class="absolute top-2.5 left-2.5 bg-emerald-600 text-white text-[10px] sm:text-xs font-bold px-2.5 py-1 rounded-md z-20">
+                            41% OFF
+                        </span>
+                        <button class="absolute top-2.5 right-2.5 w-8 h-8 sm:w-9 sm:h-9 bg-white/80 hover:bg-white backdrop-blur rounded-full flex items-center justify-center text-gray-600 hover:text-red-500 shadow-sm transition-all z-20">
+                            <i class="fa-regular fa-heart text-sm sm:text-lg"></i>
+                        </button>
+
+                        <!-- Swiper Container -->
+                        <div class="swiper productSwiper">
+                            <div class="swiper-wrapper">
+                                <!-- Slide 1 -->
+                                <div class="swiper-slide cursor-pointer overflow-hidden group/img">
+                                    <a href="https://picsum.photos/1200/900?random=10" data-fancybox="gallery" data-caption="MoveMent Adjustable Stand - Image 1">
+                                        <img src="https://picsum.photos/800/600?random=10" alt="Product Image 1" class="w-full h-[220px] sm:h-[350px] lg:h-[400px] object-cover transition-transform duration-500 ease-out group-hover/img:scale-110">
+                                    </a>
+                                </div>
+                                <!-- Slide 2 -->
+                                <div class="swiper-slide cursor-pointer overflow-hidden group/img">
+                                    <a href="https://picsum.photos/1200/900?random=11" data-fancybox="gallery" data-caption="MoveMent Adjustable Stand - Image 2">
+                                        <img src="https://picsum.photos/800/600?random=11" alt="Product Image 2" class="w-full h-[220px] sm:h-[350px] lg:h-[400px] object-cover transition-transform duration-500 ease-out group-hover/img:scale-110">
+                                    </a>
+                                </div>
+                                <!-- Slide 3 -->
+                                <div class="swiper-slide cursor-pointer overflow-hidden group/img">
+                                    <a href="https://picsum.photos/1200/900?random=12" data-fancybox="gallery" data-caption="MoveMent Adjustable Stand - Image 3">
+                                        <img src="https://picsum.photos/800/600?random=12" alt="Product Image 3" class="w-full h-[220px] sm:h-[350px] lg:h-[400px] object-cover transition-transform duration-500 ease-out group-hover/img:scale-110">
+                                    </a>
+                                </div>
+                                <!-- Slide 4 -->
+                                <div class="swiper-slide cursor-pointer overflow-hidden group/img">
+                                    <a href="https://picsum.photos/1200/900?random=13" data-fancybox="gallery" data-caption="MoveMent Adjustable Stand - Image 4">
+                                        <img src="https://picsum.photos/800/600?random=13" alt="Product Image 4" class="w-full h-[220px] sm:h-[350px] lg:h-[400px] object-cover transition-transform duration-500 ease-out group-hover/img:scale-110">
+                                    </a>
+                                </div>
+                            </div>
+
+                            <!-- Swiper Pagination (Dots) -->
+                            <div class="swiper-pagination"></div>
+
+                            <!-- Swiper Navigation Arrows -->
+                            <div class="swiper-button-next !text-white !w-8 !h-8 sm:!w-9 sm:!h-9 after:!text-xs sm:after:!text-sm bg-black/40 hover:bg-black/70 backdrop-blur rounded-full transition-all z-20"></div>
+                            <div class="swiper-button-prev !text-white !w-8 !h-8 sm:!w-9 sm:!h-9 after:!text-xs sm:after:!text-sm bg-black/40 hover:bg-black/70 backdrop-blur rounded-full transition-all z-20"></div>
+                        </div>
+
+                    </div>
+
+                    <!-- Right Badges (Mobile View) -->
+                    <div class="col-span-4 lg:hidden flex flex-col justify-between gap-1.5">
+                        <div class="flex items-center gap-1.5 p-1.5 bg-emerald-50/50 border border-emerald-100/60 rounded-lg">
+                            <div class="w-7 h-7 rounded bg-emerald-100 text-[#033625] flex items-center justify-center shrink-0 text-xs">
+                                <i class="fa-solid fa-truck-fast"></i>
+                            </div>
+                            <div class="overflow-hidden">
+                                <h4 class="text-[10px] font-bold text-gray-800 leading-tight truncate">ফাস্ট ডেলিভারি</h4>
+                                <p class="text-[8px] text-gray-500 truncate">সারা দেশে</p>
+                            </div>
+                        </div>
+
+                        <div class="flex items-center gap-1.5 p-1.5 bg-emerald-50/50 border border-emerald-100/60 rounded-lg">
+                            <div class="w-7 h-7 rounded bg-emerald-100 text-[#033625] flex items-center justify-center shrink-0 text-xs">
+                                <i class="fa-solid fa-shield-halved"></i>
+                            </div>
+                            <div class="overflow-hidden">
+                                <h4 class="text-[10px] font-bold text-gray-800 leading-tight truncate">নিরাপদ পেমেন্ট</h4>
+                                <p class="text-[8px] text-gray-500 truncate">SSL Encrypted</p>
+                            </div>
+                        </div>
+
+                        <div class="flex items-center gap-1.5 p-1.5 bg-emerald-50/50 border border-emerald-100/60 rounded-lg">
+                            <div class="w-7 h-7 rounded bg-emerald-100 text-[#033625] flex items-center justify-center shrink-0 text-xs">
+                                <i class="fa-solid fa-award"></i>
+                            </div>
+                            <div class="overflow-hidden">
+                                <h4 class="text-[10px] font-bold text-gray-800 leading-tight truncate">প্রিমিয়াম কোয়ালিটি</h4>
+                                <p class="text-[8px] text-gray-500 truncate">100% Genuine</p>
+                            </div>
+                        </div>
+
+                        <div class="flex items-center gap-1.5 p-1.5 bg-emerald-50/50 border border-emerald-100/60 rounded-lg">
+                            <div class="w-7 h-7 rounded bg-emerald-100 text-[#033625] flex items-center justify-center shrink-0 text-xs">
+                                <i class="fa-solid fa-rotate-left"></i>
+                            </div>
+                            <div class="overflow-hidden">
+                                <h4 class="text-[10px] font-bold text-gray-800 leading-tight truncate">৭ দিনের রিটার্ন</h4>
+                                <p class="text-[8px] text-gray-500 truncate">সুবিধা</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Desktop Badges (Shown Below Image on PC) -->
+                <div class="hidden lg:grid grid-cols-4 gap-2.5 pt-2">
+                    <div class="flex items-center gap-2 p-2.5 bg-emerald-50/50 border border-emerald-100/60 rounded-xl">
+                        <div class="w-8 h-8 rounded-lg bg-emerald-100 text-[#033625] flex items-center justify-center shrink-0 text-sm">
+                            <i class="fa-solid fa-truck-fast"></i>
+                        </div>
+                        <div>
+                            <h4 class="text-xs font-bold text-gray-800 leading-tight">ফাস্ট ডেলিভারি</h4>
+                            <p class="text-[10px] text-gray-500">সারা দেশে</p>
+                        </div>
+                    </div>
+
+                    <div class="flex items-center gap-2 p-2.5 bg-emerald-50/50 border border-emerald-100/60 rounded-xl">
+                        <div class="w-8 h-8 rounded-lg bg-emerald-100 text-[#033625] flex items-center justify-center shrink-0 text-sm">
+                            <i class="fa-solid fa-shield-halved"></i>
+                        </div>
+                        <div>
+                            <h4 class="text-xs font-bold text-gray-800 leading-tight">নিরাপদ পেমেন্ট</h4>
+                            <p class="text-[10px] text-gray-500">SSL Encrypted</p>
+                        </div>
+                    </div>
+
+                    <div class="flex items-center gap-2 p-2.5 bg-emerald-50/50 border border-emerald-100/60 rounded-xl">
+                        <div class="w-8 h-8 rounded-lg bg-emerald-100 text-[#033625] flex items-center justify-center shrink-0 text-sm">
+                            <i class="fa-solid fa-award"></i>
+                        </div>
+                        <div>
+                            <h4 class="text-xs font-bold text-gray-800 leading-tight">প্রিমিয়াম কোয়ালিটি</h4>
+                            <p class="text-[10px] text-gray-500">100% Genuine</p>
+                        </div>
+                    </div>
+
+                    <div class="flex items-center gap-2 p-2.5 bg-emerald-50/50 border border-emerald-100/60 rounded-xl">
+                        <div class="w-8 h-8 rounded-lg bg-emerald-100 text-[#033625] flex items-center justify-center shrink-0 text-sm">
+                            <i class="fa-solid fa-rotate-left"></i>
+                        </div>
+                        <div>
+                            <h4 class="text-xs font-bold text-gray-800 leading-tight">৭ দিনের রিটার্ন</h4>
+                            <p class="text-[10px] text-gray-500">সুবিধা</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- RIGHT COLUMN: Details & Actions -->
+            <div class="lg:col-span-6 space-y-4">
+                
+                <!-- Product Title & Pricing -->
+                <div>
+                    <h1 class="text-lg sm:text-2xl font-bold text-gray-900 leading-snug">
+                        MoveMent Adjustable স্ট্যান্ড (2set)
+                    </h1>
+                    
+                    <div class="flex items-center gap-3 mt-2">
+                        <span class="text-2xl font-extrabold text-[#033625]">৳ 1780</span>
+                        <span class="text-gray-400 line-through text-sm">৳ 3000</span>
+                        <span class="bg-amber-400 text-gray-900 text-xs font-bold px-2 py-0.5 rounded">Save ৳ 1220</span>
+                    </div>
+
+                    <div class="flex items-center gap-2 mt-2 text-xs">
+                        <div class="flex items-center gap-0.5 text-amber-400">
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star-half-stroke"></i>
+                        </div>
+                        <span class="text-gray-600 font-semibold">4.5 (96 Reviews)</span>
+                    </div>
+
+                    <div class="flex items-center gap-1.5 text-emerald-600 font-medium text-xs mt-2">
+                        <i class="fa-solid fa-circle-check"></i>
+                        <span>স্টক: ইন স্টক</span>
+                    </div>
+                </div>
+
+                <!-- Review Callout Box -->
+                <div class="p-2.5 bg-amber-50/70 border border-amber-200/70 rounded-xl flex items-center justify-between">
+                    <div class="flex items-center gap-1.5 text-xs font-semibold text-gray-700">
+                        <i class="fa-solid fa-star text-amber-500"></i>
+                        <span>আপনার অভিজ্ঞতা শেয়ার করুন</span>
+                    </div>
+                    <button class="px-2.5 py-1 bg-white border border-gray-200 hover:border-gray-300 text-gray-700 rounded-lg text-xs font-medium shadow-sm transition-all flex items-center gap-1">
+                        <i class="fa-solid fa-pen-to-square text-[10px]"></i> রিভিউ দিন
+                    </button>
+                </div>
+
+                <!-- SIZE VARIANT SECTION ONLY -->
+                <div class="pt-1 border-t border-gray-100">
+                    <div class="flex items-center justify-between mb-2">
+                        <label class="text-xs sm:text-sm font-semibold text-gray-700">সাইজ (Size): <span id="selected-size" class="text-[#033625] font-bold">Standard</span></label>
+                    </div>
+                    <div class="flex flex-wrap gap-2">
+                        <button onclick="selectSize(this, 'Standard')" class="size-btn px-3 py-1.5 text-xs font-semibold rounded-lg border-2 border-[#033625] bg-emerald-50 text-[#033625] transition-all focus:outline-none">
+                            Standard
+                        </button>
+                        <button onclick="selectSize(this, 'Heavy Duty')" class="size-btn px-3 py-1.5 text-xs font-semibold rounded-lg border-2 border-gray-200 bg-white text-gray-700 hover:border-gray-300 transition-all focus:outline-none">
+                            Heavy Duty (+৳200)
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Quantity Controller -->
+                <div class="flex items-center gap-3 pt-1">
+                    <span class="text-xs sm:text-sm font-semibold text-gray-700">পরিমাণ:</span>
+                    <div class="flex items-center border border-gray-300 rounded-lg overflow-hidden bg-white">
+                        <button class="w-8 h-8 flex items-center justify-center text-gray-600 hover:bg-gray-100 font-bold transition-colors">-</button>
+                        <input type="text" value="1" readonly class="w-10 h-8 text-center text-xs sm:text-sm font-semibold text-gray-800 focus:outline-none">
+                        <button class="w-8 h-8 flex items-center justify-center text-gray-600 hover:bg-gray-100 font-bold transition-colors">+</button>
+                    </div>
+                </div>
+
+                <!-- Order Action Buttons -->
+                <div class="space-y-2.5">
+                    <!-- Animated Order Button -->
+                    <button class="btn-order-animate w-full py-3 bg-[#ffb800] hover:bg-amber-400 text-[#033625] font-bold rounded-xl shadow-sm transition-all flex items-center justify-center gap-2 text-sm sm:text-base">
+                        <i class="fa-solid fa-cart-shopping"></i> অর্ডার করুন
+                    </button>
+
+                    <button class="w-full py-2.5 bg-white hover:bg-gray-50 border border-gray-800 text-gray-800 font-bold rounded-xl transition-all flex items-center justify-center gap-2 text-sm sm:text-base">
+                        <i class="fa-solid fa-tag"></i> কার্ট-এ যোগ করুন
+                    </button>
+
+                    <div class="grid grid-cols-2 gap-2 pt-1">
+                        <a href="tel:" class="py-2.5 bg-blue-600 hover:bg-blue-700 text-white font-semibold rounded-xl transition-colors flex items-center justify-center gap-1.5 text-xs sm:text-sm">
+                            <i class="fa-solid fa-phone"></i> Phone Call
+                        </a>
+                        <a href="https://wa.me/" class="py-2.5 bg-emerald-500 hover:bg-emerald-600 text-white font-semibold rounded-xl transition-colors flex items-center justify-center gap-1.5 text-xs sm:text-sm">
+                            <i class="fa-brands fa-whatsapp text-base"></i> WhatsApp
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- JS Scripts (Swiper & Fancybox) -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/fancybox/fancybox.umd.js"></script>
+
+    <script>
+        // Initialize Swiper Slider with Navigation
+        const swiper = new Swiper(".productSwiper", {
+            loop: true,
+            grabCursor: true,
+            pagination: {
+                el: ".swiper-pagination",
+                clickable: true,
+            },
+            navigation: {
+                nextEl: ".swiper-button-next",
+                prevEl: ".swiper-button-prev",
+            },
+        });
+
+        // Initialize Fancybox (Lightbox)
+        Fancybox.bind('[data-fancybox="gallery"]', {
+            Toolbar: {
+                display: {
+                    left: ["infobar"],
+                    middle: [],
+                    right: ["slideshow", "fullscreen", "thumbs", "close"],
+                },
+            },
+            Hash: false,
+        });
+
+        // Size Selection Logic
+        function selectSize(element, sizeName) {
+            document.getElementById('selected-size').innerText = sizeName;
+            document.querySelectorAll('.size-btn').forEach(btn => {
+                btn.classList.remove('border-[#033625]', 'bg-emerald-50', 'text-[#033625]');
+                btn.classList.add('border-gray-200', 'bg-white', 'text-gray-700');
+            });
+            element.classList.remove('border-gray-200', 'bg-white', 'text-gray-700');
+            element.classList.add('border-[#033625]', 'bg-emerald-50', 'text-[#033625]');
+        }
+    </script>
+</body>
+</html>

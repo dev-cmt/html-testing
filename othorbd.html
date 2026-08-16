@@ -1,0 +1,697 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OTHORBD — অনলাইন শপিং, এখন আরও সহজে</title>
+    <meta name="description" content="OTHORBD — বাংলাদেশের বিশ্বস্ত অনলাইন শপিং সাইট। ফ্রি ডেলিভারি, ক্যাশ অন ডেলিভারি, নিরাপদ শপিং।">
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@400;500;600;700&family=Noto+Sans+Bengali:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6/css/all.min.css">
+
+    <!-- Swiper CSS & JS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
+    <style>
+        :root {
+            --c-primary: #033625;
+            --c-primary-dark: #02261a;
+            --c-accent: #ffb800;
+        }
+
+        html { scroll-behavior: smooth; }
+        body {
+            font-family: 'Hind Siliguri', 'Noto Sans Bengali', sans-serif;
+            color: #1e2a22;
+            background: #fff;
+        }
+
+        .font-display { font-family: 'Noto Sans Bengali', 'Hind Siliguri', sans-serif; }
+        
+        ::-webkit-scrollbar { height: 6px; width: 8px; }
+        ::-webkit-scrollbar-thumb { background: #c9dcc9; border-radius: 10px; }
+        .no-scrollbar::-webkit-scrollbar { display: none; }
+        .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+
+        a, button { -webkit-tap-highlight-color: transparent; }
+
+        /* Submenu Hover Animation for Desktop */
+        .nav-item { position: relative; }
+        .submenu {
+            visibility: hidden;
+            opacity: 0;
+            transform: translateY(10px);
+            transition: all 0.2s ease-in-out;
+        }
+        .nav-item:hover .submenu {
+            visibility: visible;
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Hero Swiper Custom Arrows & Bullets */
+        .swiper { position: relative; width: 100%; }
+        .hero-swiper .swiper-button-next, .hero-swiper .swiper-button-prev {
+            color: #fff !important;
+            background: var(--c-primary);
+            width: 36px !important;
+            height: 36px !important;
+            border-radius: 9999px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+        }
+        .hero-swiper .swiper-button-next:after, .hero-swiper .swiper-button-prev:after { font-size: 14px !important; font-weight: 700; }
+        .hero-swiper .swiper-pagination-bullet { background: #fff; opacity: 0.55; }
+        .hero-swiper .swiper-pagination-bullet-active { opacity: 1; background: var(--c-accent); width: 22px; border-radius: 6px; }
+
+        /* Category Swiper Navigation Buttons */
+        .cat-swiper-wrap .cat-next,
+        .cat-swiper-wrap .cat-prev {
+            color: #033625 !important;
+            background: #ffffff;
+            border: 1px solid #e2e8f0;
+            width: 38px !important;
+            height: 38px !important;
+            border-radius: 50%;
+            box-shadow: 0 4px 12px rgba(3, 54, 37, 0.12);
+            top: 50% !important;
+            transform: translateY(-50%);
+            transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+            z-index: 20;
+        }
+
+        .cat-swiper-wrap .cat-prev { left: -14px !important; }
+        .cat-swiper-wrap .cat-next { right: -14px !important; }
+
+        .cat-swiper-wrap .cat-next:after, 
+        .cat-swiper-wrap .cat-prev:after { 
+            font-size: 13px !important; 
+            font-weight: 800; 
+        }
+
+        .cat-swiper-wrap .cat-next:hover, 
+        .cat-swiper-wrap .cat-prev:hover {
+            background: #033625;
+            color: #ffffff !important;
+            border-color: #033625;
+            box-shadow: 0 6px 16px rgba(3, 54, 37, 0.25);
+            scale: 1.05;
+        }
+
+        .cat-swiper-wrap .swiper-button-disabled { 
+            opacity: 0 !important; 
+            pointer-events: none; 
+        }
+
+        .card-hover { transition: transform 0.25s ease, box-shadow 0.25s ease; }
+        .card-hover:hover { transform: translateY(-4px); box-shadow: 0 10px 25px -5px rgba(3, 54, 37, 0.12); }
+    </style>
+</head>
+<body class="bg-white text-[15px] leading-relaxed">
+
+    <!-- 1. TOP ANNOUNCEMENT BAR -->
+    <div class="text-white bg-[#033625]">
+        <div class="max-w-[1280px] mx-auto px-3 py-1.5 flex items-center justify-between text-xs sm:text-[13px]">
+            <div class="flex items-center gap-2 overflow-hidden mx-auto sm:mx-0">
+                <i class="fa-solid fa-truck-fast text-[11px]"></i>
+                <span>সারা বাংলাদেশে দ্রুত ডেলিভারি</span>
+                <span class="opacity-60 mx-0.5">|</span>
+                <span class="font-medium text-[#ffb800]">Cash on Delivery Available</span>
+            </div>
+            <div class="hidden sm:flex items-center gap-3 shrink-0">
+                <span class="hidden md:inline whitespace-nowrap">হেল্পলাইন: 01712-345678</span>
+                <div class="flex items-center gap-2.5">
+                    <a href="#" aria-label="Facebook" class="hover:opacity-75"><i class="fa-brands fa-facebook-f text-[12px]"></i></a>
+                    <a href="#" aria-label="Instagram" class="hover:opacity-75"><i class="fa-brands fa-instagram text-[12px]"></i></a>
+                    <a href="#" aria-label="YouTube" class="hover:opacity-75"><i class="fa-brands fa-youtube text-[13px]"></i></a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 2. MAIN HEADER -->
+    <header class="bg-white border-b border-gray-100 shadow-sm sticky top-0 z-40">
+        <div class="max-w-[1280px] mx-auto px-3 py-2 flex items-center justify-between gap-2 lg:gap-8">
+            <div class="flex items-center gap-2 md:hidden">
+                <button id="menuBtn" aria-label="Open menu" class="w-8 h-8 flex items-center justify-center text-gray-800 hover:bg-gray-100 rounded-full">
+                    <i class="fa-solid fa-bars text-lg"></i>
+                </button>
+                <button id="searchBtn" aria-label="Search" class="w-8 h-8 flex items-center justify-center text-gray-800 hover:bg-gray-100 rounded-full">
+                    <i class="fa-solid fa-magnifying-glass text-lg"></i>
+                </button>
+            </div>
+
+            <a href="#" class="flex items-center gap-2 shrink-0">
+                <div class="w-8 h-8 sm:w-10 sm:h-10 rounded-md bg-[#033625] flex items-center justify-center shrink-0">
+                    <i class="fa-solid fa-bag-shopping text-white text-sm sm:text-base"></i>
+                </div>
+                <div class="flex flex-col leading-none">
+                    <span class="font-extrabold text-xl sm:text-2xl tracking-tight text-[#033625]">
+                        OTHOR<span class="text-[#34d399]">BD</span>
+                    </span>
+                    <span class="text-[9px] sm:text-[11px] text-gray-500 font-medium tracking-wide">Shopping made easy</span>
+                </div>
+            </a>
+
+            <div class="hidden md:flex items-center flex-1 max-w-2xl mx-4">
+                <input type="search" placeholder="আপনার পছন্দের পণ্য খুঁজুন..." class="h-10 flex-1 border border-gray-200 border-r-0 rounded-l-lg px-4 text-sm focus:outline-none focus:ring-1 focus:ring-[#033625]" />
+                <button aria-label="Search" class="h-10 px-6 flex items-center justify-center rounded-r-lg text-white bg-[#033625]">
+                    <i class="fa-solid fa-magnifying-glass text-sm"></i>
+                </button>
+            </div>
+
+            <div class="flex items-center gap-1 sm:gap-2">
+                <button aria-label="Account" class="w-8 h-8 flex items-center justify-center text-gray-800 hover:bg-gray-100 rounded-full">
+                    <i class="fa-regular fa-user text-lg"></i>
+                </button>
+                <button id="cartBtn" aria-label="Cart" class="relative w-8 h-8 flex items-center justify-center text-gray-800 hover:bg-gray-100 rounded-full">
+                    <i class="fa-solid fa-cart-shopping text-lg"></i>
+                    <span id="cartCount" class="absolute -top-1 -right-1 text-[9px] font-bold w-4 h-4 rounded-full bg-[#033625] text-white flex items-center justify-center border border-white">0</span>
+                </button>
+            </div>
+        </div>
+
+        <!-- Mobile Search Bar -->
+        <div id="searchRow" class="hidden px-3 pb-2.5 pt-1 md:hidden">
+            <div class="flex items-center">
+                <input type="search" placeholder="আপনার পছন্দের পণ্য খুঁজুন..." class="h-9 flex-1 border border-gray-300 rounded-l-md px-3 text-xs focus:outline-none border-r-0" />
+                <button aria-label="Search" class="h-9 px-4 flex items-center justify-center rounded-r-md text-white bg-[#033625]">
+                    <i class="fa-solid fa-magnifying-glass text-xs"></i>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- 3. MAIN NAVIGATION BAR (FIXED - NO OVERFLOW ISSUE) -->
+    <nav class="text-white hidden md:block bg-[#033625] relative z-30">
+        <div class="max-w-[1280px] mx-auto px-4 flex items-center justify-between h-11 text-sm font-medium">
+            <!-- overflow-x-auto বাদ দেওয়া হয়েছে যাতে ড্রপডাউনে scroll-y না আসে -->
+            <div class="flex items-center gap-5 lg:gap-7">
+                <a href="#" class="whitespace-nowrap hover:text-amber-300 transition-colors">হোম</a>
+
+                <!-- Submenu 1 -->
+                <div class="nav-item whitespace-nowrap">
+                    <a href="#categories" class="flex items-center gap-1.5 hover:text-amber-300 transition-colors py-2.5">
+                        <span>বিউটি &amp; কেয়ার</span>
+                        <i class="fa-solid fa-chevron-down text-[10px] opacity-70"></i>
+                    </a>
+                    <div class="submenu absolute left-0 top-[100%] pt-2 w-48 z-50">
+                        <div class="bg-white text-gray-800 shadow-xl rounded-b-xl py-2 border border-gray-100">
+                            <a href="#" class="block px-4 py-2 hover:bg-emerald-50 hover:text-[#033625] text-xs font-medium">স্কিন কেয়ার</a>
+                            <a href="#" class="block px-4 py-2 hover:bg-emerald-50 hover:text-[#033625] text-xs font-medium">হেয়ার কেয়ার</a>
+                            <a href="#" class="block px-4 py-2 hover:bg-emerald-50 hover:text-[#033625] text-xs font-medium">মেকআপ</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Submenu 2 -->
+                <div class="nav-item whitespace-nowrap">
+                    <a href="#categories" class="flex items-center gap-1.5 hover:text-amber-300 transition-colors py-2.5">
+                        <span>হোম &amp; কিচেন</span>
+                        <i class="fa-solid fa-chevron-down text-[10px] opacity-70"></i>
+                    </a>
+                    <div class="submenu absolute left-0 top-[100%] pt-2 w-48 z-50">
+                        <div class="bg-white text-gray-800 shadow-xl rounded-b-xl py-2 border border-gray-100">
+                            <a href="#" class="block px-4 py-2 hover:bg-emerald-50 hover:text-[#033625] text-xs font-medium">কিচেন এক্সেসরিজ</a>
+                            <a href="#" class="block px-4 py-2 hover:bg-emerald-50 hover:text-[#033625] text-xs font-medium">ডাইনিং সরঞ্জাম</a>
+                            <a href="#" class="block px-4 py-2 hover:bg-emerald-50 hover:text-[#033625] text-xs font-medium">হোম ডেকোর</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Submenu 3 -->
+                <div class="nav-item whitespace-nowrap">
+                    <a href="#categories" class="flex items-center gap-1.5 hover:text-amber-300 transition-colors py-2.5">
+                        <span>ইলেকট্রনিক্স</span>
+                        <i class="fa-solid fa-chevron-down text-[10px] opacity-70"></i>
+                    </a>
+                    <div class="submenu absolute left-0 top-[100%] pt-2 w-48 z-50">
+                        <div class="bg-white text-gray-800 shadow-xl rounded-b-xl py-2 border border-gray-100">
+                            <a href="#" class="block px-4 py-2 hover:bg-emerald-50 hover:text-[#033625] text-xs font-medium">স্মার্টফোন</a>
+                            <a href="#" class="block px-4 py-2 hover:bg-emerald-50 hover:text-[#033625] text-xs font-medium">স্মার্টওয়াচ</a>
+                            <a href="#" class="block px-4 py-2 hover:bg-emerald-50 hover:text-[#033625] text-xs font-medium">হেডফোন &amp; স্পিকার</a>
+                        </div>
+                    </div>
+                </div>
+
+                <a href="#categories" class="whitespace-nowrap hover:text-amber-300 transition-colors">হেলথ &amp; কেয়ার</a>
+                <a href="#categories" class="whitespace-nowrap hover:text-amber-300 transition-colors">ঘড়ি &amp; গ্যাজেট</a>
+                <a href="#categories" class="whitespace-nowrap hover:text-amber-300 transition-colors">লাইফস্টাইল</a>
+                <a href="#categories" class="whitespace-nowrap hover:text-amber-300 transition-colors">ফ্যাশন</a>
+            </div>
+
+            <a href="#offers" class="shrink-0 px-3 py-1 rounded font-bold bg-[#ffb800] text-[#033625] hover:bg-amber-400 transition-colors">হট অফার</a>
+        </div>
+    </nav>
+
+    <!-- Mobile Drawer Overlay -->
+    <div id="drawerWrap" hidden class="fixed inset-0 z-50">
+        <div id="drawerOverlay" class="absolute inset-0 bg-black/40"></div>
+        <div id="drawer" class="absolute left-0 top-0 h-full w-72 bg-white shadow-xl p-4 overflow-y-auto -translate-x-full transition-transform duration-200">
+            <div class="flex items-center justify-between mb-4 pb-2 border-b">
+                <span class="font-extrabold text-lg text-[#033625]">OTHORBD</span>
+                <button id="drawerClose" aria-label="Close menu"><i class="fa-solid fa-xmark text-xl"></i></button>
+            </div>
+            <div class="flex flex-col space-y-1">
+                <a href="#" class="flex items-center gap-3 py-2.5 border-b border-gray-100 text-sm text-gray-700 font-semibold"><i class="fa-solid fa-house w-4 text-center text-[#033625]"></i><span>হোম</span></a>
+                <a href="#offers" class="flex items-center gap-3 py-2.5 border-b border-gray-100 text-sm text-gray-700 font-semibold"><i class="fa-solid fa-fire w-4 text-center text-[#033625]"></i><span>হট অফার</span></a>
+                
+                <p class="pt-3 pb-1 text-xs font-bold text-gray-400 uppercase tracking-wider">ক্যাটাগরি সমূহ</p>
+                
+                <!-- Mobile Dropdown 1 -->
+                <div class="border-b border-gray-100">
+                    <button class="mobile-dropdown-btn w-full flex items-center justify-between py-2 text-sm text-gray-700 font-medium">
+                        <span>বিউটি &amp; কেয়ার</span>
+                        <i class="fa-solid fa-chevron-down text-xs text-gray-400 transition-transform duration-200"></i>
+                    </button>
+                    <div class="mobile-submenu hidden pl-4 pb-2 space-y-1 text-xs text-gray-600">
+                        <a href="#" class="block py-1 hover:text-[#033625]">স্কিন কেয়ার</a>
+                        <a href="#" class="block py-1 hover:text-[#033625]">হেয়ার কেয়ার</a>
+                        <a href="#" class="block py-1 hover:text-[#033625]">মেকআপ</a>
+                    </div>
+                </div>
+
+                <!-- Mobile Dropdown 2 -->
+                <div class="border-b border-gray-100">
+                    <button class="mobile-dropdown-btn w-full flex items-center justify-between py-2 text-sm text-gray-700 font-medium">
+                        <span>হোম &amp; কিচেন</span>
+                        <i class="fa-solid fa-chevron-down text-xs text-gray-400 transition-transform duration-200"></i>
+                    </button>
+                    <div class="mobile-submenu hidden pl-4 pb-2 space-y-1 text-xs text-gray-600">
+                        <a href="#" class="block py-1 hover:text-[#033625]">কিচেন এক্সেসরিজ</a>
+                        <a href="#" class="block py-1 hover:text-[#033625]">ডাইনিং সরঞ্জাম</a>
+                        <a href="#" class="block py-1 hover:text-[#033625]">হোম ডেকোর</a>
+                    </div>
+                </div>
+
+                <!-- Mobile Dropdown 3 -->
+                <div class="border-b border-gray-100">
+                    <button class="mobile-dropdown-btn w-full flex items-center justify-between py-2 text-sm text-gray-700 font-medium">
+                        <span>ইলেকট্রনিক্স</span>
+                        <i class="fa-solid fa-chevron-down text-xs text-gray-400 transition-transform duration-200"></i>
+                    </button>
+                    <div class="mobile-submenu hidden pl-4 pb-2 space-y-1 text-xs text-gray-600">
+                        <a href="#" class="block py-1 hover:text-[#033625]">স্মার্টফোন</a>
+                        <a href="#" class="block py-1 hover:text-[#033625]">স্মার্টওয়াচ</a>
+                        <a href="#" class="block py-1 hover:text-[#033625]">হেডফোন &amp; স্পিকার</a>
+                    </div>
+                </div>
+
+                <a href="#categories" class="py-2 border-b border-gray-100 text-sm text-gray-700 font-medium block">হেলথ &amp; কেয়ার</a>
+                <a href="#categories" class="py-2 border-b border-gray-100 text-sm text-gray-700 font-medium block">ঘড়ি &amp; গ্যাজেট</a>
+                <a href="#categories" class="py-2 border-b border-gray-100 text-sm text-gray-700 font-medium block">লাইফস্টাইল</a>
+                <a href="#categories" class="py-2 border-b border-gray-100 text-sm text-gray-700 font-medium block">ফ্যাশন</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- 4. HERO SWIPER SLIDER SECTION -->
+    <section class="relative overflow-hidden">
+        <div class="swiper hero-swiper">
+            <div class="swiper-wrapper">
+                <div class="swiper-slide">
+                    <div class="relative h-[300px] sm:h-[380px] lg:h-[440px]">
+                        <img src="https://picsum.photos/1600/700?random=1" alt="Hero Banner 1" class="absolute inset-0 w-full h-full object-cover">
+                        <div class="absolute inset-0 bg-gradient-to-r from-[#02261a]/90 via-[#033625]/70 to-transparent"></div>
+                        <div class="relative h-full max-w-[1280px] mx-auto px-4 flex items-center">
+                            <div class="text-white max-w-xl">
+                                <h1 class="font-display font-extrabold text-2xl sm:text-4xl lg:text-[42px] leading-tight">
+                                    আপনার পছন্দের পণ্য,
+                                    <span class="block text-[#ffb800]">এখন আরও সহজে!</span>
+                                </h1>
+                                <p class="mt-2 sm:mt-4 text-gray-200 text-xs sm:text-base">ঘরে বসেই সহজে পছন্দের জিনিস অর্ডার করুন।</p>
+                                <a href="#offers" class="mt-5 inline-flex items-center gap-2 text-[#033625] font-bold px-5 py-2.5 sm:px-7 sm:py-3.5 rounded-xl bg-[#ffb800] shadow-lg text-xs sm:text-sm">
+                                    <i class="fa-solid fa-cart-shopping"></i> শপিং করুন
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="swiper-slide">
+                    <div class="relative h-[300px] sm:h-[380px] lg:h-[440px]">
+                        <img src="https://picsum.photos/1600/700?random=2" alt="Hero Banner 2" class="absolute inset-0 w-full h-full object-cover">
+                        <div class="absolute inset-0 bg-gradient-to-r from-[#02261a]/90 via-[#033625]/70 to-transparent"></div>
+                        <div class="relative h-full max-w-[1280px] mx-auto px-4 flex items-center">
+                            <div class="text-white max-w-xl">
+                                <h2 class="font-display font-extrabold text-2xl sm:text-4xl lg:text-[42px] leading-tight">
+                                    সেরা মূল্যে সেরা প্রোডাক্ট
+                                    <span class="block text-[#34d399]">সারা দেশে ডেলিভারি</span>
+                                </h2>
+                                <p class="mt-2 sm:mt-4 text-gray-200 text-xs sm:text-base">ক্যাশ অন ডেলিভারিতে ঝামেলাহীন কেনাকাটা করুন।</p>
+                                <a href="#offers" class="mt-5 inline-flex items-center gap-2 text-[#033625] font-bold px-5 py-2.5 sm:px-7 sm:py-3.5 rounded-xl bg-[#34d399] shadow-lg text-xs sm:text-sm">
+                                    <i class="fa-solid fa-bag-shopping"></i> অফার দেখুন
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="swiper-pagination !bottom-3"></div>
+            <div class="swiper-button-next hidden sm:flex"></div>
+            <div class="swiper-button-prev hidden sm:flex"></div>
+        </div>
+    </section>
+
+    <!-- 5. POPULAR CATEGORIES SECTION -->
+    <section id="categories" class="max-w-[1280px] mx-auto px-4 pt-10 pb-8">
+        <div class="text-center mb-8 relative">
+            <h2 class="font-display font-extrabold text-xl sm:text-2xl text-[#033625] inline-block relative px-4">
+                জনপ্রিয় ক্যাটাগরি
+            </h2>
+            <div class="w-16 h-1 bg-[#033625] mx-auto mt-2 rounded-full"></div>
+        </div>
+
+        <div class="relative cat-swiper-wrap px-2">
+            <div class="swiper cat-swiper py-2">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide">
+                        <a href="#" class="card-hover flex flex-col items-center justify-center p-3 bg-white border border-gray-100 rounded-2xl shadow-sm text-center group">
+                            <div class="w-16 h-16 sm:w-20 sm:h-20 rounded-full overflow-hidden bg-emerald-50 mb-2.5 flex items-center justify-center border border-emerald-100">
+                                <img src="https://picsum.photos/200/200?random=11" alt="বিউটি" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300">
+                            </div>
+                            <p class="font-semibold text-xs sm:text-sm text-gray-800 group-hover:text-[#033625]">বিউটি &amp; কেয়ার</p>
+                        </a>
+                    </div>
+
+                    <div class="swiper-slide">
+                        <a href="#" class="card-hover flex flex-col items-center justify-center p-3 bg-white border border-gray-100 rounded-2xl shadow-sm text-center group">
+                            <div class="w-16 h-16 sm:w-20 sm:h-20 rounded-full overflow-hidden bg-emerald-50 mb-2.5 flex items-center justify-center border border-emerald-100">
+                                <img src="https://picsum.photos/200/200?random=12" alt="কিচেন" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300">
+                            </div>
+                            <p class="font-semibold text-xs sm:text-sm text-gray-800 group-hover:text-[#033625]">হোম &amp; কিচেন</p>
+                        </a>
+                    </div>
+
+                    <div class="swiper-slide">
+                        <a href="#" class="card-hover flex flex-col items-center justify-center p-3 bg-white border border-gray-100 rounded-2xl shadow-sm text-center group">
+                            <div class="w-16 h-16 sm:w-20 sm:h-20 rounded-full overflow-hidden bg-emerald-50 mb-2.5 flex items-center justify-center border border-emerald-100">
+                                <img src="https://picsum.photos/200/200?random=13" alt="ইলেকট্রনিক্স" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300">
+                            </div>
+                            <p class="font-semibold text-xs sm:text-sm text-gray-800 group-hover:text-[#033625]">ইলেকট্রনিক্স</p>
+                        </a>
+                    </div>
+
+                    <div class="swiper-slide">
+                        <a href="#" class="card-hover flex flex-col items-center justify-center p-3 bg-white border border-gray-100 rounded-2xl shadow-sm text-center group">
+                            <div class="w-16 h-16 sm:w-20 sm:h-20 rounded-full overflow-hidden bg-emerald-50 mb-2.5 flex items-center justify-center border border-emerald-100">
+                                <img src="https://picsum.photos/200/200?random=14" alt="হেলথ" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300">
+                            </div>
+                            <p class="font-semibold text-xs sm:text-sm text-gray-800 group-hover:text-[#033625]">হেলথ &amp; কেয়ার</p>
+                        </a>
+                    </div>
+
+                    <div class="swiper-slide">
+                        <a href="#" class="card-hover flex flex-col items-center justify-center p-3 bg-white border border-gray-100 rounded-2xl shadow-sm text-center group">
+                            <div class="w-16 h-16 sm:w-20 sm:h-20 rounded-full overflow-hidden bg-emerald-50 mb-2.5 flex items-center justify-center border border-emerald-100">
+                                <img src="https://picsum.photos/200/200?random=15" alt="ঘড়ি" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300">
+                            </div>
+                            <p class="font-semibold text-xs sm:text-sm text-gray-800 group-hover:text-[#033625]">ঘড়ি &amp; গ্যাজেট</p>
+                        </a>
+                    </div>
+
+                    <div class="swiper-slide">
+                        <a href="#" class="card-hover flex flex-col items-center justify-center p-3 bg-white border border-gray-100 rounded-2xl shadow-sm text-center group">
+                            <div class="w-16 h-16 sm:w-20 sm:h-20 rounded-full overflow-hidden bg-emerald-50 mb-2.5 flex items-center justify-center border border-emerald-100">
+                                <img src="https://picsum.photos/200/200?random=16" alt="লাইফস্টাইল" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300">
+                            </div>
+                            <p class="font-semibold text-xs sm:text-sm text-gray-800 group-hover:text-[#033625]">লাইফস্টাইল</p>
+                        </a>
+                    </div>
+
+                    <div class="swiper-slide">
+                        <a href="#" class="card-hover flex flex-col items-center justify-center p-3 bg-white border border-gray-100 rounded-2xl shadow-sm text-center group">
+                            <div class="w-16 h-16 sm:w-20 sm:h-20 rounded-full overflow-hidden bg-emerald-50 mb-2.5 flex items-center justify-center border border-emerald-100">
+                                <img src="https://picsum.photos/200/200?random=17" alt="ফ্যাশন" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300">
+                            </div>
+                            <p class="font-semibold text-xs sm:text-sm text-gray-800 group-hover:text-[#033625]">ফ্যাশন</p>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Slider Arrow Navigation Buttons -->
+            <div class="swiper-button-next cat-next"></div>
+            <div class="swiper-button-prev cat-prev"></div>
+        </div>
+    </section>
+
+    <!-- 6. PRODUCT SHOWCASE -->
+    <section id="offers" class="py-10 bg-[#eff8ef]">
+        <div class="max-w-[1280px] mx-auto px-4">
+            <div class="flex items-center justify-between mb-6">
+                <h2 class="font-display font-extrabold text-xl sm:text-2xl text-[#033625]">🔥 স্পেশাল অফার</h2>
+            </div>
+            
+            <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-3 sm:gap-4">
+                <div class="card-hover bg-white rounded-2xl shadow-sm overflow-hidden flex flex-col p-3 border border-gray-200">
+                    <div class="aspect-[4/3] rounded-xl overflow-hidden bg-gray-50 relative">
+                        <span class="absolute top-2 left-2 text-white text-[11px] font-bold px-2.5 py-0.5 rounded-full bg-[#033625]">
+                            60% OFF
+                        </span>
+                        <img src="https://picsum.photos/400/400?random=21" alt="স্পোর্টস ওয়াটার বোতল" class="w-full h-full object-cover">
+                    </div>
+                    <div class="pt-3 flex flex-col flex-1 justify-between">
+                        <div>
+                            <div class="flex items-center gap-3">
+                                <span class="text-gray-400 line-through text-xs font-medium">৳ 690</span>
+                                <span class="font-extrabold text-base text-[#033625]">৳ 790</span>
+                            </div>
+                            <p class="text-sm font-semibold text-gray-800 mt-1.5 line-clamp-1">
+                                স্পোর্টস ওয়াটার বোতল
+                            </p>
+                            <div class="flex items-center gap-1.5 mt-2">
+                                <div class="flex text-amber-400 text-xs gap-0.5">
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-solid fa-star text-gray-300"></i>
+                                </div>
+                                <span class="text-xs text-gray-500 font-medium">(128)</span>
+                            </div>
+                        </div>
+                        <button class="add-cart-btn mt-3 w-full text-white text-xs sm:text-sm font-semibold py-2.5 rounded-xl bg-[#033625] hover:bg-[#02261a] transition-colors flex items-center justify-center gap-2 shadow-sm">
+                            <i class="fa-solid fa-cart-shopping text-xs"></i> অর্ডার করুন
+                        </button>
+                    </div>
+                </div>
+
+                <div class="card-hover bg-white rounded-2xl shadow-sm overflow-hidden flex flex-col p-3 border border-gray-200">
+                    <div class="aspect-[4/3] rounded-xl overflow-hidden bg-gray-50 relative">
+                        <span class="absolute top-2 left-2 text-white text-[11px] font-bold px-2.5 py-0.5 rounded-full bg-[#033625]">
+                            20% OFF
+                        </span>
+                        <img src="https://picsum.photos/400/400?random=22" alt="ওয়্যারলেস এয়ারবাডস" class="w-full h-full object-cover">
+                    </div>
+                    <div class="pt-3 flex flex-col flex-1 justify-between">
+                        <div>
+                            <div class="flex items-center gap-3">
+                                <span class="text-gray-400 line-through text-xs font-medium">৳ 1250</span>
+                                <span class="font-extrabold text-base text-[#033625]">৳ 990</span>
+                            </div>
+                            <p class="text-sm font-semibold text-gray-800 mt-1.5 line-clamp-1">
+                                ওয়্যারলেস এয়ারবাডস T11
+                            </p>
+                            <div class="flex items-center gap-1.5 mt-2">
+                                <div class="flex text-amber-400 text-xs gap-0.5">
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                </div>
+                                <span class="text-xs text-gray-500 font-medium">(84)</span>
+                            </div>
+                        </div>
+                        <button class="add-cart-btn mt-3 w-full text-white text-xs sm:text-sm font-semibold py-2.5 rounded-xl bg-[#033625] hover:bg-[#02261a] transition-colors flex items-center justify-center gap-2 shadow-sm">
+                            <i class="fa-solid fa-cart-shopping text-xs"></i> অর্ডার করুন
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 7. FOOTER DESIGN -->
+    <footer class="bg-[#033625] text-white text-xs sm:text-sm border-t border-emerald-900/60">
+        <div class="max-w-[1280px] mx-auto px-2 sm:px-4 py-6 sm:py-10">
+            <div class="grid grid-cols-3 gap-1.5 sm:gap-6">
+                <!-- Column 1: About Us -->
+                <div class="px-1 sm:px-6 space-y-2 sm:space-y-3">
+                    <h3 class="font-bold text-[11px] sm:text-base text-white tracking-wide flex items-center gap-1 sm:gap-2">
+                        <i class="fa-solid fa-circle-info text-emerald-400 text-[10px] sm:text-sm"></i> 
+                        <span>আমাদের সম্পর্কে</span>
+                    </h3>
+                    <ul class="space-y-1 sm:space-y-2 text-gray-300 text-[10px] sm:text-sm">
+                        <li><a href="#" class="hover:text-emerald-400 transition-colors flex items-center gap-1 sm:gap-2"><i class="fa-solid fa-chevron-right text-[8px] sm:text-[10px] text-emerald-500 shrink-0"></i><span class="truncate">আমাদের সম্পর্কে</span></a></li>
+                        <li><a href="#" class="hover:text-emerald-400 transition-colors flex items-center gap-1 sm:gap-2"><i class="fa-solid fa-chevron-right text-[8px] sm:text-[10px] text-emerald-500 shrink-0"></i><span class="truncate">যোগাযোগ করুন</span></a></li>
+                        <li><a href="#" class="hover:text-emerald-400 transition-colors flex items-center gap-1 sm:gap-2"><i class="fa-solid fa-chevron-right text-[8px] sm:text-[10px] text-emerald-500 shrink-0"></i><span class="truncate">প্রাইভেসি পলিসি</span></a></li>
+                        <li><a href="#" class="hover:text-emerald-400 transition-colors flex items-center gap-1 sm:gap-2"><i class="fa-solid fa-chevron-right text-[8px] sm:text-[10px] text-emerald-500 shrink-0"></i><span class="truncate">শর্তাবলী</span></a></li>
+                    </ul>
+                </div>
+
+                <!-- Column 2: Delivery Policy -->
+                <div class="px-1 sm:px-6 space-y-2 sm:space-y-3 border-l border-white/10">
+                    <h3 class="font-bold text-[11px] sm:text-base text-white tracking-wide flex items-center gap-1 sm:gap-2">
+                        <i class="fa-solid fa-truck-ramp-box text-emerald-400 text-[10px] sm:text-sm"></i> 
+                        <span>ডেলিভারি পলিসি</span>
+                    </h3>
+                    <ul class="space-y-1 sm:space-y-2 text-gray-300 text-[10px] sm:text-sm">
+                        <li><a href="#" class="hover:text-emerald-400 transition-colors flex items-center gap-1 sm:gap-2"><i class="fa-solid fa-chevron-right text-[8px] sm:text-[10px] text-emerald-500 shrink-0"></i><span class="truncate">ডেলিভারি প্রসেস</span></a></li>
+                        <li><a href="#" class="hover:text-emerald-400 transition-colors flex items-center gap-1 sm:gap-2"><i class="fa-solid fa-chevron-right text-[8px] sm:text-[10px] text-emerald-500 shrink-0"></i><span class="truncate">ডেলিভারি চার্জ</span></a></li>
+                        <li><a href="#" class="hover:text-emerald-400 transition-colors flex items-center gap-1 sm:gap-2"><i class="fa-solid fa-chevron-right text-[8px] sm:text-[10px] text-emerald-500 shrink-0"></i><span class="truncate">ডেলিভারি সময়</span></a></li>
+                    </ul>
+                </div>
+
+                <!-- Column 3: Return Policy -->
+                <div class="px-1 sm:px-6 space-y-2 sm:space-y-3 border-l border-white/10">
+                    <h3 class="font-bold text-[11px] sm:text-base text-white tracking-wide flex items-center gap-1 sm:gap-2">
+                        <i class="fa-solid fa-rotate-left text-emerald-400 text-[10px] sm:text-sm"></i> 
+                        <span>রিটার্ন পলিসি</span>
+                    </h3>
+                    <ul class="space-y-1 sm:space-y-2 text-gray-300 text-[10px] sm:text-sm">
+                        <li><a href="#" class="hover:text-emerald-400 transition-colors flex items-center gap-1 sm:gap-2"><i class="fa-solid fa-chevron-right text-[8px] sm:text-[10px] text-emerald-500 shrink-0"></i><span class="truncate">রিটার্ন প্রসেস</span></a></li>
+                        <li><a href="#" class="hover:text-emerald-400 transition-colors flex items-center gap-1 sm:gap-2"><i class="fa-solid fa-chevron-right text-[8px] sm:text-[10px] text-emerald-500 shrink-0"></i><span class="truncate">রিফান্ড পলিসি</span></a></li>
+                        <li><a href="#" class="hover:text-emerald-400 transition-colors flex items-center gap-1 sm:gap-2"><i class="fa-solid fa-chevron-right text-[8px] sm:text-[10px] text-emerald-500 shrink-0"></i><span class="truncate">এক্সচেঞ্জ পলিসি</span></a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="border-t border-white/10 my-4 sm:my-8"></div>
+
+            <div class="flex flex-col sm:flex-row items-center justify-between gap-3 sm:gap-5 text-[10px] sm:text-xs">
+                <!-- SSL Trust Badge -->
+                <div class="flex items-center gap-1.5 sm:gap-2.5 bg-white/5 px-2.5 sm:px-3.5 py-1 sm:py-1.5 rounded-full border border-white/10">
+                    <i class="fa-solid fa-shield-halved text-emerald-400 text-xs sm:text-base"></i>
+                    <span class="font-medium tracking-wide text-gray-200">100% SSL Secured Payment</span>
+                </div>
+
+                <!-- Copyright Info -->
+                <div class="text-center sm:border-x border-white/10 px-2 sm:px-4">
+                    <p class="text-gray-300">
+                        © 2026 <span class="text-emerald-400 font-bold">Othor BD</span>. All Rights Reserved.
+                    </p>
+                    <p class="text-gray-400 mt-0.5 sm:mt-1 flex items-center justify-center gap-1">
+                        <span>Developed By</span> 
+                        <a href="#" class="text-emerald-400 font-semibold hover:underline flex items-center gap-1">
+                            <i class="fa-solid fa-code text-[9px] sm:text-[11px]"></i> Pro Devs
+                        </a>
+                    </p>
+                </div>
+
+                <!-- Social Icons -->
+                <div class="flex items-center justify-center gap-2 sm:gap-3">
+                    <a href="#" aria-label="Facebook" class="w-7 h-7 sm:w-9 sm:h-9 rounded-lg sm:rounded-xl bg-white/10 border border-white/10 text-white flex items-center justify-center hover:bg-[#1877F2] hover:border-[#1877F2] transition-all">
+                        <i class="fa-brands fa-facebook-f text-xs sm:text-sm"></i>
+                    </a>
+                    <a href="#" aria-label="YouTube" class="w-7 h-7 sm:w-9 sm:h-9 rounded-lg sm:rounded-xl bg-white/10 border border-white/10 text-white flex items-center justify-center hover:bg-[#FF0000] hover:border-[#FF0000] transition-all">
+                        <i class="fa-brands fa-youtube text-xs sm:text-sm"></i>
+                    </a>
+                    <a href="#" aria-label="Instagram" class="w-7 h-7 sm:w-9 sm:h-9 rounded-lg sm:rounded-xl bg-white/10 border border-white/10 text-white flex items-center justify-center hover:bg-[#E4405F] hover:border-[#E4405F] transition-all">
+                        <i class="fa-brands fa-instagram text-xs sm:text-sm"></i>
+                    </a>
+                    <a href="#" aria-label="TikTok" class="w-7 h-7 sm:w-9 sm:h-9 rounded-lg sm:rounded-xl bg-white/10 border border-white/10 text-white flex items-center justify-center hover:bg-black hover:border-black transition-all">
+                        <i class="fa-brands fa-tiktok text-xs sm:text-sm"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JS INTERACTION -->
+    <script>
+        (function () {
+            "use strict";
+
+            document.addEventListener('DOMContentLoaded', function() {
+                if (typeof Swiper !== 'undefined') {
+                    // Hero Main Slider
+                    new Swiper('.hero-swiper', {
+                        loop: true,
+                        autoplay: { delay: 4000, disableOnInteraction: false },
+                        pagination: { el: '.swiper-pagination', clickable: true },
+                        navigation: {
+                            nextEl: '.hero-swiper .swiper-button-next',
+                            prevEl: '.hero-swiper .swiper-button-prev',
+                        },
+                    });
+
+                    // Category Swiper Slider
+                    new Swiper('.cat-swiper', {
+                        slidesPerView: 3,
+                        spaceBetween: 12,
+                        grabCursor: true,
+                        navigation: {
+                            nextEl: '.cat-next',
+                            prevEl: '.cat-prev',
+                        },
+                        breakpoints: {
+                            480: { slidesPerView: 4, spaceBetween: 14 },
+                            640: { slidesPerView: 5, spaceBetween: 16 },
+                            1024: { slidesPerView: 6, spaceBetween: 18 }
+                        }
+                    });
+                }
+            });
+
+            // Mobile Search
+            var searchBtn = document.getElementById('searchBtn');
+            var searchRow = document.getElementById('searchRow');
+            if (searchBtn && searchRow) {
+                searchBtn.addEventListener('click', function () {
+                    searchRow.classList.toggle('hidden');
+                    if (!searchRow.classList.contains('hidden')) {
+                        var input = searchRow.querySelector('input');
+                        if (input) input.focus();
+                    }
+                });
+            }
+
+            // Mobile Drawer
+            var menuBtn = document.getElementById('menuBtn');
+            var drawerWrap = document.getElementById('drawerWrap');
+            var drawer = document.getElementById('drawer');
+            var drawerOverlay = document.getElementById('drawerOverlay');
+            var drawerClose = document.getElementById('drawerClose');
+
+            function openDrawer() {
+                drawerWrap.hidden = false;
+                requestAnimationFrame(function () { drawer.classList.remove('-translate-x-full'); });
+            }
+            function closeDrawer() {
+                drawer.classList.add('-translate-x-full');
+                setTimeout(function () { drawerWrap.hidden = true; }, 200);
+            }
+
+            if (menuBtn) menuBtn.addEventListener('click', openDrawer);
+            if (drawerClose) drawerClose.addEventListener('click', closeDrawer);
+            if (drawerOverlay) drawerOverlay.addEventListener('click', closeDrawer);
+
+            // Mobile Accordion
+            document.querySelectorAll('.mobile-dropdown-btn').forEach(function(btn) {
+                btn.addEventListener('click', function() {
+                    var submenu = this.nextElementSibling;
+                    var icon = this.querySelector('i');
+                    if (submenu.classList.contains('hidden')) {
+                        submenu.classList.remove('hidden');
+                        icon.style.transform = 'rotate(180deg)';
+                    } else {
+                        submenu.classList.add('hidden');
+                        icon.style.transform = 'rotate(0deg)';
+                    }
+                });
+            });
+        })();
+    </script>
+</body>
+</html>
