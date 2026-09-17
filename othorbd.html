@@ -1,81 +1,563 @@
 <!DOCTYPE html>
 <html lang="bn">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>OTHORBD — অনলাইন শপিং, এখন আরও সহজে</title>
-    <meta name="description" content="OTHORBD — বাংলাদেশের বিশ্বস্ত অনলাইন শপিং সাইট। ফ্রি ডেলিভারি, ক্যাশ অন ডেলিভারি, নিরাপদ শপিং।">
+    <meta name="description"
+        content="OTHORBD — বাংলাদেশের বিশ্বস্ত অনলাইন শপিং সাইট। ফ্রি ডেলিভারি, ক্যাশ অন ডেলিভারি, নিরাপদ শপিং।">
 
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@400;500;600;700&family=Noto+Sans+Bengali:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@400;500;600;700&family=Noto+Sans+Bengali:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet">
 
-    <!-- Tailwind CSS -->
-    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Bootstrap 5.3.3 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
 
     <!-- Font Awesome Icons -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6/css/all.min.css">
 
-    <!-- Swiper CSS & JS -->
+    <!-- Swiper CSS -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
-    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
 
     <style>
         :root {
             --c-primary: #033625;
             --c-primary-dark: #02261a;
+            --c-primary-light: #e8f5ed;
             --c-accent: #ffb800;
+            --c-accent-hover: #f5ad00;
+            --c-emerald: #34d399;
         }
 
-        html { scroll-behavior: smooth; }
+        html {
+            scroll-behavior: smooth;
+        }
+
         body {
             font-family: 'Hind Siliguri', 'Noto Sans Bengali', sans-serif;
             color: #1e2a22;
-            background: #fff;
+            background: #ffffff;
+            font-size: 15px;
+            line-height: 1.6;
         }
 
-        .font-display { font-family: 'Noto Sans Bengali', 'Hind Siliguri', sans-serif; }
-        
-        ::-webkit-scrollbar { height: 6px; width: 8px; }
-        ::-webkit-scrollbar-thumb { background: #c9dcc9; border-radius: 10px; }
-        .no-scrollbar::-webkit-scrollbar { display: none; }
-        .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+        .font-display {
+            font-family: 'Noto Sans Bengali', 'Hind Siliguri', sans-serif;
+        }
 
-        a, button { -webkit-tap-highlight-color: transparent; }
+        .custom-container {
+            max-width: 1280px;
+            margin-left: auto;
+            margin-right: auto;
+            padding-left: 1rem;
+            padding-right: 1rem;
+        }
+
+        /* Top Bar */
+        .top-bar {
+            background-color: var(--c-primary);
+            color: #ffffff;
+            font-size: 13px;
+        }
+
+        .top-bar a {
+            color: #ffffff;
+            text-decoration: none;
+            transition: opacity 0.2s;
+        }
+
+        .top-bar a:hover {
+            opacity: 0.8;
+        }
+
+        /* Main Header */
+        .header-sticky {
+            position: sticky;
+            top: 0;
+            z-index: 1020;
+            background-color: #ffffff;
+            border-bottom: 1px solid #f1f5f9;
+        }
+
+        .logo-box {
+            width: 38px;
+            height: 38px;
+            background-color: var(--c-primary);
+            color: #ffffff;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .logo-brand {
+            font-weight: 800;
+            font-size: 1.4rem;
+            color: var(--c-primary);
+            letter-spacing: -0.5px;
+            line-height: 1;
+        }
+
+        .logo-brand span {
+            color: var(--c-emerald);
+        }
+
+        .logo-subtitle {
+            font-size: 11px;
+            color: #64748b;
+            font-weight: 500;
+            letter-spacing: 0.5px;
+        }
+
+        .header-icon-btn {
+            width: 36px;
+            height: 36px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #334155;
+            background: transparent;
+            border: none;
+            border-radius: 50%;
+            transition: background-color 0.2s, color 0.2s;
+            text-decoration: none;
+        }
+
+        .header-icon-btn:hover {
+            background-color: #f1f5f9;
+            color: var(--c-primary);
+        }
+
+        .cart-badge {
+            position: absolute;
+            top: -2px;
+            right: -2px;
+            font-size: 9px;
+            font-weight: 700;
+            width: 17px;
+            height: 17px;
+            border-radius: 50%;
+            background-color: var(--c-primary);
+            color: #ffffff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 1.5px solid #ffffff;
+        }
+
+        /* Search inputs */
+        .search-input {
+            border: 1px solid #e2e8f0;
+            border-right: none;
+            border-top-left-radius: 8px;
+            border-bottom-left-radius: 8px;
+            padding: 0.5rem 1rem;
+            font-size: 14px;
+            outline: none;
+            height: 42px;
+        }
+
+        .search-input:focus {
+            border-color: var(--c-primary);
+            box-shadow: none;
+        }
+
+        .search-btn {
+            background-color: var(--c-primary);
+            color: #ffffff;
+            border: none;
+            padding: 0 1.25rem;
+            border-top-right-radius: 8px;
+            border-bottom-right-radius: 8px;
+            height: 42px;
+            transition: background-color 0.2s;
+        }
+
+        .search-btn:hover {
+            background-color: var(--c-primary-dark);
+            color: #ffffff;
+        }
+
+        /* Navigation Bar */
+        .main-navbar {
+            background-color: var(--c-primary);
+            color: #ffffff;
+            position: relative;
+            z-index: 1010;
+        }
+
+        .nav-link-custom {
+            color: #ffffff;
+            text-decoration: none;
+            padding: 0.65rem 0.85rem;
+            font-size: 14px;
+            font-weight: 500;
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+            transition: color 0.2s;
+        }
+
+        .nav-link-custom:hover {
+            color: var(--c-accent);
+        }
 
         /* Submenu Hover Animation for Desktop */
-        .nav-item { position: relative; }
-        .submenu {
+        .nav-item-dropdown {
+            position: relative;
+        }
+
+        .submenu-custom {
             visibility: hidden;
             opacity: 0;
             transform: translateY(10px);
             transition: all 0.2s ease-in-out;
+            position: absolute;
+            left: 0;
+            top: 100%;
+            padding-top: 6px;
+            width: 200px;
+            z-index: 1050;
         }
-        .nav-item:hover .submenu {
+
+        .nav-item-dropdown:hover .submenu-custom {
             visibility: visible;
             opacity: 1;
             transform: translateY(0);
         }
 
-        /* Hero Swiper Custom Arrows & Bullets */
-        .swiper { position: relative; width: 100%; }
-        .hero-swiper .swiper-button-next, .hero-swiper .swiper-button-prev {
-            color: #fff !important;
+        .submenu-box {
+            background: #ffffff;
+            border-radius: 0 0 12px 12px;
+            padding: 0.5rem 0;
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.12);
+            border: 1px solid #f1f5f9;
+        }
+
+        .submenu-link {
+            display: block;
+            padding: 0.5rem 1.25rem;
+            color: #334155;
+            font-size: 13px;
+            font-weight: 500;
+            text-decoration: none;
+            transition: all 0.15s ease;
+        }
+
+        .submenu-link:hover {
+            background-color: #f0fdf4;
+            color: var(--c-primary);
+            padding-left: 1.5rem;
+        }
+
+        .hot-offer-btn {
+            background-color: var(--c-accent);
+            color: var(--c-primary);
+            font-weight: 700;
+            font-size: 13px;
+            padding: 0.35rem 1rem;
+            border-radius: 6px;
+            text-decoration: none;
+            transition: background-color 0.2s, transform 0.2s;
+            display: inline-block;
+        }
+
+        .hot-offer-btn:hover {
+            background-color: var(--c-accent-hover);
+            color: var(--c-primary);
+        }
+
+        /* Mobile Drawer / Offcanvas */
+        .drawer-overlay {
+            position: fixed;
+            inset: 0;
+            background-color: rgba(0, 0, 0, 0.45);
+            z-index: 1060;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.25s ease;
+        }
+
+        .drawer-overlay.active {
+            opacity: 1;
+            pointer-events: auto;
+        }
+
+        .drawer-menu {
+            position: fixed;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            width: 290px;
+            max-width: 85vw;
+            background: #ffffff;
+            z-index: 1070;
+            padding: 1.25rem;
+            overflow-y: auto;
+            transform: translateX(-100%);
+            transition: transform 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+            box-shadow: 4px 0 25px rgba(0, 0, 0, 0.15);
+        }
+
+        .drawer-menu.active {
+            transform: translateX(0);
+        }
+
+        .drawer-link {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 0.65rem 0;
+            color: #334155;
+            font-size: 14px;
+            font-weight: 600;
+            text-decoration: none;
+            border-bottom: 1px solid #f1f5f9;
+            transition: color 0.2s;
+        }
+
+        .drawer-link:hover {
+            color: var(--c-primary);
+        }
+
+        .drawer-accordion-btn {
+            width: 100%;
+            background: transparent;
+            border: none;
+            padding: 0.65rem 0;
+            font-size: 14px;
+            font-weight: 500;
+            color: #334155;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            text-align: left;
+        }
+
+        .drawer-sub-link {
+            display: block;
+            padding: 0.35rem 0 0.35rem 1.25rem;
+            font-size: 13px;
+            color: #64748b;
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+
+        .drawer-sub-link:hover {
+            color: var(--c-primary);
+        }
+
+        /* Swiper Hero */
+        .swiper {
+            position: relative;
+            width: 100%;
+        }
+
+        .hero-slide {
+            position: relative;
+            height: 300px;
+            overflow: hidden;
+        }
+
+        @media (min-width: 576px) {
+            .hero-slide {
+                height: 380px;
+            }
+        }
+
+        @media (min-width: 992px) {
+            .hero-slide {
+                height: 440px;
+            }
+        }
+
+        .hero-slide img {
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .hero-slide-overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(90deg, rgba(2, 38, 26, 0.92) 0%, rgba(3, 54, 37, 0.75) 50%, rgba(3, 54, 37, 0.1) 100%);
+        }
+
+        .hero-content {
+            position: relative;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            color: #ffffff;
+            max-width: 560px;
+        }
+
+        .hero-title {
+            font-family: 'Noto Sans Bengali', sans-serif;
+            font-weight: 800;
+            font-size: 1.6rem;
+            line-height: 1.25;
+        }
+
+        @media (min-width: 576px) {
+            .hero-title {
+                font-size: 2.2rem;
+            }
+        }
+
+        @media (min-width: 992px) {
+            .hero-title {
+                font-size: 2.6rem;
+            }
+        }
+
+        .hero-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background-color: var(--c-accent);
+            color: var(--c-primary);
+            font-weight: 700;
+            font-size: 14px;
+            padding: 0.65rem 1.5rem;
+            border-radius: 12px;
+            text-decoration: none;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+            transition: all 0.25s ease;
+        }
+
+        .hero-btn:hover {
+            background-color: var(--c-accent-hover);
+            color: var(--c-primary);
+            transform: translateY(-2px);
+        }
+
+        .hero-btn-emerald {
+            background-color: var(--c-emerald);
+        }
+
+        .hero-btn-emerald:hover {
+            background-color: #2ab882;
+            color: var(--c-primary);
+        }
+
+        .hero-swiper .swiper-button-next,
+        .hero-swiper .swiper-button-prev {
+            color: #ffffff !important;
             background: var(--c-primary);
             width: 36px !important;
             height: 36px !important;
-            border-radius: 9999px;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+            border-radius: 50%;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
         }
-        .hero-swiper .swiper-button-next:after, .hero-swiper .swiper-button-prev:after { font-size: 14px !important; font-weight: 700; }
-        .hero-swiper .swiper-pagination-bullet { background: #fff; opacity: 0.55; }
-        .hero-swiper .swiper-pagination-bullet-active { opacity: 1; background: var(--c-accent); width: 22px; border-radius: 6px; }
 
-        /* Category Swiper Navigation Buttons */
+        .hero-swiper .swiper-button-next:after,
+        .hero-swiper .swiper-button-prev:after {
+            font-size: 14px !important;
+            font-weight: 800;
+        }
+
+        .hero-swiper .swiper-pagination-bullet {
+            background: #ffffff;
+            opacity: 0.6;
+        }
+
+        .hero-swiper .swiper-pagination-bullet-active {
+            opacity: 1;
+            background: var(--c-accent);
+            width: 22px;
+            border-radius: 6px;
+        }
+
+        /* Category Swiper */
+        .section-title {
+            font-family: 'Noto Sans Bengali', sans-serif;
+            font-weight: 800;
+            font-size: 1.4rem;
+            color: var(--c-primary);
+            margin-bottom: 0.25rem;
+        }
+
+        .section-title-line {
+            width: 60px;
+            height: 3px;
+            background-color: var(--c-primary);
+            border-radius: 999px;
+            margin: 0 auto 1.5rem;
+        }
+
+        .cat-card {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 1rem 0.5rem;
+            background: #ffffff;
+            border: 1px solid #f1f5f9;
+            border-radius: 16px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+            text-decoration: none;
+            transition: transform 0.25s ease, box-shadow 0.25s ease;
+        }
+
+        .cat-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 10px 25px -5px rgba(3, 54, 37, 0.12);
+        }
+
+        .cat-img-wrap {
+            width: 68px;
+            height: 68px;
+            border-radius: 50%;
+            overflow: hidden;
+            background-color: #f0fdf4;
+            border: 1px solid #dcfce7;
+            margin-bottom: 0.65rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        @media (min-width: 576px) {
+            .cat-img-wrap {
+                width: 80px;
+                height: 80px;
+            }
+        }
+
+        .cat-img-wrap img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.3s ease;
+        }
+
+        .cat-card:hover .cat-img-wrap img {
+            transform: scale(1.1);
+        }
+
+        .cat-title {
+            font-weight: 600;
+            font-size: 13px;
+            color: #334155;
+            margin: 0;
+            transition: color 0.2s;
+        }
+
+        .cat-card:hover .cat-title {
+            color: var(--c-primary);
+        }
+
         .cat-swiper-wrap .cat-next,
         .cat-swiper-wrap .cat-prev {
-            color: #033625 !important;
+            color: var(--c-primary) !important;
             background: #ffffff;
             border: 1px solid #e2e8f0;
             width: 38px !important;
@@ -84,356 +566,595 @@
             box-shadow: 0 4px 12px rgba(3, 54, 37, 0.12);
             top: 50% !important;
             transform: translateY(-50%);
-            transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+            transition: all 0.25s ease;
             z-index: 20;
         }
 
-        .cat-swiper-wrap .cat-prev { left: -14px !important; }
-        .cat-swiper-wrap .cat-next { right: -14px !important; }
-
-        .cat-swiper-wrap .cat-next:after, 
-        .cat-swiper-wrap .cat-prev:after { 
-            font-size: 13px !important; 
-            font-weight: 800; 
+        .cat-swiper-wrap .cat-prev {
+            left: -12px !important;
         }
 
-        .cat-swiper-wrap .cat-next:hover, 
+        .cat-swiper-wrap .cat-next {
+            right: -12px !important;
+        }
+
+        .cat-swiper-wrap .cat-next:after,
+        .cat-swiper-wrap .cat-prev:after {
+            font-size: 13px !important;
+            font-weight: 800;
+        }
+
+        .cat-swiper-wrap .cat-next:hover,
         .cat-swiper-wrap .cat-prev:hover {
-            background: #033625;
+            background: var(--c-primary);
             color: #ffffff !important;
-            border-color: #033625;
+            border-color: var(--c-primary);
             box-shadow: 0 6px 16px rgba(3, 54, 37, 0.25);
-            scale: 1.05;
+            transform: translateY(-50%) scale(1.06);
         }
 
-        .cat-swiper-wrap .swiper-button-disabled { 
-            opacity: 0 !important; 
-            pointer-events: none; 
+        .cat-swiper-wrap .swiper-button-disabled {
+            opacity: 0 !important;
+            pointer-events: none;
         }
 
-        .card-hover { transition: transform 0.25s ease, box-shadow 0.25s ease; }
-        .card-hover:hover { transform: translateY(-4px); box-shadow: 0 10px 25px -5px rgba(3, 54, 37, 0.12); }
+        /* Product Cards */
+        .product-card {
+            background: #ffffff;
+            border-radius: 16px;
+            border: 1px solid #e2e8f0;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+            padding: 0.75rem;
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+            transition: transform 0.25s ease, box-shadow 0.25s ease;
+            text-decoration: none;
+            color: inherit;
+        }
+
+        .product-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 28px -6px rgba(3, 54, 37, 0.14);
+            color: inherit;
+        }
+
+        .product-img-box {
+            position: relative;
+            width: 100%;
+            padding-top: 75%;
+            /* 4:3 Aspect Ratio */
+            border-radius: 12px;
+            overflow: hidden;
+            background-color: #f8fafc;
+        }
+
+        .product-img-box img {
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.3s ease;
+        }
+
+        .product-card:hover .product-img-box img {
+            transform: scale(1.05);
+        }
+
+        .product-discount-badge {
+            position: absolute;
+            top: 8px;
+            left: 8px;
+            background-color: var(--c-primary);
+            color: #ffffff;
+            font-size: 11px;
+            font-weight: 700;
+            padding: 2px 8px;
+            border-radius: 999px;
+            z-index: 5;
+        }
+
+        .product-info {
+            padding-top: 0.75rem;
+            display: flex;
+            flex-direction: column;
+            flex: 1;
+            justify-content: space-between;
+        }
+
+        .product-price-current {
+            font-weight: 800;
+            font-size: 1.1rem;
+            color: var(--c-primary);
+        }
+
+        .product-price-old {
+            color: #94a3b8;
+            text-decoration: line-through;
+            font-size: 12px;
+            font-weight: 500;
+            margin-right: 6px;
+        }
+
+        .product-title {
+            font-size: 13.5px;
+            font-weight: 600;
+            color: #1e293b;
+            margin-top: 4px;
+            margin-bottom: 6px;
+            display: -webkit-box;
+            -webkit-line-clamp: 1;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
+
+        .product-order-btn {
+            margin-top: 0.75rem;
+            width: 100%;
+            background-color: var(--c-primary);
+            color: #ffffff;
+            font-size: 13px;
+            font-weight: 600;
+            padding: 0.55rem 0.75rem;
+            border-radius: 10px;
+            border: none;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 6px;
+            transition: background-color 0.2s;
+            text-decoration: none;
+        }
+
+        .product-order-btn:hover {
+            background-color: var(--c-primary-dark);
+            color: #ffffff;
+        }
+
+        /* Footer */
+        .site-footer {
+            background-color: var(--c-primary);
+            color: #ffffff;
+            font-size: 13px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .footer-heading {
+            font-weight: 700;
+            font-size: 13px;
+            color: #ffffff;
+            letter-spacing: 0.3px;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            margin-bottom: 0.75rem;
+        }
+
+        @media (min-width: 576px) {
+            .footer-heading {
+                font-size: 15px;
+            }
+        }
+
+        .footer-links {
+            list-style: none;
+            padding-left: 0;
+            margin: 0;
+        }
+
+        .footer-links li {
+            margin-bottom: 0.4rem;
+        }
+
+        .footer-links a {
+            color: #cbd5e1;
+            text-decoration: none;
+            font-size: 12px;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            transition: color 0.2s;
+        }
+
+        @media (min-width: 576px) {
+            .footer-links a {
+                font-size: 13px;
+            }
+        }
+
+        .footer-links a:hover {
+            color: var(--c-emerald);
+        }
+
+        .footer-social-btn {
+            width: 34px;
+            height: 34px;
+            border-radius: 10px;
+            background: rgba(255, 255, 255, 0.08);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            color: #ffffff;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            transition: all 0.25s ease;
+            font-size: 13px;
+        }
+
+        .footer-social-btn:hover {
+            color: #ffffff;
+            transform: translateY(-2px);
+        }
+
+        .footer-social-btn.fb:hover {
+            background-color: #1877f2;
+            border-color: #1877f2;
+        }
+
+        .footer-social-btn.yt:hover {
+            background-color: #ff0000;
+            border-color: #ff0000;
+        }
+
+        .footer-social-btn.ig:hover {
+            background-color: #e4405f;
+            border-color: #e4405f;
+        }
+
+        .footer-social-btn.tt:hover {
+            background-color: #000000;
+            border-color: #000000;
+        }
     </style>
 </head>
-<body class="bg-white text-[15px] leading-relaxed">
+
+<body>
 
     <!-- 1. TOP ANNOUNCEMENT BAR -->
-    <div class="text-white bg-[#033625]">
-        <div class="max-w-[1280px] mx-auto px-3 py-1.5 flex items-center justify-between text-xs sm:text-[13px]">
-            <div class="flex items-center gap-2 overflow-hidden mx-auto sm:mx-0">
-                <i class="fa-solid fa-truck-fast text-[11px]"></i>
-                <span>সারা বাংলাদেশে দ্রুত ডেলিভারি</span>
-                <span class="opacity-60 mx-0.5">|</span>
-                <span class="font-medium text-[#ffb800]">Cash on Delivery Available</span>
-            </div>
-            <div class="hidden sm:flex items-center gap-3 shrink-0">
-                <span class="hidden md:inline whitespace-nowrap">হেল্পলাইন: 01712-345678</span>
-                <div class="flex items-center gap-2.5">
-                    <a href="#" aria-label="Facebook" class="hover:opacity-75"><i class="fa-brands fa-facebook-f text-[12px]"></i></a>
-                    <a href="#" aria-label="Instagram" class="hover:opacity-75"><i class="fa-brands fa-instagram text-[12px]"></i></a>
-                    <a href="#" aria-label="YouTube" class="hover:opacity-75"><i class="fa-brands fa-youtube text-[13px]"></i></a>
+    <div class="top-bar">
+        <div class="custom-container py-1">
+            <div class="d-flex align-items-center justify-content-between">
+                <div class="d-flex align-items-center gap-2 mx-auto mx-sm-0 text-center">
+                    <i class="fa-solid fa-truck-fast"></i>
+                    <span>সারা বাংলাদেশে দ্রুত ডেলিভারি</span>
+                    <span class="opacity-50 mx-1">|</span>
+                    <span class="fw-semibold" style="color: var(--c-accent);">Cash on Delivery Available</span>
+                </div>
+                <div class="d-none d-sm-flex align-items-center gap-3">
+                    <span class="d-none d-md-inline text-nowrap">হেল্পলাইন: 01712-345678</span>
+                    <div class="d-flex align-items-center gap-2">
+                        <a href="#" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+                        <a href="#" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+                        <a href="#" aria-label="YouTube"><i class="fa-brands fa-youtube"></i></a>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
 
     <!-- 2. MAIN HEADER -->
-    <header class="bg-white border-b border-gray-100 shadow-sm sticky top-0 z-40">
-        <div class="max-w-[1280px] mx-auto px-3 py-2 flex items-center justify-between gap-2 lg:gap-8">
-            <div class="flex items-center gap-2 md:hidden">
-                <button id="menuBtn" aria-label="Open menu" class="w-8 h-8 flex items-center justify-center text-gray-800 hover:bg-gray-100 rounded-full">
-                    <i class="fa-solid fa-bars text-lg"></i>
-                </button>
-                <button id="searchBtn" aria-label="Search" class="w-8 h-8 flex items-center justify-center text-gray-800 hover:bg-gray-100 rounded-full">
-                    <i class="fa-solid fa-magnifying-glass text-lg"></i>
-                </button>
-            </div>
-
-            <a href="#" class="flex items-center gap-2 shrink-0">
-                <div class="w-8 h-8 sm:w-10 sm:h-10 rounded-md bg-[#033625] flex items-center justify-center shrink-0">
-                    <i class="fa-solid fa-bag-shopping text-white text-sm sm:text-base"></i>
+    <header class="header-sticky shadow-sm">
+        <div class="custom-container py-2">
+            <div class="d-flex align-items-center justify-content-between gap-2">
+                <!-- Mobile toggles -->
+                <div class="d-flex align-items-center gap-1 d-md-none">
+                    <button id="menuBtn" aria-label="Open menu" class="header-icon-btn">
+                        <i class="fa-solid fa-bars fs-5"></i>
+                    </button>
+                    <button id="searchBtn" aria-label="Search" class="header-icon-btn">
+                        <i class="fa-solid fa-magnifying-glass fs-5"></i>
+                    </button>
                 </div>
-                <div class="flex flex-col leading-none">
-                    <span class="font-extrabold text-xl sm:text-2xl tracking-tight text-[#033625]">
-                        OTHOR<span class="text-[#34d399]">BD</span>
-                    </span>
-                    <span class="text-[9px] sm:text-[11px] text-gray-500 font-medium tracking-wide">Shopping made easy</span>
+
+                <!-- Brand Logo -->
+                <a href="othorbd.html" class="d-flex align-items-center gap-2 text-decoration-none">
+                    <div class="logo-box">
+                        <i class="fa-solid fa-bag-shopping fs-6"></i>
+                    </div>
+                    <div class="d-flex flex-column lh-1">
+                        <span class="logo-brand">
+                            OTHOR<span>BD</span>
+                        </span>
+                        <span class="logo-subtitle">Shopping made easy</span>
+                    </div>
+                </a>
+
+                <!-- Desktop Search -->
+                <div class="d-none d-md-flex align-items-center flex-grow-1 mx-4" style="max-width: 600px;">
+                    <input type="search" placeholder="আপনার পছন্দের পণ্য খুঁজুন..." class="form-control search-input" />
+                    <button aria-label="Search" class="search-btn d-flex align-items-center justify-content-center">
+                        <i class="fa-solid fa-magnifying-glass"></i>
+                    </button>
                 </div>
-            </a>
 
-            <div class="hidden md:flex items-center flex-1 max-w-2xl mx-4">
-                <input type="search" placeholder="আপনার পছন্দের পণ্য খুঁজুন..." class="h-10 flex-1 border border-gray-200 border-r-0 rounded-l-lg px-4 text-sm focus:outline-none focus:ring-1 focus:ring-[#033625]" />
-                <button aria-label="Search" class="h-10 px-6 flex items-center justify-center rounded-r-lg text-white bg-[#033625]">
-                    <i class="fa-solid fa-magnifying-glass text-sm"></i>
-                </button>
+                <!-- Action buttons -->
+                <div class="d-flex align-items-center gap-1">
+                    <button aria-label="Account" class="header-icon-btn">
+                        <i class="fa-regular fa-user fs-5"></i>
+                    </button>
+                    <button id="cartBtn" aria-label="Cart" class="header-icon-btn position-relative">
+                        <i class="fa-solid fa-cart-shopping fs-5"></i>
+                        <span id="cartCount" class="cart-badge">0</span>
+                    </button>
+                </div>
             </div>
 
-            <div class="flex items-center gap-1 sm:gap-2">
-                <button aria-label="Account" class="w-8 h-8 flex items-center justify-center text-gray-800 hover:bg-gray-100 rounded-full">
-                    <i class="fa-regular fa-user text-lg"></i>
-                </button>
-                <button id="cartBtn" aria-label="Cart" class="relative w-8 h-8 flex items-center justify-center text-gray-800 hover:bg-gray-100 rounded-full">
-                    <i class="fa-solid fa-cart-shopping text-lg"></i>
-                    <span id="cartCount" class="absolute -top-1 -right-1 text-[9px] font-bold w-4 h-4 rounded-full bg-[#033625] text-white flex items-center justify-center border border-white">0</span>
-                </button>
-            </div>
-        </div>
-
-        <!-- Mobile Search Bar -->
-        <div id="searchRow" class="hidden px-3 pb-2.5 pt-1 md:hidden">
-            <div class="flex items-center">
-                <input type="search" placeholder="আপনার পছন্দের পণ্য খুঁজুন..." class="h-9 flex-1 border border-gray-300 rounded-l-md px-3 text-xs focus:outline-none border-r-0" />
-                <button aria-label="Search" class="h-9 px-4 flex items-center justify-center rounded-r-md text-white bg-[#033625]">
-                    <i class="fa-solid fa-magnifying-glass text-xs"></i>
-                </button>
+            <!-- Mobile Search Bar (Collapsible) -->
+            <div id="searchRow" class="d-none pt-2 pb-1 d-md-none">
+                <div class="d-flex align-items-center">
+                    <input type="search" placeholder="আপনার পছন্দের পণ্য খুঁজুন..." class="form-control search-input"
+                        style="height: 38px; font-size: 13px;" />
+                    <button aria-label="Search" class="search-btn d-flex align-items-center justify-content-center"
+                        style="height: 38px; padding: 0 1rem;">
+                        <i class="fa-solid fa-magnifying-glass fs-6"></i>
+                    </button>
+                </div>
             </div>
         </div>
     </header>
 
-    <!-- 3. MAIN NAVIGATION BAR (FIXED - NO OVERFLOW ISSUE) -->
-    <nav class="text-white hidden md:block bg-[#033625] relative z-30">
-        <div class="max-w-[1280px] mx-auto px-4 flex items-center justify-between h-11 text-sm font-medium">
-            <!-- overflow-x-auto বাদ দেওয়া হয়েছে যাতে ড্রপডাউনে scroll-y না আসে -->
-            <div class="flex items-center gap-5 lg:gap-7">
-                <a href="#" class="whitespace-nowrap hover:text-amber-300 transition-colors">হোম</a>
+    <!-- 3. MAIN NAVIGATION BAR -->
+    <nav class="main-navbar d-none d-md-block">
+        <div class="custom-container">
+            <div class="d-flex align-items-center justify-content-between" style="min-height: 44px;">
+                <div class="d-flex align-items-center gap-2 gap-lg-3 flex-wrap">
+                    <a href="othorbd.html" class="nav-link-custom">হোম</a>
 
-                <!-- Submenu 1 -->
-                <div class="nav-item whitespace-nowrap">
-                    <a href="#categories" class="flex items-center gap-1.5 hover:text-amber-300 transition-colors py-2.5">
-                        <span>বিউটি &amp; কেয়ার</span>
-                        <i class="fa-solid fa-chevron-down text-[10px] opacity-70"></i>
-                    </a>
-                    <div class="submenu absolute left-0 top-[100%] pt-2 w-48 z-50">
-                        <div class="bg-white text-gray-800 shadow-xl rounded-b-xl py-2 border border-gray-100">
-                            <a href="#" class="block px-4 py-2 hover:bg-emerald-50 hover:text-[#033625] text-xs font-medium">স্কিন কেয়ার</a>
-                            <a href="#" class="block px-4 py-2 hover:bg-emerald-50 hover:text-[#033625] text-xs font-medium">হেয়ার কেয়ার</a>
-                            <a href="#" class="block px-4 py-2 hover:bg-emerald-50 hover:text-[#033625] text-xs font-medium">মেকআপ</a>
+                    <!-- Submenu 1 -->
+                    <div class="nav-item-dropdown">
+                        <a href="#categories" class="nav-link-custom">
+                            <span>বিউটি &amp; কেয়ার</span>
+                            <i class="fa-solid fa-chevron-down" style="font-size: 10px; opacity: 0.7;"></i>
+                        </a>
+                        <div class="submenu-custom">
+                            <div class="submenu-box">
+                                <a href="othorbd-details.html" class="submenu-link">স্কিন কেয়ার</a>
+                                <a href="othorbd-details.html" class="submenu-link">হেয়ার কেয়ার</a>
+                                <a href="othorbd-details.html" class="submenu-link">মেকআপ</a>
+                            </div>
                         </div>
                     </div>
-                </div>
 
-                <!-- Submenu 2 -->
-                <div class="nav-item whitespace-nowrap">
-                    <a href="#categories" class="flex items-center gap-1.5 hover:text-amber-300 transition-colors py-2.5">
-                        <span>হোম &amp; কিচেন</span>
-                        <i class="fa-solid fa-chevron-down text-[10px] opacity-70"></i>
-                    </a>
-                    <div class="submenu absolute left-0 top-[100%] pt-2 w-48 z-50">
-                        <div class="bg-white text-gray-800 shadow-xl rounded-b-xl py-2 border border-gray-100">
-                            <a href="#" class="block px-4 py-2 hover:bg-emerald-50 hover:text-[#033625] text-xs font-medium">কিচেন এক্সেসরিজ</a>
-                            <a href="#" class="block px-4 py-2 hover:bg-emerald-50 hover:text-[#033625] text-xs font-medium">ডাইনিং সরঞ্জাম</a>
-                            <a href="#" class="block px-4 py-2 hover:bg-emerald-50 hover:text-[#033625] text-xs font-medium">হোম ডেকোর</a>
+                    <!-- Submenu 2 -->
+                    <div class="nav-item-dropdown">
+                        <a href="#categories" class="nav-link-custom">
+                            <span>হোম &amp; কিচেন</span>
+                            <i class="fa-solid fa-chevron-down" style="font-size: 10px; opacity: 0.7;"></i>
+                        </a>
+                        <div class="submenu-custom">
+                            <div class="submenu-box">
+                                <a href="othorbd-details.html" class="submenu-link">কিচেন এক্সেসরিজ</a>
+                                <a href="othorbd-details.html" class="submenu-link">ডাইনিং সরঞ্জাম</a>
+                                <a href="othorbd-details.html" class="submenu-link">হোম ডেকোর</a>
+                            </div>
                         </div>
                     </div>
-                </div>
 
-                <!-- Submenu 3 -->
-                <div class="nav-item whitespace-nowrap">
-                    <a href="#categories" class="flex items-center gap-1.5 hover:text-amber-300 transition-colors py-2.5">
-                        <span>ইলেকট্রনিক্স</span>
-                        <i class="fa-solid fa-chevron-down text-[10px] opacity-70"></i>
-                    </a>
-                    <div class="submenu absolute left-0 top-[100%] pt-2 w-48 z-50">
-                        <div class="bg-white text-gray-800 shadow-xl rounded-b-xl py-2 border border-gray-100">
-                            <a href="#" class="block px-4 py-2 hover:bg-emerald-50 hover:text-[#033625] text-xs font-medium">স্মার্টফোন</a>
-                            <a href="#" class="block px-4 py-2 hover:bg-emerald-50 hover:text-[#033625] text-xs font-medium">স্মার্টওয়াচ</a>
-                            <a href="#" class="block px-4 py-2 hover:bg-emerald-50 hover:text-[#033625] text-xs font-medium">হেডফোন &amp; স্পিকার</a>
+                    <!-- Submenu 3 -->
+                    <div class="nav-item-dropdown">
+                        <a href="#categories" class="nav-link-custom">
+                            <span>ইলেকট্রনিক্স</span>
+                            <i class="fa-solid fa-chevron-down" style="font-size: 10px; opacity: 0.7;"></i>
+                        </a>
+                        <div class="submenu-custom">
+                            <div class="submenu-box">
+                                <a href="othorbd-details.html" class="submenu-link">স্মার্টফোন</a>
+                                <a href="othorbd-details.html" class="submenu-link">স্মার্টওয়াচ</a>
+                                <a href="othorbd-details.html" class="submenu-link">হেডফোন &amp; স্পিকার</a>
+                            </div>
                         </div>
                     </div>
+
+                    <a href="#categories" class="nav-link-custom">হেলথ &amp; কেয়ার</a>
+                    <a href="#categories" class="nav-link-custom">ঘড়ি &amp; গ্যাজেট</a>
+                    <a href="#categories" class="nav-link-custom">লাইফস্টাইল</a>
+                    <a href="#categories" class="nav-link-custom">ফ্যাশন</a>
                 </div>
 
-                <a href="#categories" class="whitespace-nowrap hover:text-amber-300 transition-colors">হেলথ &amp; কেয়ার</a>
-                <a href="#categories" class="whitespace-nowrap hover:text-amber-300 transition-colors">ঘড়ি &amp; গ্যাজেট</a>
-                <a href="#categories" class="whitespace-nowrap hover:text-amber-300 transition-colors">লাইফস্টাইল</a>
-                <a href="#categories" class="whitespace-nowrap hover:text-amber-300 transition-colors">ফ্যাশন</a>
+                <a href="#offers" class="hot-offer-btn">হট অফার</a>
             </div>
-
-            <a href="#offers" class="shrink-0 px-3 py-1 rounded font-bold bg-[#ffb800] text-[#033625] hover:bg-amber-400 transition-colors">হট অফার</a>
         </div>
     </nav>
 
-    <!-- Mobile Drawer Overlay -->
-    <div id="drawerWrap" hidden class="fixed inset-0 z-50">
-        <div id="drawerOverlay" class="absolute inset-0 bg-black/40"></div>
-        <div id="drawer" class="absolute left-0 top-0 h-full w-72 bg-white shadow-xl p-4 overflow-y-auto -translate-x-full transition-transform duration-200">
-            <div class="flex items-center justify-between mb-4 pb-2 border-b">
-                <span class="font-extrabold text-lg text-[#033625]">OTHORBD</span>
-                <button id="drawerClose" aria-label="Close menu"><i class="fa-solid fa-xmark text-xl"></i></button>
+    <!-- Mobile Drawer Overlay & Content -->
+    <div id="drawerOverlay" class="drawer-overlay"></div>
+    <div id="drawerMenu" class="drawer-menu">
+        <div class="d-flex align-items-center justify-content-between pb-3 mb-2 border-bottom">
+            <span class="fw-bold fs-5" style="color: var(--c-primary);">OTHORBD</span>
+            <button id="drawerClose" class="btn btn-sm btn-light rounded-circle" aria-label="Close menu">
+                <i class="fa-solid fa-xmark fs-6"></i>
+            </button>
+        </div>
+
+        <div class="d-flex flex-column">
+            <a href="othorbd.html" class="drawer-link">
+                <i class="fa-solid fa-house" style="width: 18px; color: var(--c-primary);"></i>
+                <span>হোম</span>
+            </a>
+            <a href="#offers" class="drawer-link">
+                <i class="fa-solid fa-fire" style="width: 18px; color: var(--c-primary);"></i>
+                <span>হট অফার</span>
+            </a>
+
+            <div class="pt-3 pb-1 text-muted text-uppercase fw-bold" style="font-size: 11px; letter-spacing: 0.8px;">
+                ক্যাটাগরি সমূহ
             </div>
-            <div class="flex flex-col space-y-1">
-                <a href="#" class="flex items-center gap-3 py-2.5 border-b border-gray-100 text-sm text-gray-700 font-semibold"><i class="fa-solid fa-house w-4 text-center text-[#033625]"></i><span>হোম</span></a>
-                <a href="#offers" class="flex items-center gap-3 py-2.5 border-b border-gray-100 text-sm text-gray-700 font-semibold"><i class="fa-solid fa-fire w-4 text-center text-[#033625]"></i><span>হট অফার</span></a>
-                
-                <p class="pt-3 pb-1 text-xs font-bold text-gray-400 uppercase tracking-wider">ক্যাটাগরি সমূহ</p>
-                
-                <!-- Mobile Dropdown 1 -->
-                <div class="border-b border-gray-100">
-                    <button class="mobile-dropdown-btn w-full flex items-center justify-between py-2 text-sm text-gray-700 font-medium">
-                        <span>বিউটি &amp; কেয়ার</span>
-                        <i class="fa-solid fa-chevron-down text-xs text-gray-400 transition-transform duration-200"></i>
-                    </button>
-                    <div class="mobile-submenu hidden pl-4 pb-2 space-y-1 text-xs text-gray-600">
-                        <a href="#" class="block py-1 hover:text-[#033625]">স্কিন কেয়ার</a>
-                        <a href="#" class="block py-1 hover:text-[#033625]">হেয়ার কেয়ার</a>
-                        <a href="#" class="block py-1 hover:text-[#033625]">মেকআপ</a>
-                    </div>
-                </div>
 
-                <!-- Mobile Dropdown 2 -->
-                <div class="border-b border-gray-100">
-                    <button class="mobile-dropdown-btn w-full flex items-center justify-between py-2 text-sm text-gray-700 font-medium">
-                        <span>হোম &amp; কিচেন</span>
-                        <i class="fa-solid fa-chevron-down text-xs text-gray-400 transition-transform duration-200"></i>
-                    </button>
-                    <div class="mobile-submenu hidden pl-4 pb-2 space-y-1 text-xs text-gray-600">
-                        <a href="#" class="block py-1 hover:text-[#033625]">কিচেন এক্সেসরিজ</a>
-                        <a href="#" class="block py-1 hover:text-[#033625]">ডাইনিং সরঞ্জাম</a>
-                        <a href="#" class="block py-1 hover:text-[#033625]">হোম ডেকোর</a>
-                    </div>
+            <!-- Mobile Accordion 1 -->
+            <div class="border-bottom">
+                <button class="drawer-accordion-btn" type="button">
+                    <span>বিউটি &amp; কেয়ার</span>
+                    <i class="fa-solid fa-chevron-down text-muted"
+                        style="font-size: 11px; transition: transform 0.2s;"></i>
+                </button>
+                <div class="drawer-submenu d-none pb-2">
+                    <a href="othorbd-details.html" class="drawer-sub-link">স্কিন কেয়ার</a>
+                    <a href="othorbd-details.html" class="drawer-sub-link">হেয়ার কেয়ার</a>
+                    <a href="othorbd-details.html" class="drawer-sub-link">মেকআপ</a>
                 </div>
-
-                <!-- Mobile Dropdown 3 -->
-                <div class="border-b border-gray-100">
-                    <button class="mobile-dropdown-btn w-full flex items-center justify-between py-2 text-sm text-gray-700 font-medium">
-                        <span>ইলেকট্রনিক্স</span>
-                        <i class="fa-solid fa-chevron-down text-xs text-gray-400 transition-transform duration-200"></i>
-                    </button>
-                    <div class="mobile-submenu hidden pl-4 pb-2 space-y-1 text-xs text-gray-600">
-                        <a href="#" class="block py-1 hover:text-[#033625]">স্মার্টফোন</a>
-                        <a href="#" class="block py-1 hover:text-[#033625]">স্মার্টওয়াচ</a>
-                        <a href="#" class="block py-1 hover:text-[#033625]">হেডফোন &amp; স্পিকার</a>
-                    </div>
-                </div>
-
-                <a href="#categories" class="py-2 border-b border-gray-100 text-sm text-gray-700 font-medium block">হেলথ &amp; কেয়ার</a>
-                <a href="#categories" class="py-2 border-b border-gray-100 text-sm text-gray-700 font-medium block">ঘড়ি &amp; গ্যাজেট</a>
-                <a href="#categories" class="py-2 border-b border-gray-100 text-sm text-gray-700 font-medium block">লাইফস্টাইল</a>
-                <a href="#categories" class="py-2 border-b border-gray-100 text-sm text-gray-700 font-medium block">ফ্যাশন</a>
             </div>
+
+            <!-- Mobile Accordion 2 -->
+            <div class="border-bottom">
+                <button class="drawer-accordion-btn" type="button">
+                    <span>হোম &amp; কিচেন</span>
+                    <i class="fa-solid fa-chevron-down text-muted"
+                        style="font-size: 11px; transition: transform 0.2s;"></i>
+                </button>
+                <div class="drawer-submenu d-none pb-2">
+                    <a href="othorbd-details.html" class="drawer-sub-link">কিচেন এক্সেসরিজ</a>
+                    <a href="othorbd-details.html" class="drawer-sub-link">ডাইনিং সরঞ্জাম</a>
+                    <a href="othorbd-details.html" class="drawer-sub-link">হোম ডেকোর</a>
+                </div>
+            </div>
+
+            <!-- Mobile Accordion 3 -->
+            <div class="border-bottom">
+                <button class="drawer-accordion-btn" type="button">
+                    <span>ইলেকট্রনিক্স</span>
+                    <i class="fa-solid fa-chevron-down text-muted"
+                        style="font-size: 11px; transition: transform 0.2s;"></i>
+                </button>
+                <div class="drawer-submenu d-none pb-2">
+                    <a href="othorbd-details.html" class="drawer-sub-link">স্মার্টফোন</a>
+                    <a href="othorbd-details.html" class="drawer-sub-link">স্মার্টওয়াচ</a>
+                    <a href="othorbd-details.html" class="drawer-sub-link">হেডফোন &amp; স্পিকার</a>
+                </div>
+            </div>
+
+            <a href="#categories" class="drawer-link">হেলথ &amp; কেয়ার</a>
+            <a href="#categories" class="drawer-link">ঘড়ি &amp; গ্যাজেট</a>
+            <a href="#categories" class="drawer-link">লাইফস্টাইল</a>
+            <a href="#categories" class="drawer-link">ফ্যাশন</a>
         </div>
     </div>
 
     <!-- 4. HERO SWIPER SLIDER SECTION -->
-    <section class="relative overflow-hidden">
+    <section class="position-relative overflow-hidden">
         <div class="swiper hero-swiper">
             <div class="swiper-wrapper">
                 <div class="swiper-slide">
-                    <div class="relative h-[300px] sm:h-[380px] lg:h-[440px]">
-                        <img src="https://picsum.photos/1600/700?random=1" alt="Hero Banner 1" class="absolute inset-0 w-full h-full object-cover">
-                        <div class="absolute inset-0 bg-gradient-to-r from-[#02261a]/90 via-[#033625]/70 to-transparent"></div>
-                        <div class="relative h-full max-w-[1280px] mx-auto px-4 flex items-center">
-                            <div class="text-white max-w-xl">
-                                <h1 class="font-display font-extrabold text-2xl sm:text-4xl lg:text-[42px] leading-tight">
-                                    আপনার পছন্দের পণ্য,
-                                    <span class="block text-[#ffb800]">এখন আরও সহজে!</span>
-                                </h1>
-                                <p class="mt-2 sm:mt-4 text-gray-200 text-xs sm:text-base">ঘরে বসেই সহজে পছন্দের জিনিস অর্ডার করুন।</p>
-                                <a href="#offers" class="mt-5 inline-flex items-center gap-2 text-[#033625] font-bold px-5 py-2.5 sm:px-7 sm:py-3.5 rounded-xl bg-[#ffb800] shadow-lg text-xs sm:text-sm">
-                                    <i class="fa-solid fa-cart-shopping"></i> শপিং করুন
-                                </a>
+                    <div class="hero-slide">
+                        <img src="https://picsum.photos/1600/700?random=1" alt="Hero Banner 1">
+                        <div class="hero-slide-overlay"></div>
+                        <div class="custom-container position-relative h-100">
+                            <div class="hero-content">
+                                <div>
+                                    <h1 class="hero-title">
+                                        আপনার পছন্দের পণ্য,<br>
+                                        <span style="color: var(--c-accent);">এখন আরও সহজে!</span>
+                                    </h1>
+                                    <p class="mt-2 text-white-50 small fs-sm-6">ঘরে বসেই সহজে পছন্দের জিনিস অর্ডার করুন।
+                                    </p>
+                                    <a href="#offers" class="hero-btn mt-3">
+                                        <i class="fa-solid fa-cart-shopping"></i> শপিং করুন
+                                    </a>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
 
                 <div class="swiper-slide">
-                    <div class="relative h-[300px] sm:h-[380px] lg:h-[440px]">
-                        <img src="https://picsum.photos/1600/700?random=2" alt="Hero Banner 2" class="absolute inset-0 w-full h-full object-cover">
-                        <div class="absolute inset-0 bg-gradient-to-r from-[#02261a]/90 via-[#033625]/70 to-transparent"></div>
-                        <div class="relative h-full max-w-[1280px] mx-auto px-4 flex items-center">
-                            <div class="text-white max-w-xl">
-                                <h2 class="font-display font-extrabold text-2xl sm:text-4xl lg:text-[42px] leading-tight">
-                                    সেরা মূল্যে সেরা প্রোডাক্ট
-                                    <span class="block text-[#34d399]">সারা দেশে ডেলিভারি</span>
-                                </h2>
-                                <p class="mt-2 sm:mt-4 text-gray-200 text-xs sm:text-base">ক্যাশ অন ডেলিভারিতে ঝামেলাহীন কেনাকাটা করুন।</p>
-                                <a href="#offers" class="mt-5 inline-flex items-center gap-2 text-[#033625] font-bold px-5 py-2.5 sm:px-7 sm:py-3.5 rounded-xl bg-[#34d399] shadow-lg text-xs sm:text-sm">
-                                    <i class="fa-solid fa-bag-shopping"></i> অফার দেখুন
-                                </a>
+                    <div class="hero-slide">
+                        <img src="https://picsum.photos/1600/700?random=2" alt="Hero Banner 2">
+                        <div class="hero-slide-overlay"></div>
+                        <div class="custom-container position-relative h-100">
+                            <div class="hero-content">
+                                <div>
+                                    <h2 class="hero-title">
+                                        সেরা মূল্যে সেরা প্রোডাক্ট<br>
+                                        <span style="color: var(--c-emerald);">সারা দেশে ডেলিভারি</span>
+                                    </h2>
+                                    <p class="mt-2 text-white-50 small fs-sm-6">ক্যাশ অন ডেলিভারিতে ঝামেলাহীন কেনাকাটা
+                                        করুন।</p>
+                                    <a href="#offers" class="hero-btn hero-btn-emerald mt-3">
+                                        <i class="fa-solid fa-bag-shopping"></i> অফার দেখুন
+                                    </a>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
 
-            <div class="swiper-pagination !bottom-3"></div>
-            <div class="swiper-button-next hidden sm:flex"></div>
-            <div class="swiper-button-prev hidden sm:flex"></div>
+            <div class="swiper-pagination"></div>
+            <div class="swiper-button-next d-none d-sm-flex"></div>
+            <div class="swiper-button-prev d-none d-sm-flex"></div>
         </div>
     </section>
 
     <!-- 5. POPULAR CATEGORIES SECTION -->
-    <section id="categories" class="max-w-[1280px] mx-auto px-4 pt-10 pb-8">
-        <div class="text-center mb-8 relative">
-            <h2 class="font-display font-extrabold text-xl sm:text-2xl text-[#033625] inline-block relative px-4">
-                জনপ্রিয় ক্যাটাগরি
-            </h2>
-            <div class="w-16 h-1 bg-[#033625] mx-auto mt-2 rounded-full"></div>
+    <section id="categories" class="custom-container pt-5 pb-4">
+        <div class="text-center position-relative">
+            <h2 class="section-title">জনপ্রিয় ক্যাটাগরি</h2>
+            <div class="section-title-line"></div>
         </div>
 
-        <div class="relative cat-swiper-wrap px-2">
+        <div class="position-relative cat-swiper-wrap px-2">
             <div class="swiper cat-swiper py-2">
                 <div class="swiper-wrapper">
                     <div class="swiper-slide">
-                        <a href="#" class="card-hover flex flex-col items-center justify-center p-3 bg-white border border-gray-100 rounded-2xl shadow-sm text-center group">
-                            <div class="w-16 h-16 sm:w-20 sm:h-20 rounded-full overflow-hidden bg-emerald-50 mb-2.5 flex items-center justify-center border border-emerald-100">
-                                <img src="https://picsum.photos/200/200?random=11" alt="বিউটি" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300">
+                        <a href="othorbd-details.html" class="cat-card">
+                            <div class="cat-img-wrap">
+                                <img src="https://picsum.photos/200/200?random=11" alt="বিউটি">
                             </div>
-                            <p class="font-semibold text-xs sm:text-sm text-gray-800 group-hover:text-[#033625]">বিউটি &amp; কেয়ার</p>
+                            <p class="cat-title">বিউটি &amp; কেয়ার</p>
                         </a>
                     </div>
 
                     <div class="swiper-slide">
-                        <a href="#" class="card-hover flex flex-col items-center justify-center p-3 bg-white border border-gray-100 rounded-2xl shadow-sm text-center group">
-                            <div class="w-16 h-16 sm:w-20 sm:h-20 rounded-full overflow-hidden bg-emerald-50 mb-2.5 flex items-center justify-center border border-emerald-100">
-                                <img src="https://picsum.photos/200/200?random=12" alt="কিচেন" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300">
+                        <a href="othorbd-details.html" class="cat-card">
+                            <div class="cat-img-wrap">
+                                <img src="https://picsum.photos/200/200?random=12" alt="কিচেন">
                             </div>
-                            <p class="font-semibold text-xs sm:text-sm text-gray-800 group-hover:text-[#033625]">হোম &amp; কিচেন</p>
+                            <p class="cat-title">হোম &amp; কিচেন</p>
                         </a>
                     </div>
 
                     <div class="swiper-slide">
-                        <a href="#" class="card-hover flex flex-col items-center justify-center p-3 bg-white border border-gray-100 rounded-2xl shadow-sm text-center group">
-                            <div class="w-16 h-16 sm:w-20 sm:h-20 rounded-full overflow-hidden bg-emerald-50 mb-2.5 flex items-center justify-center border border-emerald-100">
-                                <img src="https://picsum.photos/200/200?random=13" alt="ইলেকট্রনিক্স" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300">
+                        <a href="othorbd-details.html" class="cat-card">
+                            <div class="cat-img-wrap">
+                                <img src="https://picsum.photos/200/200?random=13" alt="ইলেকট্রনিক্স">
                             </div>
-                            <p class="font-semibold text-xs sm:text-sm text-gray-800 group-hover:text-[#033625]">ইলেকট্রনিক্স</p>
+                            <p class="cat-title">ইলেকট্রনিক্স</p>
                         </a>
                     </div>
 
                     <div class="swiper-slide">
-                        <a href="#" class="card-hover flex flex-col items-center justify-center p-3 bg-white border border-gray-100 rounded-2xl shadow-sm text-center group">
-                            <div class="w-16 h-16 sm:w-20 sm:h-20 rounded-full overflow-hidden bg-emerald-50 mb-2.5 flex items-center justify-center border border-emerald-100">
-                                <img src="https://picsum.photos/200/200?random=14" alt="হেলথ" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300">
+                        <a href="othorbd-details.html" class="cat-card">
+                            <div class="cat-img-wrap">
+                                <img src="https://picsum.photos/200/200?random=14" alt="হেলথ">
                             </div>
-                            <p class="font-semibold text-xs sm:text-sm text-gray-800 group-hover:text-[#033625]">হেলথ &amp; কেয়ার</p>
+                            <p class="cat-title">হেলথ &amp; কেয়ার</p>
                         </a>
                     </div>
 
                     <div class="swiper-slide">
-                        <a href="#" class="card-hover flex flex-col items-center justify-center p-3 bg-white border border-gray-100 rounded-2xl shadow-sm text-center group">
-                            <div class="w-16 h-16 sm:w-20 sm:h-20 rounded-full overflow-hidden bg-emerald-50 mb-2.5 flex items-center justify-center border border-emerald-100">
-                                <img src="https://picsum.photos/200/200?random=15" alt="ঘড়ি" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300">
+                        <a href="othorbd-details.html" class="cat-card">
+                            <div class="cat-img-wrap">
+                                <img src="https://picsum.photos/200/200?random=15" alt="ঘড়ি">
                             </div>
-                            <p class="font-semibold text-xs sm:text-sm text-gray-800 group-hover:text-[#033625]">ঘড়ি &amp; গ্যাজেট</p>
+                            <p class="cat-title">ঘড়ি &amp; গ্যাজেট</p>
                         </a>
                     </div>
 
                     <div class="swiper-slide">
-                        <a href="#" class="card-hover flex flex-col items-center justify-center p-3 bg-white border border-gray-100 rounded-2xl shadow-sm text-center group">
-                            <div class="w-16 h-16 sm:w-20 sm:h-20 rounded-full overflow-hidden bg-emerald-50 mb-2.5 flex items-center justify-center border border-emerald-100">
-                                <img src="https://picsum.photos/200/200?random=16" alt="লাইফস্টাইল" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300">
+                        <a href="othorbd-details.html" class="cat-card">
+                            <div class="cat-img-wrap">
+                                <img src="https://picsum.photos/200/200?random=16" alt="লাইফস্টাইল">
                             </div>
-                            <p class="font-semibold text-xs sm:text-sm text-gray-800 group-hover:text-[#033625]">লাইফস্টাইল</p>
+                            <p class="cat-title">লাইফস্টাইল</p>
                         </a>
                     </div>
 
                     <div class="swiper-slide">
-                        <a href="#" class="card-hover flex flex-col items-center justify-center p-3 bg-white border border-gray-100 rounded-2xl shadow-sm text-center group">
-                            <div class="w-16 h-16 sm:w-20 sm:h-20 rounded-full overflow-hidden bg-emerald-50 mb-2.5 flex items-center justify-center border border-emerald-100">
-                                <img src="https://picsum.photos/200/200?random=17" alt="ফ্যাশন" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300">
+                        <a href="othorbd-details.html" class="cat-card">
+                            <div class="cat-img-wrap">
+                                <img src="https://picsum.photos/200/200?random=17" alt="ফ্যাশন">
                             </div>
-                            <p class="font-semibold text-xs sm:text-sm text-gray-800 group-hover:text-[#033625]">ফ্যাশন</p>
+                            <p class="cat-title">ফ্যাশন</p>
                         </a>
                     </div>
                 </div>
@@ -446,76 +1167,170 @@
     </section>
 
     <!-- 6. PRODUCT SHOWCASE -->
-    <section id="offers" class="py-10 bg-[#eff8ef]">
-        <div class="max-w-[1280px] mx-auto px-4">
-            <div class="flex items-center justify-between mb-6">
-                <h2 class="font-display font-extrabold text-xl sm:text-2xl text-[#033625]">🔥 স্পেশাল অফার</h2>
+    <section id="offers" class="py-5" style="background-color: #eff8ef;">
+        <div class="custom-container">
+            <div class="d-flex align-items-center justify-content-between mb-4">
+                <h2 class="section-title mb-0">🔥 স্পেশাল অফার</h2>
             </div>
-            
-            <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-3 sm:gap-4">
-                <div class="card-hover bg-white rounded-2xl shadow-sm overflow-hidden flex flex-col p-3 border border-gray-200">
-                    <div class="aspect-[4/3] rounded-xl overflow-hidden bg-gray-50 relative">
-                        <span class="absolute top-2 left-2 text-white text-[11px] font-bold px-2.5 py-0.5 rounded-full bg-[#033625]">
-                            60% OFF
-                        </span>
-                        <img src="https://picsum.photos/400/400?random=21" alt="স্পোর্টস ওয়াটার বোতল" class="w-full h-full object-cover">
-                    </div>
-                    <div class="pt-3 flex flex-col flex-1 justify-between">
-                        <div>
-                            <div class="flex items-center gap-3">
-                                <span class="text-gray-400 line-through text-xs font-medium">৳ 690</span>
-                                <span class="font-extrabold text-base text-[#033625]">৳ 790</span>
-                            </div>
-                            <p class="text-sm font-semibold text-gray-800 mt-1.5 line-clamp-1">
-                                স্পোর্টস ওয়াটার বোতল
-                            </p>
-                            <div class="flex items-center gap-1.5 mt-2">
-                                <div class="flex text-amber-400 text-xs gap-0.5">
-                                    <i class="fa-solid fa-star"></i>
-                                    <i class="fa-solid fa-star"></i>
-                                    <i class="fa-solid fa-star"></i>
-                                    <i class="fa-solid fa-star"></i>
-                                    <i class="fa-solid fa-star text-gray-300"></i>
-                                </div>
-                                <span class="text-xs text-gray-500 font-medium">(128)</span>
-                            </div>
+
+            <div class="row row-cols-2 row-cols-sm-3 row-cols-lg-5 g-3 g-sm-4">
+                <!-- Product 1 -->
+                <div class="col">
+                    <div class="product-card">
+                        <div class="product-img-box">
+                            <span class="product-discount-badge">60% OFF</span>
+                            <img src="https://picsum.photos/400/400?random=21" alt="স্পোর্টস ওয়াটার বোতল">
                         </div>
-                        <button class="add-cart-btn mt-3 w-full text-white text-xs sm:text-sm font-semibold py-2.5 rounded-xl bg-[#033625] hover:bg-[#02261a] transition-colors flex items-center justify-center gap-2 shadow-sm">
-                            <i class="fa-solid fa-cart-shopping text-xs"></i> অর্ডার করুন
-                        </button>
+                        <div class="product-info">
+                            <div>
+                                <div class="d-flex align-items-center">
+                                    <span class="product-price-old">৳ 690</span>
+                                    <span class="product-price-current">৳ 790</span>
+                                </div>
+                                <p class="product-title">স্পোর্টস ওয়াটার বোতল</p>
+                                <div class="d-flex align-items-center gap-1">
+                                    <div class="text-warning small" style="font-size: 11px;">
+                                        <i class="fa-solid fa-star"></i>
+                                        <i class="fa-solid fa-star"></i>
+                                        <i class="fa-solid fa-star"></i>
+                                        <i class="fa-solid fa-star"></i>
+                                        <i class="fa-solid fa-star text-muted opacity-50"></i>
+                                    </div>
+                                    <span class="text-muted small" style="font-size: 11px;">(128)</span>
+                                </div>
+                            </div>
+                            <a href="othorbd-details.html" class="product-order-btn">
+                                <i class="fa-solid fa-cart-shopping"></i> অর্ডার করুন
+                            </a>
+                        </div>
                     </div>
                 </div>
 
-                <div class="card-hover bg-white rounded-2xl shadow-sm overflow-hidden flex flex-col p-3 border border-gray-200">
-                    <div class="aspect-[4/3] rounded-xl overflow-hidden bg-gray-50 relative">
-                        <span class="absolute top-2 left-2 text-white text-[11px] font-bold px-2.5 py-0.5 rounded-full bg-[#033625]">
-                            20% OFF
-                        </span>
-                        <img src="https://picsum.photos/400/400?random=22" alt="ওয়্যারলেস এয়ারবাডস" class="w-full h-full object-cover">
-                    </div>
-                    <div class="pt-3 flex flex-col flex-1 justify-between">
-                        <div>
-                            <div class="flex items-center gap-3">
-                                <span class="text-gray-400 line-through text-xs font-medium">৳ 1250</span>
-                                <span class="font-extrabold text-base text-[#033625]">৳ 990</span>
-                            </div>
-                            <p class="text-sm font-semibold text-gray-800 mt-1.5 line-clamp-1">
-                                ওয়্যারলেস এয়ারবাডস T11
-                            </p>
-                            <div class="flex items-center gap-1.5 mt-2">
-                                <div class="flex text-amber-400 text-xs gap-0.5">
-                                    <i class="fa-solid fa-star"></i>
-                                    <i class="fa-solid fa-star"></i>
-                                    <i class="fa-solid fa-star"></i>
-                                    <i class="fa-solid fa-star"></i>
-                                    <i class="fa-solid fa-star"></i>
-                                </div>
-                                <span class="text-xs text-gray-500 font-medium">(84)</span>
-                            </div>
+                <!-- Product 2 -->
+                <div class="col">
+                    <div class="product-card">
+                        <div class="product-img-box">
+                            <span class="product-discount-badge">20% OFF</span>
+                            <img src="https://picsum.photos/400/400?random=22" alt="ওয়্যারলেস এয়ারবাডস">
                         </div>
-                        <button class="add-cart-btn mt-3 w-full text-white text-xs sm:text-sm font-semibold py-2.5 rounded-xl bg-[#033625] hover:bg-[#02261a] transition-colors flex items-center justify-center gap-2 shadow-sm">
-                            <i class="fa-solid fa-cart-shopping text-xs"></i> অর্ডার করুন
-                        </button>
+                        <div class="product-info">
+                            <div>
+                                <div class="d-flex align-items-center">
+                                    <span class="product-price-old">৳ 1250</span>
+                                    <span class="product-price-current">৳ 990</span>
+                                </div>
+                                <p class="product-title">ওয়্যারলেস এয়ারবাডস T11</p>
+                                <div class="d-flex align-items-center gap-1">
+                                    <div class="text-warning small" style="font-size: 11px;">
+                                        <i class="fa-solid fa-star"></i>
+                                        <i class="fa-solid fa-star"></i>
+                                        <i class="fa-solid fa-star"></i>
+                                        <i class="fa-solid fa-star"></i>
+                                        <i class="fa-solid fa-star"></i>
+                                    </div>
+                                    <span class="text-muted small" style="font-size: 11px;">(84)</span>
+                                </div>
+                            </div>
+                            <a href="othorbd-details.html" class="product-order-btn">
+                                <i class="fa-solid fa-cart-shopping"></i> অর্ডার করুন
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Product 3 -->
+                <div class="col">
+                    <div class="product-card">
+                        <div class="product-img-box">
+                            <span class="product-discount-badge">35% OFF</span>
+                            <img src="https://picsum.photos/400/400?random=23" alt="স্মার্ট ওয়াচ ফিটনেস">
+                        </div>
+                        <div class="product-info">
+                            <div>
+                                <div class="d-flex align-items-center">
+                                    <span class="product-price-old">৳ 2200</span>
+                                    <span class="product-price-current">৳ 1450</span>
+                                </div>
+                                <p class="product-title">স্মার্ট ওয়াচ ফিটনেস ট্র্যাকার</p>
+                                <div class="d-flex align-items-center gap-1">
+                                    <div class="text-warning small" style="font-size: 11px;">
+                                        <i class="fa-solid fa-star"></i>
+                                        <i class="fa-solid fa-star"></i>
+                                        <i class="fa-solid fa-star"></i>
+                                        <i class="fa-solid fa-star"></i>
+                                        <i class="fa-solid fa-star-half-stroke"></i>
+                                    </div>
+                                    <span class="text-muted small" style="font-size: 11px;">(95)</span>
+                                </div>
+                            </div>
+                            <a href="othorbd-details.html" class="product-order-btn">
+                                <i class="fa-solid fa-cart-shopping"></i> অর্ডার করুন
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Product 4 -->
+                <div class="col">
+                    <div class="product-card">
+                        <div class="product-img-box">
+                            <span class="product-discount-badge">40% OFF</span>
+                            <img src="https://picsum.photos/400/400?random=24" alt="ব্লুটুথ স্পিকার">
+                        </div>
+                        <div class="product-info">
+                            <div>
+                                <div class="d-flex align-items-center">
+                                    <span class="product-price-old">৳ 1500</span>
+                                    <span class="product-price-current">৳ 899</span>
+                                </div>
+                                <p class="product-title">পোর্টেবল ব্লুটুথ স্পিকার</p>
+                                <div class="d-flex align-items-center gap-1">
+                                    <div class="text-warning small" style="font-size: 11px;">
+                                        <i class="fa-solid fa-star"></i>
+                                        <i class="fa-solid fa-star"></i>
+                                        <i class="fa-solid fa-star"></i>
+                                        <i class="fa-solid fa-star"></i>
+                                        <i class="fa-solid fa-star"></i>
+                                    </div>
+                                    <span class="text-muted small" style="font-size: 11px;">(112)</span>
+                                </div>
+                            </div>
+                            <a href="othorbd-details.html" class="product-order-btn">
+                                <i class="fa-solid fa-cart-shopping"></i> অর্ডার করুন
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Product 5 -->
+                <div class="col">
+                    <div class="product-card">
+                        <div class="product-img-box">
+                            <span class="product-discount-badge">50% OFF</span>
+                            <img src="https://picsum.photos/400/400?random=25" alt="কিচেন ব্লেন্ডার">
+                        </div>
+                        <div class="product-info">
+                            <div>
+                                <div class="d-flex align-items-center">
+                                    <span class="product-price-old">৳ 3200</span>
+                                    <span class="product-price-current">৳ 1600</span>
+                                </div>
+                                <p class="product-title">মাল্টিফাংশনাল কিচেন ব্লেন্ডার</p>
+                                <div class="d-flex align-items-center gap-1">
+                                    <div class="text-warning small" style="font-size: 11px;">
+                                        <i class="fa-solid fa-star"></i>
+                                        <i class="fa-solid fa-star"></i>
+                                        <i class="fa-solid fa-star"></i>
+                                        <i class="fa-solid fa-star"></i>
+                                        <i class="fa-solid fa-star text-muted opacity-50"></i>
+                                    </div>
+                                    <span class="text-muted small" style="font-size: 11px;">(67)</span>
+                                </div>
+                            </div>
+                            <a href="othorbd-details.html" class="product-order-btn">
+                                <i class="fa-solid fa-cart-shopping"></i> অর্ডার করুন
+                            </a>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -523,97 +1338,117 @@
     </section>
 
     <!-- 7. FOOTER DESIGN -->
-    <footer class="bg-[#033625] text-white text-xs sm:text-sm border-t border-emerald-900/60">
-        <div class="max-w-[1280px] mx-auto px-2 sm:px-4 py-6 sm:py-10">
-            <div class="grid grid-cols-3 gap-1.5 sm:gap-6">
+    <footer class="site-footer">
+        <div class="custom-container py-4 py-sm-5">
+            <div class="row g-3 g-sm-4">
                 <!-- Column 1: About Us -->
-                <div class="px-1 sm:px-6 space-y-2 sm:space-y-3">
-                    <h3 class="font-bold text-[11px] sm:text-base text-white tracking-wide flex items-center gap-1 sm:gap-2">
-                        <i class="fa-solid fa-circle-info text-emerald-400 text-[10px] sm:text-sm"></i> 
-                        <span>আমাদের সম্পর্কে</span>
-                    </h3>
-                    <ul class="space-y-1 sm:space-y-2 text-gray-300 text-[10px] sm:text-sm">
-                        <li><a href="#" class="hover:text-emerald-400 transition-colors flex items-center gap-1 sm:gap-2"><i class="fa-solid fa-chevron-right text-[8px] sm:text-[10px] text-emerald-500 shrink-0"></i><span class="truncate">আমাদের সম্পর্কে</span></a></li>
-                        <li><a href="#" class="hover:text-emerald-400 transition-colors flex items-center gap-1 sm:gap-2"><i class="fa-solid fa-chevron-right text-[8px] sm:text-[10px] text-emerald-500 shrink-0"></i><span class="truncate">যোগাযোগ করুন</span></a></li>
-                        <li><a href="#" class="hover:text-emerald-400 transition-colors flex items-center gap-1 sm:gap-2"><i class="fa-solid fa-chevron-right text-[8px] sm:text-[10px] text-emerald-500 shrink-0"></i><span class="truncate">প্রাইভেসি পলিসি</span></a></li>
-                        <li><a href="#" class="hover:text-emerald-400 transition-colors flex items-center gap-1 sm:gap-2"><i class="fa-solid fa-chevron-right text-[8px] sm:text-[10px] text-emerald-500 shrink-0"></i><span class="truncate">শর্তাবলী</span></a></li>
-                    </ul>
+                <div class="col-4">
+                    <div class="px-1 px-sm-2">
+                        <h3 class="footer-heading">
+                            <i class="fa-solid fa-circle-info text-success"></i>
+                            <span>আমাদের সম্পর্কে</span>
+                        </h3>
+                        <ul class="footer-links">
+                            <li><a href="#"><i class="fa-solid fa-chevron-right text-success small"></i><span
+                                        class="text-truncate">আমাদের সম্পর্কে</span></a></li>
+                            <li><a href="#"><i class="fa-solid fa-chevron-right text-success small"></i><span
+                                        class="text-truncate">যোগাযোগ করুন</span></a></li>
+                            <li><a href="#"><i class="fa-solid fa-chevron-right text-success small"></i><span
+                                        class="text-truncate">প্রাইভেসি পলিসি</span></a></li>
+                            <li><a href="#"><i class="fa-solid fa-chevron-right text-success small"></i><span
+                                        class="text-truncate">শর্তাবলী</span></a></li>
+                        </ul>
+                    </div>
                 </div>
 
                 <!-- Column 2: Delivery Policy -->
-                <div class="px-1 sm:px-6 space-y-2 sm:space-y-3 border-l border-white/10">
-                    <h3 class="font-bold text-[11px] sm:text-base text-white tracking-wide flex items-center gap-1 sm:gap-2">
-                        <i class="fa-solid fa-truck-ramp-box text-emerald-400 text-[10px] sm:text-sm"></i> 
-                        <span>ডেলিভারি পলিসি</span>
-                    </h3>
-                    <ul class="space-y-1 sm:space-y-2 text-gray-300 text-[10px] sm:text-sm">
-                        <li><a href="#" class="hover:text-emerald-400 transition-colors flex items-center gap-1 sm:gap-2"><i class="fa-solid fa-chevron-right text-[8px] sm:text-[10px] text-emerald-500 shrink-0"></i><span class="truncate">ডেলিভারি প্রসেস</span></a></li>
-                        <li><a href="#" class="hover:text-emerald-400 transition-colors flex items-center gap-1 sm:gap-2"><i class="fa-solid fa-chevron-right text-[8px] sm:text-[10px] text-emerald-500 shrink-0"></i><span class="truncate">ডেলিভারি চার্জ</span></a></li>
-                        <li><a href="#" class="hover:text-emerald-400 transition-colors flex items-center gap-1 sm:gap-2"><i class="fa-solid fa-chevron-right text-[8px] sm:text-[10px] text-emerald-500 shrink-0"></i><span class="truncate">ডেলিভারি সময়</span></a></li>
-                    </ul>
+                <div class="col-4" style="border-left: 1px solid rgba(255, 255, 255, 0.1);">
+                    <div class="px-1 px-sm-2">
+                        <h3 class="footer-heading">
+                            <i class="fa-solid fa-truck-ramp-box text-success"></i>
+                            <span>ডেলিভারি পলিসি</span>
+                        </h3>
+                        <ul class="footer-links">
+                            <li><a href="#"><i class="fa-solid fa-chevron-right text-success small"></i><span
+                                        class="text-truncate">ডেলিভারি প্রসেস</span></a></li>
+                            <li><a href="#"><i class="fa-solid fa-chevron-right text-success small"></i><span
+                                        class="text-truncate">ডেলিভারি চার্জ</span></a></li>
+                            <li><a href="#"><i class="fa-solid fa-chevron-right text-success small"></i><span
+                                        class="text-truncate">ডেলিভারি সময়</span></a></li>
+                        </ul>
+                    </div>
                 </div>
 
                 <!-- Column 3: Return Policy -->
-                <div class="px-1 sm:px-6 space-y-2 sm:space-y-3 border-l border-white/10">
-                    <h3 class="font-bold text-[11px] sm:text-base text-white tracking-wide flex items-center gap-1 sm:gap-2">
-                        <i class="fa-solid fa-rotate-left text-emerald-400 text-[10px] sm:text-sm"></i> 
-                        <span>রিটার্ন পলিসি</span>
-                    </h3>
-                    <ul class="space-y-1 sm:space-y-2 text-gray-300 text-[10px] sm:text-sm">
-                        <li><a href="#" class="hover:text-emerald-400 transition-colors flex items-center gap-1 sm:gap-2"><i class="fa-solid fa-chevron-right text-[8px] sm:text-[10px] text-emerald-500 shrink-0"></i><span class="truncate">রিটার্ন প্রসেস</span></a></li>
-                        <li><a href="#" class="hover:text-emerald-400 transition-colors flex items-center gap-1 sm:gap-2"><i class="fa-solid fa-chevron-right text-[8px] sm:text-[10px] text-emerald-500 shrink-0"></i><span class="truncate">রিফান্ড পলিসি</span></a></li>
-                        <li><a href="#" class="hover:text-emerald-400 transition-colors flex items-center gap-1 sm:gap-2"><i class="fa-solid fa-chevron-right text-[8px] sm:text-[10px] text-emerald-500 shrink-0"></i><span class="truncate">এক্সচেঞ্জ পলিসি</span></a></li>
-                    </ul>
+                <div class="col-4" style="border-left: 1px solid rgba(255, 255, 255, 0.1);">
+                    <div class="px-1 px-sm-2">
+                        <h3 class="footer-heading">
+                            <i class="fa-solid fa-rotate-left text-success"></i>
+                            <span>রিটার্ন পলিসি</span>
+                        </h3>
+                        <ul class="footer-links">
+                            <li><a href="#"><i class="fa-solid fa-chevron-right text-success small"></i><span
+                                        class="text-truncate">রিটার্ন প্রসেস</span></a></li>
+                            <li><a href="#"><i class="fa-solid fa-chevron-right text-success small"></i><span
+                                        class="text-truncate">রিফান্ড পলিসি</span></a></li>
+                            <li><a href="#"><i class="fa-solid fa-chevron-right text-success small"></i><span
+                                        class="text-truncate">এক্সচেঞ্জ পলিসি</span></a></li>
+                        </ul>
+                    </div>
                 </div>
             </div>
 
-            <div class="border-t border-white/10 my-4 sm:my-8"></div>
+            <div class="my-4 border-top border-white border-opacity-10"></div>
 
-            <div class="flex flex-col sm:flex-row items-center justify-between gap-3 sm:gap-5 text-[10px] sm:text-xs">
+            <div class="d-flex flex-column flex-sm-row align-items-center justify-content-between gap-3 text-center text-sm-start"
+                style="font-size: 12px;">
                 <!-- SSL Trust Badge -->
-                <div class="flex items-center gap-1.5 sm:gap-2.5 bg-white/5 px-2.5 sm:px-3.5 py-1 sm:py-1.5 rounded-full border border-white/10">
-                    <i class="fa-solid fa-shield-halved text-emerald-400 text-xs sm:text-base"></i>
-                    <span class="font-medium tracking-wide text-gray-200">100% SSL Secured Payment</span>
+                <div class="d-flex align-items-center gap-2 px-3 py-1 rounded-pill"
+                    style="background: rgba(255, 255, 255, 0.08); border: 1px solid rgba(255, 255, 255, 0.15);">
+                    <i class="fa-solid fa-shield-halved text-success"></i>
+                    <span class="text-white-50">100% SSL Secured Payment</span>
                 </div>
 
                 <!-- Copyright Info -->
-                <div class="text-center sm:border-x border-white/10 px-2 sm:px-4">
-                    <p class="text-gray-300">
-                        © 2026 <span class="text-emerald-400 font-bold">Othor BD</span>. All Rights Reserved.
+                <div class="text-center px-2">
+                    <p class="mb-0 text-white-50">
+                        © 2026 <span class="text-success fw-bold">Othor BD</span>. All Rights Reserved.
                     </p>
-                    <p class="text-gray-400 mt-0.5 sm:mt-1 flex items-center justify-center gap-1">
-                        <span>Developed By</span> 
-                        <a href="#" class="text-emerald-400 font-semibold hover:underline flex items-center gap-1">
-                            <i class="fa-solid fa-code text-[9px] sm:text-[11px]"></i> Pro Devs
+                    <p class="mb-0 text-white-50 mt-1 d-flex align-items-center justify-content-center gap-1">
+                        <span>Developed By</span>
+                        <a href="#"
+                            class="text-success fw-semibold text-decoration-none d-inline-flex align-items-center gap-1">
+                            <i class="fa-solid fa-code" style="font-size: 10px;"></i> Pro Devs
                         </a>
                     </p>
                 </div>
 
                 <!-- Social Icons -->
-                <div class="flex items-center justify-center gap-2 sm:gap-3">
-                    <a href="#" aria-label="Facebook" class="w-7 h-7 sm:w-9 sm:h-9 rounded-lg sm:rounded-xl bg-white/10 border border-white/10 text-white flex items-center justify-center hover:bg-[#1877F2] hover:border-[#1877F2] transition-all">
-                        <i class="fa-brands fa-facebook-f text-xs sm:text-sm"></i>
-                    </a>
-                    <a href="#" aria-label="YouTube" class="w-7 h-7 sm:w-9 sm:h-9 rounded-lg sm:rounded-xl bg-white/10 border border-white/10 text-white flex items-center justify-center hover:bg-[#FF0000] hover:border-[#FF0000] transition-all">
-                        <i class="fa-brands fa-youtube text-xs sm:text-sm"></i>
-                    </a>
-                    <a href="#" aria-label="Instagram" class="w-7 h-7 sm:w-9 sm:h-9 rounded-lg sm:rounded-xl bg-white/10 border border-white/10 text-white flex items-center justify-center hover:bg-[#E4405F] hover:border-[#E4405F] transition-all">
-                        <i class="fa-brands fa-instagram text-xs sm:text-sm"></i>
-                    </a>
-                    <a href="#" aria-label="TikTok" class="w-7 h-7 sm:w-9 sm:h-9 rounded-lg sm:rounded-xl bg-white/10 border border-white/10 text-white flex items-center justify-center hover:bg-black hover:border-black transition-all">
-                        <i class="fa-brands fa-tiktok text-xs sm:text-sm"></i>
-                    </a>
+                <div class="d-flex align-items-center justify-content-center gap-2">
+                    <a href="#" aria-label="Facebook" class="footer-social-btn fb"><i
+                            class="fa-brands fa-facebook-f"></i></a>
+                    <a href="#" aria-label="YouTube" class="footer-social-btn yt"><i
+                            class="fa-brands fa-youtube"></i></a>
+                    <a href="#" aria-label="Instagram" class="footer-social-btn ig"><i
+                            class="fa-brands fa-instagram"></i></a>
+                    <a href="#" aria-label="TikTok" class="footer-social-btn tt"><i class="fa-brands fa-tiktok"></i></a>
                 </div>
             </div>
         </div>
     </footer>
+
+    <!-- Bootstrap 5.3.3 JS Bundle -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Swiper JS -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
 
     <!-- JS INTERACTION -->
     <script>
         (function () {
             "use strict";
 
-            document.addEventListener('DOMContentLoaded', function() {
+            document.addEventListener('DOMContentLoaded', function () {
                 if (typeof Swiper !== 'undefined') {
                     // Hero Main Slider
                     new Swiper('.hero-swiper', {
@@ -644,13 +1479,13 @@
                 }
             });
 
-            // Mobile Search
+            // Mobile Search Toggle
             var searchBtn = document.getElementById('searchBtn');
             var searchRow = document.getElementById('searchRow');
             if (searchBtn && searchRow) {
                 searchBtn.addEventListener('click', function () {
-                    searchRow.classList.toggle('hidden');
-                    if (!searchRow.classList.contains('hidden')) {
+                    searchRow.classList.toggle('d-none');
+                    if (!searchRow.classList.contains('d-none')) {
                         var input = searchRow.querySelector('input');
                         if (input) input.focus();
                     }
@@ -659,18 +1494,23 @@
 
             // Mobile Drawer
             var menuBtn = document.getElementById('menuBtn');
-            var drawerWrap = document.getElementById('drawerWrap');
-            var drawer = document.getElementById('drawer');
+            var drawerMenu = document.getElementById('drawerMenu');
             var drawerOverlay = document.getElementById('drawerOverlay');
             var drawerClose = document.getElementById('drawerClose');
 
             function openDrawer() {
-                drawerWrap.hidden = false;
-                requestAnimationFrame(function () { drawer.classList.remove('-translate-x-full'); });
+                if (drawerOverlay && drawerMenu) {
+                    drawerOverlay.classList.add('active');
+                    drawerMenu.classList.add('active');
+                    document.body.style.overflow = 'hidden';
+                }
             }
             function closeDrawer() {
-                drawer.classList.add('-translate-x-full');
-                setTimeout(function () { drawerWrap.hidden = true; }, 200);
+                if (drawerOverlay && drawerMenu) {
+                    drawerOverlay.classList.remove('active');
+                    drawerMenu.classList.remove('active');
+                    document.body.style.overflow = '';
+                }
             }
 
             if (menuBtn) menuBtn.addEventListener('click', openDrawer);
@@ -678,20 +1518,21 @@
             if (drawerOverlay) drawerOverlay.addEventListener('click', closeDrawer);
 
             // Mobile Accordion
-            document.querySelectorAll('.mobile-dropdown-btn').forEach(function(btn) {
-                btn.addEventListener('click', function() {
+            document.querySelectorAll('.drawer-accordion-btn').forEach(function (btn) {
+                btn.addEventListener('click', function () {
                     var submenu = this.nextElementSibling;
                     var icon = this.querySelector('i');
-                    if (submenu.classList.contains('hidden')) {
-                        submenu.classList.remove('hidden');
-                        icon.style.transform = 'rotate(180deg)';
+                    if (submenu.classList.contains('d-none')) {
+                        submenu.classList.remove('d-none');
+                        if (icon) icon.style.transform = 'rotate(180deg)';
                     } else {
-                        submenu.classList.add('hidden');
-                        icon.style.transform = 'rotate(0deg)';
+                        submenu.classList.add('d-none');
+                        if (icon) icon.style.transform = 'rotate(0deg)';
                     }
                 });
             });
         })();
     </script>
 </body>
+
 </html>
