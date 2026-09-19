@@ -1,0 +1,2008 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>WinterHub — Stay Warm, Stay Stylish | Premium Winter Hoodie</title>
+    <meta name="description" content="Premium quality hoodie designed for maximum warmth, comfort and style. Perfect for your winter adventures or everyday wear. Cash on delivery all over Bangladesh." />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Outfit:wght@400;500;600;700;800;900&family=Caveat:wght@600;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
+    <style>
+        :root {
+            --pri: #F5A623;
+            --pri-hover: #e09419;
+            --pri-light: #FFF8EB;
+            --dark: #0D1117;
+            --dark-card: #161B22;
+            --navy: #101624;
+            --text-dark: #1E293B;
+            --text-muted: #64748B;
+            --text-light: #94A3B8;
+            --bg-light: #F8FAFC;
+            --bg-card: #FFFFFF;
+            --border: #E2E8F0;
+            --red: #EF4444;
+            --green: #10B981;
+            --radius-lg: 16px;
+            --radius-md: 10px;
+            --radius-sm: 6px;
+            --radius-full: 9999px;
+            --shadow-sm: 0 1px 3px rgba(0,0,0,0.06);
+            --shadow-md: 0 4px 20px rgba(0,0,0,0.08);
+            --shadow-lg: 0 10px 30px rgba(0,0,0,0.12);
+            --transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        *, *::before, *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: #FFFFFF;
+            color: var(--text-dark);
+            line-height: 1.6;
+            overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        .container {
+            max-width: 1180px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* ================= NAVIGATION ================= */
+        .navbar {
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            background: #FFFFFF;
+            border-bottom: 1px solid var(--border);
+            padding: 14px 0;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.03);
+        }
+
+        .nav-inner {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            text-decoration: none;
+            color: var(--text-dark);
+        }
+
+        .logo-icon {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            color: #111827;
+        }
+
+        .logo-text h2 {
+            font-family: 'Outfit', sans-serif;
+            font-size: 20px;
+            font-weight: 800;
+            line-height: 1.1;
+            letter-spacing: -0.3px;
+        }
+
+        .logo-text h2 span {
+            color: var(--pri);
+        }
+
+        .logo-text p {
+            font-size: 10px;
+            color: var(--text-muted);
+            font-weight: 500;
+            letter-spacing: 0.3px;
+        }
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 28px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: #4B5563;
+            font-size: 14px;
+            font-weight: 600;
+            transition: var(--transition);
+        }
+
+        .nav-links a:hover {
+            color: #111827;
+        }
+
+        .nav-actions {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+        }
+
+        .cod-badge {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 12px;
+            font-weight: 600;
+            color: #374151;
+            padding: 4px 10px;
+            background: #F3F4F6;
+            border-radius: var(--radius-full);
+            border: 1px solid var(--border);
+        }
+
+        .cod-badge i {
+            color: var(--green);
+            font-size: 14px;
+        }
+
+        .btn-order-nav {
+            background: var(--pri);
+            color: #111827;
+            font-weight: 700;
+            font-size: 14px;
+            padding: 9px 20px;
+            border-radius: var(--radius-sm);
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            transition: var(--transition);
+            border: none;
+            cursor: pointer;
+        }
+
+        .btn-order-nav:hover {
+            background: var(--pri-hover);
+            transform: translateY(-1px);
+        }
+
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 20px;
+            color: #111827;
+            cursor: pointer;
+        }
+
+        /* ================= HERO SECTION ================= */
+        .hero {
+            background: linear-gradient(135deg, #090E17 0%, #111827 50%, #1F2937 100%);
+            color: #FFFFFF;
+            padding: 40px 0 0;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle at 75% 40%, rgba(245, 166, 35, 0.08) 0%, transparent 60%);
+            pointer-events: none;
+        }
+
+        .hero-grid {
+            display: grid;
+            grid-template-columns: 1.1fr 0.9fr;
+            gap: 40px;
+            align-items: flex-end;
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero-content {
+            padding-bottom: 50px;
+        }
+
+        .hero-subtitle {
+            font-size: 11px;
+            font-weight: 700;
+            letter-spacing: 1.8px;
+            color: #E5E7EB;
+            text-transform: uppercase;
+            margin-bottom: 12px;
+            display: inline-block;
+        }
+
+        .hero-title {
+            font-family: 'Outfit', sans-serif;
+            font-size: clamp(34px, 4.2vw, 50px);
+            font-weight: 800;
+            line-height: 1.12;
+            margin-bottom: 8px;
+            letter-spacing: -1px;
+        }
+
+        .hero-title .highlight {
+            color: var(--pri);
+            display: block;
+        }
+
+        .hero-desc {
+            font-size: 14px;
+            color: #9CA3AF;
+            margin-bottom: 22px;
+            max-width: 480px;
+            line-height: 1.6;
+        }
+
+        .hero-features {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 16px 24px;
+            margin-bottom: 26px;
+        }
+
+        .h-feat-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 13px;
+            font-weight: 600;
+            color: #F3F4F6;
+        }
+
+        .h-feat-item i {
+            color: var(--pri);
+            font-size: 14px;
+        }
+
+        .hero-pricing {
+            display: flex;
+            align-items: baseline;
+            gap: 14px;
+            margin-bottom: 24px;
+        }
+
+        .hero-old-price {
+            font-size: 20px;
+            color: #6B7280;
+            text-decoration: line-through;
+            font-weight: 600;
+        }
+
+        .hero-curr-price {
+            font-family: 'Outfit', sans-serif;
+            font-size: 44px;
+            font-weight: 900;
+            color: var(--pri);
+            line-height: 1;
+        }
+
+        .hero-discount-tag {
+            background: var(--red);
+            color: #FFFFFF;
+            font-size: 12px;
+            font-weight: 800;
+            padding: 3px 10px;
+            border-radius: var(--radius-full);
+            transform: translateY(-4px);
+        }
+
+        .hero-cta-group {
+            display: flex;
+            gap: 14px;
+            flex-wrap: wrap;
+            margin-bottom: 20px;
+        }
+
+        .btn-hero-order {
+            background: var(--pri);
+            color: #111827;
+            font-weight: 800;
+            font-size: 15px;
+            padding: 13px 30px;
+            border-radius: var(--radius-sm);
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            box-shadow: 0 6px 20px rgba(245, 166, 35, 0.35);
+            transition: var(--transition);
+            border: none;
+            cursor: pointer;
+        }
+
+        .btn-hero-order:hover {
+            background: var(--pri-hover);
+            transform: translateY(-2px);
+        }
+
+        .btn-hero-wa {
+            background: rgba(255, 255, 255, 0.08);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            color: #FFFFFF;
+            font-weight: 700;
+            font-size: 14px;
+            padding: 13px 24px;
+            border-radius: var(--radius-sm);
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            transition: var(--transition);
+        }
+
+        .btn-hero-wa:hover {
+            background: rgba(255, 255, 255, 0.16);
+            border-color: rgba(255, 255, 255, 0.4);
+            transform: translateY(-2px);
+        }
+
+        .hero-urgency {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-size: 13px;
+            color: #D1D5DB;
+            font-weight: 500;
+        }
+
+        .hero-urgency span {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .hero-image-col {
+            position: relative;
+            display: flex;
+            justify-content: center;
+            align-items: flex-end;
+        }
+
+        .hero-model-container {
+            position: relative;
+            width: 100%;
+            max-width: 440px;
+        }
+
+        .hero-model-img {
+            width: 100%;
+            height: auto;
+            display: block;
+            border-radius: 12px 12px 0 0;
+            filter: drop-shadow(0 20px 30px rgba(0,0,0,0.5));
+            object-fit: cover;
+        }
+
+        .floating-quote {
+            position: absolute;
+            top: 25%;
+            right: 0;
+            transform: translateX(15%);
+            font-family: 'Caveat', cursive;
+            font-size: 26px;
+            font-weight: 700;
+            line-height: 1.15;
+            color: rgba(255, 255, 255, 0.9);
+            text-shadow: 0 4px 12px rgba(0,0,0,0.6);
+            text-align: right;
+            pointer-events: none;
+        }
+
+        .floating-quote span {
+            display: block;
+        }
+
+        /* ================= TRUST STRIP ================= */
+        .trust-bar {
+            background: #FFFFFF;
+            border-bottom: 1px solid var(--border);
+            padding: 24px 0;
+        }
+
+        .trust-grid {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 16px;
+            align-items: center;
+        }
+
+        .trust-item {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .trust-icon {
+            width: 40px;
+            height: 40px;
+            border-radius: 8px;
+            background: #F8FAFC;
+            border: 1px solid #E2E8F0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 18px;
+            color: #334155;
+            flex-shrink: 0;
+        }
+
+        .trust-text h4 {
+            font-size: 13px;
+            font-weight: 700;
+            color: #1E293B;
+            line-height: 1.2;
+        }
+
+        .trust-text p {
+            font-size: 11px;
+            color: var(--text-muted);
+            margin-top: 2px;
+        }
+
+        /* ================= PRODUCT SHOWCASE ================= */
+        .product-section {
+            padding: 55px 0;
+            background: #FFFFFF;
+        }
+
+        .product-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 45px;
+            align-items: flex-start;
+        }
+
+        .product-gallery {
+            display: flex;
+            gap: 16px;
+        }
+
+        .gallery-main {
+            position: relative;
+            flex: 1;
+            background: #F1F5F9;
+            border-radius: var(--radius-md);
+            overflow: hidden;
+            border: 1px solid var(--border);
+        }
+
+        .badge-bestseller {
+            position: absolute;
+            top: 14px;
+            left: 14px;
+            background: var(--pri);
+            color: #111827;
+            font-size: 11px;
+            font-weight: 800;
+            padding: 4px 12px;
+            border-radius: var(--radius-sm);
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            z-index: 2;
+        }
+
+        .main-prod-img {
+            width: 100%;
+            height: 440px;
+            object-fit: cover;
+            display: block;
+            transition: transform 0.4s ease;
+        }
+
+        .gallery-thumbs {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            width: 85px;
+        }
+
+        .thumb-item {
+            height: 102px;
+            border-radius: var(--radius-sm);
+            overflow: hidden;
+            border: 2px solid var(--border);
+            cursor: pointer;
+            background: #F8FAFC;
+            transition: var(--transition);
+        }
+
+        .thumb-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .thumb-item.active {
+            border-color: var(--pri);
+            box-shadow: 0 0 0 1px var(--pri);
+        }
+
+        .thumb-item:hover {
+            border-color: var(--pri);
+        }
+
+        .product-info-col {
+            padding-top: 5px;
+        }
+
+        .prod-title {
+            font-family: 'Outfit', sans-serif;
+            font-size: 28px;
+            font-weight: 800;
+            color: #0F172A;
+            margin-bottom: 8px;
+            letter-spacing: -0.5px;
+        }
+
+        .prod-rating {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            margin-bottom: 16px;
+        }
+
+        .rating-stars {
+            color: var(--pri);
+            font-size: 13px;
+        }
+
+        .rating-num {
+            font-size: 14px;
+            font-weight: 700;
+            color: #1E293B;
+        }
+
+        .rating-count {
+            font-size: 13px;
+            color: var(--text-muted);
+        }
+
+        .prod-price-row {
+            display: flex;
+            align-items: baseline;
+            gap: 12px;
+            margin-bottom: 16px;
+        }
+
+        .prod-old-price {
+            font-size: 18px;
+            color: #94A3B8;
+            text-decoration: line-through;
+            font-weight: 600;
+        }
+
+        .prod-curr-price {
+            font-family: 'Outfit', sans-serif;
+            font-size: 34px;
+            font-weight: 900;
+            color: var(--pri);
+        }
+
+        .prod-save-tag {
+            background: #FEE2E2;
+            color: var(--red);
+            font-size: 11px;
+            font-weight: 800;
+            padding: 3px 8px;
+            border-radius: var(--radius-sm);
+        }
+
+        .prod-summary {
+            font-size: 14px;
+            color: #475569;
+            line-height: 1.6;
+            margin-bottom: 22px;
+        }
+
+        .option-group {
+            margin-bottom: 20px;
+        }
+
+        .option-title {
+            font-size: 13px;
+            font-weight: 700;
+            color: #1E293B;
+            margin-bottom: 10px;
+            display: block;
+        }
+
+        .color-swatches {
+            display: flex;
+            gap: 12px;
+        }
+
+        .swatch-btn {
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+            border: 2px solid #FFFFFF;
+            outline: 2px solid #CBD5E1;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .swatch-btn.active {
+            outline-color: var(--pri);
+            transform: scale(1.15);
+        }
+
+        .size-pills {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+
+        .size-pill {
+            min-width: 44px;
+            height: 38px;
+            padding: 0 12px;
+            border-radius: var(--radius-sm);
+            border: 1px solid var(--border);
+            background: #FFFFFF;
+            font-size: 13px;
+            font-weight: 700;
+            color: #334155;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .size-pill:hover {
+            border-color: #94A3B8;
+        }
+
+        .size-pill.active {
+            border-color: var(--pri);
+            background: #FFFBEB;
+            color: #B45309;
+        }
+
+        .btn-add-cart {
+            width: 100%;
+            background: var(--pri);
+            color: #111827;
+            font-weight: 800;
+            font-size: 15px;
+            padding: 14px 20px;
+            border-radius: var(--radius-sm);
+            border: none;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            transition: var(--transition);
+            text-decoration: none;
+            margin-top: 24px;
+            margin-bottom: 18px;
+        }
+
+        .btn-add-cart:hover {
+            background: var(--pri-hover);
+            transform: translateY(-2px);
+        }
+
+        /* ================= WHY CHOOSE SECTION ================= */
+        .why-section {
+            padding: 55px 0;
+            background: #F8FAFC;
+        }
+
+        .why-grid {
+            display: grid;
+            grid-template-columns: 1.1fr 0.9fr;
+            gap: 40px;
+            align-items: center;
+        }
+
+        .section-heading-sm {
+            font-family: 'Outfit', sans-serif;
+            font-size: 26px;
+            font-weight: 800;
+            color: #0F172A;
+            margin-bottom: 24px;
+            letter-spacing: -0.5px;
+        }
+
+        .features-2x2 {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px 24px;
+        }
+
+        .feat-card {
+            display: flex;
+            gap: 14px;
+            align-items: flex-start;
+        }
+
+        .feat-icon-box {
+            width: 44px;
+            height: 44px;
+            border-radius: 8px;
+            background: #FFFFFF;
+            border: 1px solid var(--border);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 20px;
+            color: #1E293B;
+            flex-shrink: 0;
+            box-shadow: var(--shadow-sm);
+        }
+
+        .feat-card-text h4 {
+            font-size: 14px;
+            font-weight: 700;
+            color: #0F172A;
+            margin-bottom: 4px;
+        }
+
+        .feat-card-text p {
+            font-size: 12px;
+            color: var(--text-muted);
+            line-height: 1.45;
+        }
+
+        .why-image-wrapper {
+            position: relative;
+            border-radius: var(--radius-md);
+            overflow: hidden;
+            box-shadow: var(--shadow-md);
+        }
+
+        .why-image-wrapper img {
+            width: 100%;
+            height: 320px;
+            object-fit: cover;
+            display: block;
+        }
+
+        .banner-winter-ready {
+            position: absolute;
+            top: 24px;
+            right: 24px;
+            font-family: 'Caveat', cursive;
+            font-size: 32px;
+            font-weight: 700;
+            line-height: 1.1;
+            color: #1E293B;
+            text-shadow: 0 2px 10px rgba(255,255,255,0.8);
+            transform: rotate(-4deg);
+        }
+
+        /* ================= REVIEWS SECTION ================= */
+        .reviews-section {
+            padding: 55px 0;
+            background: #FFFFFF;
+        }
+
+        .reviews-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+            margin-bottom: 28px;
+        }
+
+        .link-view-all {
+            font-size: 13px;
+            font-weight: 700;
+            color: #475569;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            transition: var(--transition);
+        }
+
+        .link-view-all:hover {
+            color: #0F172A;
+        }
+
+        .reviews-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+        }
+
+        .review-card {
+            background: #FFFFFF;
+            border: 1px solid var(--border);
+            border-radius: var(--radius-md);
+            padding: 22px;
+            box-shadow: var(--shadow-sm);
+            transition: var(--transition);
+        }
+
+        .review-card:hover {
+            box-shadow: var(--shadow-md);
+            border-color: #CBD5E1;
+        }
+
+        .review-user {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 12px;
+        }
+
+        .user-avatar {
+            width: 42px;
+            height: 42px;
+            border-radius: 50%;
+            object-fit: cover;
+            background: #E2E8F0;
+        }
+
+        .user-details h4 {
+            font-size: 14px;
+            font-weight: 700;
+            color: #0F172A;
+            line-height: 1.2;
+        }
+
+        .review-stars {
+            color: var(--pri);
+            font-size: 11px;
+            margin-top: 2px;
+        }
+
+        .review-comment {
+            font-size: 13px;
+            color: #475569;
+            line-height: 1.55;
+            margin-bottom: 12px;
+        }
+
+        .review-time {
+            font-size: 11px;
+            color: #94A3B8;
+        }
+
+        /* ================= SIZE GUIDE & INLINE ORDER ================= */
+        .size-order-section {
+            padding: 55px 0;
+            background: #FFFFFF;
+            border-top: 1px solid var(--border);
+        }
+
+        .size-order-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            align-items: flex-start;
+        }
+
+        .size-guide-box h3 {
+            font-family: 'Outfit', sans-serif;
+            font-size: 22px;
+            font-weight: 800;
+            color: #0F172A;
+            margin-bottom: 4px;
+        }
+
+        .size-guide-box p {
+            font-size: 13px;
+            color: var(--text-muted);
+            margin-bottom: 20px;
+        }
+
+        .size-table-container {
+            display: flex;
+            gap: 20px;
+            align-items: center;
+        }
+
+        .size-table {
+            flex: 1;
+            border-collapse: collapse;
+            font-size: 12px;
+            text-align: center;
+        }
+
+        .size-table th {
+            background: #F8FAFC;
+            color: #475569;
+            font-weight: 700;
+            padding: 10px 12px;
+            border: 1px solid var(--border);
+        }
+
+        .size-table td {
+            padding: 9px 12px;
+            border: 1px solid var(--border);
+            color: #334155;
+        }
+
+        .size-table td:first-child {
+            font-weight: 700;
+            background: #F8FAFC;
+        }
+
+        .hoodie-diagram {
+            width: 140px;
+            flex-shrink: 0;
+        }
+
+        /* Order Form Box */
+        .order-form-card {
+            background: #FFFAF0;
+            border: 1px solid #FED7AA;
+            border-radius: var(--radius-md);
+            padding: 26px;
+        }
+
+        .order-form-card h3 {
+            font-family: 'Outfit', sans-serif;
+            font-size: 20px;
+            font-weight: 800;
+            color: #0F172A;
+            margin-bottom: 4px;
+        }
+
+        .order-form-card p {
+            font-size: 12px;
+            color: var(--text-muted);
+            margin-bottom: 18px;
+        }
+
+        .form-input-group {
+            margin-bottom: 12px;
+        }
+
+        .form-control-input {
+            width: 100%;
+            padding: 10px 14px;
+            font-size: 13px;
+            border: 1px solid #E2E8F0;
+            border-radius: var(--radius-sm);
+            background: #FFFFFF;
+            color: #1E293B;
+            outline: none;
+            transition: var(--transition);
+            font-family: inherit;
+        }
+
+        .form-control-input:focus {
+            border-color: var(--pri);
+            box-shadow: 0 0 0 2px rgba(245, 166, 35, 0.2);
+        }
+
+        .form-control-input::placeholder {
+            color: #94A3B8;
+        }
+
+        .form-row-2col {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px;
+            margin-bottom: 14px;
+        }
+
+        .form-select {
+            width: 100%;
+            padding: 10px 14px;
+            font-size: 13px;
+            border: 1px solid #E2E8F0;
+            border-radius: var(--radius-sm);
+            background: #FFFFFF;
+            color: #475569;
+            outline: none;
+            cursor: pointer;
+            font-family: inherit;
+        }
+
+        .btn-submit-order {
+            width: 100%;
+            background: var(--pri);
+            color: #111827;
+            font-weight: 800;
+            font-size: 14px;
+            padding: 12px;
+            border-radius: var(--radius-sm);
+            border: none;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            transition: var(--transition);
+        }
+
+        .btn-submit-order:hover {
+            background: var(--pri-hover);
+            transform: translateY(-1px);
+        }
+
+        .secure-note {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 6px;
+            font-size: 11px;
+            color: #64748B;
+            margin-top: 10px;
+        }
+
+        /* ================= FAQ SECTION ================= */
+        .faq-section {
+            padding: 55px 0;
+            background: #FFFFFF;
+            border-top: 1px solid var(--border);
+        }
+
+        .faq-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 28px;
+        }
+
+        .faq-2col {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 16px 24px;
+        }
+
+        .faq-accordion-item {
+            border: 1px solid var(--border);
+            border-radius: var(--radius-sm);
+            background: #FFFFFF;
+            overflow: hidden;
+        }
+
+        .faq-btn {
+            width: 100%;
+            padding: 14px 16px;
+            background: #FFFFFF;
+            border: none;
+            font-size: 13px;
+            font-weight: 700;
+            color: #1E293B;
+            text-align: left;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            cursor: pointer;
+            font-family: inherit;
+        }
+
+        .faq-btn i {
+            font-size: 12px;
+            color: #64748B;
+            transition: transform 0.2s ease;
+        }
+
+        .faq-btn.active i {
+            transform: rotate(180deg);
+        }
+
+        .faq-content {
+            padding: 0 16px 14px;
+            font-size: 12px;
+            color: #64748B;
+            line-height: 1.5;
+            display: none;
+        }
+
+        .faq-content.open {
+            display: block;
+        }
+
+        /* ================= FOOTER ================= */
+        .footer {
+            background: #0D1117;
+            color: #94A3B8;
+            padding: 45px 0 20px;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 1.5fr 1fr 1.2fr 1fr;
+            gap: 30px;
+            margin-bottom: 35px;
+        }
+
+        .footer .logo-text h2 {
+            color: #FFFFFF;
+        }
+
+        .footer-desc {
+            font-size: 12px;
+            line-height: 1.6;
+            margin: 12px 0 16px;
+            color: #64748B;
+        }
+
+        .footer-col h4 {
+            font-size: 13px;
+            font-weight: 700;
+            color: #FFFFFF;
+            margin-bottom: 14px;
+        }
+
+        .footer-links {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .footer-links a {
+            font-size: 12px;
+            color: #94A3B8;
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        .footer-links a:hover {
+            color: #FFFFFF;
+        }
+
+        .footer-contact-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 12px;
+            margin-bottom: 8px;
+            color: #94A3B8;
+        }
+
+        .footer-contact-item i {
+            color: var(--pri);
+            font-size: 13px;
+        }
+
+        .social-icons-row {
+            display: flex;
+            gap: 10px;
+            margin-top: 14px;
+        }
+
+        .social-icon-btn {
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.08);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #94A3B8;
+            text-decoration: none;
+            font-size: 12px;
+            transition: var(--transition);
+        }
+
+        .social-icon-btn:hover {
+            background: var(--pri);
+            color: #111827;
+        }
+
+        .payment-badges {
+            display: flex;
+            gap: 8px;
+            flex-wrap: wrap;
+        }
+
+        .pay-badge {
+            background: #FFFFFF;
+            padding: 4px 10px;
+            border-radius: 4px;
+            font-size: 11px;
+            font-weight: 800;
+            color: #E11D48;
+            border: 1px solid #E2E8F0;
+        }
+
+        .pay-badge.nagad {
+            color: #EA580C;
+        }
+
+        .footer-bottom {
+            border-top: 1px solid rgba(255, 255, 255, 0.08);
+            padding-top: 18px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 11px;
+            color: #475569;
+        }
+
+        /* ================= MOBILE BOTTOM BAR ================= */
+        .mobile-bottom-bar {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: #FFFFFF;
+            border-top: 1px solid var(--border);
+            padding: 10px 16px;
+            display: none;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 99;
+            box-shadow: 0 -4px 20px rgba(0,0,0,0.08);
+        }
+
+        .m-bar-price {
+            font-family: 'Outfit', sans-serif;
+            font-size: 20px;
+            font-weight: 900;
+            color: var(--pri);
+        }
+
+        .m-bar-price span {
+            font-size: 11px;
+            color: #94A3B8;
+            text-decoration: line-through;
+            font-weight: normal;
+            margin-left: 4px;
+        }
+
+        .m-bar-actions {
+            display: flex;
+            gap: 8px;
+        }
+
+        .m-btn-wa {
+            background: #25D366;
+            color: #FFFFFF;
+            width: 40px;
+            height: 40px;
+            border-radius: var(--radius-sm);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            font-size: 18px;
+        }
+
+        .m-btn-order {
+            background: var(--pri);
+            color: #111827;
+            font-weight: 800;
+            font-size: 13px;
+            padding: 0 18px;
+            height: 40px;
+            border-radius: var(--radius-sm);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        /* ================= RESPONSIVE DESIGN ================= */
+        @media (max-width: 992px) {
+            .hero-grid {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+            .hero-content {
+                padding-bottom: 20px;
+            }
+            .hero-image-col {
+                justify-content: center;
+            }
+            .trust-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 16px;
+            }
+            .product-grid {
+                grid-template-columns: 1fr;
+            }
+            .why-grid {
+                grid-template-columns: 1fr;
+            }
+            .size-order-grid {
+                grid-template-columns: 1fr;
+            }
+            .footer-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .nav-links, .cod-badge {
+                display: none;
+            }
+            .mobile-menu-btn {
+                display: block;
+            }
+            .reviews-grid {
+                grid-template-columns: 1fr;
+            }
+            .faq-2col {
+                grid-template-columns: 1fr;
+            }
+            .features-2x2 {
+                grid-template-columns: 1fr;
+            }
+            .size-table-container {
+                flex-direction: column;
+            }
+            .mobile-bottom-bar {
+                display: flex;
+            }
+            body {
+                padding-bottom: 60px;
+            }
+            .footer-grid {
+                grid-template-columns: 1fr;
+            }
+            .floating-quote {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- NAVIGATION HEADER -->
+    <header class="navbar">
+        <div class="container nav-inner">
+            <a href="#" class="logo">
+                <div class="logo-icon"><i class="fas fa-mountain"></i></div>
+                <div class="logo-text">
+                    <h2>Winter<span>Hub</span></h2>
+                    <p>Stay Warm, Stay Stylish</p>
+                </div>
+            </a>
+            <ul class="nav-links">
+                <li><a href="#">Home</a></li>
+                <li><a href="#features">Features</a></li>
+                <li><a href="#reviews">Reviews</a></li>
+                <li><a href="#size-guide">Size Guide</a></li>
+                <li><a href="#faq">FAQ</a></li>
+            </ul>
+            <div class="nav-actions">
+                <div class="cod-badge">
+                    <i class="fas fa-check-circle"></i>
+                    <div>
+                        <div style="font-weight:700;line-height:1;">Cash on Delivery</div>
+                        <div style="font-size:9px;color:#64748B;">All Over Bangladesh</div>
+                    </div>
+                </div>
+                <a href="#order-now" class="btn-order-nav"><i class="fas fa-shopping-cart"></i> Order Now</a>
+                <button class="mobile-menu-btn" onclick="toggleMobileNav()"><i class="fas fa-bars"></i></button>
+            </div>
+        </div>
+    </header>
+
+    <!-- HERO SECTION -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-grid">
+                <div class="hero-content">
+                    <span class="hero-subtitle">PREMIUM WINTER HOODIE</span>
+                    <h1 class="hero-title">
+                        Stay Warm This Winter
+                        <span class="highlight">In Style</span>
+                    </h1>
+                    <p class="hero-desc">
+                        Premium quality hoodie designed for maximum warmth, comfort and style. Perfect for your winter adventures or everyday wear.
+                    </p>
+                    <div class="hero-features">
+                        <div class="h-feat-item"><i class="fas fa-check-circle"></i> Warm &amp; Cozy</div>
+                        <div class="h-feat-item"><i class="fas fa-check-circle"></i> Premium Fabric</div>
+                        <div class="h-feat-item"><i class="fas fa-check-circle"></i> Stylish Look</div>
+                        <div class="h-feat-item"><i class="fas fa-check-circle"></i> Perfect for Everyday</div>
+                    </div>
+                    <div class="hero-pricing">
+                        <span class="hero-old-price">৳1,490</span>
+                        <span class="hero-curr-price">৳990</span>
+                        <span class="hero-discount-tag">33% OFF</span>
+                    </div>
+                    <div class="hero-cta-group">
+                        <a href="#order-now" class="btn-hero-order"><i class="fas fa-shopping-cart"></i> Order Now</a>
+                        <a href="https://wa.me/8801867417944" target="_blank" class="btn-hero-wa"><i class="fab fa-whatsapp"></i> Chat on WhatsApp</a>
+                    </div>
+                    <div class="hero-urgency">
+                        <span><i class="fas fa-fire" style="color:#F5A623;"></i> Limited Time Offer</span>
+                        <span>|</span>
+                        <span>Only 200 Pieces Left!</span>
+                    </div>
+                </div>
+                <div class="hero-image-col">
+                    <div class="hero-model-container">
+                        <img src="https://images.unsplash.com/photo-1556821840-3a63f15732ce?q=80&w=700&auto=format&fit=crop" alt="WinterHub Premium Hoodie Model" class="hero-model-img" />
+                        <div class="floating-quote">
+                            <span>More Warmth</span>
+                            <span>More Confidence</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- TRUST STRIP -->
+    <div class="trust-bar" id="features">
+        <div class="container">
+            <div class="trust-grid">
+                <div class="trust-item">
+                    <div class="trust-icon"><i class="fas fa-snowflake"></i></div>
+                    <div class="trust-text">
+                        <h4>Premium Fleece Fabric</h4>
+                        <p>Keep you warm</p>
+                    </div>
+                </div>
+                <div class="trust-item">
+                    <div class="trust-icon"><i class="fas fa-feather"></i></div>
+                    <div class="trust-text">
+                        <h4>Ultra Soft &amp; Comfortable</h4>
+                        <p>All day comfort</p>
+                    </div>
+                </div>
+                <div class="trust-item">
+                    <div class="trust-icon"><i class="fas fa-shield-alt"></i></div>
+                    <div class="trust-text">
+                        <h4>Durable &amp; Long Lasting</h4>
+                        <p>Built for winter</p>
+                    </div>
+                </div>
+                <div class="trust-item">
+                    <div class="trust-icon"><i class="fas fa-truck"></i></div>
+                    <div class="trust-text">
+                        <h4>Cash on Delivery</h4>
+                        <p>Pay after you receive</p>
+                    </div>
+                </div>
+                <div class="trust-item">
+                    <div class="trust-icon"><i class="fas fa-headphones"></i></div>
+                    <div class="trust-text">
+                        <h4>7 Days Easy Return</h4>
+                        <p>Shop worry free</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- PRODUCT SHOWCASE SECTION -->
+    <section class="product-section">
+        <div class="container">
+            <div class="product-grid">
+                <div class="product-gallery">
+                    <div class="gallery-main">
+                        <span class="badge-bestseller"><i class="fas fa-crown"></i> Best Seller</span>
+                        <img id="mainProductImage" src="https://images.unsplash.com/photo-1556821840-3a63f15732ce?q=80&w=800&auto=format&fit=crop" alt="Premium Winter Hoodie" class="main-prod-img" />
+                    </div>
+                    <div class="gallery-thumbs">
+                        <div class="thumb-item active" onclick="switchGalleryImage('https://images.unsplash.com/photo-1556821840-3a63f15732ce?q=80&w=800&auto=format&fit=crop', this)">
+                            <img src="https://images.unsplash.com/photo-1556821840-3a63f15732ce?q=80&w=200&auto=format&fit=crop" alt="Hoodie Front" />
+                        </div>
+                        <div class="thumb-item" onclick="switchGalleryImage('https://images.unsplash.com/photo-1544923246-77307dd654cb?q=80&w=800&auto=format&fit=crop', this)">
+                            <img src="https://images.unsplash.com/photo-1544923246-77307dd654cb?q=80&w=200&auto=format&fit=crop" alt="Hoodie Back" />
+                        </div>
+                        <div class="thumb-item" onclick="switchGalleryImage('https://images.unsplash.com/photo-1618354691373-d851c5c3a990?q=80&w=800&auto=format&fit=crop', this)">
+                            <img src="https://images.unsplash.com/photo-1618354691373-d851c5c3a990?q=80&w=200&auto=format&fit=crop" alt="Hoodie Detail" />
+                        </div>
+                        <div class="thumb-item" onclick="switchGalleryImage('https://images.unsplash.com/photo-1509631179647-0177331693ae?q=80&w=800&auto=format&fit=crop', this)">
+                            <img src="https://images.unsplash.com/photo-1509631179647-0177331693ae?q=80&w=200&auto=format&fit=crop" alt="Hoodie Texture" />
+                        </div>
+                    </div>
+                </div>
+
+                <div class="product-info-col">
+                    <h2 class="prod-title">Premium Winter Hoodie</h2>
+                    <div class="prod-rating">
+                        <div class="rating-stars">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <span class="rating-num">4.8</span>
+                        <span class="rating-count">(1,200+ Reviews)</span>
+                    </div>
+                    <div class="prod-price-row">
+                        <span class="prod-old-price">৳1,490</span>
+                        <span class="prod-curr-price">৳990</span>
+                        <span class="prod-save-tag">33% OFF</span>
+                    </div>
+                    <p class="prod-summary">
+                        Stay warm and stylish this winter with our premium hoodie. Made with high-quality fleece fabric, it's perfect for both casual and outdoor wear.
+                    </p>
+                    
+                    <div class="option-group">
+                        <span class="option-title">Color</span>
+                        <div class="color-swatches">
+                            <div class="swatch-btn active" style="background:#111827;" onclick="selectColor('Black', 'https://images.unsplash.com/photo-1556821840-3a63f15732ce?q=80&w=800&auto=format&fit=crop', this)" title="Black"></div>
+                            <div class="swatch-btn" style="background:#64748B;" onclick="selectColor('Grey', 'https://images.unsplash.com/photo-1618354691373-d851c5c3a990?q=80&w=800&auto=format&fit=crop', this)" title="Grey"></div>
+                            <div class="swatch-btn" style="background:#1E3A8A;" onclick="selectColor('Navy', 'https://images.unsplash.com/photo-1544923246-77307dd654cb?q=80&w=800&auto=format&fit=crop', this)" title="Navy"></div>
+                            <div class="swatch-btn" style="background:#475569;" onclick="selectColor('Charcoal', 'https://images.unsplash.com/photo-1509631179647-0177331693ae?q=80&w=800&auto=format&fit=crop', this)" title="Charcoal"></div>
+                        </div>
+                    </div>
+
+                    <div class="option-group">
+                        <span class="option-title">Size</span>
+                        <div class="size-pills">
+                            <div class="size-pill" onclick="selectSize('S', this)">S</div>
+                            <div class="size-pill active" onclick="selectSize('M', this)">M</div>
+                            <div class="size-pill" onclick="selectSize('L', this)">L</div>
+                            <div class="size-pill" onclick="selectSize('XL', this)">XL</div>
+                            <div class="size-pill" onclick="selectSize('XXL', this)">XXL</div>
+                        </div>
+                    </div>
+
+                    <a href="#order-now" class="btn-add-cart"><i class="fas fa-shopping-cart"></i> Add to Cart / Order Now</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- WHY CHOOSE OUR HOODIE -->
+    <section class="why-section">
+        <div class="container">
+            <div class="why-grid">
+                <div>
+                    <h2 class="section-heading-sm">Why Choose Our Hoodie?</h2>
+                    <div class="features-2x2">
+                        <div class="feat-card">
+                            <div class="feat-icon-box"><i class="fas fa-snowflake"></i></div>
+                            <div class="feat-card-text">
+                                <h4>Premium Fleece Fabric</h4>
+                                <p>Keeps you warm in cold weather</p>
+                            </div>
+                        </div>
+                        <div class="feat-card">
+                            <div class="feat-icon-box"><i class="fas fa-tshirt"></i></div>
+                            <div class="feat-card-text">
+                                <h4>Stylish &amp; Versatile</h4>
+                                <p>Perfect for any occasion</p>
+                            </div>
+                        </div>
+                        <div class="feat-card">
+                            <div class="feat-icon-box"><i class="fas fa-wind"></i></div>
+                            <div class="feat-card-text">
+                                <h4>Lightweight &amp; Breathable</h4>
+                                <p>Comfortable for all day wear</p>
+                            </div>
+                        </div>
+                        <div class="feat-card">
+                            <div class="feat-icon-box"><i class="fas fa-sync-alt"></i></div>
+                            <div class="feat-card-text">
+                                <h4>Easy Care</h4>
+                                <p>Machine washable, long lasting</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="why-image-wrapper">
+                    <img src="https://images.unsplash.com/photo-1544923246-77307dd654cb?q=80&w=700&auto=format&fit=crop" alt="Winter Ready Hoodie Back View" />
+                    <div class="banner-winter-ready">Winter<br>Ready</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CUSTOMER REVIEWS -->
+    <section class="reviews-section" id="reviews">
+        <div class="container">
+            <div class="reviews-header">
+                <div>
+                    <h2 class="section-heading-sm" style="margin-bottom:6px;">What Our Customers Say</h2>
+                </div>
+                <a href="#reviews" class="link-view-all">View More Reviews <i class="fas fa-arrow-right"></i></a>
+            </div>
+
+            <div class="reviews-grid">
+                <div class="review-card">
+                    <div class="review-user">
+                        <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?q=80&w=120&auto=format&fit=crop" alt="Rahim Ahmed" class="user-avatar" />
+                        <div class="user-details">
+                            <h4>Rahim Ahmed</h4>
+                            <div class="review-stars">
+                                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="review-comment">"Quality is amazing! Really warm and comfortable. Loved the design. Delivery was also on time. Highly recommended!"</p>
+                    <span class="review-time">2 days ago</span>
+                </div>
+
+                <div class="review-card">
+                    <div class="review-user">
+                        <img src="https://images.unsplash.com/photo-1517841905240-472988babdf9?q=80&w=120&auto=format&fit=crop" alt="Sadia Islam" class="user-avatar" />
+                        <div class="user-details">
+                            <h4>Sadia Islam</h4>
+                            <div class="review-stars">
+                                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="review-comment">"Perfect for winter. Fabric is soft and warm. I ordered XL and it fits perfectly. Will buy again!"</p>
+                    <span class="review-time">4 days ago</span>
+                </div>
+
+                <div class="review-card">
+                    <div class="review-user">
+                        <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=120&auto=format&fit=crop" alt="Tanvir Hasan" class="user-avatar" />
+                        <div class="user-details">
+                            <h4>Tanvir Hasan</h4>
+                            <div class="review-stars">
+                                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="review-comment">"Best hoodie I've ever bought online. Good quality, stylish and comfortable. Thanks WinterHub!"</p>
+                    <span class="review-time">1 week ago</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SIZE GUIDE & PLACE YOUR ORDER NOW SECTION -->
+    <section class="size-order-section" id="size-guide">
+        <div class="container">
+            <div class="size-order-grid">
+                <!-- Left: Size Guide -->
+                <div class="size-guide-box">
+                    <h3>Size Guide</h3>
+                    <p>Find your perfect fit with our size chart.</p>
+                    <div class="size-table-container">
+                        <table class="size-table">
+                            <thead>
+                                <tr>
+                                    <th>Size</th>
+                                    <th>Chest (Inches)</th>
+                                    <th>Length (Inches)</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>S</td>
+                                    <td>38</td>
+                                    <td>26</td>
+                                </tr>
+                                <tr>
+                                    <td>M</td>
+                                    <td>40</td>
+                                    <td>27</td>
+                                </tr>
+                                <tr>
+                                    <td>L</td>
+                                    <td>42</td>
+                                    <td>28</td>
+                                </tr>
+                                <tr>
+                                    <td>XL</td>
+                                    <td>44</td>
+                                    <td>29</td>
+                                </tr>
+                                <tr>
+                                    <td>XXL</td>
+                                    <td>46</td>
+                                    <td>30</td>
+                                </tr>
+                            </tbody>
+                        </table>
+
+                        <!-- SVG Hoodie Diagram -->
+                        <div class="hoodie-diagram">
+                            <svg viewBox="0 0 160 170" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M50 35 C50 20, 110 20, 110 35 C110 45, 100 50, 80 50 C60 50, 50 45, 50 35 Z" stroke="#CBD5E1" stroke-width="2" fill="#F8FAFC"/>
+                                <path d="M50 40 L20 70 L35 85 L50 65 L50 145 L110 145 L110 65 L125 85 L140 70 L110 40 Z" stroke="#64748B" stroke-width="2" fill="#FFFFFF"/>
+                                <path d="M58 115 L102 115 L95 140 L65 140 Z" stroke="#CBD5E1" stroke-width="1.5" fill="#F8FAFC"/>
+                                <!-- Dimension Arrows -->
+                                <!-- Chest Line -->
+                                <line x1="50" y1="90" x2="110" y2="90" stroke="#F5A623" stroke-width="1.5" stroke-dasharray="2 2"/>
+                                <text x="80" y="85" font-size="9" fill="#0F172A" font-weight="700" text-anchor="middle">Chest</text>
+                                <!-- Length Line -->
+                                <line x1="125" y1="45" x2="125" y2="145" stroke="#F5A623" stroke-width="1.5"/>
+                                <polygon points="125,40 122,48 128,48" fill="#F5A623"/>
+                                <polygon points="125,150 122,142 128,142" fill="#F5A623"/>
+                                <text x="142" y="98" font-size="9" fill="#0F172A" font-weight="700">Length</text>
+                            </svg>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right: Place Your Order Now -->
+                <div class="order-form-card" id="order-now">
+                    <h3>Place Your Order Now</h3>
+                    <p>Fill up the form and we'll confirm your order shortly.</p>
+                    <form onsubmit="handleOrderSubmit(event)">
+                        <div class="form-input-group">
+                            <input type="text" id="custName" class="form-control-input" placeholder="Your Name *" required />
+                        </div>
+                        <div class="form-input-group">
+                            <input type="tel" id="custPhone" class="form-control-input" placeholder="Phone Number *" required />
+                        </div>
+                        <div class="form-input-group">
+                            <input type="text" id="custAddress" class="form-control-input" placeholder="Address (Full Address) *" required />
+                        </div>
+                        <div class="form-row-2col">
+                            <select id="custSize" class="form-select">
+                                <option value="">Select Size</option>
+                                <option value="S">S</option>
+                                <option value="M" selected>M</option>
+                                <option value="L">L</option>
+                                <option value="XL">XL</option>
+                                <option value="XXL">XXL</option>
+                            </select>
+                            <select id="custColor" class="form-select">
+                                <option value="">Select Color</option>
+                                <option value="Black" selected>Black</option>
+                                <option value="Grey">Grey</option>
+                                <option value="Navy">Navy</option>
+                                <option value="Charcoal">Charcoal</option>
+                            </select>
+                        </div>
+                        <button type="submit" class="btn-submit-order"><i class="fas fa-shopping-cart"></i> Submit Order</button>
+                        <div class="secure-note">
+                            <i class="fas fa-lock"></i> Your Information is 100% secure
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FREQUENTLY ASKED QUESTIONS -->
+    <section class="faq-section" id="faq">
+        <div class="container">
+            <div class="faq-header">
+                <h2 class="section-heading-sm" style="margin-bottom:0;">Frequently Asked Questions</h2>
+                <a href="#faq" class="link-view-all">View All FAQs <i class="fas fa-arrow-right"></i></a>
+            </div>
+
+            <div class="faq-2col">
+                <!-- Col 1 -->
+                <div>
+                    <div class="faq-accordion-item" style="margin-bottom:12px;">
+                        <button class="faq-btn" onclick="toggleFaq(this)">
+                            <span>Is cash on delivery available?</span>
+                            <i class="fas fa-chevron-down"></i>
+                        </button>
+                        <div class="faq-content">
+                            Yes, we offer cash on delivery across Bangladesh. You pay after receiving and inspecting the package.
+                        </div>
+                    </div>
+
+                    <div class="faq-accordion-item" style="margin-bottom:12px;">
+                        <button class="faq-btn" onclick="toggleFaq(this)">
+                            <span>What is the delivery time?</span>
+                            <i class="fas fa-chevron-down"></i>
+                        </button>
+                        <div class="faq-content">
+                            Usually 2-3 working days inside Dhaka, and 3-5 working days outside Dhaka (depends on your location).
+                        </div>
+                    </div>
+
+                    <div class="faq-accordion-item">
+                        <button class="faq-btn" onclick="toggleFaq(this)">
+                            <span>Can I return the product?</span>
+                            <i class="fas fa-chevron-down"></i>
+                        </button>
+                        <div class="faq-content">
+                            Yes, you can return within 7 days in case of any manufacturing issue or fitment problem.
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Col 2 -->
+                <div>
+                    <div class="faq-accordion-item" style="margin-bottom:12px;">
+                        <button class="faq-btn" onclick="toggleFaq(this)">
+                            <span>Do you have any size exchange policy?</span>
+                            <i class="fas fa-chevron-down"></i>
+                        </button>
+                        <div class="faq-content">
+                            Yes, size exchange is available within 7 days. Just reach out to our support team on WhatsApp!
+                        </div>
+                    </div>
+
+                    <div class="faq-accordion-item" style="margin-bottom:12px;">
+                        <button class="faq-btn" onclick="toggleFaq(this)">
+                            <span>Is the fabric really warm for winter?</span>
+                            <i class="fas fa-chevron-down"></i>
+                        </button>
+                        <div class="faq-content">
+                            Yes, it's made with premium heavyweight fleece fabric, engineered for cold winter weather.
+                        </div>
+                    </div>
+
+                    <div class="faq-accordion-item">
+                        <button class="faq-btn" onclick="toggleFaq(this)">
+                            <span>How can I track my order?</span>
+                            <i class="fas fa-chevron-down"></i>
+                        </button>
+                        <div class="faq-content">
+                            You'll get a real-time tracking number via SMS/WhatsApp right after your order is dispatched.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div>
+                    <a href="#" class="logo" style="margin-bottom:12px;">
+                        <div class="logo-icon" style="color:#FFFFFF;"><i class="fas fa-mountain"></i></div>
+                        <div class="logo-text">
+                            <h2>Winter<span>Hub</span></h2>
+                            <p style="color:#64748B;">Stay Warm, Stay Stylish</p>
+                        </div>
+                    </a>
+                    <p class="footer-desc">Premium quality hoodie designed for maximum warmth, comfort and style. Cash on delivery across Bangladesh.</p>
+                    <div class="social-icons-row">
+                        <a href="#" class="social-icon-btn"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="social-icon-btn"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="social-icon-btn"><i class="fab fa-tiktok"></i></a>
+                        <a href="#" class="social-icon-btn"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+
+                <div class="footer-col">
+                    <h4>Quick Links</h4>
+                    <ul class="footer-links">
+                        <li><a href="#">Home</a></li>
+                        <li><a href="#features">Features</a></li>
+                        <li><a href="#reviews">Reviews</a></li>
+                        <li><a href="#size-guide">Size Guide</a></li>
+                        <li><a href="#faq">FAQ</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-col">
+                    <h4>Contact Us</h4>
+                    <div class="footer-contact-item">
+                        <i class="fas fa-phone-alt"></i>
+                        <span>01867 417944 (WhatsApp Only)</span>
+                    </div>
+                    <div class="footer-contact-item">
+                        <i class="fas fa-envelope"></i>
+                        <span>support@winterhub.com</span>
+                    </div>
+                </div>
+
+                <div class="footer-col">
+                    <h4>We Accept</h4>
+                    <div class="payment-badges">
+                        <span class="pay-badge">bKash</span>
+                        <span class="pay-badge nagad">Nagad</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>&copy; 2025 WinterHub. All rights reserved.</p>
+                <p>Powered by Pro Devs Ltd.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- MOBILE STICKY BAR -->
+    <div class="mobile-bottom-bar">
+        <div>
+            <div class="m-bar-price">৳990 <span>৳1,490</span></div>
+        </div>
+        <div class="m-bar-actions">
+            <a href="https://wa.me/8801867417944" target="_blank" class="m-btn-wa"><i class="fab fa-whatsapp"></i></a>
+            <a href="#order-now" class="m-btn-order"><i class="fas fa-shopping-cart"></i> Order Now</a>
+        </div>
+    </div>
+
+    <!-- INTERACTIVE JAVASCRIPT -->
+    <script>
+        let currentSelection = {
+            color: 'Black',
+            size: 'M'
+        };
+
+        function switchGalleryImage(url, element) {
+            const mainImg = document.getElementById('mainProductImage');
+            mainImg.src = url;
+            document.querySelectorAll('.thumb-item').forEach(thumb => thumb.classList.remove('active'));
+            if (element) {
+                element.classList.add('active');
+            }
+        }
+
+        function selectColor(colorName, imgUrl, element) {
+            currentSelection.color = colorName;
+            document.querySelectorAll('.swatch-btn').forEach(btn => btn.classList.remove('active'));
+            if (element) {
+                element.classList.add('active');
+            }
+            if (imgUrl) {
+                switchGalleryImage(imgUrl);
+            }
+            const colorSelect = document.getElementById('custColor');
+            if (colorSelect) {
+                colorSelect.value = colorName;
+            }
+        }
+
+        function selectSize(sizeVal, element) {
+            currentSelection.size = sizeVal;
+            document.querySelectorAll('.size-pill').forEach(pill => pill.classList.remove('active'));
+            if (element) {
+                element.classList.add('active');
+            }
+            const sizeSelect = document.getElementById('custSize');
+            if (sizeSelect) {
+                sizeSelect.value = sizeVal;
+            }
+        }
+
+        function toggleFaq(button) {
+            const content = button.nextElementSibling;
+            const isOpen = content.classList.contains('open');
+            
+            document.querySelectorAll('.faq-content').forEach(c => c.classList.remove('open'));
+            document.querySelectorAll('.faq-btn').forEach(b => b.classList.remove('active'));
+
+            if (!isOpen) {
+                content.classList.add('open');
+                button.classList.add('active');
+            }
+        }
+
+        function handleOrderSubmit(e) {
+            e.preventDefault();
+            const name = document.getElementById('custName').value.trim();
+            const phone = document.getElementById('custPhone').value.trim();
+            const address = document.getElementById('custAddress').value.trim();
+            const size = document.getElementById('custSize').value || currentSelection.size;
+            const color = document.getElementById('custColor').value || currentSelection.color;
+
+            if (!name || !phone || !address) {
+                alert('Please fill out all required fields.');
+                return;
+            }
+
+            const message = `🧥 *New WinterHub Order*\n\n👤 *Name:* ${name}\n📞 *Phone:* ${phone}\n📍 *Address:* ${address}\n📏 *Size:* ${size}\n🎨 *Color:* ${color}\n💰 *Price:* ৳990 (Cash on Delivery)`;
+            
+            window.open(`https://wa.me/8801867417944?text=${encodeURIComponent(message)}`, '_blank');
+            alert('Thank you! Your order has been submitted. We will call you to confirm shortly.');
+            e.target.reset();
+        }
+
+        function toggleMobileNav() {
+            const nav = document.querySelector('.nav-links');
+            if (nav.style.display === 'flex') {
+                nav.style.display = 'none';
+            } else {
+                nav.style.display = 'flex';
+                nav.style.flexDirection = 'column';
+                nav.style.position = 'absolute';
+                nav.style.top = '100%';
+                nav.style.left = '0';
+                nav.style.width = '100%';
+                nav.style.background = '#FFFFFF';
+                nav.style.padding = '20px';
+                nav.style.borderBottom = '1px solid #E2E8F0';
+                nav.style.boxShadow = '0 10px 20px rgba(0,0,0,0.05)';
+            }
+        }
+    </script>
+</body>
+</html>
